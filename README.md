@@ -17,4 +17,4 @@ With PLOT4ai you can:
 
 In this repository you can find a JSON file containing all the different threats, represented as cards with additional information.
 
-To learn more about the library and how to use it, please go to the [PLOT4ai website](https://plot4.ai/). You can see the visualisation of the cards in action on the [Library](https://plot4.ai/library), for which the json file in this repository is used as the source.
+To learn more about the library and how to use it, please go to the [PLOT4ai website](https://plot4.ai/). You can see the visualisation of the cards in action on the [Library](https://plot4.ai/library) page, for which the json file in this repository is used as the source.
