@@ -321,7 +321,7 @@
         "question": "Can the data used to feed the model be linked to individuals?\n\n",
         "threatif": "Yes",
         "explanation": "Do you need to use unique identifiers in your training dataset? If personal data is not necessary for the model you would not really have a legal justification for using it.",
-        "recommendation": "* Unique identifiers might be included in the training set when you want to be able to link the results to individuals. Consider using pseudo-identifiers or other techniques that help you protect your data, to be able to legally justify why you think you need this (from a technical perspective)\n* Document the measures you are taking to protect the data. Consider if your measures are necessary and proportional.",
+        "recommendation": "* Unique identifiers might be included in the training set when you want to be able to link the results to individuals. Consider using pseudo-identifiers or other techniques that help you protect your data, to be able to legally justify why you think you need this (from a technical perspective).\n* Document the measures you are taking to protect the data. Consider if your measures are necessary and proportional.",
         "sources": "",
         "qr": "",
         "categories": [
@@ -337,7 +337,7 @@
       {
         "question": "Could actions be incorrectly attributed to an individual or group?",
         "threatif": "Yes",
-        "explanation": "Is your AI system taking decisions that could be linked to the the wrong person? A facial recognition system for example, or a risk prediction model giving inaccurate predictions that negatively affects an individual by mistake. ",
+        "explanation": "Is your AI system taking decisions that could be linked to the the wrong person? A facial recognition system for example, or a risk prediction model giving inaccurate predictions that negatively affect an individual by mistake. ",
         "recommendation": "* Evaluate the possible consequences of inaccuracies of your AI system and implement measures to prevent these errors from happening: avoiding bias and discrimination during the life cycle of the model, ensuring the quality of the input data, implementing a strict human oversight process, ways to double check the results with extra evidence, implementing safety mechanisms and a way to redress, etc.\n* Assess the impact on the different human rights of the individual.\n* Consider not to implement such a system if you cannot mitigate the risks.",
         "sources": "",
         "qr": "",
@@ -354,8 +354,8 @@
       {
         "question": "Could we be revealing information that a person has not chosen to share?",
         "threatif": "Yes",
-        "explanation": "* An example of this can be location data or behaviour\n* How can you make sure the product doesn’t inadvertently disclose sensitive or private information during use (e.g., indirectly inferring user locations or behaviour)?\n* Could movements or actions be revealed through data aggregation?\n",
-        "recommendation": "* Be careful when considering to make data public that you think is anonymised. Location data and routes can sometimes be de-anonymised (e.g. the case where a fitness apps was showing a heatmap and disclosing locations).\n* It is also important to offer privacy by default: offer the privacy settings by default at the maximum protection level. Let the users change the settings after having offered clear information about the consequences of reducing the privacy levels.",
+        "explanation": "* How can you make sure the product doesn’t inadvertently disclose sensitive or private information during use (e.g., indirectly inferring user locations or behaviour)?\n* Could movements or actions be revealed through data aggregation?\n",
+        "recommendation": "* Be careful when making data public that you think is anonymised. Location data and routes can sometimes be de-anonymised (e.g. users of a running app disclosing location by showing heatmap).\n* It is also important to offer privacy by default: offer the privacy settings by default at the maximum protection level. Let the users change the settings after having offered them clear information about the consequences of reducing the privacy levels.",
         "sources": "",
         "qr": "",
         "categories": [
