@@ -213,7 +213,7 @@
       {
         "question": "Can our system's user interface be used by those with special needs or disabilities?\n",
         "threatif": "No",
-        "explanation": "* Is it necessary that your AI system is also accessible and usable for users of assistive technologies (such as screen readers)?\n* Is it possible to provide text alternatives for instance? ",
+        "explanation": "* Does your AI system need to be accessible and usable for users of assistive technologies (such as screen readers)?\n* Is it possible to provide text alternatives for instance? ",
         "recommendation": "* Implement Universal Design principles during every step of the planning and development process. This is not only important for web interfaces but also when AI systems/robots assist individuals.\n* Test the accessibility of your design with different users (also with disabilities).\n\n",
         "sources": "[A Proposal of Accessibility Guidelines for Human-Robot Interaction](https://www.mdpi.com/2079-9292/10/5/561/htm)\n[ISO/IEC 40500:2012 Information technology — W3C Web Content Accessibility Guidelines (WCAG) 2.0](https://www.iso.org/standard/58625.html)\n[ISO/IEC GUIDE 71:2001 Guidelines for standards developers to address the needs of older persons and persons with disabilities](https://www.iso.org/standard/33987.html)\n[ISO 9241-171:2008(en) Ergonomics of human-system interaction](https://www.iso.org/obp/ui/#iso:std:iso:9241:-171:ed-1:v1:en)\n[Mandate 376 Standards EU](https://ec.europa.eu/growth/tools-databases/mandates/index.cfm?fuseaction=search.detail&id=333)",
         "qr": "",
@@ -246,7 +246,7 @@
         "question": "Do we need to implement an age gate to use our product?",
         "threatif": "Yes",
         "explanation": "* Is your product not meant to be used by children? You might need to implement an age verification mechanism to prevent children from accessing the product.\n* Age verification can also be important to provide the right diagnosis (health sector).",
-        "recommendation": "* Clearly specify in the user instructions for which age group the application is built. Labels or symbols can be very helpful.\n* Consider which design is more appropriate, based on your use case and consider the possible risks associated with your design choice and the mitigating measures you can implement to reduce that risk. Document the rest risks that you want to accept.\n* Test the accessibility of your design with different age groups.\n",
+        "recommendation": "* Clearly specify in the user instructions for which age group the application is built. Labels or symbols can be very helpful.\n* Consider which design is more appropriate based on your use case, and consider the possible risks associated with your design choice, and the mitigating measures you can implement to reduce that risk. Document the rest risks that you want to accept.\n* Test the accessibility of your design with different age groups.\n",
         "sources": "[Evolution in Age-Verification Applications](https://montrealethics.ai/evolution-in-age-verification-applications-can-ai-open-some-new-horizons/)",
         "qr": "",
         "categories": [
@@ -278,7 +278,7 @@
       {
         "question": "Could the user perceive the message from the AI system in a different way than intended?",
         "threatif": "Yes",
-        "explanation": "* Is the perception of the provided explanation the same as the one intended?\n* Explainability is critical for end-users in order to take informed and accountable actions.",
+        "explanation": "* Is the perception of the provided information the same as the one intended?\n* Explainability is critical for end-users in order to take informed and accountable actions.",
         "recommendation": "* Understanding who is going to interact with the AI system can help to make the interaction more effective. Identify your different user groups.\n* Involve communication experts and do enough user testing to reduce the gap between the intended and the perceived meaning.\n\n",
         "sources": "[The Who in Explainable AI: How AI Background Shapes Perceptions of AI Explanations](https://arxiv.org/pdf/2107.13509.pdf)",
         "qr": "",
