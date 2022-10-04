@@ -429,7 +429,7 @@
       {
         "question": "If our AI system uses randomness, is the source of randomness properly protected?",
         "threatif": "No",
-        "explanation": "Randomness plays an important role in stochastic systems. An ML system that is depending on Monte Carlo randomness to work properly may be derailed by not-really-random “randomness”. “Random” generation of dataset partitions may be at risk if the source of randomness is easy to control by an attacker interested in data poisoning.\nSource: [BerryVilleiML](https://berryvilleiml.com/interactive/)\n\n",
+        "explanation": "Randomness plays an important role in stochastic systems. “Random” generation of dataset partitions may be at risk if the source of randomness is easy to control by an attacker interested in data poisoning.\nSource: [BerryVilleiML](https://berryvilleiml.com/interactive/)\n\n",
         "recommendation": "Use of cryptographic randomness sources is encouraged. When it comes to ML, setting weights and thresholds “randomly” must be done with care. Many pseudo-random number generators (PRNG) are not suitable for use. PRNG loops can really damage system behaviour during learning. Cryptographic randomness directly intersects with ML when it comes to differential privacy. Using the wrong sort of random number generator can lead to subtle security problems.\nSource: [BerryVilleiML](https://berryvilleiml.com/interactive/)",
         "sources": "[Securing Machine Learning Algorithms, ENISA](https://www.enisa.europa.eu/publications/securing-machine-learning-algorithms)\n[STRIDE-AI: An Approach to Identifying Vulnerabilities of Machine Learning Assets](https://github.com/LaraMauri/STRIDE-AI)\n[Stride-ML Threat Model]( https://csf.tools/reference/stride-lm/)",
         "qr": "",
@@ -501,6 +501,24 @@
         "qr": "",
         "categories": [
           "Security"
+        ],
+        "phases": [
+          "Design",
+          "Input",
+          "Model",
+          "Output"
+        ]
+      },  
+      {
+        "question": "Could we have a possible malicious use, misuse or inappropriate use of our AI system?\n",
+        "threatif": "Yes",
+        "explanation": "An example of abusability:\nA product that is used to spread misinformation; for example, a chatbot being misused to spread fake news.",
+        "recommendation": "* Threat model your system: anticipate vulnerabilities and look for ways to hijack and weaponize your system for malicious activity.\n* Conduct *red team* exercises.",
+        "sources": "",
+        "qr": "",
+        "categories": [
+          "Security",
+          "Safety"
         ],
         "phases": [
           "Design",
@@ -700,25 +718,7 @@
     "id": 5,
     "colour": "f7f09f",
     "cards": [
-      {
-        "question": "Could we have a possible malicious use, misuse or inappropriate use of our AI system?\n",
-        "threatif": "Yes",
-        "explanation": "An example of abusability:\nA product that is used to spread misinformation; for example, a chatbot being misused to spread fake news.",
-        "recommendation": "* Threat model your system: anticipate vulnerabilities and look for ways to hijack and weaponize your system for malicious activity.\n* Conduct *red team* exercises.",
-        "sources": "",
-        "qr": "",
-        "categories": [
-          "Safety",
-          "Security"
-        ],
-        "phases": [
-          "Design",
-          "Input",
-          "Model",
-          "Output"
-        ]
-      },
-      {
+           {
         "question": "In case of system failure, could users be negatively impacted?\n",
         "threatif": "Yes",
         "explanation": "* Do you have a mechanism implemented to stop the processing in case of harm?\n* Do you have a way to identify and contact affected individuals and mitigate the adverse impacts?\n* Imagine a scenario where your AI system, a care-robot, is taking care of an individual (the patient) by performing some specific tasks and that this individual depends on this care.",
@@ -753,7 +753,7 @@
         ]
       },
       {
-        "question": "Could the possibility that our model is going to be deployed in a different context be a problem?",
+        "question": "Could our model be deployed in a different context?",
         "threatif": "Yes",
         "explanation": "Are you testing the product in a real environment before releasing it?\nIf the model is tested with one set of data and then is deployed in a different environment receiving other types of inputs there is less guarantee that it is going to work as planned. This is also the case in reinforcement learning with the so called wrong objective function where slight changes in the environment often require a full retrain of the model.\n",
         "recommendation": "* Use different data for testing and training. Make sure diversity is reflected in the data. Specify your training approach and statistical method. Explore the different environments and contexts and make sure your model is trained with the expected different data sources. This also applies to reinforcement learning.\n* Are you considering enough aspects in the environment? Did you forget any environmental variable that could be harmful? Could limited sampling due to high costs be an issue? Document this risk and look for support in your organisation. The organisation is accountable and responsible for the mitigation or acceptance of this risk. And hopefully you get extra budget assigned.\n* Consider applying techniques such as *cultural effective challenge*; this is a technique for creating an environment where technology developers can actively participate in questioning the AI process. This better translates the social context into the design process by involving more people and can prevent issues associated with *target leakage* where the AI system trains on data that prepares it for an alternative job other than the one it was initially intended to complete. ",
@@ -821,7 +821,7 @@
         ]
       },
       {
-        "question": "Can our RL agent efficiently achieve goals for which feedback is very expensive or difficult to be obtained?",
+        "question": "Can we provide human resources to supervise and give feedback every time the RL agent performs an action?",
         "threatif": "No",
         "explanation": "* Reinforcement Learning (RL) is an area of machine learning concerned with how intelligent agents ought to take actions in an environment in order to maximize the notion of cumulative reward. Source: [Wikipedia](https://en.wikipedia.org/wiki/Reinforcement_learning)\n\n* When the agent is learning to perform a complex task, human oversight and feedback are more helpful than just rewards from the environment. Rewards are generally modelled such that they convey to what extent the task was completed, but they do not usually provide sufficient feedback about the safety implications of the agent’s actions. Even if the agent completes the task successfully, it may not be able to infer the side-effects of its actions from the rewards alone. In the ideal setting, a human would provide fine-grained supervision and feedback every time the agent performs an action (Scalable oversight). Though this would provide a much more informative view about the environment to the agent, such a strategy would require far too much time and effort from the human. Source: [OpenAI](https://openai.com/blog/concrete-ai-safety-problems/)",
         "recommendation": "One promising research direction to tackle this problem is semi-supervised learning, where the agent is still evaluated on all the actions (or tasks), but receives rewards only for a small sample of those actions (or tasks).\n\nAnother promising research direction is hierarchical reinforcement learning, where a hierarchy is established between different learning agents. There could be a supervisor agent/robot whose task is to assign some work to the another agent/robot and provide it with feedback and rewards.\nSource: [OpenAI](https://openai.com/blog/concrete-ai-safety-problems/)",
@@ -855,7 +855,7 @@
         ]
       },
       {
-        "question": "Can our RL agents learn about their environment without executing catastrophic actions?",
+        "question": "Can our RL agents learn about their environment without causing harm or catastrophic actions?",
         "threatif": "No",
         "explanation": "* Reinforcement Learning (RL) is an area of machine learning concerned with how intelligent agents ought to take actions in an environment in order to maximize the notion of cumulative reward. Source: [Wikipedia](https://en.wikipedia.org/wiki/Reinforcement_learning)\n\n* **Safe exploration**: An important part of training an AI agent is to ensure that it explores and understands its environment. While exploring, the agent might also take some action that could damage itself or the environment. Source: [OpenAI](https://openai.com/blog/concrete-ai-safety-problems/)",
         "recommendation": "One approach to reduce harm is to optimize the performance of the learning agent in the worst case scenario. When designing the objective function, the designer should not assume that the agent will always operate under optimal conditions. Some explicit reward signal may be added to ensure that the agent does not perform some catastrophic action, even if that leads to more limited actions in the optimal conditions. Source: [OpenAI](https://openai.com/blog/concrete-ai-safety-problems/)",
@@ -940,7 +940,7 @@
         "threatif": "yes",
         "explanation": "* Could the AI system potentially negatively discriminate against people on the basis of any of the following grounds: sex, race, colour, ethnic or social origin, genetic features, language, religion or belief, political or any other opinion, membership of a national minority, property, birth, disability, age or sexual orientation?\n* If your model is learning from data specific to some cultural background then the output could be discriminating for members of other cultural backgrounds.",
         "recommendation": "* Consider the different types of users and contexts where your product is going to be used.\n* Consider the impact of diversity of backgrounds, cultures, and other important different attributes when selecting your input data, features and when testing the output.\n* Assess the risk of possible unfairness towards individuals or communities to avoid discriminating minority groups.\n* The disadvantage to people depends on the kind of harm, severity of the harm and significance (how many people are put at a disadvantage compared to another group of people). Statistical assessments on group differences are an important tool to assess unfair and discriminatory uses of AI.\n* Design with empathy, diversity and respect in mind.",
-        "sources": "[Why Fairness Cannot Be Automated: Bridging the Gap Between EU Non-Discrimination Law and AI](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3547922)",
+        "sources": "[Why Fairness Cannot Be Automated: Bridging the Gap Between EU Non-Discrimination Law and AI](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3547922)\n[The Fairness Handbook](https://www.amsterdamintelligence.com/resources/the-fairness-handbook)",
         "qr": "",
         "categories": [
           "Ethics & Human Rights",
@@ -1092,7 +1092,7 @@
         "threatif": "Yes",
         "explanation": "* Could your system be used by children?\n* Does the AI system respect the rights of the child, for example with respect to child protection and taking the child’s best interests into account? ",
         "recommendation": "* Check if an age verification mechanism is necessary.\n* Pay attention to the way of communication in the product but also in your privacy policy.\n* Implement policies to ensure the safety of children when using or being exposed to your products.\n* Implement procedures to assess and monitor the usage of your product in order to identify any dangers (mental, moral or physical) to children’s health and safety.\n* Label your product properly and provide the right instructions for the children’s safety.\n* Monitor possible inappropriate usage of your products to abuse, exploit or harm children.\n* Implement a responsible marketing and advertising policy that prohibits harmful and unethical advertising related to children. ",
-        "sources": "",
+        "sources": "[Convention on the Rights of the Child](https://www.ohchr.org/en/instruments-mechanisms/instruments/convention-rights-child)",
         "qr": "",
         "categories": [
           "Ethics & Human Rights"
