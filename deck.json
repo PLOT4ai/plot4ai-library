@@ -86,6 +86,40 @@
           "Model",
           "Output"
         ]
+      }, 
+      {
+        "question": "Are we working on preventing Data Leakage?",
+        "threatif": "No",
+        "explanation": " Data Leakage is present when your features contain information that your model should not legitimately be allowed to use, leading to overestimation of the model's performance.",
+        "recommendation": "* Avoid using proxies for the outcome variable as a feature.\n* Do not use the entire data set for imputations, data-based transformations or feature selection.\n* Avoid doing standard k-fold cross-validation when you have temporal data.\n* Avoid using data that happened before model training time but is not available until later. This is common where there is delay in data collection.\n* Do not use data in the training set based on information from the future: if X happened after Y, you shouldn’t build a model that uses X to predict Y.",
+        "sources": "[Leakage in data mining: formulation, detection, and avoidance](https://www.cs.umb.edu/~ding/history/470_670_fall_2011/papers/cs670_Tran_PreferredPaper_LeakingInDataMining.pdf)\n[The Treachery of Leakage](https://medium.com/@colin.fraser/the-treachery-of-leakage-56a2d7c4e931)\n[Top 10 ways your Machine Learning models may have leakage](http://www.rayidghani.com/2020/01/24/top-10-ways-your-machine-learning-models-may-have-leakage/)\n[Leakage and the Reproducibility Crisis in ML-based Science](https://reproducible.cs.princeton.edu/)",
+        "qr": "",
+        "categories": [
+          "Technique & Processes"
+        ],
+        "phases": [
+          "Design",
+          "Input",
+          "Model",
+          "Output"
+        ]
+      },
+       {
+        "question": "Are we working on preventing Concept and Data Drift?",
+        "threatif": "No",
+        "explanation": "*Data Drift weakens performance because the model receives data on which it hasn’t been trained.\n* With Concept Drift the statistical properties of the target variable, which the model is trying to predict, change over time in unforeseen ways causing accuracy issues.",
+        "recommendation": "* Select an appropriate drift detection algorithm and apply it separately to labels, model’s predictions and data features.\n* Incorporate monitoring mechanisms to detect potential errors early.",
+        "sources": "[Data Drift vs. Concept Drift](https://deepchecks.com/data-drift-vs-concept-drift-what-are-the-main-differences/)\n[Characterizing Concept Drift](https://www.researchgate.net/publication/283761478_Characterizing_Concept_Drift)\n[Inferring Concept Drift Without Labeled Data](https://concept-drift.fastforwardlabs.com/)\n[Automatic Learning to Detect Concept Drift}(https://arxiv.org/abs/2105.01419)\n[From concept drift to model degradation: An overview on performance-aware drift detectors](https://www.sciencedirect.com/science/article/pii/S0950705122002854)\n[Learning under Concept Drift: A Review](https://arxiv.org/abs/2004.05785)\n[Detect data drift (preview) on datasets](https://learn.microsoft.com/en-us/azure/machine-learning/v1/how-to-monitor-datasets?tabs=python)",
+        "qr": "",
+        "categories": [
+          "Technique & Processes"
+        ],
+        "phases": [
+          "Design",
+          "Input",
+          "Model",
+          "Output"
+        ]
       },
       {
         "question": "Once our model is running, can we keep feeding it data?\n",
