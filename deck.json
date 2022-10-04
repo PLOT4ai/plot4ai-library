@@ -957,7 +957,7 @@
         "question": "Can we expect mostly positive reactions from the users or individuals?\n",
         "threatif": "No",
         "explanation": "* Do the users or individuals expect this type of processing of personal data?\n* Do they expect a product functioning like this?\n* Can you roll back if people are not happy with the product?",
-        "recommendation": "* Consider the different types of users and contexts your product is going to be used.\n* Consider diversity of backgrounds, cultures, and many other important different attributes.\n* Do enough user testing, like FUPs - Friendly User Pilots\n* Design with empathy, diversity and respect in mind.\n* Assess the risk of possible unfairness towards individuals or communities to avoid discriminating minority groups and prevent a bad reputation for your organisation.\n",
+        "recommendation": "* Consider the different types of users and contexts your product is going to be used.\n* Consider diversity of backgrounds, cultures, and many other important different attributes.\n* Do enough user testing, like FUPs - Friendly User Pilots\n* Design with empathy, diversity and respect in mind.\n* Assess the risk of possible unfairness towards individuals or communities to avoid discriminating minority groups and also to prevent a bad reputation for your organisation.\n",
         "sources": "",
         "qr": "",
         "categories": [
@@ -974,7 +974,7 @@
         "question": "Could the AI system have an impact on human work?\n",
         "threatif": "Yes",
         "explanation": "* Could the use of your AI system affect the safety conditions of employees?\n* Could the AI system create the risk of de-skilling of the workforce? (skilled people being replaced by AI systems) ",
-        "recommendation": "* Pave the way for the introduction of the AI system in your organisation by informing and consulting with future impacted workers and their representatives (e.g. trade unions, work councils) in advance.\n* Adopt measures to ensure that the impact of the AI system on human work are well understood.\n* Ensure that workers understand how the AI system operates, which capabilities it has and does not have. Provide workers with the necessary safety instructions (e.g. when using machine-robots).\n* If you are a third party provider of this type of systems, provide information related to this possible risk to your clients. This information should be easily accessible and understandable.",
+        "recommendation": "* Pave the way for the introduction of the AI system in your organisation by informing and consulting with future impacted workers and their representatives (e.g. trade unions, work councils) in advance.\n* Adopt measures to ensure that the impact of the AI system on human work is well understood.\n* Ensure that workers understand how the AI system operates, which capabilities it has and does not have. Provide workers with the necessary safety instructions (e.g. when using machine-robots).\n* If you are a third party provider of this type of systems, provide information related to this possible risk to your customers. This information should be easily accessible and understandable.",
         "sources": "",
         "qr": "",
         "categories": [
@@ -982,13 +982,15 @@
         ],
         "phases": [
           "Design",
+          "Input",
+          "Model",
           "Output"
         ]
       },
       {
         "question": "Could the AI system have a negative impact on society at large?\n",
         "threatif": "Yes",
-        "explanation": "* Could your product be used for monitoring and surveillance purposes?\n* Could the AI system affect the right to democracy by having an influence in voting selections?",
+        "explanation": "* Could your product be used for monitoring and surveillance purposes?\n* Could the AI system affect the right to democracy by having an influence on voting selections?",
         "recommendation": "* Consider if your product could be used or misused for this purposes. Maybe it is not possible in the way it currently is but it could be possible with adaptations.\n* Evaluate the possible scenarios and think what role you want to play based on the responsibility and accountability principle.\n* How can you prevent something like that from happening?\n* Does your organisation agree with such a use of the technology?\n* Have you evaluated what the possible impact could be for society and the world you live in?",
         "sources": "",
         "qr": "",
@@ -1022,7 +1024,7 @@
       {
         "question": "Could the system have a big impact on decisions regarding the right to life?",
         "threatif": "Yes",
-        "explanation": "Is the output of the model accurate and fair? Consider for instance the risk if your AI system is used in the health sector for choosing the right treatment for a patient. ",
+        "explanation": "Consider for instance the risk if your AI system is used in the health sector for choosing the right treatment for a patient. Is the output of the model accurate and fair? Are your datasets representative enough and free from bias?",
         "recommendation": "It is very important that your product complies with the key EU requirements for achieving a trustworthy AI:\n* human agency and oversight\n* robustness and safety\n* privacy and data governance\n* transparency\n* diversity, non-discrimination and fairness\n* societal and environmental well-being\n* accountability\n\nRemember that there are other human rights that could be affected by your product. Check the other rights in the Charter of Fundamental Rights:\n",
         "sources": "[Ethics guidelines for trustworthy AI](https://digital-strategy.ec.europa.eu/en/library/ethics-guidelines-trustworthy-ai)\n[Operational Guidance on taking account of Fundamental Rights in Commission Impact Assessments](https://ec.europa.eu/info/sites/default/files/opperational-guidance-fundamental-rights-in-impact-assessments_en.pdf)\n[Artificial Intelligence and Fundamental Rights](https://fra.europa.eu/sites/default/files/fra_uploads/fra-2020-artificial-intelligence_en.pdf)",
         "qr": "[Charter of Fundamental Rights of the European Union](https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:12012P/TXT&from=EN)",
@@ -1073,7 +1075,7 @@
       {
         "question": "Could the AI system affect the right to a fair hearing?",
         "threatif": "Yes",
-        "explanation": "* Is the output of the model accurate and fair? Consider the risk if this could be used in a criminal case and the consequences if wrong information is used to condemn someone\n* Do you have a mechanism to challenge the decisions of your AI system?",
+        "explanation": "* Is the output of the model accurate and fair? Consider the risk if this could be used in a criminal case and the consequences if wrong information is used to condemn someone.\n* Do you have a mechanism to challenge the decisions of your AI system?",
         "recommendation": "It is very important that your product complies with the key EU requirements for achieving a trustworthy AI:\n* human agency and oversight\n* robustness and safety\n* privacy and data governance\n* transparency\n* diversity, non-discrimination and fairness\n* societal and environmental well-being\n* accountability\n\nRemember that there are other human rights that could be affected by your product. Check the other rights in the Charter of Fundamental Rights:\n",
         "sources": "[Ethics guidelines for trustworthy AI](https://digital-strategy.ec.europa.eu/en/library/ethics-guidelines-trustworthy-ai)\n[Operational Guidance on taking account of Fundamental Rights in Commission Impact Assessments](https://ec.europa.eu/info/sites/default/files/opperational-guidance-fundamental-rights-in-impact-assessments_en.pdf)\n[Artificial Intelligence and Fundamental Rights](https://fra.europa.eu/sites/default/files/fra_uploads/fra-2020-artificial-intelligence_en.pdf)",
         "qr": "[Charter of Fundamental Rights of the European Union](https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:12012P/TXT&from=EN)",
@@ -1091,7 +1093,7 @@
         "question": "Could children be part of our users’ group?\n\n\n\n",
         "threatif": "Yes",
         "explanation": "* Could your system be used by children?\n* Does the AI system respect the rights of the child, for example with respect to child protection and taking the child’s best interests into account? ",
-        "recommendation": "* Check if an age verification mechanism is necessary.\n* Pay attention to the way of communication in the product but also in your privacy policy.\n* Implement policies to ensure the safety of children when using or being exposed to your products.\n* Implement procedures to assess and monitor the usage of your product in order to identify any dangers (mental, moral or physical) to children’s health and safety.\n* Label your product properly and provide the right instructions for the children’s safety.\n* Monitor possible inappropriate usage of your products to abuse, exploit or harm children.\n* Implement a responsible marketing and advertising policy that prohibits harmful and unethical advertising related to children. ",
+        "recommendation": "* Check if an age verification mechanism is necessary.\n* Pay attention to the way of communication in the product but also in your privacy policy.\n* Implement policies to ensure the safety of children when using or being exposed to your products.\n* Implement procedures to assess and monitor the usage of your product, this can help you identify any dangers (mental, moral or physical) to children’s health and safety.\n* Label your product properly and provide the right instructions for the children’s safety.\n* Monitor possible inappropriate usage of your products to abuse, exploit or harm children.\n* Implement a responsible marketing and advertising policy that prohibits harmful and unethical advertising related to children. ",
         "sources": "[Convention on the Rights of the Child](https://www.ohchr.org/en/instruments-mechanisms/instruments/convention-rights-child)",
         "qr": "",
         "categories": [
@@ -1105,10 +1107,10 @@
         ]
       },
       {
-        "question": "Could cultural and language differences be an issue when it comes to the ethical nuance of our algorithm?",
+        "question": "Can our AI system represent different norms and values without creating ambiguity? ",
         "threatif": "Yes",
-        "explanation": "Well-meaning values can create unintended consequences.\n\n* Must the AI system understand the world in all its different contexts?\n* Could ambiguity in rules you teach the AI system be a problem?",
-        "recommendation": "Consider designing with value alignment, what means that you want to ensure consideration of existing values and sensitivity to a wide range of cultural norms and values.",
+        "explanation": "*Can we build a model that is inclusive? \n*Could cultural and language differences be an issue when it comes to the ethical nuance of your algorithm? Well-meaning values can create unintended consequences.\n\n* Must the AI system understand the world in all its different contexts?\n* Could ambiguity in rules you teach the AI system be a problem?\n* Can your system interact equitably with users from different cultures and with different abilities?",
+        "recommendation": "* Consider designing with value alignment, what means that you want to ensure consideration of existing values and sensitivity to a wide range of cultural norms and values.* Make sure that when you test the product you include a large diversity in type of users.\n* Think carefully about what diversity means in the context where the product is going to be used.\n* Remember that this is a team effort and not an individual decision!",
         "sources": "[Value alignment](https://www.ibm.com/design/ai/ethics/value-alignment/)\n[Online Ethics Canvas](https://www.ethicscanvas.org/canvas/index.php)\n[AI Values and Alignment](https://www.deepmind.com/publications/artificial-intelligence-values-and-alignment)",
         "qr": "",
         "categories": [
@@ -1122,7 +1124,7 @@
         ]
       },
       {
-        "question": "Could our product not be representing current social needs and social context?",
+        "question": "Could our AI system not be representing current social needs and social context?",
         "threatif": "Yes",
         "explanation": "The datasets that you want to use might not be representative of the current social situation. In that case the output of the model is also not representative of the current reality. Depending on the type of product you are designing this could have a big impact on the individual or any other affected matter.",
         "recommendation": "Make sure that your are using correct, complete, accurate and current data. Also make sure that you have sufficient data to represent all possible contexts that you might need.",
@@ -1139,9 +1141,9 @@
         ]
       },
       {
-        "question": "Could our product have an impact denying access to jobs, housing, insurance, benefits or education?",
+        "question": "Could our AI system have an impact denying access to jobs, housing, insurance, benefits or education?",
         "threatif": "Yes",
-        "explanation": "* Could your system have such an important impact on the life of people?\n* How can you be sure that the decisions of your algorithm are always fair and correct?\n* How can you prevent causing such a big harm to individuals?\n",
+        "explanation": "* The output of your model could be used to deny access to certain fundamental rights.\n* How can you be sure that the decisions of your AI system are always fair and correct?\n* How can you prevent causing harm to individuals?\n",
         "recommendation": "It is very important that your product complies with the key EU requirements for achieving a trustworthy AI:\n* human agency and oversight\n* robustness and safety\n* privacy and data governance\n* transparency\n* diversity, non-discrimination and fairness\n* societal and environmental well-being\n* accountability\n\nRemember that there are other human rights that could be affected by your product. Check the other rights in the Charter of Fundamental Rights:\n",
         "sources": "[Ethics guidelines for trustworthy AI](https://digital-strategy.ec.europa.eu/en/library/ethics-guidelines-trustworthy-ai)\n[Operational Guidance on taking account of Fundamental Rights in Commission Impact Assessments](https://ec.europa.eu/info/sites/default/files/opperational-guidance-fundamental-rights-in-impact-assessments_en.pdf)\n[Artificial Intelligence and Fundamental Rights](https://fra.europa.eu/sites/default/files/fra_uploads/fra-2020-artificial-intelligence_en.pdf)",
         "qr": "[Charter of Fundamental Rights of the European Union](https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:12012P/TXT&from=EN)",
@@ -1158,9 +1160,9 @@
       {
         "question": "Could our AI system affect human autonomy by interfering with the user’s decision-making process in an unintended and undesirable way?\n",
         "threatif": "Yes",
-        "explanation": "* Could your system affect which choices and information is made available to people?\n* Could the AI system affect human autonomy by generating over-reliance by users?\n* Could this reinforce their beliefs or encourage certain behaviours?\n* Could the AI system create human attachment, stimulate addictive behaviour, or manipulate user behaviour? ",
-        "recommendation": "* Consider the possibility of your product affecting the behaviour and choices of individuals.\n* Test the system with enough and varied groups of users.\n* Consult with experts; this is a team effort and it is very important that harm to individuals is prevented.",
-        "sources": "[Dispositional and Situational Attributions of Human Versus Robot Behaviour](https://www.frontiersin.org/articles/10.3389/frobt.2021.788242/full)",
+        "explanation": "* Could your system affect which choices and which information is made available to people?\n* Could the AI system affect human autonomy by generating over-reliance by users (too much trust on the technology)?\n* Could this reinforce their beliefs or encourage certain behaviours?\n* Could the AI system create human attachment, stimulate addictive behaviour, or manipulate user behaviour? ",
+        "recommendation": "* Consider the possibility of your product affecting the behaviour and the freedom of choice of individuals.\n* Test the system with enough and varied groups of users.\n* Consult with experts; this is a team effort and it is very important that adverse impacts to individuals are prevented.",
+        "sources": "[Dispositional and Situational Attributions of Human Versus Robot Behaviour](https://www.frontiersin.org/articles/10.3389/frobt.2021.788242/full)\n[Understanding Human Over-Reliance on Technology](https://www.ismp.org/resources/understanding-human-over-reliance-technology)",
         "qr": "",
         "categories": [
           "Ethics & Human Rights"
@@ -1175,8 +1177,8 @@
       {
         "question": "Is our training data and labelling produced respecting dignity and wellbeing of the labour force involved?",
         "threatif": "No",
-        "explanation": "The need for labelling of data grows and unfortunately with that the amount of companies providing cheap labelling services at the cost of the dignity and labour rights of their workforce. Is the data that you are going to use labelled and under such conditions? ",
-        "recommendation": "Verify the sources of your datasets and who has been responsible for the labelling process. Does your organisation supports this unfair practises? Think in ways to help prevent this. ",
+        "explanation": "The need for labelling of data grows and unfortunately with that the amount of companies providing cheap labelling services at the cost of the dignity and labour rights of their workforce. Is the data that you are going to use labelled under such conditions? ",
+        "recommendation": "Verify the sources of your datasets and who has been responsible for the labelling process. Does your organisation supports this unfair practices? Think in ways to help prevent this. ",
         "sources": "",
         "qr": "",
         "categories": [
@@ -1184,14 +1186,15 @@
         ],
         "phases": [
           "Design",
+          "Input",
           "Input"
         ]
       },
       {
         "question": "Are we going to collect/use behavioural data to feed the AI system?",
         "threatif": "Yes",
-        "explanation": "The risk of conformity behaviour can be reinforced/encouraged by introducing certain behaviours in the design as positive or negative. This could become a risk of behavioural exploitation. (Imagine for example the impact that it could have when an authoritarian government exploits a threat like this)",
-        "recommendation": "* Consider the way you label certain behaviours and the consequences it could have on the final output and eventually on the individuals. How do you decide which behaviours are good or bad?\n* Consider diversity of opinion and possible ethical considerations.\n* Consider if you will be able to collect enough information to decide which behaviours you are aiming for and which you are trying to avoid.",
+        "explanation": "The risk of conformity behaviour can be reinforced/encouraged by introducing certain behaviours in the design as positive or negative. This could become a risk of behavioural exploitation. Imagine for example the impact that it could have when an authoritarian government exploits a threat like this",
+        "recommendation": "* Consider the way you label certain behaviours and the consequences it could have on the final output and eventually on the individuals. How do you decide which behaviours are good or bad?\n* Consider diversity of opinion and possible ethical considerations.\n* Consider if you will be able to collect enough information to decide which behaviours you are aiming for and which behaviours you are trying to avoid.",
         "sources": "",
         "qr": "",
         "categories": [
@@ -1204,28 +1207,11 @@
           "Output"
         ]
       },
-      {
-        "question": "Can we build a model that is inclusive?",
-        "threatif": "No",
-        "explanation": "Can your system interact equitably with users from different cultures and with different abilities?",
-        "recommendation": "* Make sure that when you test the product you include a large diversity in type of users.\n* Think carefully about what diversity means in the context where the product is going to be used.\n* Remember that this is a team effort and not an individual decision!",
-        "sources": "",
-        "qr": "",
-        "categories": [
-          "Ethics & Human Rights"
-        ],
-        "phases": [
-          "Design",
-          "Input",
-          "Model",
-          "Output"
-        ]
-      },
-      {
+        {
         "question": "Could our AI system automatically label or categorize people?",
         "threatif": "Yes",
-        "explanation": "* This could have an impact on the way individuals perceive themselves and society. It could constrain identity options and even contribute to erase real identity of the individuals.\n* This threat is also important when designing robots and the way they look. For instance: do care/assistant robots need to have a feminine appearance? Is that the perception you want to give to the world? What impact does it have on society? ",
-        "recommendation": "* It important that you check the output of your model, not only in isolation but also when this is linked to other information. Think in different possible scenarios that could affect the individuals. Is your output categorizing people or helping to categorize them? In which way? What could be the impact?\n* Think about ways to prevent harm to the individual: provide information to the user, consider changing the design (maybe using different features or attributes?), consider ways to prevent misuse of your output, consider not to release the product to the market.",
+        "explanation": "* This could have an impact on the way individuals perceive themselves and society. It could constrain identity options and even contribute to erase real identity of the individuals.\n* This threat is also important when designing robots and the way they look. For instance: do care/assistant robots need to have a feminine appearance? Is that the perception you want to give to the world or the one accepted by certain groups in society? What impact does it have on society? ",
+        "recommendation": "* It is important that you check the output of your model, not only in isolation but also when this is linked to other information. Think in different possible scenarios that could affect the individuals. Is your output categorizing people or helping to categorize them? In which way? What could be the impact?\n* Think about ways to prevent harm to the individual: provide information to the user, consider changing the design (maybe using different features or attributes?), consider ways to prevent misuse of your output, consider not to release the product to the market.",
         "sources": "",
         "qr": "",
         "categories": [
