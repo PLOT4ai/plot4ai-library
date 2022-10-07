@@ -3,13 +3,13 @@
 ## What is PLOT4ai?
 
 **PLOT4ai** stands for **P**rivacy **L**ibrary **O**f **T**hreats 4 **A**rtificial **I**ntelligence.
-It's a threat modeling library to help you build responsible AI
+It's a threat modeling library to help you build responsible AI systems.
 
 The library contains (at this moment) a collection of 86 different threats and a threat modeling methodology.
 
 With PLOT4ai you can:
 
-* Perform threat modeling on ML/AI systems
+* Perform threat modeling on AI/ML systems
 * Start doing Privacy by Design the right way
 * Create Responsible AI
 
