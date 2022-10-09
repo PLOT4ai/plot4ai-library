@@ -59,7 +59,7 @@
         "explanation": "* Do you have all the necessary stakeholders on board? Not having the right people that can give the necessary input can put the design of the AI system in danger.\n* Think for instance when attributes or variables need to be selected, or when you need to understand the different data contexts.\n* Data scientists should not be the only ones making assumptions about variables, it should really be a team effort.",
         "recommendation": "* Identify and involve on time the people that you need during the whole life cycle of the AI system. This will avoid unnecessary rework and frustrations.\n* Identifying who’s responsible for making the decisions and how much control they have over the decision-making process allows for a more evident tracking of responsibility in the AI’s development process.",
         "sources": "",
-        "qr": ""
+        "qr": "",
         "categories": [
           "Technique & Processes"
         ],
