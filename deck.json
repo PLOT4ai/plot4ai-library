@@ -7,7 +7,7 @@
       {
         "question": "Is the task or assignment completely clear?",
         "threatif": "No",
-        "explanation": "* Is the problem you want to solve well defined?\n* Do you have clear what you want to produce and what the output should be?\n* Are the benefits of the solution clear?\n*Have you thought about the possible interventions that you could implement after analysing the insights of the output?  ",
+        "explanation": "* Is the problem you want to solve well defined?\n*Are the possible benefits clear? ",
         "recommendation": "* Clearly define the problem and outcome you are optimizing for.\n* Assess if your AI system will be well-suited for this purpose.\n* Always discuss if there are alternative ways to solve the problem.\n* Define success! Working with individuals who may be directly affected can help you identify an appropriate way to measure success.\n* Make sure there is a stakeholder involved (product owner for instance) with enough knowledge of the business and a clear vision about what the model needs to do.\n* Did you try analytics first? In this context analytics could also offer inspiring views that can help you decide on the next steps. They can be a good source of information and are sometimes enough to solve the problem without the need of AI/ML.",
         "sources": "",
         "qr": "",
@@ -22,7 +22,7 @@
         ]
       },
       {
-        "question": "Can we assure that the data that we need will be complete and trustworthy?",
+        "question": "Can we assure that the data that we need is complete and trustworthy?",
         "threatif": "No",
         "explanation": "Can you avoid the known principle of “garbage in, garbage out”? Your AI system is only as reliable as the data it works with.",
         "recommendation": "* Verify the data sources.\n * Is there information missing within the dataset?\n * Are all the necessary classes represented?\n * Does the data belong to the correct time frame and geographical coverage?\n * Evaluate which extra data you need to collect/receive.\n* Carefully consider representation schemes, especially in cases of text, video, APIs, and sensors. Text representation schemes are not all the same. If your system is counting on ASCII and it gets Unicode, will your system recognize the incorrect encoding? Source: [BerryVilleiML](https://berryvilleiml.com/interactive/)",
@@ -54,7 +54,7 @@
         ]
       },
       {
-        "question": "Have we identified all the important stakeholders needed for the project?\n",
+        "question": "Have we identified all the important stakeholders needed in this phase of the project?\n",
         "threatif": "No",
         "explanation": "* Do you have all the necessary stakeholders on board? Not having the right people that can give the necessary input can put the design of the AI system in danger.\n* Think for instance when attributes or variables need to be selected, or when you need to understand the different data contexts.\n* Data scientists should not be the only ones making assumptions about variables, it should really be a team effort.",
         "recommendation": "* Identify and involve on time the people that you need during the whole life cycle of the AI system. This will avoid unnecessary rework and frustrations.\n* Identifying who’s responsible for making the decisions and how much control they have over the decision-making process allows for a more evident tracking of responsibility in the AI’s development process.",
@@ -73,7 +73,7 @@
       {
         "question": "Does the model need to be explainable for the users or affected persons?",
         "threatif": "Yes",
-        "explanation": "Do you need to be able to give a clear explanation to the user about the logic that the AI systems used to reach a certain decision? And can that decision have a big impact on the user? ",
+        "explanation": "Do you need to be able to give a clear explanation to the user about the logic that the AI system used to reach a certain decision? And can that decision have a big impact on the user? ",
         "recommendation": "* Evaluate the type of models that you could use to solve the problem as specified in your task.\n* Consider what the impact is if certain black box models cannot be used and interpretability tools do not offer sufficient results. You might need to evaluate a possible change in strategy.\n* Data scientists can evaluate the impact from a technical perspective and discuss this with the rest of stakeholders. The decision keeps being a team effort.",
         "sources": "[Explainable Artificial Intelligence (XAI)](https://www.darpa.mil/program/explainable-artificial-intelligence)\n[LIME](https://github.com/marcotcr/lime)\n[Why Should I Trust You? Explaining the Predictions of Any Classifier](https://arxiv.org/pdf/1602.04938.pdf)\n[SHAP and LIME: An Evaluation of Discriminative Power in Credit Risk](https://www.frontiersin.org/articles/10.3389/frai.2021.752558/full)\n[Explainable AI](https://www.ibm.com/watson/explainable-ai)\n[Explainable AI - The TAILOR Handbook of Trustworthy AI](http://tailor.isti.cnr.it/handbookTAI/T3.1/T3.1.html)",
         "qr": "",
@@ -88,7 +88,7 @@
         ]
       }, 
       {
-        "question": "Are we working on preventing Data Leakage?",
+        "question": "Are we preventing Data Leakage?",
         "threatif": "No",
         "explanation": " Data Leakage is present when your features contain information that your model should not legitimately be allowed to use, leading to overestimation of the model's performance.",
         "recommendation": "* Avoid using proxies for the outcome variable as a feature.\n* Do not use the entire data set for imputations, data-based transformations or feature selection.\n* Avoid doing standard k-fold cross-validation when you have temporal data.\n* Avoid using data that happened before model training time but is not available until later. This is common where there is delay in data collection.\n* Do not use data in the training set based on information from the future: if X happened after Y, you shouldn’t build a model that uses X to predict Y.",
@@ -105,9 +105,9 @@
         ]
       },
        {
-        "question": "Are we working on preventing Concept and Data Drift?",
+        "question": "Are we preventing Concept and Data Drift?",
         "threatif": "No",
-        "explanation": "*Data Drift weakens performance because the model receives data on which it hasn’t been trained.\n* With Concept Drift the statistical properties of the target variable, which the model is trying to predict, change over time in unforeseen ways causing accuracy issues.",
+        "explanation": "* Data Drift weakens performance because the model receives data on which it hasn’t been trained.\n* With Concept Drift the statistical properties of the target variable, which the model is trying to predict, change over time in unforeseen ways causing accuracy issues.",
         "recommendation": "* Select an appropriate drift detection algorithm and apply it separately to labels, model’s predictions and data features.\n* Incorporate monitoring mechanisms to detect potential errors early.",
         "sources": "[Data Drift vs. Concept Drift](https://deepchecks.com/data-drift-vs-concept-drift-what-are-the-main-differences/)\n[Characterizing Concept Drift](https://www.researchgate.net/publication/283761478_Characterizing_Concept_Drift)\n[Inferring Concept Drift Without Labeled Data](https://concept-drift.fastforwardlabs.com/)\n[Automatic Learning to Detect Concept Drift](https://arxiv.org/abs/2105.01419)\n[From concept drift to model degradation: An overview on performance-aware drift detectors](https://www.sciencedirect.com/science/article/pii/S0950705122002854)\n[Learning under Concept Drift: A Review](https://arxiv.org/abs/2004.05785)\n[Detect data drift (preview) on datasets](https://learn.microsoft.com/en-us/azure/machine-learning/v1/how-to-monitor-datasets?tabs=python)",
         "qr": "",
@@ -155,9 +155,9 @@
         ]
       },
       {
-        "question": "Can the channels that we will use to collect real-time input data fail?\n",
+        "question": "Could the channels that we will use to collect real-time input data fail?\n",
         "threatif": "Yes",
-        "explanation": "* Are these channels trustworthy?\n* What will happen in case of failure?\n* Think about IoT devices used as sensors for instances.\n\n",
+        "explanation": "* Are these channels trustworthy?\n* What will happen in case of failure?\n* Think for instance about IoT devices used as sensors.\n\n",
         "recommendation": "* If you are collecting/receiving data from sensors, consider estimating the impact it could have on your model if any of the sensors fail and your input data gets interrupted or corrupted.\n* Sensor blinding attacks are one example of a risk faced by poorly designed input gathering systems. Note that consistent feature identification related to sensors is likely to require human calibration. Source: [BerryVilleiML](https://berryvilleiml.com/)",
         "sources": "",
         "qr": "",
@@ -174,7 +174,7 @@
       {
         "question": "When datasets from external sources are updated, can we receive and process the new data on time?",
         "threatif": "No",
-        "explanation": "* This could be especially risky in health and finance environments. How much change are you expecting in the data you receive?\n* How can you make sure to receive the updates on time?",
+        "explanation": "* This could be especially risky in health and finance environments. How much change are you expecting in the data you receive?\n* How can you make sure that you receive the updates on time?",
         "recommendation": "Not only do you need to be able to trust the sources but you also need to design a process in which data is prepared on time to be used in the model and where you can timely consider the impact it could have in the output of the model, especially when this could have a negatively impact on the users. This process can be designed once you know how often changes in the data can be expected and how big the changes are. ",
         "sources": "",
         "qr": "",
@@ -189,8 +189,8 @@
         ]
       },
       {
-        "question": "Could the legitimacy of the data sources that we need be an issue?\n",
-        "threatif": "Yes",
+        "question": "Can we confirm the legitimacy of the data sources that we need?\n",
+        "threatif": "No",
         "explanation": "* Data lineage can be necessary to demonstrate trust as part of your information transparency policy, but it can also be very important when it comes to assessing impact on the data flow. If sources are not verified and legitimised you could run risks such as data being wrongly labelled for instance.\n* Do you know where you need to get the data from? Who is responsible for the collection, maintenance and dissemination? Are the sources verified? Do you have the right agreements in place? Are you allowed to received or collect that data? Also keep ethical considerations in mind!",
         "recommendation": "* Develop a robust understanding of your relevant data feeds, flows and structures such that if any changes occur to the model data inputs, you can assess any potential impact on model performance. In case of third party AI systems contact your vendor to ask for this information.\n* If you are using synthetic data you should know how it was created and the properties it has. Also keep in mind that synthetic data might not be the answer to all your privacy related problems; synthetic data does not always provide a better trade-off between privacy and utility than traditional anonymisation techniques.\n* Do you need to share models and combine them? The usage of Model Cards and Datasheets can help providing the source information.",
         "sources": "[Providing Assurance and Scrutability on Shared Data and Machine Learning Models with Verifiable Credentials](https://arxiv.org/pdf/2105.06370.pdf)\n[Synthetic Data – Anonymisation Groundhog Day](https://arxiv.org/pdf/2011.07018.pdf)\n[Model Cards](https://modelcards.withgoogle.com/about)\n[Model Cards for Model Reporting](https://arxiv.org/pdf/1810.03993.pdf)\n[Datasheets for Datasets](https://arxiv.org/pdf/1803.09010.pdf)",
@@ -293,10 +293,10 @@
         ]
       },
       {
-        "question": "If users need to provide consent, can we make the information (including the logic behind the algorithm) easily available?",
+        "question": "If users need to provide consent, can we make the required information easily available?",
         "threatif": "No",
         "explanation": "* Can the information be easily accessible and readable?\n* Do you need to build a special place for it (think of a robot where you might need to have a screen for showing the text)",
-        "recommendation": "* As part of privacy compliance you need to provide clear information about the processing and the logic of the algorithm. This information should be easily readable and accessible. During the design consider when and how you are going to provide this information. Especially in robots using AI this could be a challenge.\n* Comply with accessibility rules.",
+        "recommendation": "* As part of privacy compliance you need to provide clear information about the processing and the logic of the algorithm. This information should be easily readable and accessible. During the design phase consider when and how you are going to provide this information. Especially in robots using AI this could be a challenge.\n* Comply with accessibility rules.",
         "sources": "[A Proposal of Accessibility Guidelines for Human-Robot Interaction](https://www.mdpi.com/2079-9292/10/5/561/htm)\n[ISO/IEC 40500:2012 Information technology — W3C Web Content Accessibility Guidelines (WCAG) 2.0](https://www.iso.org/standard/58625.html)\n[ISO/IEC GUIDE 71:2001 Guidelines for standards developers to address the needs of older persons and persons with disabilities](https://www.iso.org/standard/33987.html)\n[ISO 9241-171:2008(en) Ergonomics of human-system interaction](https://www.iso.org/obp/ui/#iso:std:iso:9241:-171:ed-1:v1:en)\n[Mandate 376 Standards EU](https://ec.europa.eu/growth/tools-databases/mandates/index.cfm?fuseaction=search.detail&id=333)",
         "qr": "",
         "categories": [
@@ -328,9 +328,9 @@
         ]
       },
       {
-        "question": "Could the learning curve of the product be an issue? Can it be difficult to use?",
+        "question": "Could the learning curve of the product be an issue?",
         "threatif": "Yes",
-        "explanation": "* Does usage of the AI system require new (digital) skills?\n* How easy are users expected to learn how to use the product?\n* Difficulties to learn how the system works could also bring the users in danger and have consequences for the reputation of the product or organisation.",
+        "explanation": "* Does usage of the AI system require new (digital) skills?\n* How quickly are users expected to learn how to use the product?\n* Difficulties to learn how the system works could also bring the users in danger and have consequences for the reputation of the product or organisation.",
         "recommendation": "* You can also provide assistance, appropriate training material and disclaimers to users on how to adequately use the system.\n* The words and language used in the interface, the complexity and lack of accessibility of some features could exclude people from using the application. Consider making changes in the design of the product where necessary.\n* Consider this also when children are future users.",
         "sources": "",
         "qr": "",
@@ -371,7 +371,7 @@
       {
         "question": "Could actions be incorrectly attributed to an individual or group?",
         "threatif": "Yes",
-        "explanation": "Is your AI system taking decisions that could be linked to the the wrong person? A facial recognition system for example, or a risk prediction model giving inaccurate predictions that negatively affect an individual by mistake. ",
+        "explanation": "Your AI system could have an adverse impact on individuals by incorrectly attributing them facts or actions. For instance, a facial recognition system that identifies a person incorrectly, or an inaccurate risk prediction model that could negatively impact an individual. ",
         "recommendation": "* Evaluate the possible consequences of inaccuracies of your AI system and implement measures to prevent these errors from happening: avoiding bias and discrimination during the life cycle of the model, ensuring the quality of the input data, implementing a strict human oversight process, ways to double check the results with extra evidence, implementing safety mechanisms and a way to redress, etc.\n* Assess the impact on the different human rights of the individual.\n* Consider not to implement such a system if you cannot mitigate the risks.",
         "sources": "",
         "qr": "",
@@ -446,7 +446,7 @@
       {
         "question": "Is our data storage protected?",
         "threatif": "No",
-        "explanation": "Is your data stored and managed in a secure way? Are you the only one with access to your data sources?\nSource: [BerryVilleiML](https://berryvilleiml.com/interactive/)",
+        "explanation": "Is your data stored and managed in a secure way? Think about training data, tables, models, etc. Are you the only one with access to your data sources?\nSource: [BerryVilleiML](https://berryvilleiml.com/interactive/)",
         "recommendation": "* Implement access control rules.\n* Verify the security of the authentication mechanism (and the system as a whole).\n* Consider the risk when utilizing public/external data sources.",
         "sources": "[Securing Machine Learning Algorithms, ENISA](https://www.enisa.europa.eu/publications/securing-machine-learning-algorithms)\n[STRIDE-AI: An Approach to Identifying Vulnerabilities of Machine Learning Assets](https://github.com/LaraMauri/STRIDE-AI)\n[Stride-ML Threat Model]( https://csf.tools/reference/stride-lm/)",
         "qr": "",
@@ -510,7 +510,7 @@
         ]
       },
       {
-        "question": "Are we protected from an insider threat?",
+        "question": "Are we protected from an insider threats?",
         "threatif": "No",
         "explanation": "AI designers and developers may deliberately expose data and models for a variety of reasons, e.g. revenge or extortion. Integrity, data confidentiality and trustworthiness are the main impacted security properties. Source: [ENISA](https://www.enisa.europa.eu/publications/artificial-intelligence-cybersecurity-challenges)",
         "recommendation": "* Implement on and off boarding procedures to help guarantee the trustworthiness of your internal and external employees.\n* Enforce separation of duties and least privilege principle.\n* Enforce the usage of managed devices with appropriate policies and protective software.\n* Awareness training.\n* Implement strict access control and audit trail mechanisms.",
@@ -544,7 +544,7 @@
         ]
       },  
       {
-        "question": "Could we have a possible malicious use, misuse or inappropriate use of our AI system?\n",
+        "question": "Could there be possible malicious use, misuse or inappropriate use of our AI system?\n",
         "threatif": "Yes",
         "explanation": "An example of abusability:\nA product that is used to spread misinformation; for example, a chatbot being misused to spread fake news.",
         "recommendation": "* Threat model your system: anticipate vulnerabilities and look for ways to hijack and weaponize your system for malicious activity.\n* Conduct *red team* exercises.",
@@ -630,7 +630,7 @@
         ]
       },
       {
-        "question": "Are we protected from membership Inference attacks?",
+        "question": "Are we protected from membership inference attacks?",
         "threatif": "No",
         "explanation": "* In a membership inference attack, the attacker can determine whether a given data record was part of the model’s training dataset or not.\n* Example: researchers were able to predict a patient’s main procedure(e.g.: Surgery the patient went through) based on the attributes (e.g.: age, gender, hospital).\n\nSource: Microsoft, Threat Modelling AI/ML Systems and Dependencies",
         "recommendation": "* Some research papers indicate Differential Privacy would be an effective mitigation. Check for more information [Threat Modeling AI/ML Systems and Dependencies](https://docs.microsoft.com/en-us/security/engineering/threat-modeling-aiml).\n* The usage of neuron dropout and model stacking can be effective mitigations to an extent. Using neuron dropout not only increases resilience of a neural net to this attack, but also increases model performance.\n\nSource: Microsoft, Threat Modelling AI/ML Systems and Dependencies",
@@ -695,7 +695,7 @@
         ]
       },
       {
-        "question": "Are we protected from malicious ML providers who could recover training data?",
+        "question": "Are we protected from malicious AI/ML providers who could recover training data?",
         "threatif": "No",
         "explanation": "* Malicious ML providers could query the model used by a customer and recover this customer’s training data. The training process is either fully or partially outsourced to a malicious third party who wants to provide the user with a trained model that contains a backdoor.\n* Example: researchers showed how a malicious provider presented a backdoored algorithm, wherein the private training data was recovered. They were able to reconstruct faces and texts, given the model alone.\n\nSource: Microsoft, Threat Modelling AI/ML Systems and Dependencies",
         "recommendation": "* Research papers demonstrating the viability of this attack indicate Homomorphic Encryption would be an effective mitigation. Check for more information [Threat Modeling AI/ML Systems and Dependencies](https://docs.microsoft.com/en-us/security/engineering/threat-modeling-aiml)\n* Train all sensitive models in-house.\n* Catalog training data or ensure it comes from a trusted third party with strong security practices.\n* Threat model the interaction between the MLaaS provider and your own systems.\n\nSource: Microsoft, Threat Modelling AI/ML Systems and Dependencies",
@@ -712,7 +712,7 @@
         ]
       },
       {
-        "question": "Are we protected from attacks to the ML Supply Chain?",
+        "question": "Are we protected from attacks to the AI/ML Supply Chain?",
         "threatif": "No",
         "explanation": "* Owing to large resources (data + computation) required to train algorithms, the current practice is to reuse models trained by large corporations, and modify them slightly for the task at hand. These models are curated in a Model Zoo. In this attack, the adversary attacks the models hosted in the Model Zoo, thereby poisoning the well for anyone else.\n* Example: researchers showed how it was possible for an attacker to insert malicious code into one of the popular models. An unsuspecting ML developer downloaded this model and used it as part of the image recognition system in their code.\n\nSource: Microsoft, Threat Modelling AI/ML Systems and Dependencies",
         "recommendation": "* Minimize 3rd-party dependencies for models and data where possible.\n* Incorporate these dependencies into your threat modeling process.\n* Leverage strong authentication, access control and encryption between 1st/3rd-party systems.\n\nSource: Microsoft, Threat Modelling AI/ML Systems and Dependencies\n\n* perform integrity checks where possible to detect tampering",
@@ -729,7 +729,7 @@
         ]
       },
       {
-        "question": "Are we protected from exploits on software dependencies of our ML systems?",
+        "question": "Are we protected from exploits on software dependencies of our AI/ML systems?",
         "threatif": "No",
         "explanation": "* In this case, the attacker does NOT manipulate the algorithms, but instead exploits traditional software vulnerabilities such as buffer overflows or cross-site scripting.\n* Example: an adversary customer finds a vulnerability in a common OSS dependency that you use and uploads a specially crafted training data payload to compromise your service.\n\nSource: Microsoft, Threat Modelling AI/ML Systems and Dependencies",
         "recommendation": "Work with your security team to follow applicable Security Development Lifecycle/Operational Security Assurance best practices. Source: Microsoft, Threat Modelling AI/ML Systems and Dependencies",
@@ -821,9 +821,9 @@
         ]
       },
       {
-        "question": "Can we transform our RL agent’s reward function to avoid undesired negative side effects on the environment?",
-        "threatif": "No",
-        "explanation": "* Reinforcement Learning (RL) is an area of machine learning concerned with how intelligent agents ought to take actions in an environment in order to maximize the notion of cumulative reward. Source: [Wikipedia](https://en.wikipedia.org/wiki/Reinforcement_learning)\n\n* To better understand the threat consider a case where a robot is built to move an object, without manually programming a separate penalty for each possible bad behaviour. If the objective function is not well defined, the AI’s ability to develop its own strategies can lead to unintended, harmful side effects. In this case, the objective of moving an object seems simple, yet there are a myriad of ways in which this could go wrong. For instance, if a vase is in the robot’s path, the robot may knock it down in order to complete the goal. Since the objective function does not mention anything about the vase, the robot wouldn’t know to avoid it. Source: [OpenAI](https://openai.com/blog/concrete-ai-safety-problems/)",
+        "question": "Could our RL agents develop strategies that could have undesired negative side effects on the environment?",
+        "threatif": "Yes",
+        "explanation": "* Reinforcement Learning (RL) is an area of machine learning concerned with how intelligent agents ought to take actions in an environment in order to maximize the notion of cumulative reward. Source: [Wikipedia](https://en.wikipedia.org/wiki/Reinforcement_learning)\n\n* To better understand the threat consider a case where a robot is built to move an object, without manually programming a separate penalty for each possible bad behaviour. If the objective function is not well defined, the AI’s ability to develop its own strategies can lead to unintended, harmful side effects. In this case, the objective of moving an object seems simple, yet there are a myriad of ways in which this could go wrong. For instance, if a vase is in the robot’s path, the robot may knock it down in order to complete the goal. Since the objective function does not mention anything about the vase, the robot wouldn’t know how to avoid it. Source: [OpenAI](https://openai.com/blog/concrete-ai-safety-problems/)",
         "recommendation": "AI systems don’t share our understanding of the world. It is not sufficient to formulate the objective as “complete task X”; the designer also needs to specify the safety criteria under which the task is to be completed. A better strategy could be to define a *budget* for how much the AI system is allowed to impact the environment. This would help to minimize the unintended impact, without neutralizing the AI system.\n\nAnother approach would be training the agent to recognize harmful side effects so that it can avoid actions leading to such side effects. In that case, the agent would be trained for two tasks: the original task that is specified by the objective function and the task of recognizing side effects.\nThe AI system would still need to undergo extensive testing and critical evaluation before deployment in real life settings.\nSource: [OpenAI](https://openai.com/blog/concrete-ai-safety-problems/)",
         "sources": "[Concrete Problems in AI Safety](https://arxiv.org/pdf/1606.06565.pdf)\n[Concrete AI Safety Problems](https://openai.com/blog/concrete-ai-safety-problems/)",
         "qr": "",
@@ -838,8 +838,8 @@
         ]
       },
       {
-        "question": "Can we prevent our agents from “gaming” their reward functions?",
-        "threatif": "No",
+        "question": "Could our RL agents “hack” their reward functions?",
+        "threatif": "Yes",
         "explanation": "* Reinforcement Learning (RL) is an area of machine learning concerned with how intelligent agents ought to take actions in an environment in order to maximize the notion of cumulative reward. Source: [Wikipedia](https://en.wikipedia.org/wiki/Reinforcement_learning)\n\n* Consider potential negative consequences from the AI system\nlearning novel or unusual methods to score well on its objective function.\nSometimes the AI can come up with some kind of “hack” or loophole in the design of the system to receive unearned rewards. Since the AI is trained to maximize its rewards, looking for such loopholes and “shortcuts” is a perfectly fair and valid strategy for the AI. For example, suppose that the office cleaning robot earns rewards only if it does not see any garbage in the office. Instead of cleaning the place, the robot could simply shut off its visual sensors, and thus achieve its goal of not seeing garbage.\nSource: [OpenAI]( https://openai.com/blog/concrete-ai-safety-problems/)\n\n\n",
         "recommendation": "One possible approach to mitigating this problem would be to have a “reward agent” whose only task is to mark if the rewards given to the learning agent are valid or not. The reward agent ensures that the learning agent (robot for instance) does not exploit the system, but rather, completes the desired objective. In the previous example, the “reward agent” could be trained by the human designer to check if the room has garbage or not (an easier task than cleaning the room). If the cleaning robot shuts off its visual sensors and claims a high reward, the “reward agent” would mark the reward as invalid. The designer can then look into the rewards marked as “invalid” and make necessary changes in the objective function to fix the loophole. Source: [OpenAI]( https://openai.com/blog/concrete-ai-safety-problems/)",
         "sources": "[Concrete Problems in AI Safety](https://arxiv.org/pdf/1606.06565.pdf)\n[Concrete AI Safety Problems](https://openai.com/blog/concrete-ai-safety-problems/)",
@@ -872,7 +872,7 @@
         ]
       },
       {
-        "question": "Can our ML system be robust to changes in the data distribution?",
+        "question": "Can our AI/ML system be robust to changes in the data distribution?",
         "threatif": "No",
         "explanation": "A complex challenge for deploying AI agents in real life settings is that the agent could end up in situations that it has never experienced before. Such situations are inherently more difficult to handle and could lead the agent to take harmful actions.\nSource: [OpenAI](https://openai.com/blog/concrete-ai-safety-problems/)",
         "recommendation": "One promising research direction focuses on identifying when the agent has encountered a new scenario so that it recognizes that it is more likely to make mistakes. While this does not solve the underlying problem of preparing AI systems for unforeseen circumstances, it helps in detecting the problem before mistakes happen. Another direction of research emphasizes transferring knowledge from familiar scenarios to new scenarios safely. Source: [OpenAI](https://openai.com/blog/concrete-ai-safety-problems/)",
@@ -1209,7 +1209,7 @@
         ]
       },
       {
-        "question": "Is our training data and labelling produced respecting dignity and wellbeing of the labour force involved?",
+        "question": "Does the labelling of our training data respect the dignity and well-being of the labour force involved?",
         "threatif": "No",
         "explanation": "The need for labelling of data grows and unfortunately with that the amount of companies providing cheap labelling services at the cost of the dignity and labour rights of their workforce. Is the data that you are going to use labelled under such conditions? ",
         "recommendation": "Verify the sources of your datasets and who has been responsible for the labelling process. Does your organisation supports this unfair practices? Think in ways to help prevent this. ",
@@ -1221,11 +1221,10 @@
         "phases": [
           "Design",
           "Input",
-          "Input"
         ]
       },
       {
-        "question": "Are we going to collect/use behavioural data to feed the AI system?",
+        "question": "Are we going to collect and use behavioural data to feed the AI system?",
         "threatif": "Yes",
         "explanation": "The risk of conformity behaviour can be reinforced/encouraged by introducing certain behaviours in the design as positive or negative. This could become a risk of behavioural exploitation. Imagine for example the impact that it could have when an authoritarian government exploits a threat like this",
         "recommendation": "* Consider the way you label certain behaviours and the consequences it could have on the final output and eventually on the individuals. How do you decide which behaviours are good or bad?\n* Consider diversity of opinion and possible ethical considerations.\n* Consider if you will be able to collect enough information to decide which behaviours you are aiming for and which behaviours you are trying to avoid.",
@@ -1318,7 +1317,7 @@
         ]
       },
       {
-        "question": "Is the creation of the AI system proportional to the end goal?\n",
+        "question": "Is the creation of the AI system proportional to the intended goal?\n",
         "threatif": "No",
         "explanation": "* Proportionality is a general principle of EU law. It requires you to strike a balance between the means used and the intended aim.\n* In the context of fundamental rights, proportionality is key for any limitation on these rights.\n",
         "recommendation": "* Proportionality requires that advantages due to limiting the right are not outweighed by the disadvantages to exercise the right. In other words, the limitation on the right must be justified.\n* Safeguards accompanying a measure can support the justification of a measure. A pre-condition is that the measure is adequate to achieve the envisaged objective.\n* In addition, when assessing the processing of personal data, proportionality requires that only that personal data which is adequate and relevant for the purposes of the processing is collected and processed. Source: [EDPS](https://edps.europa.eu/data-protection/our-work/subjects/necessity-proportionality_en)",
@@ -1369,7 +1368,7 @@
         ]
       },
       {
-        "question": "Have we considered the possibility to start with a data protection impact assessment (DPIA)?\n",
+        "question": "Have we considered the need to start with a data protection impact assessment (DPIA)?\n",
         "threatif": "No",
         "explanation": "The use of AI is more likely to trigger the requirement for a DPIA, based on criteria in Art 35 GDPR. The GDPR and the EDPB’s Guidelines on DPIAs identify both “new technologies” and the type of automated decision-making that produce legal effects or similarly significantly affect persons as likely to result in a “high risk to the rights and freedoms of natural persons”.",
         "recommendation": "* This threat modeling library can help you to assess possible risks.\n* Remember that a DPIA is not a piece of paper that needs to be done once the product is in production. The DPIA starts in the design phase by finding and assessing risks, documenting them and taking the necessary actions to create a responsible product from day one until it is finalized.\n* Consider the time and resources that you might need for the execution of a DPIA, as it could have some impact on your project deadlines.",
@@ -1383,7 +1382,7 @@
         ]
       },
       {
-        "question": "Do we use third party providers and we are processing data from children or other type of vulnerable people?",
+        "question": "Do we use third party providers and are we processing data from children or other type of vulnerable people?",
         "threatif": "Yes",
         "explanation": "* If you are processing data of children or other vulnerable groups, remember that all third parties you are dealing with could also be processing their data and in that case they should comply with regulations.\n* Your own system might be protecting the individuals, but remember to also check third party libraries, SDKs, and any other third party tooling you might be using. ",
         "recommendation": "* Check which data your third party applications are collecting and if you have the right agreements in place.\n* Sometimes you can change the configuration of a tool to avoid sending certain data, or you can protect that data with pseudonymisation/anonymisation techniques.\n* Consider stop using some of your third party providers, evaluate also the impact it could have on your organisation.",
@@ -1429,9 +1428,9 @@
         ]
       },
       {
-        "question": "Could our dataset have copyright restrictions?",
+        "question": "Could our dataset have copyright or other legal restrictions?",
         "threatif": "Yes",
-        "explanation": "Can you use the datasets that you need? or are there any legal restrictions? This could also apply to libraries and any other proprietary elements you might want to use.",
+        "explanation": "Can you use the datasets that you need? or are there any restrictions? This could also apply to libraries and any other proprietary elements you might want to use.",
         "recommendation": "* Consider if you also need to claim ownership or give credits to creators.\n* Think about trademarks, copyrights in databases or training data, patents, license agreements that could be part of the dataset, library or module that you are using.\n* Legal ownership of digital data can sometimes be complex and uncertain so get the proper legal advise here.",
         "sources": "",
         "qr": "",
