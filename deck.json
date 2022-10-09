@@ -7,7 +7,7 @@
       {
         "question": "Is the task or assignment completely clear?",
         "threatif": "No",
-        "explanation": "* Is it clear which problem you want to solve?\n* Do you have clear what you want to produce and what the output should be?\n* Are the benefits of the solution clear? ",
+        "explanation": "* Is the problem you want to solve well defined?\n* Do you have clear what you want to produce and what the output should be?\n* Are the benefits of the solution clear? Have you thought about the possible interventions that you could implement after analysing the insights of the output?  ",
         "recommendation": "* Clearly define the problem and outcome you are optimizing for.\n* Assess if your AI system will be well-suited for this purpose.\n* Always discuss if there are alternative ways to solve the problem.\n* Define success! Working with individuals who may be directly affected can help you identify an appropriate way to measure success.\n* Make sure there is a stakeholder involved (product owner for instance) with enough knowledge of the business and a clear vision about what the model needs to do.\n* Did you try analytics first? In this context analytics could also offer inspiring views that can help you decide on the next steps. They can be a good source of information and are sometimes enough to solve the problem without the need of AI/ML.",
         "sources": "",
         "qr": "",
