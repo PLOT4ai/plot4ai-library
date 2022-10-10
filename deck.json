@@ -753,7 +753,7 @@
     "colour": "f7f09f",
     "cards": [
            {
-        "question": "In case of system failure, could users be negatively impacted?\n",
+        "question": "In case of system failure, could users be adversely impacted?\n",
         "threatif": "Yes",
         "explanation": "* Do you have a mechanism implemented to stop the processing in case of harm?\n* Do you have a way to identify and contact affected individuals and mitigate the adverse impacts?\n* Imagine a scenario where your AI system, a care-robot, is taking care of an individual (the patient) by performing some specific tasks and that this individual depends on this care.",
         "recommendation": "* Implement some kind of *stop button* or procedure to safely abort an operation when needed.\n* Establish a detection and response mechanism for undesirable adverse effects on individuals.\n* Define criticality levels of the possible consequences of faults/misuse of the AI system: what type of harm could be caused to the individuals, environment or organisations?",
@@ -764,13 +764,12 @@
         ],
         "phases": [
           "Design",
-          "Input",
           "Model",
           "Output"
         ]
       },
       {
-        "question": "Could our AI system cause negative impact on the environment?\n",
+        "question": "Could our AI system have an adverse impact on the environment?\n",
         "threatif": "Yes",
         "explanation": "* Ideally only models are used that do not demand the consumption of energy or natural resources beyond what is sustainable.\n* Your product should be designed with the dimension of environmental protection and improvement in mind.",
         "recommendation": "* Establish mechanisms to evaluate the environmental impact of your AI system; for example, the amount of energy used and carbon emissions.\n* Implement measures to reduce the environmental impact of the AI system throughout its lifecycle.",
@@ -841,7 +840,7 @@
         "question": "Could our RL agents “hack” their reward functions?",
         "threatif": "Yes",
         "explanation": "* Reinforcement Learning (RL) is an area of machine learning concerned with how intelligent agents ought to take actions in an environment in order to maximize the notion of cumulative reward. Source: [Wikipedia](https://en.wikipedia.org/wiki/Reinforcement_learning)\n\n* Consider potential negative consequences from the AI system\nlearning novel or unusual methods to score well on its objective function.\nSometimes the AI can come up with some kind of “hack” or loophole in the design of the system to receive unearned rewards. Since the AI is trained to maximize its rewards, looking for such loopholes and “shortcuts” is a perfectly fair and valid strategy for the AI. For example, suppose that the office cleaning robot earns rewards only if it does not see any garbage in the office. Instead of cleaning the place, the robot could simply shut off its visual sensors, and thus achieve its goal of not seeing garbage.\nSource: [OpenAI]( https://openai.com/blog/concrete-ai-safety-problems/)\n\n\n",
-        "recommendation": "One possible approach to mitigating this problem would be to have a “reward agent” whose only task is to mark if the rewards given to the learning agent are valid or not. The reward agent ensures that the learning agent (robot for instance) does not exploit the system, but rather, completes the desired objective. In the previous example, the “reward agent” could be trained by the human designer to check if the room has garbage or not (an easier task than cleaning the room). If the cleaning robot shuts off its visual sensors and claims a high reward, the “reward agent” would mark the reward as invalid. The designer can then look into the rewards marked as “invalid” and make necessary changes in the objective function to fix the loophole. Source: [OpenAI]( https://openai.com/blog/concrete-ai-safety-problems/)",
+        "recommendation": "One possible approach to mitigating this problem would be to have a “reward agent” whose only task is to mark if the rewards given to the learning agent are valid or not. The reward agent ensures that the learning agent (robot for instance) does not exploit the system, but rather, completes the desired objective. For example: a “reward agent” could be trained by the human designer to check if a room has been properly cleaned by the cleaning robot. If the cleaning robot shuts off its visual sensors to avoid seeing garbage and claims a high reward, the “reward agent” would mark the reward as invalid because the room is not clean. The designer can then look into the rewards marked as “invalid” and make necessary changes in the objective function to fix the loophole. Source: [OpenAI]( https://openai.com/blog/concrete-ai-safety-problems/)",
         "sources": "[Concrete Problems in AI Safety](https://arxiv.org/pdf/1606.06565.pdf)\n[Concrete AI Safety Problems](https://openai.com/blog/concrete-ai-safety-problems/)",
         "qr": "",
         "categories": [
@@ -858,7 +857,7 @@
         "question": "Can we provide human resources to supervise and give feedback every time the RL agent performs an action?",
         "threatif": "No",
         "explanation": "* Reinforcement Learning (RL) is an area of machine learning concerned with how intelligent agents ought to take actions in an environment in order to maximize the notion of cumulative reward. Source: [Wikipedia](https://en.wikipedia.org/wiki/Reinforcement_learning)\n\n* When the agent is learning to perform a complex task, human oversight and feedback are more helpful than just rewards from the environment. Rewards are generally modelled such that they convey to what extent the task was completed, but they do not usually provide sufficient feedback about the safety implications of the agent’s actions. Even if the agent completes the task successfully, it may not be able to infer the side-effects of its actions from the rewards alone. In the ideal setting, a human would provide fine-grained supervision and feedback every time the agent performs an action (Scalable oversight). Though this would provide a much more informative view about the environment to the agent, such a strategy would require far too much time and effort from the human. Source: [OpenAI](https://openai.com/blog/concrete-ai-safety-problems/)",
-        "recommendation": "One promising research direction to tackle this problem is semi-supervised learning, where the agent is still evaluated on all the actions (or tasks), but receives rewards only for a small sample of those actions (or tasks).\n\nAnother promising research direction is hierarchical reinforcement learning, where a hierarchy is established between different learning agents. There could be a supervisor agent/robot whose task is to assign some work to the another agent/robot and provide it with feedback and rewards.\nSource: [OpenAI](https://openai.com/blog/concrete-ai-safety-problems/)",
+        "recommendation": "One promising research direction to tackle this problem is semi-supervised learning, where the agent is still evaluated on all the actions (or tasks), but receives rewards only for a small sample of those actions (or tasks).\n\nAnother promising research direction is hierarchical reinforcement learning, where a hierarchy is established between different learning agents. There could be a supervisor agent/robot whose task is to assign some work to another agent/robot and provide it with feedback and rewards.\nSource: [OpenAI](https://openai.com/blog/concrete-ai-safety-problems/)",
         "sources": "[Concrete Problems in AI Safety](https://arxiv.org/pdf/1606.06565.pdf)\n[Concrete AI Safety Problems](https://openai.com/blog/concrete-ai-safety-problems/)",
         "qr": "",
         "categories": [
@@ -941,6 +940,7 @@
         ],
         "phases": [
           "Design",
+          "Model",
           "Output"
         ]
       },
@@ -957,7 +957,6 @@
         ],
         "phases": [
           "Design",
-          "Input",
           "Model",
           "Output"
         ]
