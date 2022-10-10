@@ -461,7 +461,7 @@
         "question": "If our AI system uses randomness, is the source of randomness properly protected?",
         "threatif": "No",
         "explanation": "Randomness plays an important role in stochastic systems. “Random” generation of dataset partitions may be at risk if the source of randomness is easy to control by an attacker interested in data poisoning.\nSource: [BerryVilleiML](https://berryvilleiml.com/interactive/)\n\n",
-        "recommendation": "Use of cryptographic randomness sources is encouraged. When it comes to ML, setting weights and thresholds “randomly” must be done with care. Many pseudo-random number generators (PRNG) are not suitable for use. PRNG loops can really damage system behaviour during learning. Cryptographic randomness directly intersects with ML when it comes to differential privacy. Using the wrong sort of random number generator can lead to subtle security problems.\nSource: [BerryVilleiML](https://berryvilleiml.com/interactive/)",
+        "recommendation": "Use of cryptographic randomness sources is encouraged. When it comes to machine learning (ML), setting weights and thresholds “randomly” must be done with care. Many pseudo-random number generators (PRNG) are not suitable for use. PRNG loops can really damage system behaviour during learning. Cryptographic randomness directly intersects with ML when it comes to differential privacy. Using the wrong sort of random number generator can lead to subtle security problems.\nSource: [BerryVilleiML](https://berryvilleiml.com/interactive/)",
         "sources": "[Securing Machine Learning Algorithms, ENISA](https://www.enisa.europa.eu/publications/securing-machine-learning-algorithms)\n[STRIDE-AI: An Approach to Identifying Vulnerabilities of Machine Learning Assets](https://github.com/LaraMauri/STRIDE-AI)\n[Stride-ML Threat Model]( https://csf.tools/reference/stride-lm/)",
         "qr": "",
         "categories": [
@@ -477,9 +477,9 @@
       {
         "question": "Is our model suited for processing confidential information?",
         "threatif": "No",
-        "explanation": "* There are certain kinds of ML models which actually contain parts of the training data in its raw form within them by design. For example, ‘support vector machines’ (SVMs) and ‘k-nearest neighbours’ (KNN) models contain some of the training data in the model itself.\n*Algorithmic leakage is an issue that should be considered carefully.\nSource: [BerryVilleiML](https://berryvilleiml.com/interactive/)\n",
+        "explanation": "* There are certain kinds of machine learning (ML) models which actually contain parts of the training data in its raw form within them by design. For example, ‘support vector machines’ (SVMs) and ‘k-nearest neighbours’ (KNN) models contain some of the training data in the model itself.\n* Algorithmic leakage is an issue that should be considered carefully.\nSource: [BerryVilleiML](https://berryvilleiml.com/interactive/)\n",
         "recommendation": "When selecting the algorithm perform analyses and test to rule out algorithmic leakage.",
-        "sources": "[Securing Machine Learning Algorithms, ENISA](https://www.enisa.europa.eu/publications/securing-machine-learning-algorithms)\n[STRIDE-AI: An Approach to Identifying Vulnerabilities of Machine Learning Assets](https://github.com/LaraMauri/STRIDE-AI)\n[Stride-ML Threat Model]( https://csf.tools/reference/stride-lm/)\n[ICO - How should we assess security and data minimisation in AI?(https://ico.org.uk/for-organisations/guide-to-data-protection/key-dp-themes/guidance-on-ai-and-data-protection/how-should-we-assess-security-and-data-minimisation-in-ai/)",
+        "sources": "[Securing Machine Learning Algorithms, ENISA](https://www.enisa.europa.eu/publications/securing-machine-learning-algorithms)\n[STRIDE-AI: An Approach to Identifying Vulnerabilities of Machine Learning Assets](https://github.com/LaraMauri/STRIDE-AI)\n[Stride-ML Threat Model]( https://csf.tools/reference/stride-lm/)\n[ICO - How should we assess security and data minimisation in AI?](https://ico.org.uk/for-organisations/guide-to-data-protection/key-dp-themes/guidance-on-ai-and-data-protection/how-should-we-assess-security-and-data-minimisation-in-ai/)",
         "qr": "",
         "categories": [
           "Security"
@@ -507,7 +507,7 @@
         ]
       },
       {
-        "question": "Are we protected from an insider threats?",
+        "question": "Are we protected from insider threats?",
         "threatif": "No",
         "explanation": "AI designers and developers may deliberately expose data and models for a variety of reasons, e.g. revenge or extortion. Integrity, data confidentiality and trustworthiness are the main impacted security properties. Source: [ENISA](https://www.enisa.europa.eu/publications/artificial-intelligence-cybersecurity-challenges)",
         "recommendation": "* Implement on and off boarding procedures to help guarantee the trustworthiness of your internal and external employees.\n* Enforce separation of duties and least privilege principle.\n* Enforce the usage of managed devices with appropriate policies and protective software.\n* Awareness training.\n* Implement strict access control and audit trail mechanisms.",
