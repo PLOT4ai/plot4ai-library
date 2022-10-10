@@ -1285,7 +1285,7 @@
       {
         "question": "Could we be processing sensitive data?",
         "threatif": "Yes",
-        "explanation": "* According to art. 9 GDPR you might not be allowed to process, under certain circunstances, personal data revealing racial or ethnic origin, political opinions, religious or philosophical beliefs, trade union membership, genetic data, biometric data, health data or data concerning a person’s sex life or sexual orientation.\n* You might be processing sensitive data if the model includes features that are correlated with these protected characteristics (these are called proxies)\n\n",
+        "explanation": "* According to art. 9 GDPR you might not be allowed to process, under certain circunstances, personal data revealing racial or ethnic origin, political opinions, religious or philosophical beliefs, trade union membership, genetic data, biometric data, health data or data concerning a person’s sex life or sexual orientation.\n* You might be processing sensitive data if the model includes features that are correlated with these protected characteristics (these are called proxies).\n\n",
         "recommendation": "* If you need to use special categories of data as defined in the GDPR art. 9, then you need to check if you have the right lawful basis to do this.\n* Applying techniques like anonymisation might still not justify the fact that you first need to process the original data. Check with your privacy/legal experts.\n* Prevent proxies that could infer sensitive data (especially from vulnerable populations).\n* Check if historical data/practices might bias your data.\n* Identify and remove features that are correlated to sensitive characteristics.\n* Use available methods to test for fairness with respect to different affected groups.",
         "sources": "[AI Fairness 360](https://aif360.mybluemix.net)\n[What-if Tool: Playing with AI Fairness](https://pair-code.github.io/what-if-tool/ai-fairness.html)\n[Hunting for Discriminatory Proxies in Linear Regression Models](https://papers.nips.cc/paper/7708-hunting-for-discriminatory-proxies-in-linear-regression-models.pdf)\n[Differential Privacy Blog Series](https://www.nist.gov/itl/applied-cybersecurity/privacy-engineering/collaboration-space/focus-areas/de-id/dp-blog)",
         "qr": "",
@@ -1301,7 +1301,7 @@
         ]
       },
       {
-        "question": "Do we have a lawful basis for processing the data?",
+        "question": "Do we have a lawful basis for processing the personal data?",
         "threatif": "No",
         "explanation": "Do you know which GDPR legal ground you can apply?\n* (a) Consent: the individual has given clear consent for you to process their personal data for a specific purpose.\n* (b) Contract: the processing is necessary for a contract you have with the individual, or because they have asked you to take specific steps before entering into a contract.\n* (c) Legal obligation: the processing is necessary for you to comply with the law (not including contractual obligations).\n* (d) Vital interests: the processing is necessary to protect someone’s life.\n* (e) Public task: the processing is necessary for you to perform a task in the public interest or for your official functions, and the task or function has a clear basis in law.\n* (f) Legitimate interests: the processing is necessary for your legitimate interests or the legitimate interests of a third party, except where such interests are overridden by the interests or fundamental rights and freedoms of the individual which require protection of personal data, in particular where the individual is a child. (This cannot apply if you are a public authority processing data to perform your official tasks.)",
         "recommendation": "In the case of the GDPR you need to be able to apply one of the six available legal grounds for processing the data (art. 6). Check with your privacy expert, not being able to apply one of the legal grounds could bring the project in danger.\n\nTake into account, that also other laws besides the GDPR could be applicable.",
@@ -1313,6 +1313,7 @@
         "phases": [
           "Design",
           "Input",
+          "Model",
           "Output"
         ]
       },
@@ -1321,7 +1322,7 @@
         "threatif": "No",
         "explanation": "* Proportionality is a general principle of EU law. It requires you to strike a balance between the means used and the intended aim.\n* In the context of fundamental rights, proportionality is key for any limitation on these rights.\n",
         "recommendation": "* Proportionality requires that advantages due to limiting the right are not outweighed by the disadvantages to exercise the right. In other words, the limitation on the right must be justified.\n* Safeguards accompanying a measure can support the justification of a measure. A pre-condition is that the measure is adequate to achieve the envisaged objective.\n* In addition, when assessing the processing of personal data, proportionality requires that only that personal data which is adequate and relevant for the purposes of the processing is collected and processed. Source: [EDPS](https://edps.europa.eu/data-protection/our-work/subjects/necessity-proportionality_en)",
-        "sources": "Proportionality test: [EDPS Guidelines on assessing the proportionality of measures that limit the fundamental rights to privacy and to the protection of personal data](https://edps.europa.eu/sites/edp/files/publication/19-12-19_edps_proportionality_guidelines_en.pdf)\n\nAssess the possible impact on human rights:\n[Charter of Fundamental Rights of the European Union](https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:12012P/TXT&from=EN)",
+        "sources": "Proportionality test: [EDPS Guidelines on assessing the proportionality of measures that limit the fundamental rights to privacy and to the protection of personal data](https://edps.europa.eu/sites/edp/files/publication/19-12-19_edps_proportionality_guidelines_en.pdf)\n\nAssess the possible impact on human rights: [Charter of Fundamental Rights of the European Union](https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:12012P/TXT&from=EN)",
         "qr": "",
         "categories": [
           "Non-compliance"
@@ -1378,7 +1379,10 @@
           "Non-compliance"
         ],
         "phases": [
-          "Design"
+          "Design",
+          "Input", 
+          "Model",
+          "Output"
         ]
       },
       {
@@ -1392,7 +1396,10 @@
           "Non-compliance"
         ],
         "phases": [
-          "Design"
+          "Design", 
+          "Input",
+          "Model",
+          "Output"
         ]
       },
       {
@@ -1440,7 +1447,6 @@
         "phases": [
           "Design",
           "Input",
-          "Model",
           "Output"
         ]
       },
@@ -1448,7 +1454,7 @@
         "question": "Are we planning to use a third party AI tool?",
         "threatif": "Yes",
         "explanation": "If you use a third party tool you might still have a responsibility towards the users. Think about employees, job applicants, patients, etc. It is also your responsibility to make sure that the AI system you choose won't cause harm to the individuals.",
-        "recommendation": "Review which ones are your responsibilities (look into art. 24 and 28 GDPR).\nYou can start by checking:\n* That you have the right agreements in place with the third party provider\n* That the origin and data lineage of their datasets are verified\n* How their models are fed; do they anonymise the data?\n* How you have assessed their security, ethical handling of data, quality process and ways to prevent bias and discrimination in their AI system.\n* That you have informed users accordingly.",
+        "recommendation": "If personal data is involved, review which ones are your responsibilities (look into art. 24 and 28 GDPR).\n\nYou can also start by checking:\n* That you have the right agreements in place with the third party provider\n* That the origin and data lineage of their datasets are verified\n* How their models are fed; do they anonymise the data?\n* How you have assessed their security, ethical handling of data, quality process and ways to prevent bias and discrimination in their AI system.\n* That you have informed users accordingly.",
         "sources": "",
         "qr": "",
         "categories": [
@@ -1482,7 +1488,7 @@
         "question": "Can we comply with the storage limitation principle?",
         "threatif": "No",
         "explanation": "* Do you know how long you need to keep the data (training data, output data, etc)?\n* Do you need to comply with specific internal, local, national and/or international retention rules for the storage of data? ",
-        "recommendation": "* Personal data must not be stored longer than necessary for the intended purpose. (art.5 e GDPR). In order to comply with this principle it is important to have a clear overview of the data flow during the life cycle of the model\n* You might receive raw data that you need to transform. Check what are you doing with this data and all the different types of input files you might be receiving/collecting.\n* Check if you need to store that data for quality and auditing purposes.\n* Check where are you going to store the data from the data preparation, the training and test sets, the outputs, the processed outputs (when they are merged or linked to other information), metrics, etc.\n* How long should all this data be stored? What type of deletion process can you put in place? And who will be responsible for the retention and deletion of this data?\n* Implement the right retention schedules when applicable. In case you might still need a big part of the data in order to feed the model, consider anonymising the data.\n* *Deleting* data from a trained model can be challenging to carry out (short of retraining the model from scratch from a dataset with the deleted data removed, but that is expensive and often infeasible). Note that through the learning process, input data are always encoded in some way in the model itself during training. That means the internal representation developed by the model during learning (say, thresholds and weights) may end up being legally encumbered as well. Source: [BerryvilleiML](https://berryvilleiml.com/)",
+        "recommendation": "* Personal data must not be stored longer than necessary for the intended purpose. (art.5 e GDPR). In order to comply with this principle it is important to have a clear overview of the data flow during the life cycle of the model.\n* You might receive raw data that you need to transform. Check what are you doing with this data and all the different types of input files you might be receiving/collecting.\n* Check if you need to store that data for quality and auditing purposes.\n* Check where are you going to store the data from the data preparation, the training and test sets, the outputs, the processed outputs (when they are merged or linked to other information), metrics, etc.\n* How long should all this data be stored? What type of deletion process can you put in place? And who will be responsible for the retention and deletion of this data?\n* Implement the right retention schedules when applicable. In case you might still need a big part of the data in order to feed the model, consider anonymising the data.\n* *Deleting* data from a trained model can be challenging to carry out (short of retraining the model from scratch from a dataset with the deleted data removed, but that is expensive and often infeasible). Note that through the learning process, input data are always encoded in some way in the model itself during training. That means the internal representation developed by the model during learning (say, thresholds and weights) may end up being legally encumbered as well. Source: [BerryvilleiML](https://berryvilleiml.com/)",
         "sources": "",
         "qr": "",
         "categories": [
