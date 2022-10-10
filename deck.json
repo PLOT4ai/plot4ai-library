@@ -7,7 +7,7 @@
       {
         "question": "Is the task or assignment completely clear?",
         "threatif": "No",
-        "explanation": "* Is the problem you want to solve well defined?\n*Are the possible benefits clear? ",
+        "explanation": "* Is the problem you want to solve well defined?\n* Are the possible benefits clear? ",
         "recommendation": "* Clearly define the problem and outcome you are optimizing for.\n* Assess if your AI system will be well-suited for this purpose.\n* Always discuss if there are alternative ways to solve the problem.\n* Define success! Working with individuals who may be directly affected can help you identify an appropriate way to measure success.\n* Make sure there is a stakeholder involved (product owner for instance) with enough knowledge of the business and a clear vision about what the model needs to do.\n* Did you try analytics first? In this context analytics could also offer inspiring views that can help you decide on the next steps. They can be a good source of information and are sometimes enough to solve the problem without the need of AI/ML.",
         "sources": "",
         "qr": "",
@@ -25,7 +25,7 @@
         "question": "Can we assure that the data that we need is complete and trustworthy?",
         "threatif": "No",
         "explanation": "Can you avoid the known principle of “garbage in, garbage out”? Your AI system is only as reliable as the data it works with.",
-        "recommendation": "* Verify the data sources.\n * Is there information missing within the dataset?\n * Are all the necessary classes represented?\n * Does the data belong to the correct time frame and geographical coverage?\n * Evaluate which extra data you need to collect/receive.\n* Carefully consider representation schemes, especially in cases of text, video, APIs, and sensors. Text representation schemes are not all the same. If your system is counting on ASCII and it gets Unicode, will your system recognize the incorrect encoding? Source: [BerryVilleiML](https://berryvilleiml.com/interactive/)",
+        "recommendation": "* Verify the data sources:\n * Is there information missing within the dataset?\n * Are all the necessary classes represented?\n * Does the data belong to the correct time frame and geographical coverage?\n * Evaluate which extra data you need to collect/receive.\n* Carefully consider representation schemes, especially in cases of text, video, APIs, and sensors. Text representation schemes are not all the same. If your system is counting on ASCII and it gets Unicode, will your system recognize the incorrect encoding? Source: [BerryVilleiML](https://berryvilleiml.com/interactive/)",
         "sources": "",
         "qr": "",
         "categories": [
@@ -39,8 +39,8 @@
       {
         "question": "Can the data be representative of the different groups/populations?",
         "threatif": "No",
-        "explanation": "* It is important to reduce the risk of bias and different types of discrimination. Did you consider diversity and representativeness of users/individuals in the data?\n* When applying statistical generalisation, the risk exist of making inferences due to misrepresentation, for instance: a postal code where mostly young families live can discriminate the few old families living there because they are not properly represented in the group.",
-        "recommendation": "* Who is covered and who is underrepresented?\n* Prevent disparate impact: when the output of a member of a minority group is disparate compared to representation of the group. Consider measuring the accuracy from minority classes too instead of measuring only the total accuracy. Adjusting the weighting factors to avoid disparate impact can result in positive discrimination which has also its own issues: disparate treatment.\n* One approach to addressing the problem of class imbalance is to randomly resample the training dataset. This technique can help to rebalance the class distribution when classes are under or over represented\n - random oversampling (i.e. duplicating samples from the minority class)\n - random undersampling (i.e. deleting samples from the majority class)\n* There are trade-offs when determining an AI system’s metrics for success. It is important to balance performance metrics against the risk of negatively impacting vulnerable populations.\n* When using techniques like statistical generalisation is important to know your data well, and get familiarised with who is and who is not represented in the samples. Check the samples for expectations that can be easily verified. For example, if half the population is known to be female, then you can check if approximately half the sample is female.",
+        "explanation": "* It is important to reduce the risk of bias and different types of discrimination. Did you consider diversity and representativeness of users/individuals in the data?\n* When applying statistical generalisation, the risk exists of making inferences due to misrepresentation, for instance: a postal code where mostly young families live can discriminate the few old families living there because they are not properly represented in the group.",
+        "recommendation": "* Who is covered and who is underrepresented?\n* Prevent disparate impact: when the output of a member of a minority group is disparate compared to representation of the group. Consider measuring the accuracy from minority classes too instead of measuring only the total accuracy. Adjusting the weighting factors to avoid disparate impact can result in positive discrimination which has also its own issues: disparate treatment.\n* One approach to addressing the problem of class imbalance is to randomly resample the training dataset. This technique can help to rebalance the class distribution when classes are under or over represented:\n - random oversampling (i.e. duplicating samples from the minority class)\n - random undersampling (i.e. deleting samples from the majority class)\n* There are trade-offs when determining an AI system’s metrics for success. It is important to balance performance metrics against the risk of negatively impacting vulnerable populations.\n* When using techniques like statistical generalisation is important to know your data well, and get familiarised with who is and who is not represented in the samples. Check the samples for expectations that can be easily verified. For example, if half the population is known to be female, then you can check if approximately half the sample is female.",
         "sources": "**Related to disparate impact**\n[AI Fairness - Explanation of Disparate Impact Remover](https://towardsdatascience.com/ai-fairness-explanation-of-disparate-impact-remover-ce0da59451f1)\n[Mitigating Bias in AI/ML Models with Disparate Impact Analysis](https://medium.com/@kguruswamy_37814/mitigating-bias-in-ai-ml-models-with-disparate-impact-analysis-9920212ee01c)\n[Certifying and removing disparate impact](https://arxiv.org/abs/1412.3756)\n[Avoiding Disparate Impact with Counterfactual Distributions](https://oconnell.fas.harvard.edu/files/hao/files/wesgai.pdf)\n\n**Related to random resampling**\n[Oversampling and Undersampling](https://towardsdatascience.com/oversampling-and-undersampling-5e2bbaf56dcf)\n[Random Oversampling and Undersampling for Imbalanced Classification](https://machinelearningmastery.com/random-oversampling-and-undersampling-for-imbalanced-classification/)\n\n**Related to Statistical Generalization**\n[Generalization in quantitative and qualitative research: Myths and strategies](https://core.ac.uk/download/pdf/49282746.pdf)\n[Generalizing Statistical Results to the Entire Population](https://www.dummies.com/article/academics-the-arts/math/statistics/generalizing-statistical-results-to-the-entire-population-201267/)",
         "qr": "",
         "categories": [
@@ -59,7 +59,7 @@
         "explanation": "* Do you have all the necessary stakeholders on board? Not having the right people that can give the necessary input can put the design of the AI system in danger.\n* Think for instance when attributes or variables need to be selected, or when you need to understand the different data contexts.\n* Data scientists should not be the only ones making assumptions about variables, it should really be a team effort.",
         "recommendation": "* Identify and involve on time the people that you need during the whole life cycle of the AI system. This will avoid unnecessary rework and frustrations.\n* Identifying who’s responsible for making the decisions and how much control they have over the decision-making process allows for a more evident tracking of responsibility in the AI’s development process.",
         "sources": "",
-        "qr": "",
+        "qr": ""
         "categories": [
           "Technique & Processes"
         ],
@@ -149,8 +149,6 @@
         ],
         "phases": [
           "Design",
-          "Input",
-          "Model",
           "Output"
         ]
       },
@@ -175,7 +173,7 @@
         "question": "When datasets from external sources are updated, can we receive and process the new data on time?",
         "threatif": "No",
         "explanation": "* This could be especially risky in health and finance environments. How much change are you expecting in the data you receive?\n* How can you make sure that you receive the updates on time?",
-        "recommendation": "Not only do you need to be able to trust the sources but you also need to design a process in which data is prepared on time to be used in the model and where you can timely consider the impact it could have in the output of the model, especially when this could have a negatively impact on the users. This process can be designed once you know how often changes in the data can be expected and how big the changes are. ",
+        "recommendation": "Not only do you need to be able to trust the sources but you also need to design a process in which data is prepared on time to be used in the model and where you can timely consider the impact it could have in the output of the model, especially when this could have a negative impact on the users. This process can be designed once you know how often changes in the data can be expected and how big the changes are. ",
         "sources": "",
         "qr": "",
         "categories": [
@@ -191,7 +189,7 @@
       {
         "question": "Can we confirm the legitimacy of the data sources that we need?\n",
         "threatif": "No",
-        "explanation": "* Data lineage can be necessary to demonstrate trust as part of your information transparency policy, but it can also be very important when it comes to assessing impact on the data flow. If sources are not verified and legitimised you could run risks such as data being wrongly labelled for instance.\n* Do you know where you need to get the data from? Who is responsible for the collection, maintenance and dissemination? Are the sources verified? Do you have the right agreements in place? Are you allowed to received or collect that data? Also keep ethical considerations in mind!",
+        "explanation": "* Data lineage can be necessary to demonstrate trust as part of your information transparency policy, but it can also be very important when it comes to assessing impact on the data flow. If sources are not verified and legitimised you could run risks such as data being wrongly labelled for instance.\n* Do you know where you need to get the data from? Who is responsible for the collection, maintenance and dissemination? Are the sources verified? Do you have the right agreements in place? Are you allowed to receive or collect that data? Also keep ethical considerations in mind!",
         "recommendation": "* Develop a robust understanding of your relevant data feeds, flows and structures such that if any changes occur to the model data inputs, you can assess any potential impact on model performance. In case of third party AI systems contact your vendor to ask for this information.\n* If you are using synthetic data you should know how it was created and the properties it has. Also keep in mind that synthetic data might not be the answer to all your privacy related problems; synthetic data does not always provide a better trade-off between privacy and utility than traditional anonymisation techniques.\n* Do you need to share models and combine them? The usage of Model Cards and Datasheets can help providing the source information.",
         "sources": "[Providing Assurance and Scrutability on Shared Data and Machine Learning Models with Verifiable Credentials](https://arxiv.org/pdf/2105.06370.pdf)\n[Synthetic Data – Anonymisation Groundhog Day](https://arxiv.org/pdf/2011.07018.pdf)\n[Model Cards](https://modelcards.withgoogle.com/about)\n[Model Cards for Model Reporting](https://arxiv.org/pdf/1810.03993.pdf)\n[Datasheets for Datasets](https://arxiv.org/pdf/1803.09010.pdf)",
         "qr": "",
@@ -200,15 +198,14 @@
         ],
         "phases": [
           "Design",
-          "Input",
-          "Output"
+          "Input"
         ]
       },
       {
         "question": "Do we have enough dedicated resources to monitor the algorithm?",
         "threatif": "No",
-        "explanation": "Do you already have a process in place to monitor the quality of the output and system errors? Do you have resources to do this? Not having the right process and resources in place could have an impact on the project deadline and the organisation.",
-        "recommendation": "* Put a well-defined process in place to monitor if the AI system is meeting the intended goals.\n* Define failsafe fallback plans to address AI system errors of whatever origin and put governance procedures in place to trigger them.\n* Put measure in places to continuously assess the quality of the output data: e.g. that predictions scores are within expected ranges; anomaly detection in output and reassign input data leading to the detected anomaly.\n* Does the data measure what you need to measure? You could get measurement errors if data is not correctly labelled.",
+        "explanation": "Do you already have a process in place to monitor the quality of the output and system errors? Do you have resources to do this? Not having the right process and resources in place could have an impact on the project deadline, the organisation and the users.",
+        "recommendation": "* Put a well-defined process in place to monitor if the AI system is meeting the intended goals.\n* Define failsafe fallback plans to address AI system errors of whatever origin and put governance procedures in place to trigger them.\n* Put measure in places to continuously assess the quality of the output data: e.g. check that predictions scores are within expected ranges; anomaly detection in output and reassign input data leading to the detected anomaly.\n* Does the data measure what you need to measure? You could get measurement errors if data is not correctly labelled.",
         "sources": "",
         "qr": "",
         "categories": [
@@ -355,7 +352,7 @@
         "question": "Can the data used to feed the model be linked to individuals?\n\n",
         "threatif": "Yes",
         "explanation": "Do you need to use unique identifiers in your training dataset? If personal data is not necessary for the model you would not really have a legal justification for using it.",
-        "recommendation": "* Unique identifiers might be included in the training set when you want to be able to link the results to individuals. Consider using pseudo-identifiers or other techniques that help you protect your data, to be able to legally justify why you think you need this (from a technical perspective).\n* Document the measures you are taking to protect the data. Consider if your measures are necessary and proportional.",
+        "recommendation": "* Unique identifiers might be included in the training set when you want to be able to link the results to individuals. Consider using pseudo-identifiers or other techniques that can help you protect personal data.\n* Document the measures you are taking to protect the data. Consider if your measures are necessary and proportional.",
         "sources": "",
         "qr": "",
         "categories": [
@@ -372,7 +369,7 @@
         "question": "Could actions be incorrectly attributed to an individual or group?",
         "threatif": "Yes",
         "explanation": "Your AI system could have an adverse impact on individuals by incorrectly attributing them facts or actions. For instance, a facial recognition system that identifies a person incorrectly, or an inaccurate risk prediction model that could negatively impact an individual. ",
-        "recommendation": "* Evaluate the possible consequences of inaccuracies of your AI system and implement measures to prevent these errors from happening: avoiding bias and discrimination during the life cycle of the model, ensuring the quality of the input data, implementing a strict human oversight process, ways to double check the results with extra evidence, implementing safety mechanisms and a way to redress, etc.\n* Assess the impact on the different human rights of the individual.\n* Consider not to implement such a system if you cannot mitigate the risks.",
+        "recommendation": "* Evaluate the possible consequences of inaccuracies of your AI system and implement measures to prevent these errors from happening: avoiding bias and discrimination during the life cycle of the model, ensuring the quality of the input data, implementing a strict human oversight process, ways to double check the results with extra evidence, implementing safety and redress mechanisms, etc.\n* Assess the impact on the different human rights of the individual.\n* Consider not to implement such a system if you cannot mitigate the risks.",
         "sources": "",
         "qr": "",
         "categories": [
@@ -1220,7 +1217,7 @@
         ],
         "phases": [
           "Design",
-          "Input"
+          "Input",
         ]
       },
       {
