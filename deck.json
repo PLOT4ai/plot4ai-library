@@ -1212,7 +1212,7 @@
         "threatif": "No",
         "explanation": "The need for labelling of data grows and unfortunately with that the amount of companies providing cheap labelling services at the cost of the dignity and labour rights of their workforce. Is the data that you are going to use labelled under such conditions?",
         "recommendation": "Verify the sources of your datasets and who has been responsible for the labelling process. Does your organisation support this unfair practices? Think in ways to help prevent this.",
-        "sources": "",
+        "sources": "[The exploited labor behind AI](https://www.noemamag.com/the-exploited-labor-behind-artificial-intelligence/)",
         "qr": "",
         "categories": [
           "Ethics & Human Rights"
