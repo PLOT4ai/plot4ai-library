@@ -1,6 +1,6 @@
 [
 	{
-		"category": "Technique & Processes",
+		"category": "Accountability & Human Oversight",
 		"id": 1,
 		"colour": "83b3db",
 		"cards": [
@@ -13,39 +13,6 @@
 				"qr": "",
 				"categories": [
 					"Accountability & Human Oversight"
-				],
-				"phases": [
-					"Design",
-					"Input",
-					"Model",
-					"Output"
-				]
-			},
-			{
-				"question": "Can we assure that the data that we need is complete and trustworthy?",
-				"threatif": "No",
-				"explanation": "Can you avoid the known principle of “garbage in, garbage out”? Your AI system is only as reliable as the data it works with.",
-				"recommendation": "* Verify the data sources:\n * Is there information missing within the dataset?\n * Are all the necessary classes represented?\n * Does the data belong to the correct time frame and geographical coverage?\n * Evaluate which extra data you need to collect/receive.\n* Carefully consider representation schemes, especially in cases of text, video, APIs, and sensors. Text representation schemes are not all the same. If your system is counting on ASCII and it gets Unicode, will your system recognize the incorrect encoding? Source: [BerryVilleiML](https://berryvilleiml.com/interactive/)",
-				"sources": "",
-				"qr": "",
-				"categories": [
-					"Data & Data Governance"
-				],
-				"phases": [
-					"Design",
-					"Input"
-				]
-			},
-			{
-				"question": "Can the data be representative of the different groups/populations?",
-				"threatif": "No",
-				"explanation": "* It is important to reduce the risk of bias and different types of discrimination. Did you consider diversity and representativeness of users/individuals in the data?\n* When applying statistical generalisation, the risk exists of making inferences due to misrepresentation, for instance: a postal code where mostly young families live can discriminate the few old families living there because they are not properly represented in the group.",
-				"recommendation": "* Who is covered and who is underrepresented?\n* Prevent disparate impact: when the output of a member of a minority group is disparate compared to representation of the group. Consider measuring the accuracy from minority classes too instead of measuring only the total accuracy. Adjusting the weighting factors to avoid disparate impact can result in positive discrimination which has also its own issues: disparate treatment.\n* One approach to addressing the problem of class imbalance is to randomly resample the training dataset. This technique can help to rebalance the class distribution when classes are under or over represented:\n - random oversampling (i.e. duplicating samples from the minority class)\n - random undersampling (i.e. deleting samples from the majority class)\n* There are trade-offs when determining an AI system’s metrics for success. It is important to balance performance metrics against the risk of negatively impacting vulnerable populations.\n* When using techniques like statistical generalisation is important to know your data well, and get familiarised with who is and who is not represented in the samples. Check the samples for expectations that can be easily verified. For example, if half the population is known to be female, then you can check if approximately half the sample is female.",
-				"sources": "**Related to disparate impact**\n[AI Fairness - Explanation of Disparate Impact Remover](https://towardsdatascience.com/ai-fairness-explanation-of-disparate-impact-remover-ce0da59451f1)\n[Mitigating Bias in AI/ML Models with Disparate Impact Analysis](https://medium.com/@kguruswamy_37814/mitigating-bias-in-ai-ml-models-with-disparate-impact-analysis-9920212ee01c)\n[Certifying and removing disparate impact](https://arxiv.org/abs/1412.3756)\n[Avoiding Disparate Impact with Counterfactual Distributions](https://oconnell.fas.harvard.edu/files/hao/files/wesgai.pdf)\n\n**Related to random resampling**\n[Oversampling and Undersampling](https://towardsdatascience.com/oversampling-and-undersampling-5e2bbaf56dcf)\n[Random Oversampling and Undersampling for Imbalanced Classification](https://machinelearningmastery.com/random-oversampling-and-undersampling-for-imbalanced-classification/)\n\n**Related to Statistical Generalization**\n[Generalization in quantitative and qualitative research: Myths and strategies](https://core.ac.uk/download/pdf/49282746.pdf)\n[Generalizing Statistical Results to the Entire Population](https://www.dummies.com/article/academics-the-arts/math/statistics/generalizing-statistical-results-to-the-entire-population-201267/)",
-				"qr": "",
-				"categories": [
-					"Bias, fairness & Discrimination",
-					"Data & Data Governance"
 				],
 				"phases": [
 					"Design",
@@ -72,14 +39,13 @@
 				]
 			},
 			{
-				"question": "Does the model need to be explainable for the users or affected persons?",
-				"threatif": "Yes",
-				"explanation": "Do you need to be able to give a clear explanation to the user about the logic that the AI system used to reach a certain decision? And can that decision have a big impact on the user?",
-				"recommendation": "* Evaluate the type of models that you could use to solve the problem as specified in your task.\n* Consider what the impact is if certain black box models cannot be used and interpretability tools do not offer sufficient results. You might need to evaluate a possible change in strategy.\n* Data scientists can evaluate the impact from a technical perspective and discuss this with the rest of stakeholders. The decision keeps being a team effort.",
-				"sources": "[Explainable Artificial Intelligence (XAI)](https://www.darpa.mil/program/explainable-artificial-intelligence)\n[LIME](https://github.com/marcotcr/lime)\n[Why Should I Trust You? Explaining the Predictions of Any Classifier](https://arxiv.org/pdf/1602.04938.pdf)\n[SHAP and LIME: An Evaluation of Discriminative Power in Credit Risk](https://www.frontiersin.org/articles/10.3389/frai.2021.752558/full)\n[Explainable AI](https://www.ibm.com/watson/explainable-ai)\n[Explainable AI - The TAILOR Handbook of Trustworthy AI](http://tailor.isti.cnr.it/handbookTAI/T3.1/T3.1.html)",
+				"question": "Do we have enough dedicated resources to monitor the algorithm?",
+				"threatif": "No",
+				"explanation": "Do you already have a process in place to monitor the quality of the output and system errors? Do you have resources to do this? Not having the right process and resources in place could have an impact on the project deadline, the organisation and the users.",
+				"recommendation": "* Put a well-defined process in place to monitor if the AI system is meeting the intended goals.\n* Define failsafe fallback plans to address AI system errors of whatever origin and put governance procedures in place to trigger them.\n* Put measure in places to continuously assess the quality of the output data: e.g. check that predictions scores are within expected ranges; anomaly detection in output and reassign input data leading to the detected anomaly.\n* Does the data measure what you need to measure? You could get measurement errors if data is not correctly labelled.",
+				"sources": "",
 				"qr": "",
 				"categories": [
-					"Transparency & Accessibility",
 					"Accountability & Human Oversight"
 				],
 				"phases": [
@@ -87,6 +53,82 @@
 					"Input",
 					"Model",
 					"Output"
+				]
+			},
+			{
+				"question": "Can we provide human resources to supervise and give feedback to the actions of AI agents?",
+				"threatif": "No",
+				"explanation": "* Reinforcement Learning (RL) is an area of machine learning concerned with how intelligent agents ought to take actions in an environment in order to maximize the notion of cumulative reward. Source: [Wikipedia](https://en.wikipedia.org/wiki/Reinforcement_learning)\n\n* When the agent is learning to perform a complex task, human oversight and feedback are more helpful than just rewards from the environment. Rewards are generally modelled such that they convey to what extent the task was completed, but they do not usually provide sufficient feedback about the safety implications of the agent’s actions. Even if the agent completes the task successfully, it may not be able to infer the side-effects of its actions from the rewards alone. In the ideal setting, a human would provide fine-grained supervision and feedback every time the agent performs an action (Scalable oversight). Though this would provide a much more informative view about the environment to the agent, such a strategy would require far too much time and effort from the human. Source: [OpenAI](https://openai.com/blog/concrete-ai-safety-problems/)",
+				"recommendation": "One promising research direction to tackle this problem is semi-supervised learning, where the agent is still evaluated on all the actions (or tasks), but receives rewards only for a small sample of those actions (or tasks).\n\nAnother promising research direction is hierarchical reinforcement learning, where a hierarchy is established between different learning agents. There could be a supervisor agent/robot whose task is to assign some work to another agent/robot and provide it with feedback and rewards.\nSource: [OpenAI](https://openai.com/blog/concrete-ai-safety-problems/)",
+				"sources": "[Concrete Problems in AI Safety](https://arxiv.org/pdf/1606.06565.pdf)\n[Concrete AI Safety Problems](https://openai.com/blog/concrete-ai-safety-problems/)",
+				"qr": "",
+				"categories": [
+					"Accountability & Human Oversight"
+				],
+				"phases": [
+					"Design",
+					"Input",
+					"Model",
+					"Output"
+				]
+			},
+			{
+				"question": "Is the creation of the AI system proportional to the intended goal?",
+				"threatif": "No",
+				"explanation": "* Proportionality is a general principle of EU law. It requires you to strike a balance between the means used and the intended aim.\n* In the context of fundamental rights, proportionality is key for any limitation on these rights.",
+				"recommendation": "* Proportionality requires that advantages due to limiting the right are not outweighed by the disadvantages to exercise the right. In other words, the limitation on the right must be justified.\n* Safeguards accompanying a measure can support the justification of a measure. A pre-condition is that the measure is adequate to achieve the envisaged objective.\n* In addition, when assessing the processing of personal data, proportionality requires that only that personal data which is adequate and relevant for the purposes of the processing is collected and processed. Source: [EDPS](https://edps.europa.eu/data-protection/our-work/subjects/necessity-proportionality_en)",
+				"sources": "Proportionality test: [EDPS Guidelines on assessing the proportionality of measures that limit the fundamental rights to privacy and to the protection of personal data](https://edps.europa.eu/sites/edp/files/publication/19-12-19_edps_proportionality_guidelines_en.pdf)\n\nAssess the possible impact on human rights: [Charter of Fundamental Rights of the European Union](https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:12012P/TXT&from=EN)",
+				"qr": "",
+				"categories": [
+					"Accountability & Human Oversight",
+					"Ethics & Fundamental Rights",
+					"Privacy & Data Protection"
+				],
+				"phases": [
+					"Design",
+					"Input",
+					"Model",
+					"Output"
+				]
+			},
+			{
+				"question": "Are we planning to use a third party AI tool?",
+				"threatif": "Yes",
+				"explanation": "If you use a third party tool you might still have a responsibility towards the users. Think about employees, job applicants, patients, etc. It is also your responsibility to make sure that the AI system you choose won't cause harm to the individuals.",
+				"recommendation": "If personal data is involved, review which ones are your responsibilities (look into art. 24 and 28 GDPR).\n\nYou can also start by checking:\n* That you have the right agreements in place with the third party provider.\n* That the origin and data lineage of their datasets are verified.\n* How their models are fed; do they anonymise the data?\n* How you have assessed their security, ethical handling of data, quality process and ways to prevent bias and discrimination in their AI system.\n* That you have informed users accordingly.",
+				"sources": "",
+				"qr": "",
+				"categories": [
+					"Accountability & Human Oversight",
+					"Cybersecurity"
+				],
+				"phases": [
+					"Design",
+					"Input",
+					"Model",
+					"Output"
+				]
+			}
+		]
+	},
+	{
+		"category": "Data & Data Governance",
+		"id": 2,
+		"colour": "eea4b5",
+		"cards": [
+			{
+				"question": "Can we assure that the data that we need is complete and trustworthy?",
+				"threatif": "No",
+				"explanation": "Can you avoid the known principle of “garbage in, garbage out”? Your AI system is only as reliable as the data it works with.",
+				"recommendation": "* Verify the data sources:\n * Is there information missing within the dataset?\n * Are all the necessary classes represented?\n * Does the data belong to the correct time frame and geographical coverage?\n * Evaluate which extra data you need to collect/receive.\n* Carefully consider representation schemes, especially in cases of text, video, APIs, and sensors. Text representation schemes are not all the same. If your system is counting on ASCII and it gets Unicode, will your system recognize the incorrect encoding? Source: [BerryVilleiML](https://berryvilleiml.com/interactive/)",
+				"sources": "",
+				"qr": "",
+				"categories": [
+					"Data & Data Governance"
+				],
+				"phases": [
+					"Design",
+					"Input"
 				]
 			},
 			{
@@ -155,23 +197,6 @@
 				]
 			},
 			{
-				"question": "Could the channels that we will use to collect real-time input data fail?",
-				"threatif": "Yes",
-				"explanation": "* Are these channels trustworthy?\n* What will happen in case of failure?\n* Think for instance about IoT devices used as sensors.",
-				"recommendation": "* If you are collecting/receiving data from sensors, consider estimating the impact it could have on your model if any of the sensors fail and your input data gets interrupted or corrupted.\n* Sensor blinding attacks are one example of a risk faced by poorly designed input gathering systems. Note that consistent feature identification related to sensors is likely to require human calibration. Source: [BerryVilleiML](https://berryvilleiml.com/)",
-				"sources": "",
-				"qr": "",
-				"categories": [
-					"Safety & Environmental Impact",
-					"Cybersecurity"
-				],
-				"phases": [
-					"Design",
-					"Input",
-					"Output"
-				]
-			},
-			{
 				"question": "When datasets from external sources are updated, can we receive and process the new data on time?",
 				"threatif": "No",
 				"explanation": "* This could be especially risky in health and finance environments. How much change are you expecting in the data you receive?\n* How can you make sure that you receive the updates on time?",
@@ -204,23 +229,6 @@
 				]
 			},
 			{
-				"question": "Do we have enough dedicated resources to monitor the algorithm?",
-				"threatif": "No",
-				"explanation": "Do you already have a process in place to monitor the quality of the output and system errors? Do you have resources to do this? Not having the right process and resources in place could have an impact on the project deadline, the organisation and the users.",
-				"recommendation": "* Put a well-defined process in place to monitor if the AI system is meeting the intended goals.\n* Define failsafe fallback plans to address AI system errors of whatever origin and put governance procedures in place to trigger them.\n* Put measure in places to continuously assess the quality of the output data: e.g. check that predictions scores are within expected ranges; anomaly detection in output and reassign input data leading to the detected anomaly.\n* Does the data measure what you need to measure? You could get measurement errors if data is not correctly labelled.",
-				"sources": "",
-				"qr": "",
-				"categories": [
-					"Accountability & Human Oversight"
-				],
-				"phases": [
-					"Design",
-					"Input",
-					"Model",
-					"Output"
-				]
-			},
-			{
 				"question": "Can we collect all the data that we need for the purpose of the algorithm?",
 				"threatif": "No",
 				"explanation": "Could you face difficulties obtaining certain type of data? This could be due to different reasons such as legal, proprietary, financial, physical, technical, etc. This could put the whole project in danger.",
@@ -235,14 +243,141 @@
 					"Input",
 					"Output"
 				]
+			},
+			{
+				"question": "Could our dataset have copyright or other legal restrictions?",
+				"threatif": "Yes",
+				"explanation": "Can you use the datasets that you need? or are there any restrictions? This could also apply to libraries and any other proprietary elements you might want to use.",
+				"recommendation": "* Consider if you also need to claim ownership or give credits to creators.\n* Think about trademarks, copyrights in databases or training data, patents, license agreements that could be part of the dataset, library or module that you are using.\n* Legal ownership of digital data can sometimes be complex and uncertain so get the proper legal advise here.",
+				"sources": "",
+				"qr": "",
+				"categories": [
+					"Data & Data Governance"
+				],
+				"phases": [
+					"Design",
+					"Input",
+					"Output"
+				]
 			}
 		]
 	},
 	{
-		"category": "Accessibility",
-		"id": 2,
+		"category": "Bias, fairness & Discrimination",
+		"id": 3,
+		"colour": "f8d18c",
+		"cards": [
+			{
+				"question": "Can the data be representative of the different groups/populations?",
+				"threatif": "No",
+				"explanation": "* It is important to reduce the risk of bias and different types of discrimination. Did you consider diversity and representativeness of users/individuals in the data?\n* When applying statistical generalisation, the risk exists of making inferences due to misrepresentation, for instance: a postal code where mostly young families live can discriminate the few old families living there because they are not properly represented in the group.",
+				"recommendation": "* Who is covered and who is underrepresented?\n* Prevent disparate impact: when the output of a member of a minority group is disparate compared to representation of the group. Consider measuring the accuracy from minority classes too instead of measuring only the total accuracy. Adjusting the weighting factors to avoid disparate impact can result in positive discrimination which has also its own issues: disparate treatment.\n* One approach to addressing the problem of class imbalance is to randomly resample the training dataset. This technique can help to rebalance the class distribution when classes are under or over represented:\n - random oversampling (i.e. duplicating samples from the minority class)\n - random undersampling (i.e. deleting samples from the majority class)\n* There are trade-offs when determining an AI system’s metrics for success. It is important to balance performance metrics against the risk of negatively impacting vulnerable populations.\n* When using techniques like statistical generalisation is important to know your data well, and get familiarised with who is and who is not represented in the samples. Check the samples for expectations that can be easily verified. For example, if half the population is known to be female, then you can check if approximately half the sample is female.",
+				"sources": "**Related to disparate impact**\n[AI Fairness - Explanation of Disparate Impact Remover](https://towardsdatascience.com/ai-fairness-explanation-of-disparate-impact-remover-ce0da59451f1)\n[Mitigating Bias in AI/ML Models with Disparate Impact Analysis](https://medium.com/@kguruswamy_37814/mitigating-bias-in-ai-ml-models-with-disparate-impact-analysis-9920212ee01c)\n[Certifying and removing disparate impact](https://arxiv.org/abs/1412.3756)\n[Avoiding Disparate Impact with Counterfactual Distributions](https://oconnell.fas.harvard.edu/files/hao/files/wesgai.pdf)\n\n**Related to random resampling**\n[Oversampling and Undersampling](https://towardsdatascience.com/oversampling-and-undersampling-5e2bbaf56dcf)\n[Random Oversampling and Undersampling for Imbalanced Classification](https://machinelearningmastery.com/random-oversampling-and-undersampling-for-imbalanced-classification/)\n\n**Related to Statistical Generalization**\n[Generalization in quantitative and qualitative research: Myths and strategies](https://core.ac.uk/download/pdf/49282746.pdf)\n[Generalizing Statistical Results to the Entire Population](https://www.dummies.com/article/academics-the-arts/math/statistics/generalizing-statistical-results-to-the-entire-population-201267/)",
+				"qr": "",
+				"categories": [
+					"Bias, fairness & Discrimination",
+					"Data & Data Governance"
+				],
+				"phases": [
+					"Design",
+					"Input",
+					"Model",
+					"Output"
+				]
+			},
+			{
+				"question": "Could actions be incorrectly attributed to an individual or group?",
+				"threatif": "Yes",
+				"explanation": "Your AI system could have an adverse impact on individuals by incorrectly attributing them facts or actions. For instance, a facial recognition system that identifies a person incorrectly, or an inaccurate risk prediction model that could negatively impact an individual.",
+				"recommendation": "* Evaluate the possible consequences of inaccuracies of your AI system and implement measures to prevent these errors from happening: avoiding bias and discrimination during the life cycle of the model, ensuring the quality of the input data, implementing a strict human oversight process, ways to double check the results with extra evidence, implementing safety and redress mechanisms, etc.\n* Assess the impact on the different human rights of the individual.\n* Consider not to implement such a system if you cannot mitigate the risks.",
+				"sources": "",
+				"qr": "",
+				"categories": [
+					"Bias, Fairness & Discrimination"
+				],
+				"phases": [
+					"Design",
+					"Input",
+					"Model",
+					"Output"
+				]
+			},
+			{
+				"question": "Bias & Discrimination: could there be groups who might be disproportionately affected by the outcomes of the AI system?",
+				"threatif": "yes",
+				"explanation": "* Could the AI system potentially negatively discriminate against people on the basis of any of the following grounds: sex, race, colour, ethnic or social origin, genetic features, language, religion or belief, political or any other opinion, membership of a national minority, property, birth, disability, age, gender or sexual orientation?\n* If your model is learning from data specific to some cultural background then the output could be discriminating for members of other cultural backgrounds.",
+				"recommendation": "* Consider the different types of users and contexts where your product is going to be used.\n* Consider the impact of diversity of backgrounds, cultures, and other important different attributes when selecting your input data, features and when testing the output.\n* Assess the risk of possible unfairness towards individuals or communities to avoid discriminating minority groups.\n* The disadvantage to people depends on the kind of harm, severity of the harm and significance (how many people are put at a disadvantage compared to another group of people). Statistical assessments on group differences are an important tool to assess unfair and discriminatory uses of AI.\n* Design with empathy, diversity and respect in mind.",
+				"sources": "[Why Fairness Cannot Be Automated: Bridging the Gap Between EU Non-Discrimination Law and AI](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3547922)\n[The Fairness Handbook](https://www.amsterdamintelligence.com/resources/the-fairness-handbook)",
+				"qr": "",
+				"categories": [
+					"Bias, Fairness & Discrimination"
+				],
+				"phases": [
+					"Design",
+					"Input",
+					"Model",
+					"Output"
+				]
+			},
+			{
+				"question": "Could our AI system not be representing current social needs and social context?",
+				"threatif": "Yes",
+				"explanation": "The datasets that you want to use might not be representative of the current social situation. In that case the output of the model is also not representative of the current reality. Depending on the type of product you are designing this could have a big impact on the individual.",
+				"recommendation": "Make sure that you are using correct, complete, accurate and current data. Also make sure that you have sufficient data to represent all possible contexts that you might need.",
+				"sources": "",
+				"qr": "",
+				"categories": [
+					"Bias, Fairness & Discrimination"
+				],
+				"phases": [
+					"Design",
+					"Input",
+					"Model",
+					"Output"
+				]
+			},
+			{
+				"question": "Could our AI system automatically label or categorize people?",
+				"threatif": "Yes",
+				"explanation": "* This could have an impact on the way individuals perceive themselves and society. It could constrain identity options and even contribute to erase real identity of the individuals.\n* This threat is also important when designing robots and the way they look. For instance: do care/assistant robots need to have a feminine appearance? Is that the perception you want to give to the world or the one accepted by certain groups in society? What impact does it have on society?",
+				"recommendation": "* It is important that you check the output of your model, not only in isolation but also when this is linked to other information. Think in different possible scenarios that could affect the individuals. Is your output categorizing people or helping to categorize them? In which way? What could be the impact?\n* Think about ways to prevent adverse impact to the individual: provide information to the user, consider changing the design (maybe using different features or attributes?), consider ways to prevent misuse of your output, consider not to release the product to the market.",
+				"sources": "",
+				"qr": "",
+				"categories": [
+					"Bias, Fairness & Discrimination"
+				],
+				"phases": [
+					"Design",
+					"Input",
+					"Model",
+					"Output"
+				]
+			}
+		]
+	},
+	{
+		"category": "Transparency & Accessibility",
+		"id": 4,
 		"colour": "7fccdc",
 		"cards": [
+			{
+				"question": "Does the model need to be explainable for the users or affected persons?",
+				"threatif": "Yes",
+				"explanation": "Do you need to be able to give a clear explanation to the user about the logic that the AI system used to reach a certain decision? And can that decision have a big impact on the user?",
+				"recommendation": "* Evaluate the type of models that you could use to solve the problem as specified in your task.\n* Consider what the impact is if certain black box models cannot be used and interpretability tools do not offer sufficient results. You might need to evaluate a possible change in strategy.\n* Data scientists can evaluate the impact from a technical perspective and discuss this with the rest of stakeholders. The decision keeps being a team effort.",
+				"sources": "[Explainable Artificial Intelligence (XAI)](https://www.darpa.mil/program/explainable-artificial-intelligence)\n[LIME](https://github.com/marcotcr/lime)\n[Why Should I Trust You? Explaining the Predictions of Any Classifier](https://arxiv.org/pdf/1602.04938.pdf)\n[SHAP and LIME: An Evaluation of Discriminative Power in Credit Risk](https://www.frontiersin.org/articles/10.3389/frai.2021.752558/full)\n[Explainable AI](https://www.ibm.com/watson/explainable-ai)\n[Explainable AI - The TAILOR Handbook of Trustworthy AI](http://tailor.isti.cnr.it/handbookTAI/T3.1/T3.1.html)",
+				"qr": "",
+				"categories": [
+					"Transparency & Accessibility",
+					"Accountability & Human Oversight"
+				],
+				"phases": [
+					"Design",
+					"Input",
+					"Model",
+					"Output"
+				]
+			},
 			{
 				"question": "Can our system's user interface be used by those with special needs or disabilities?",
 				"threatif": "No",
@@ -271,21 +406,6 @@
 				"phases": [
 					"Design",
 					"Model",
-					"Output"
-				]
-			},
-			{
-				"question": "Do we need to implement an age gate to use our product?",
-				"threatif": "Yes",
-				"explanation": "* Is your product not meant to be used by children? You might need to implement an age verification mechanism to prevent children from accessing the product.\n* Age verification can also be important to provide the right diagnosis (health sector).",
-				"recommendation": "* Clearly specify in the user instructions for which age group the application is built. Labels or symbols can be very helpful.\n* Consider which design is more appropriate based on your use case, and consider the possible risks associated with your design choice, and the mitigating measures you can implement to reduce that risk. Document the rest risks that you want to accept.\n* Test the accessibility of your design with different age groups.",
-				"sources": "[Evolution in Age-Verification Applications](https://montrealethics.ai/evolution-in-age-verification-applications-can-ai-open-some-new-horizons/)",
-				"qr": "",
-				"categories": [
-					"Safety & Environmental Impact"
-				],
-				"phases": [
-					"Design",
 					"Output"
 				]
 			},
@@ -338,12 +458,321 @@
 					"Model",
 					"Output"
 				]
+			},
+			{
+				"question": "Do we need to inform users that they are interacting with an AI system?",
+				"threatif": "Yes",
+				"explanation": "* Are users adequately made aware that a decision, content, advice or outcome is the result of an algorithmic decision?\n* Could the AI system generate confusion for some or all users on whether they are interacting with a human or AI system?",
+				"recommendation": "In cases of interactive AI systems (e.g., chatbots, robots) you should inform the users that they are interacting with an AI system instead of a human. This information should be received at the beginning of the interaction.",
+				"sources": "",
+				"qr": "",
+				"categories": [
+					"Transparency & Accessibility"
+				],
+				"phases": [
+					"Design",
+					"Output"
+				]
+			},
+			{
+				"question": "Can we provide the necessary information to the users about possible impacts, benefits and potential risks?",
+				"threatif": "No",
+				"explanation": "* Did you establish mechanisms to inform users about the purpose, criteria and limitations of decisions generated by the AI system?\n* If an AI-assisted decision has been made about a person without any type of explanation or information then this may limit that person's autonomy, scope and self-determination. This is unlikely to be fair.",
+				"recommendation": "* Provide clear information about how and why an AI-assisted decision was made and which personal data was used to train and test the model.\n* The model you choose should be at the right level of interpretability for your use case and for the impact it will have on the decision recipient. If you use a black box model make sure the supplementary explanation techniques you use provide a reliable and accurate representation of the systems behaviour. Source: UK ICO\n* Communicate the benefits, the technical limitations and potential risks of the AI system to users, such as its level of accuracy and/or error rates.\n* Ask your users (with a survey for instance) if they understand the decisions that your product makes.",
+				"sources": "",
+				"qr": "",
+				"categories": [
+					"Transparency & Accessibility"
+				],
+				"phases": [
+					"Design",
+					"Model",
+					"Output"
+				]
+			},
+			{
+				"question": "Can users anticipate the actions of the AI system?",
+				"threatif": "No",
+				"explanation": "Are users aware of the capabilities of the AI system? Users need to be informed about what to expect, not only for transparency reasons but in some products also for safety precautions.",
+				"recommendation": "* Consider this as part of the GDPR transparency principle.\n* Users should be aware of what the AI system can do.\n* Clear Information should be provided on time and made accessible following accessibility design principles.",
+				"sources": "[GDPR transparency principle](https://gdpr-info.eu/recitals/no-58/)",
+				"qr": "",
+				"categories": [
+					"Transparency & Accessibility"
+				],
+				"phases": [
+					"Design",
+					"Model",
+					"Output"
+				]
+			},
+			{
+				"question": "Can we expect mostly positive reactions from the users or individuals?",
+				"threatif": "No",
+				"explanation": "* Do the users expect a product functioning like this?\n* Do the users or individuals expect this type of processing of personal data?\n* Can you roll back if people are not happy with the product?",
+				"recommendation": "* Consider the different types of users and contexts your product is going to be used.\n* Consider diversity of backgrounds, cultures, and many other important different attributes.\n* Do enough user testing, like FUPs - Friendly User Pilots.\n* Design with empathy, diversity and respect in mind.\n* Assess the risk of possible unfairness towards individuals or communities to avoid discriminating minority groups and also to prevent a bad reputation for your organisation.",
+				"sources": "",
+				"qr": "",
+				"categories": [
+					"Transparency & Accessibility"
+				],
+				"phases": [
+					"Design",
+					"Input",
+					"Model",
+					"Output"
+				]
+			},
+			{
+				"question": "Can our AI system be inclusive and represent different norms and values?",
+				"threatif": "No",
+				"explanation": "* Can we build a model that is inclusive? \n* Could cultural and language differences be an issue when it comes to the ethical nuance of your algorithm? Well-meaning values can create unintended consequences.\n* Must the AI system understand the world in all its different contexts?\n* Could ambiguity in rules you teach the AI system be a problem?\n* Can your system interact equitably with users from different cultures and with different abilities?",
+				"recommendation": "* Consider designing with value alignment, what means that you want to ensure consideration of existing values and sensitivity to a wide range of cultural norms and values.\n* Make sure that when you test the product you include a large diversity in type of users.\n* Think carefully about what diversity means in the context where the product is going to be used.\n* Remember that this is a team effort and not an individual decision!",
+				"sources": "[Value alignment](https://www.ibm.com/design/ai/ethics/value-alignment/)\n[Online Ethics Canvas](https://www.ethicscanvas.org/canvas/index.php)\n[AI Values and Alignment](https://www.deepmind.com/publications/artificial-intelligence-values-and-alignment)",
+				"qr": "",
+				"categories": [
+					"Transparency & Accessibility",
+					"Bias, Fairness & Discrimination"
+				],
+				"phases": [
+					"Design",
+					"Input",
+					"Model",
+					"Output"
+				]
 			}
 		]
 	},
 	{
-		"category": "Identifiability & Linkability",
-		"id": 3,
+		"category": "Safety & Environmental Impact",
+		"id": 5,
+		"colour": "f7f09f",
+		"cards": [
+			{
+				"question": "Could the channels that we will use to collect real-time input data fail?",
+				"threatif": "Yes",
+				"explanation": "* Are these channels trustworthy?\n* What will happen in case of failure?\n* Think for instance about IoT devices used as sensors.",
+				"recommendation": "* If you are collecting/receiving data from sensors, consider estimating the impact it could have on your model if any of the sensors fail and your input data gets interrupted or corrupted.\n* Sensor blinding attacks are one example of a risk faced by poorly designed input gathering systems. Note that consistent feature identification related to sensors is likely to require human calibration. Source: [BerryVilleiML](https://berryvilleiml.com/)",
+				"sources": "",
+				"qr": "",
+				"categories": [
+					"Safety & Environmental Impact",
+					"Cybersecurity"
+				],
+				"phases": [
+					"Design",
+					"Input",
+					"Output"
+				]
+			},
+			{
+				"question": "Do we need to implement an age gate to use our product?",
+				"threatif": "Yes",
+				"explanation": "* Is your product not meant to be used by children? You might need to implement an age verification mechanism to prevent children from accessing the product.\n* Age verification can also be important to provide the right diagnosis (health sector).",
+				"recommendation": "* Clearly specify in the user instructions for which age group the application is built. Labels or symbols can be very helpful.\n* Consider which design is more appropriate based on your use case, and consider the possible risks associated with your design choice, and the mitigating measures you can implement to reduce that risk. Document the rest risks that you want to accept.\n* Test the accessibility of your design with different age groups.",
+				"sources": "[Evolution in Age-Verification Applications](https://montrealethics.ai/evolution-in-age-verification-applications-can-ai-open-some-new-horizons/)",
+				"qr": "",
+				"categories": [
+					"Safety & Environmental Impact"
+				],
+				"phases": [
+					"Design",
+					"Output"
+				]
+			},
+			{
+				"question": "Can our AI system scale in performance from data input to data output?",
+				"threatif": "No",
+				"explanation": "Can your algorithm scale in performance from the data it learned on to real data? In online situations the rate at which data comes into the model may not align with the rate of anticipated data arrival. This can lead to both outright ML system failure and to a system that “chases\" its own tail.\nSource: [BerryVilleiML](https://berryvilleiml.com/interactive/)",
+				"recommendation": "* Find out what the rate would be of expected data arrival to your model and perform tests in a similar environment with similar amount of data input.\n* Implement measures to make your model scalable.",
+				"sources": "[Securing Machine Learning Algorithms, ENISA](https://www.enisa.europa.eu/publications/securing-machine-learning-algorithms)\n[STRIDE-AI: An Approach to Identifying Vulnerabilities of Machine Learning Assets](https://github.com/LaraMauri/STRIDE-AI)\n[Stride-ML Threat Model]( https://csf.tools/reference/stride-lm/)\n[MITRE ATLAS™ - Adversarial Threat Landscape for Artificial-Intelligence Systems](https://atlas.mitre.org/)",
+				"qr": "",
+				"categories": [
+					"Safety & Environmental Impact",
+					"Cybersecurity"
+				],
+				"phases": [
+					"Design",
+					"Input",
+					"Model",
+					"Output"
+				]
+			},
+			{
+				"question": "Could environmental phenomena or natural disasters have a negative impact on our AI system?",
+				"threatif": "Yes",
+				"explanation": "* Examples of environmental phenomena are heating, cooling and climate change.\n* Examples of natural disasters to take into account are earthquakes, floods and fires.\nEnvironmental phenomena may adversely influence the operation of IT infrastructure and hardware systems that support AI systems.\nNatural disasters may lead to unavailability or destruction of the IT infrastructures and hardware that enables the operation, deployment and maintenance of AI systems.\nSuch outages may lead to delays in decision-making, delays in the processing of data streams and entire AI systems being placed offline. Sources: [ENISA](https://www.enisa.europa.eu/publications/artificial-intelligence-cybersecurity-challenges)",
+				"recommendation": "Implement a disaster discovery plan considering different scenarios, impact, Recovery Time Objective (RTO), Recovery Point Objective (RPO) and mitigation measures.",
+				"sources": "[Securing Machine Learning Algorithms, ENISA](https://www.enisa.europa.eu/publications/securing-machine-learning-algorithms)\n[STRIDE-AI: An Approach to Identifying Vulnerabilities of Machine Learning Assets](https://github.com/LaraMauri/STRIDE-AI)\n[Stride-ML Threat Model]( https://csf.tools/reference/stride-lm/)\n[MITRE ATLAS™ - Adversarial Threat Landscape for Artificial-Intelligence Systems](https://atlas.mitre.org/)",
+				"qr": "",
+				"categories": [
+					"Safety & Environmental Impact"
+				],
+				"phases": [
+					"Design",
+					"Input",
+					"Model",
+					"Output"
+				]
+			},
+			{
+				"question": "In case of system failure, could users be adversely impacted?",
+				"threatif": "Yes",
+				"explanation": "* Do you have a mechanism implemented to stop the processing in case of harm?\n* Do you have a way to identify and contact affected individuals and mitigate the adverse impacts?\n* Imagine a scenario where your AI system, a care-robot, is taking care of an individual (the patient) by performing some specific tasks and that this individual depends on this care.",
+				"recommendation": "* Implement some kind of *stop button* or procedure to safely abort an operation when needed.\n* Establish a detection and response mechanism for undesirable adverse effects on individuals.\n* Define criticality levels of the possible consequences of faults/misuse of the AI system: what type of harm could be caused to the individuals, environment or organisations?",
+				"sources": "",
+				"qr": "",
+				"categories": [
+					"Safety & Environmental Impact"
+				],
+				"phases": [
+					"Design",
+					"Model",
+					"Output"
+				],
+				"id": 44
+			},
+			{
+				"question": "Could our AI system have an adverse impact on the environment?",
+				"threatif": "Yes",
+				"explanation": "* Ideally only models are used that do not demand the consumption of energy or natural resources beyond what is sustainable.\n* Your product should be designed with the dimension of environmental protection and improvement in mind.",
+				"recommendation": "* Establish mechanisms to evaluate the environmental impact of your AI system; for example, the amount of energy used and carbon emissions.\n* Implement measures to reduce the environmental impact of the AI system throughout its lifecycle.",
+				"sources": "[UNSDGs United Nations Sustainable Development goals](https://www.un.org/development/desa/disabilities/about-us/sustainable-development-goals-sdgs-and-disability.html)",
+				"qr": "",
+				"categories": [
+					"Safety & Environmental Impact"
+				],
+				"phases": [
+					"Design",
+					"Input",
+					"Model",
+					"Output"
+				]
+			},
+			{
+				"question": "Is our AI model suitable and robust for its intended use across different deployment contexts?",
+				"threatif": "Yes",
+				"explanation": "Are you testing the product in a real environment before releasing it?\n When deploying an AI model, it is critical to ensure that it aligns with the intended use and functions effectively in its operational environment. If the model is trained and tested on data from one context but deployed in a different one, there is a significant risk of performance degradation or unintended behavior. This is particularly important in cases where environmental changes, unexpected inputs, or shifts in user interaction occur. Additionally, reinforcement learning models may require retraining when objectives or environments deviate slightly from the training setup. Beyond data, other contextual factors like legal, cultural, or operational constraints must be considered to ensure successful deployment",
+				"recommendation": "* Use different data for testing and training. Make sure diversity is reflected in the data and that it aligns with the intended deployment environment. Specify your training approach, statistical methods, and ensure edge cases are adequately tested. Explore different environments and contexts to make sure your model is trained with the expected variations in data sources. \n* For reinforcement learning, ensure the objective functions are robust and adaptable to slight changes in the environment. \n* Are you considering enough aspects beyond data, such as legal, cultural, or operational factors? Did you forget any environmental variable that could affect performance or safety? Could limited sampling due to high costs or practical constraints pose a challenge? Document these risks and seek organizational support. The organization is accountable for mitigating or accepting these risks, which may require additional budget or resources. \n*  Consider applying techniques such as cultural effective challenge. This creates an environment where technology developers and stakeholders can actively participate in questioning the AI design and process. This approach better integrates social, cultural, and contextual factors into the design and helps prevent issues such as target leakage, where the AI system trains for an unintended purpose. \n* Set up mechanisms for real-time monitoring post-deployment. Continuously validate that the system is aligned with its intended use and can adapt or alert for significant changes in context or input. \n* Engage end-users in real-world testing to bridge any gaps between assumptions and practical application.",
+				"sources": "Information about *cultural effective challenge*:   [A Proposal for Identifying and Managing Bias in Artificial Intelligence](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.1270-draft.pdf)",
+				"qr": "",
+				"categories": [
+					"Safety & Environmental Impact"
+				],
+				"phases": [
+					"Design",
+					"Input",
+					"Model",
+					"Output"
+				]
+			},
+			{
+				"question": "Could the AI system become persuasive causing harm to the individual?",
+				"threatif": "Yes",
+				"explanation": "* This is of special importance in Human Robot Interaction (HRI): If the robot can achieve reciprocity when interacting with humans, could there be a risk of manipulation and human compliance?\n* Reciprocity is a social norm of responding to a positive action with another positive action, rewarding kind actions. As a social construct, reciprocity means that in response to friendly actions, people are frequently much nicer and much more cooperative than predicted by the self-interest model; conversely, in response to hostile actions they are frequently much more nasty and even brutal. Source: Wikipedia",
+				"recommendation": "* Signals of susceptibility coming from a robot or computer could have an impact on the willingness of humans to cooperate or take advice from it.\n* It is important to consider and test this possible scenario when your AI system is interacting with humans and some type of collaboration/cooperation in expected.",
+				"sources": "[The role of reciprocity in human-robot social influence](https://www.sciencedirect.com/science/article/pii/S258900422101395X)\n[Reciprocity in Human-Robot Interaction](https://ir.canterbury.ac.nz/bitstream/handle/10092/100798/Reciprocity-human-condition.pdf?sequence=2&isAllowed=y)\n[Social robots and the risks to reciprocity](https://link.springer.com/article/10.1007/s00146-021-01207-y)",
+				"qr": "",
+				"categories": [
+					"Safety & Environmental Impact"
+				],
+				"phases": [
+					"Design",
+					"Input",
+					"Model",
+					"Output"
+				]
+			},
+			{
+				"question": "Could our AI agents develop strategies that could have undesired negative side effects on the environment?",
+				"threatif": "Yes",
+				"explanation": "* Reinforcement Learning (RL) is an area of machine learning concerned with how intelligent agents ought to take actions in an environment in order to maximize the notion of cumulative reward. Source: [Wikipedia](https://en.wikipedia.org/wiki/Reinforcement_learning)\n\n* To better understand the threat consider a case where a robot is built to move an object, without manually programming a separate penalty for each possible bad behaviour. If the objective function is not well defined, the AI’s ability to develop its own strategies can lead to unintended, harmful side effects. In this case, the objective of moving an object seems simple, yet there are a myriad of ways in which this could go wrong. For instance, if a vase is in the robot’s path, the robot may knock it down in order to complete the goal. Since the objective function does not mention anything about the vase, the robot wouldn’t know how to avoid it. Source: [OpenAI](https://openai.com/blog/concrete-ai-safety-problems/)",
+				"recommendation": "AI systems don’t share our understanding of the world. It is not sufficient to formulate the objective as “complete task X”; the designer also needs to specify the safety criteria under which the task is to be completed. A better strategy could be to define a *budget* for how much the AI system is allowed to impact the environment. This would help to minimize the unintended impact, without neutralizing the AI system.\n\nAnother approach would be training the agent to recognize harmful side effects so that it can avoid actions leading to such side effects. In that case, the agent would be trained for two tasks: the original task that is specified by the objective function and the task of recognizing side effects.\nThe AI system would still need to undergo extensive testing and critical evaluation before deployment in real life settings.\nSource: [OpenAI](https://openai.com/blog/concrete-ai-safety-problems/)",
+				"sources": "[Concrete Problems in AI Safety](https://arxiv.org/pdf/1606.06565.pdf)\n[Concrete AI Safety Problems](https://openai.com/blog/concrete-ai-safety-problems/)",
+				"qr": "",
+				"categories": [
+					"Safety & Environmental Impact"
+				],
+				"phases": [
+					"Design",
+					"Input",
+					"Model",
+					"Output"
+				]
+			},
+			{
+				"question": "Could our AI agents “hack” their reward functions to exploit the system?",
+				"threatif": "Yes",
+				"explanation": "* Reinforcement Learning (RL) is an area of machine learning concerned with how intelligent agents ought to take actions in an environment in order to maximize the notion of cumulative reward. Source: [Wikipedia](https://en.wikipedia.org/wiki/Reinforcement_learning)\n\n* Consider potential negative consequences from the AI system\nlearning novel or unusual methods to score well on its objective function.\nSometimes the AI can come up with some kind of “hack” or loophole in the design of the system to receive unearned rewards. Since the AI is trained to maximize its rewards, looking for such loopholes and “shortcuts” is a perfectly fair and valid strategy for the AI. For example, suppose that the office cleaning robot earns rewards only if it does not see any garbage in the office. Instead of cleaning the place, the robot could simply shut off its visual sensors, and thus achieve its goal of not seeing garbage.\nSource: [OpenAI]( https://openai.com/blog/concrete-ai-safety-problems/)",
+				"recommendation": "One possible approach to mitigating this problem would be to have a “reward agent” whose only task is to mark if the rewards given to the learning agent are valid or not. The reward agent ensures that the learning agent (robot for instance) does not exploit the system, but rather, completes the desired objective. For example: a “reward agent” could be trained by the human designer to check if a room has been properly cleaned by the cleaning robot. If the cleaning robot shuts off its visual sensors to avoid seeing garbage and claims a high reward, the “reward agent” would mark the reward as invalid because the room is not clean. The designer can then look into the rewards marked as “invalid” and make necessary changes in the objective function to fix the loophole. Source: [OpenAI]( https://openai.com/blog/concrete-ai-safety-problems/)",
+				"sources": "[Concrete Problems in AI Safety](https://arxiv.org/pdf/1606.06565.pdf)\n[Concrete AI Safety Problems](https://openai.com/blog/concrete-ai-safety-problems/)",
+				"qr": "",
+				"categories": [
+					"Safety & Environmental Impact"
+				],
+				"phases": [
+					"Design",
+					"Input",
+					"Model",
+					"Output"
+				]
+			},
+			{
+				"question": "Can our AI/ML system be robust to changes in the data distribution?",
+				"threatif": "No",
+				"explanation": "A complex challenge for deploying AI agents in real life settings is that the agent could end up in situations that it has never experienced before. Such situations are inherently more difficult to handle and could lead the agent to take harmful actions.\nSource: [OpenAI](https://openai.com/blog/concrete-ai-safety-problems/)",
+				"recommendation": "One promising research direction focuses on identifying when the agent has encountered a new scenario so that it recognizes that it is more likely to make mistakes. While this does not solve the underlying problem of preparing AI systems for unforeseen circumstances, it helps in detecting the problem before mistakes happen. Another direction of research emphasizes transferring knowledge from familiar scenarios to new scenarios safely. Source: [OpenAI](https://openai.com/blog/concrete-ai-safety-problems/)",
+				"sources": "[Concrete Problems in AI Safety](https://arxiv.org/pdf/1606.06565.pdf)\n[Concrete AI Safety Problems](https://openai.com/blog/concrete-ai-safety-problems/)",
+				"qr": "",
+				"categories": [
+					"Safety & Environmental Impact"
+				],
+				"phases": [
+					"Design",
+					"Input",
+					"Model",
+					"Output"
+				]
+			},
+			{
+				"question": "Can our AI agents learn about their environment without causing harm or catastrophic actions?",
+				"threatif": "No",
+				"explanation": "* Reinforcement Learning (RL) is an area of machine learning concerned with how intelligent agents ought to take actions in an environment in order to maximize the notion of cumulative reward. Source: [Wikipedia](https://en.wikipedia.org/wiki/Reinforcement_learning)\n\n* **Safe exploration**: An important part of training an AI agent is to ensure that it explores and understands its environment. While exploring, the agent might also take some action that could damage itself or the environment. Source: [OpenAI](https://openai.com/blog/concrete-ai-safety-problems/)",
+				"recommendation": "One approach to reduce harm is to optimize the performance of the learning agent in the worst case scenario. When designing the objective function, the designer should not assume that the agent will always operate under optimal conditions. Some explicit reward signal may be added to ensure that the agent does not perform some catastrophic action, even if that leads to more limited actions in the optimal conditions. Source: [OpenAI](https://openai.com/blog/concrete-ai-safety-problems/)",
+				"sources": "[Concrete Problems in AI Safety](https://arxiv.org/pdf/1606.06565.pdf)\n[Concrete AI Safety Problems](https://openai.com/blog/concrete-ai-safety-problems/)",
+				"qr": "",
+				"categories": [
+					"Safety & Environmental Impact"
+				],
+				"phases": [
+					"Design",
+					"Input",
+					"Model",
+					"Output"
+				]
+			},
+			{
+				"question": "Could children be part of the users of our AI system",
+				"threatif": "Yes",
+				"explanation": "* If children are potential users or exposed to your AI system, it is essential to ensure that the system respects the rights and best interests of the child. \n* This includes considering child protection, ethical communication, and designing the system to avoid harm or exploitation. \n* Inappropriate design or oversight could lead to risks to children’s mental, moral, or physical well-being, including potential misuse of the system by others to harm children.",
+				"recommendation": "* Assess whether an age verification mechanism is necessary to restrict access to certain features or content.\n* Adapt communication and design in both the product and associated documentation, such as the privacy policy, to be child-appropriate and transparent.\n* Develop and enforce policies to ensure the safety and well-being of children when using or being exposed to your AI system.\n* Establish procedures to regularly assess and monitor the usage of your product to identify and mitigate any risks to children’s safety and health.\n* Provide clear labeling and instructions to ensure safe usage by children, including warnings about potential misuse.\n* Monitor for and address inappropriate or harmful usage of the AI system, including any attempts to exploit or harm children.\n* Develop a responsible marketing and advertising policy that explicitly avoids harmful, manipulative, or unethical practices targeting children",
+				"sources": "[Convention on the Rights of the Child](https://www.ohchr.org/en/instruments-mechanisms/instruments/convention-rights-child)",
+				"qr": "",
+				"categories": [
+					"Safety & Environmental Impact"
+				],
+				"phases": [
+					"Design",
+					"Input",
+					"Model",
+					"Output"
+				]
+			}
+		]
+	},
+	{
+		"category": "Privacy & Data Protection",
+		"id": 6,
 		"colour": "94cfbd",
 		"cards": [
 			{
@@ -355,23 +784,6 @@
 				"qr": "",
 				"categories": [
 					"Privacy & Data Protection"
-				],
-				"phases": [
-					"Design",
-					"Input",
-					"Model",
-					"Output"
-				]
-			},
-			{
-				"question": "Could actions be incorrectly attributed to an individual or group?",
-				"threatif": "Yes",
-				"explanation": "Your AI system could have an adverse impact on individuals by incorrectly attributing them facts or actions. For instance, a facial recognition system that identifies a person incorrectly, or an inaccurate risk prediction model that could negatively impact an individual.",
-				"recommendation": "* Evaluate the possible consequences of inaccuracies of your AI system and implement measures to prevent these errors from happening: avoiding bias and discrimination during the life cycle of the model, ensuring the quality of the input data, implementing a strict human oversight process, ways to double check the results with extra evidence, implementing safety and redress mechanisms, etc.\n* Assess the impact on the different human rights of the individual.\n* Consider not to implement such a system if you cannot mitigate the risks.",
-				"sources": "",
-				"qr": "",
-				"categories": [
-					"Bias, Fairness & Discrimination"
 				],
 				"phases": [
 					"Design",
@@ -396,12 +808,199 @@
 					"Model",
 					"Output"
 				]
+			},
+			{
+				"question": "Could geolocation restrictions or regional regulations impact the implementation of our AI system in other countries?",
+				"threatif": "Yes",
+				"explanation": "* AI systems often process sensitive data, including personal or location-based information, which may be subject to regional data sovereignty laws and ethical restrictions. Additionally, certain countries may restrict the deployment of AI technologies based on local regulatory frameworks, ethical concerns, or national security considerations. This could limit the usage of your product in those regions.",
+				"recommendation": " Stay informed about the evolving regulatory landscape for AI, including data sovereignty, privacy laws, and ethical standards in different countries. Engage legal and compliance experts to assess restrictions in your target markets.\n* Consider designing your AI system with adaptability for regional requirements, such as geofencing, localized processing, or compliance with specific regulations (e.g., GDPR, AI Act, CCPA).\n* Monitor new AI-related regulations and international agreements to proactively address potential restrictions or adapt your system to comply with local laws.*",
+				"sources": "",
+				"qr": "",
+				"categories": [
+					"Privacy & Data Protection"
+				],
+				"phases": [
+					"Design",
+					"Input",
+					"Output"
+				]
+			},
+			{
+				"question": "Is data minimization possible while ensuring compliance with regulations like GDPR and maintaining model performance?",
+				"threatif": "No",
+				"explanation": "The principle of data minimization, as outlined in the General Data Protection Regulation (GDPR) and reflected in many global privacy standards, requires that only data necessary for achieving the system's purpose is collected and processed. However, reducing data too much can sometimes negatively impact the accuracy and performance of AI models, leading to critical or damaging consequences. Balancing regulatory compliance with operational effectiveness is essential to avoid undermining the model's reliability while adhering to privacy principles",
+				"recommendation": "* Achieve data minimization by starting with a smaller dataset and iteratively adding data only as needed, based on observed performance improvements, to justify why additional data is necessary.\n* Use high-quality data to reduce the need for large datasets while ensuring sufficient diversity and representativeness for your model.\n* Apply advanced privacy-preserving techniques such as pseudonymization, perturbation, differential privacy, federated learning, or synthetic data generation to comply with privacy regulations while using larger datasets.\n* Collaborate with experts to select the minimum set of features needed, ensuring relevance to the objective and avoiding issues like the Curse of Dimensionality, which can degrade model performance when unnecessary features are included.",
+				"sources": "pag. 13 [Artificial Intelligence and Data Protection How the GDPR Regulates AI](https://www.informationpolicycentre.com/uploads/5/7/1/0/57104281/cipl-hunton_andrews_kurth_legal_note_-_how_gdpr_regulates_ai__12_march_2020_.pdf)\n[Data Minimization for GDPR Compliance in Machine Learning Models](https://arxiv.org/pdf/2008.04113.pdf): Methods like the one proposed in this paper can inspire you to find a way to mitigate the accuracy risk. They show how to reduce the amount of personal data needed to perform predictions, by removing or generalizing some of the input features.\nThe answer to this post also contains information about this problems in different models: [Does Dimensionality curse effect some models more than others?](https://stats.stackexchange.com/questions/186184/does-dimensionality-curse-effect-some-models-more-than-others)\n[Towards Breaking the Curse of Dimensionality for High-Dimensional Privacy](https://epubs.siam.org/doi/epdf/10.1137/1.9781611973440.84)",
+				"qr": "",
+				"categories": [
+					"Privacy & Data Protection"
+				],
+				"phases": [
+					"Design",
+					"Input",
+					"Model",
+					"Output"
+				]
+			},
+			{
+				"question": "Could we be processing sensitive data?",
+				"threatif": "Yes",
+				"explanation": "* According to art. 9 GDPR you might not be allowed to process, under certain circunstances, personal data revealing racial or ethnic origin, political opinions, religious or philosophical beliefs, trade union membership, genetic data, biometric data, health data or data concerning a person’s sex life or sexual orientation.\n* You might be processing sensitive data if the model includes features that are correlated with these protected characteristics (these are called proxies).",
+				"recommendation": "* If you need to use special categories of data as defined in the GDPR art. 9, then you need to check if you have the right lawful basis to do this.\n* Applying techniques like anonymisation might still not justify the fact that you first need to process the original data. Check with your privacy/legal experts.\n* Prevent proxies that could infer sensitive data (especially from vulnerable populations).\n* Check if historical data/practices might bias your data.\n* Identify and remove features that are correlated to sensitive characteristics.\n* Use available methods to test for fairness with respect to different affected groups.",
+				"sources": "[AI Fairness 360](https://aif360.mybluemix.net)\n[What-if Tool: Playing with AI Fairness](https://pair-code.github.io/what-if-tool/ai-fairness.html)\n[Hunting for Discriminatory Proxies in Linear Regression Models](https://papers.nips.cc/paper/7708-hunting-for-discriminatory-proxies-in-linear-regression-models.pdf)\n[Differential Privacy Blog Series](https://www.nist.gov/itl/applied-cybersecurity/privacy-engineering/collaboration-space/focus-areas/de-id/dp-blog)",
+				"qr": "",
+				"categories": [
+					"Privacy & Data Protection"
+				],
+				"phases": [
+					"Design",
+					"Input",
+					"Model",
+					"Output"
+				]
+			},
+			{
+				"question": "Do we have a lawful basis for processing the personal data?",
+				"threatif": "No",
+				"explanation": "Do you know which GDPR legal ground you can apply?\n* (a) Consent: the individual has given clear consent for you to process their personal data for a specific purpose.\n* (b) Contract: the processing is necessary for a contract you have with the individual, or because they have asked you to take specific steps before entering into a contract.\n* (c) Legal obligation: the processing is necessary for you to comply with the law (not including contractual obligations).\n* (d) Vital interests: the processing is necessary to protect someone’s life.\n* (e) Public task: the processing is necessary for you to perform a task in the public interest or for your official functions, and the task or function has a clear basis in law.\n* (f) Legitimate interests: the processing is necessary for your legitimate interests or the legitimate interests of a third party, except where such interests are overridden by the interests or fundamental rights and freedoms of the individual which require protection of personal data, in particular where the individual is a child. (This cannot apply if you are a public authority processing data to perform your official tasks.)",
+				"recommendation": "In the case of the GDPR you need to be able to apply one of the six available legal grounds for processing the data (art. 6). Check with your privacy expert, not being able to apply one of the legal grounds could bring the project in danger.\n\nTake into account, that also other laws besides the GDPR could be applicable.",
+				"sources": "[Lawful basis for processing](https://ico.org.uk/for-organisations/guide-to-data-protection/guide-to-the-general-data-protection-regulation-gdpr/lawful-basis-for-processing/)\n[Artificial Intelligence and Data Protection How the GDPR Regulates AI](https://www.informationpolicycentre.com/uploads/5/7/1/0/57104281/cipl-hunton_andrews_kurth_legal_note_-_how_gdpr_regulates_ai__12_march_2020_.pdf)",
+				"qr": "",
+				"categories": [
+					"Privacy & Data Protection"
+				],
+				"phases": [
+					"Design",
+					"Input",
+					"Model",
+					"Output"
+				]
+			},
+			{
+				"question": "Can we comply with the purpose limitation principle under GDPR and other global privacy regulations?",
+				"threatif": "No",
+				"explanation": "* The principle of purpose limitation, as defined in the General Data Protection Regulation (GDPR) and echoed in many global privacy frameworks, requires that personal data is collected for specified, explicit, and legitimate purposes and not further processed in a way incompatible with those purposes. Data repurposing is a significant challenge when applying this principle. If datasets were originally collected for a different purpose, their reuse without proper consent or legal justification may violate privacy regulations and ethical standards.",
+				"recommendation": "Consult with your privacy officer or legal team to verify the original purpose of the data collection and evaluate any constraints or legal requirements. If data repurposing is necessary, consider obtaining additional consent, performing a legitimate interest assessment, or applying anonymization techniques to ensure compliance. Additionally, document all decisions and justifications for data reuse to demonstrate accountability under privacy regulations.",
+				"sources": "",
+				"qr": "",
+				"categories": [
+					"Privacy & Data Protection"
+				],
+				"phases": [
+					"Design",
+					"Input",
+					"Model",
+					"Output"
+				]
+			},
+			{
+				"question": "Can we comply with all the applicable GDPR data subjects’ rights?",
+				"threatif": "No",
+				"explanation": "* Can you implement the right to withdraw consent, the right to object to the processing and the right to be forgotten into the development of the AI system?\n* Can you provide individuals with access and a way to rectify their data?",
+				"recommendation": "* Complying with these provisions from the GDPR (art. 15-21) could have an impact on the design of your product. What if users withdraw their consent? Do you need to delete their data used to train the model? What if you cannot identify the users in the datasets anymore? And what information should the users have access to?\n* Consider all these possible scenarios and involve your privacy experts early in the design phase.",
+				"sources": "",
+				"qr": "",
+				"categories": [
+					"Privacy & Data Protection"
+				],
+				"phases": [
+					"Design",
+					"Input",
+					"Model",
+					"Output"
+				]
+			},
+			{
+				"question": "Do we need to start conducting a Data Protection Impact Assessment (DPIA) to address privacy risks?",
+				"threatif": "No",
+				"explanation": "The use of AI is more likely to trigger the requirement for a DPIA, based on criteria in Art 35 GDPR. The GDPR and the EDPB’s Guidelines on DPIAs identify both “new technologies” and the type of automated decision-making that produce legal effects or similarly significantly affect persons as likely to result in a “high risk to the rights and freedoms of natural persons”.",
+				"recommendation": "* This threat modeling library can help you to assess possible risks.\n* Remember that a DPIA is not a piece of paper that needs to be done once the product is in production. The DPIA starts in the design phase by finding and assessing risks, documenting them and taking the necessary actions to create a responsible product from day one until it is finalized.\n* Consider the time and resources that you might need for the execution of a DPIA, as it could have some impact on your project deadlines.",
+				"sources": "",
+				"qr": "",
+				"categories": [
+					"Privacy & Data Protection"
+				],
+				"phases": [
+					"Design",
+					"Input",
+					"Model",
+					"Output"
+				]
+			},
+			{
+				"question": "Are we using third-party providers while processing data from children or other vulnerable individuals?",
+				"threatif": "Yes",
+				"explanation": "* If your system processes data from children or other vulnerable groups, any third-party providers you rely on (such as libraries, SDKs, or other tools) may also have access to this data. In such cases, you must ensure they comply with relevant privacy regulations like GDPR, COPPA, or similar frameworks. Even if your own system adheres to strong data protection measures, vulnerabilities or non-compliance on the part of third-party providers could expose sensitive data or create ethical risks.",
+				"recommendation": "* Audit all third-party applications, libraries, and tools you use to determine what data they collect and ensure they comply with applicable regulations.\n* Confirm that proper agreements (e.g., Data Processing Agreements) are in place with all third-party providers to specify how data is handled.\n* Where possible, configure third-party tools to limit or avoid sharing sensitive data. Implement pseudonymization or anonymization techniques to protect data before sharing.\n* Evaluate the necessity of each third-party provider. If risks are identified, consider replacing or discontinuing use of certain providers, weighing the operational impact on your organization.*",
+				"sources": "",
+				"qr": "",
+				"categories": [
+					"Privacy & Data Protection"
+				],
+				"phases": [
+					"Design",
+					"Input",
+					"Model",
+					"Output"
+				]
+			},
+			{
+				"question": "Do we need to use metadata to train or feed our AI model?",
+				"threatif": "Yes",
+				"explanation": "* Metadata provides descriptive information about other data, such as date, time, author, file size, or geolocation.\n* Although metadata may seem innocuous, it is often considered personal data under privacy regulations (e.g., GDPR) and can contain sensitive information. Misusing or failing to protect metadata can lead to privacy violations and unintended risks, especially if it reveals identifiable information.",
+				"recommendation": "* Ensure that your use of metadata complies with applicable privacy regulations by verifying whether the data can be lawfully processed for your intended purpose.\n* Audit and verify metadata sources to confirm their accuracy and legitimacy.\n* Implement anonymization or pseudonymization techniques to minimize privacy risks while using metadata.\n* Limit the collection of metadata to only what is strictly necessary for the model, adhering to the principle of data minimization.*",
+				"sources": "",
+				"qr": "",
+				"categories": [
+					"Privacy & Data Protection",
+					"Data & Data Governance"
+				],
+				"phases": [
+					"Design",
+					"Input"
+				]
+			},
+			{
+				"question": "Will our AI system make automatic decisions without human intervention?",
+				"threatif": "Yes",
+				"explanation": "* Can these decisions have an important adverse impact on the individual? Think about someone’s legal rights, legal status, rights under a contract, or a decision with similar effects and significance. Article 22 of the GDPR specifically addresses automatic decision-making and profiling, providing safeguards to protect individuals' rights in such cases. Additionally, Article 86 of the AI Act requires transparency and the provision of clear explanations for significant decisions made by high-risk AI systems.",
+				"recommendation": " Check with your privacy expert if your processing falls under Article 22 of the GDPR or under its exceptions. Human oversight is a key mitigation strategy and should be discussed with legal advisors and your development team.\n* Article 22(3) of the GDPR provides individuals with the right to obtain human intervention in automated decisions and the right to contest such decisions. Ensure your system complies with this requirement.\n* Align with the Artificial Intelligence Act (AIA) requirements for high-risk AI systems, which emphasize robust oversight mechanisms, risk management processes, and transparency. Conduct impact assessments to identify and mitigate potential adverse effects.\n* Implement human oversight mechanisms, ensuring that users or experts can intervene when necessary to prevent harm or adverse outcomes.\n* Ensure transparency and accountability by documenting decision-making processes and making these accessible to users. Trustworthy AI requires adherence to principles such as human agency, oversight, and accountability.\n* Regularly audit your system to assess and address risks, particularly in sensitive applications such as legal, healthcare, or employment-related decisions.*",
+				"sources": "[Ethics guidelines for trustworthy AI](https://digital-strategy.ec.europa.eu/en/library/ethics-guidelines-trustworthy-ai)",
+				"qr": "",
+				"categories": [
+					"Privacy & Data Protection",
+					"Accountability & Human Oversight",
+					"Safety & Environmental Impact"
+				],
+				"phases": [
+					"Design",
+					"Input",
+					"Model",
+					"Output"
+				]
+			},
+			{
+				"question": "Can we comply with the storage limitation principle and international data retention regulations?",
+				"threatif": "No",
+				"explanation": "* The principle of storage limitation, as stated in Article 5(e) of the GDPR, requires personal data to be stored only as long as necessary for the intended purpose. Similarly, many global privacy regulations, such as CCPA (California), LGPD (Brazil), and PDPB (India), impose strict rules on data retention and deletion. Do you have a clear understanding of how long you need to keep the data (training data, output data, etc.) and whether you comply with internal, local, national, or international retention requirements?",
+				"recommendation": " Personal data must not be stored longer than necessary for its intended purpose. To comply, it is essential to have a comprehensive overview of the data flow during the life cycle of the model.\n* Analyze all data types, including raw input data, training and testing sets, processed outputs (linked or merged data), and associated metrics. Understand where this data will be stored and for how long.\n* Define clear retention and deletion schedules, ensuring responsible individuals are assigned for managing data retention and disposal.\n* If data must be retained for auditing or quality purposes, anonymize it where possible to minimize privacy risks.\n* Stay informed about and comply with retention rules not only under GDPR but also under international frameworks such as CCPA (California Consumer Privacy Act), LGPD (Brazilian General Data Protection Law), and others. Retention and deletion policies should meet these diverse requirements. \n* Be aware that deleting data from a trained model is inherently challenging, as input data influences the model's internal representation during training. Consider legal implications for the model itself, as encoded thresholds and weights may also be subject to retention laws. Source: [BerryvilleiML](https://berryvilleiml.com/)",
+				"sources": "",
+				"qr": "",
+				"categories": [
+					"Privacy & Data Protection"
+				],
+				"phases": [
+					"Design",
+					"Input",
+					"Model",
+					"Output"
+				]
 			}
 		]
 	},
 	{
-		"category": "Security",
-		"id": 4,
+		"category": "Cybersecurity",
+		"id": 7,
 		"colour": "bdd895",
 		"cards": [
 			{
@@ -489,24 +1088,6 @@
 				]
 			},
 			{
-				"question": "Can our AI system scale in performance from data input to data output?",
-				"threatif": "No",
-				"explanation": "Can your algorithm scale in performance from the data it learned on to real data? In online situations the rate at which data comes into the model may not align with the rate of anticipated data arrival. This can lead to both outright ML system failure and to a system that “chases\" its own tail.\nSource: [BerryVilleiML](https://berryvilleiml.com/interactive/)",
-				"recommendation": "* Find out what the rate would be of expected data arrival to your model and perform tests in a similar environment with similar amount of data input.\n* Implement measures to make your model scalable.",
-				"sources": "[Securing Machine Learning Algorithms, ENISA](https://www.enisa.europa.eu/publications/securing-machine-learning-algorithms)\n[STRIDE-AI: An Approach to Identifying Vulnerabilities of Machine Learning Assets](https://github.com/LaraMauri/STRIDE-AI)\n[Stride-ML Threat Model]( https://csf.tools/reference/stride-lm/)\n[MITRE ATLAS™ - Adversarial Threat Landscape for Artificial-Intelligence Systems](https://atlas.mitre.org/)",
-				"qr": "",
-				"categories": [
-					"Safety & Environmental Impact",
-					"Cybersecurity"
-				],
-				"phases": [
-					"Design",
-					"Input",
-					"Model",
-					"Output"
-				]
-			},
-			{
 				"question": "Are we protected from insider threats?",
 				"threatif": "No",
 				"explanation": "AI designers and developers may deliberately expose data and models for a variety of reasons, e.g. revenge or extortion. Integrity, data confidentiality and trustworthiness are the main impacted security properties. Source: [ENISA](https://www.enisa.europa.eu/publications/artificial-intelligence-cybersecurity-challenges)",
@@ -549,23 +1130,6 @@
 				"qr": "",
 				"categories": [
 					"Cybersecurity",
-					"Safety & Environmental Impact"
-				],
-				"phases": [
-					"Design",
-					"Input",
-					"Model",
-					"Output"
-				]
-			},
-			{
-				"question": "Could environmental phenomena or natural disasters have a negative impact on our AI system?",
-				"threatif": "Yes",
-				"explanation": "* Examples of environmental phenomena are heating, cooling and climate change.\n* Examples of natural disasters to take into account are earthquakes, floods and fires.\nEnvironmental phenomena may adversely influence the operation of IT infrastructure and hardware systems that support AI systems.\nNatural disasters may lead to unavailability or destruction of the IT infrastructures and hardware that enables the operation, deployment and maintenance of AI systems.\nSuch outages may lead to delays in decision-making, delays in the processing of data streams and entire AI systems being placed offline. Sources: [ENISA](https://www.enisa.europa.eu/publications/artificial-intelligence-cybersecurity-challenges)",
-				"recommendation": "Implement a disaster discovery plan considering different scenarios, impact, Recovery Time Objective (RTO), Recovery Point Objective (RPO) and mitigation measures.",
-				"sources": "[Securing Machine Learning Algorithms, ENISA](https://www.enisa.europa.eu/publications/securing-machine-learning-algorithms)\n[STRIDE-AI: An Approach to Identifying Vulnerabilities of Machine Learning Assets](https://github.com/LaraMauri/STRIDE-AI)\n[Stride-ML Threat Model]( https://csf.tools/reference/stride-lm/)\n[MITRE ATLAS™ - Adversarial Threat Landscape for Artificial-Intelligence Systems](https://atlas.mitre.org/)",
-				"qr": "",
-				"categories": [
 					"Safety & Environmental Impact"
 				],
 				"phases": [
@@ -748,258 +1312,10 @@
 		]
 	},
 	{
-		"category": "Safety",
-		"id": 5,
-		"colour": "f7f09f",
-		"cards": [
-			{
-				"question": "In case of system failure, could users be adversely impacted?",
-				"threatif": "Yes",
-				"explanation": "* Do you have a mechanism implemented to stop the processing in case of harm?\n* Do you have a way to identify and contact affected individuals and mitigate the adverse impacts?\n* Imagine a scenario where your AI system, a care-robot, is taking care of an individual (the patient) by performing some specific tasks and that this individual depends on this care.",
-				"recommendation": "* Implement some kind of *stop button* or procedure to safely abort an operation when needed.\n* Establish a detection and response mechanism for undesirable adverse effects on individuals.\n* Define criticality levels of the possible consequences of faults/misuse of the AI system: what type of harm could be caused to the individuals, environment or organisations?",
-				"sources": "",
-				"qr": "",
-				"categories": [
-					"Safety & Environmental Impact"
-				],
-				"phases": [
-					"Design",
-					"Model",
-					"Output"
-				],
-				"id": 44
-			},
-			{
-				"question": "Could our AI system have an adverse impact on the environment?",
-				"threatif": "Yes",
-				"explanation": "* Ideally only models are used that do not demand the consumption of energy or natural resources beyond what is sustainable.\n* Your product should be designed with the dimension of environmental protection and improvement in mind.",
-				"recommendation": "* Establish mechanisms to evaluate the environmental impact of your AI system; for example, the amount of energy used and carbon emissions.\n* Implement measures to reduce the environmental impact of the AI system throughout its lifecycle.",
-				"sources": "[UNSDGs United Nations Sustainable Development goals](https://www.un.org/development/desa/disabilities/about-us/sustainable-development-goals-sdgs-and-disability.html)",
-				"qr": "",
-				"categories": [
-					"Safety & Environmental Impact"
-				],
-				"phases": [
-					"Design",
-					"Input",
-					"Model",
-					"Output"
-				]
-			},
-			{
-				"question": "Is our AI model suitable and robust for its intended use across different deployment contexts?",
-				"threatif": "Yes",
-				"explanation": "Are you testing the product in a real environment before releasing it?\n When deploying an AI model, it is critical to ensure that it aligns with the intended use and functions effectively in its operational environment. If the model is trained and tested on data from one context but deployed in a different one, there is a significant risk of performance degradation or unintended behavior. This is particularly important in cases where environmental changes, unexpected inputs, or shifts in user interaction occur. Additionally, reinforcement learning models may require retraining when objectives or environments deviate slightly from the training setup. Beyond data, other contextual factors like legal, cultural, or operational constraints must be considered to ensure successful deployment",
-				"recommendation": "* Use different data for testing and training. Make sure diversity is reflected in the data and that it aligns with the intended deployment environment. Specify your training approach, statistical methods, and ensure edge cases are adequately tested. Explore different environments and contexts to make sure your model is trained with the expected variations in data sources. \n* For reinforcement learning, ensure the objective functions are robust and adaptable to slight changes in the environment. \n* Are you considering enough aspects beyond data, such as legal, cultural, or operational factors? Did you forget any environmental variable that could affect performance or safety? Could limited sampling due to high costs or practical constraints pose a challenge? Document these risks and seek organizational support. The organization is accountable for mitigating or accepting these risks, which may require additional budget or resources. \n*  Consider applying techniques such as cultural effective challenge. This creates an environment where technology developers and stakeholders can actively participate in questioning the AI design and process. This approach better integrates social, cultural, and contextual factors into the design and helps prevent issues such as target leakage, where the AI system trains for an unintended purpose. \n* Set up mechanisms for real-time monitoring post-deployment. Continuously validate that the system is aligned with its intended use and can adapt or alert for significant changes in context or input. \n* Engage end-users in real-world testing to bridge any gaps between assumptions and practical application.",
-				"sources": "Information about *cultural effective challenge*:   [A Proposal for Identifying and Managing Bias in Artificial Intelligence](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.1270-draft.pdf)",
-				"qr": "",
-				"categories": [
-					"Safety & Environmental Impact"
-				],
-				"phases": [
-					"Design",
-					"Input",
-					"Model",
-					"Output"
-				]
-			},
-			{
-				"question": "Could the AI system become persuasive causing harm to the individual?",
-				"threatif": "Yes",
-				"explanation": "* This is of special importance in Human Robot Interaction (HRI): If the robot can achieve reciprocity when interacting with humans, could there be a risk of manipulation and human compliance?\n* Reciprocity is a social norm of responding to a positive action with another positive action, rewarding kind actions. As a social construct, reciprocity means that in response to friendly actions, people are frequently much nicer and much more cooperative than predicted by the self-interest model; conversely, in response to hostile actions they are frequently much more nasty and even brutal. Source: Wikipedia",
-				"recommendation": "* Signals of susceptibility coming from a robot or computer could have an impact on the willingness of humans to cooperate or take advice from it.\n* It is important to consider and test this possible scenario when your AI system is interacting with humans and some type of collaboration/cooperation in expected.",
-				"sources": "[The role of reciprocity in human-robot social influence](https://www.sciencedirect.com/science/article/pii/S258900422101395X)\n[Reciprocity in Human-Robot Interaction](https://ir.canterbury.ac.nz/bitstream/handle/10092/100798/Reciprocity-human-condition.pdf?sequence=2&isAllowed=y)\n[Social robots and the risks to reciprocity](https://link.springer.com/article/10.1007/s00146-021-01207-y)",
-				"qr": "",
-				"categories": [
-					"Safety & Environmental Impact"
-				],
-				"phases": [
-					"Design",
-					"Input",
-					"Model",
-					"Output"
-				]
-			},
-			{
-				"question": "Could our AI agents develop strategies that could have undesired negative side effects on the environment?",
-				"threatif": "Yes",
-				"explanation": "* Reinforcement Learning (RL) is an area of machine learning concerned with how intelligent agents ought to take actions in an environment in order to maximize the notion of cumulative reward. Source: [Wikipedia](https://en.wikipedia.org/wiki/Reinforcement_learning)\n\n* To better understand the threat consider a case where a robot is built to move an object, without manually programming a separate penalty for each possible bad behaviour. If the objective function is not well defined, the AI’s ability to develop its own strategies can lead to unintended, harmful side effects. In this case, the objective of moving an object seems simple, yet there are a myriad of ways in which this could go wrong. For instance, if a vase is in the robot’s path, the robot may knock it down in order to complete the goal. Since the objective function does not mention anything about the vase, the robot wouldn’t know how to avoid it. Source: [OpenAI](https://openai.com/blog/concrete-ai-safety-problems/)",
-				"recommendation": "AI systems don’t share our understanding of the world. It is not sufficient to formulate the objective as “complete task X”; the designer also needs to specify the safety criteria under which the task is to be completed. A better strategy could be to define a *budget* for how much the AI system is allowed to impact the environment. This would help to minimize the unintended impact, without neutralizing the AI system.\n\nAnother approach would be training the agent to recognize harmful side effects so that it can avoid actions leading to such side effects. In that case, the agent would be trained for two tasks: the original task that is specified by the objective function and the task of recognizing side effects.\nThe AI system would still need to undergo extensive testing and critical evaluation before deployment in real life settings.\nSource: [OpenAI](https://openai.com/blog/concrete-ai-safety-problems/)",
-				"sources": "[Concrete Problems in AI Safety](https://arxiv.org/pdf/1606.06565.pdf)\n[Concrete AI Safety Problems](https://openai.com/blog/concrete-ai-safety-problems/)",
-				"qr": "",
-				"categories": [
-					"Safety & Environmental Impact"
-				],
-				"phases": [
-					"Design",
-					"Input",
-					"Model",
-					"Output"
-				]
-			},
-			{
-				"question": "Could our AI agents “hack” their reward functions to exploit the system?",
-				"threatif": "Yes",
-				"explanation": "* Reinforcement Learning (RL) is an area of machine learning concerned with how intelligent agents ought to take actions in an environment in order to maximize the notion of cumulative reward. Source: [Wikipedia](https://en.wikipedia.org/wiki/Reinforcement_learning)\n\n* Consider potential negative consequences from the AI system\nlearning novel or unusual methods to score well on its objective function.\nSometimes the AI can come up with some kind of “hack” or loophole in the design of the system to receive unearned rewards. Since the AI is trained to maximize its rewards, looking for such loopholes and “shortcuts” is a perfectly fair and valid strategy for the AI. For example, suppose that the office cleaning robot earns rewards only if it does not see any garbage in the office. Instead of cleaning the place, the robot could simply shut off its visual sensors, and thus achieve its goal of not seeing garbage.\nSource: [OpenAI]( https://openai.com/blog/concrete-ai-safety-problems/)",
-				"recommendation": "One possible approach to mitigating this problem would be to have a “reward agent” whose only task is to mark if the rewards given to the learning agent are valid or not. The reward agent ensures that the learning agent (robot for instance) does not exploit the system, but rather, completes the desired objective. For example: a “reward agent” could be trained by the human designer to check if a room has been properly cleaned by the cleaning robot. If the cleaning robot shuts off its visual sensors to avoid seeing garbage and claims a high reward, the “reward agent” would mark the reward as invalid because the room is not clean. The designer can then look into the rewards marked as “invalid” and make necessary changes in the objective function to fix the loophole. Source: [OpenAI]( https://openai.com/blog/concrete-ai-safety-problems/)",
-				"sources": "[Concrete Problems in AI Safety](https://arxiv.org/pdf/1606.06565.pdf)\n[Concrete AI Safety Problems](https://openai.com/blog/concrete-ai-safety-problems/)",
-				"qr": "",
-				"categories": [
-					"Safety & Environmental Impact"
-				],
-				"phases": [
-					"Design",
-					"Input",
-					"Model",
-					"Output"
-				]
-			},
-			{
-				"question": "Can we provide human resources to supervise and give feedback to the actions of AI agents?",
-				"threatif": "No",
-				"explanation": "* Reinforcement Learning (RL) is an area of machine learning concerned with how intelligent agents ought to take actions in an environment in order to maximize the notion of cumulative reward. Source: [Wikipedia](https://en.wikipedia.org/wiki/Reinforcement_learning)\n\n* When the agent is learning to perform a complex task, human oversight and feedback are more helpful than just rewards from the environment. Rewards are generally modelled such that they convey to what extent the task was completed, but they do not usually provide sufficient feedback about the safety implications of the agent’s actions. Even if the agent completes the task successfully, it may not be able to infer the side-effects of its actions from the rewards alone. In the ideal setting, a human would provide fine-grained supervision and feedback every time the agent performs an action (Scalable oversight). Though this would provide a much more informative view about the environment to the agent, such a strategy would require far too much time and effort from the human. Source: [OpenAI](https://openai.com/blog/concrete-ai-safety-problems/)",
-				"recommendation": "One promising research direction to tackle this problem is semi-supervised learning, where the agent is still evaluated on all the actions (or tasks), but receives rewards only for a small sample of those actions (or tasks).\n\nAnother promising research direction is hierarchical reinforcement learning, where a hierarchy is established between different learning agents. There could be a supervisor agent/robot whose task is to assign some work to another agent/robot and provide it with feedback and rewards.\nSource: [OpenAI](https://openai.com/blog/concrete-ai-safety-problems/)",
-				"sources": "[Concrete Problems in AI Safety](https://arxiv.org/pdf/1606.06565.pdf)\n[Concrete AI Safety Problems](https://openai.com/blog/concrete-ai-safety-problems/)",
-				"qr": "",
-				"categories": [
-					"Accountability & Human Oversight"
-				],
-				"phases": [
-					"Design",
-					"Input",
-					"Model",
-					"Output"
-				]
-			},
-			{
-				"question": "Can our AI/ML system be robust to changes in the data distribution?",
-				"threatif": "No",
-				"explanation": "A complex challenge for deploying AI agents in real life settings is that the agent could end up in situations that it has never experienced before. Such situations are inherently more difficult to handle and could lead the agent to take harmful actions.\nSource: [OpenAI](https://openai.com/blog/concrete-ai-safety-problems/)",
-				"recommendation": "One promising research direction focuses on identifying when the agent has encountered a new scenario so that it recognizes that it is more likely to make mistakes. While this does not solve the underlying problem of preparing AI systems for unforeseen circumstances, it helps in detecting the problem before mistakes happen. Another direction of research emphasizes transferring knowledge from familiar scenarios to new scenarios safely. Source: [OpenAI](https://openai.com/blog/concrete-ai-safety-problems/)",
-				"sources": "[Concrete Problems in AI Safety](https://arxiv.org/pdf/1606.06565.pdf)\n[Concrete AI Safety Problems](https://openai.com/blog/concrete-ai-safety-problems/)",
-				"qr": "",
-				"categories": [
-					"Safety & Environmental Impact"
-				],
-				"phases": [
-					"Design",
-					"Input",
-					"Model",
-					"Output"
-				]
-			},
-			{
-				"question": "Can our AI agents learn about their environment without causing harm or catastrophic actions?",
-				"threatif": "No",
-				"explanation": "* Reinforcement Learning (RL) is an area of machine learning concerned with how intelligent agents ought to take actions in an environment in order to maximize the notion of cumulative reward. Source: [Wikipedia](https://en.wikipedia.org/wiki/Reinforcement_learning)\n\n* **Safe exploration**: An important part of training an AI agent is to ensure that it explores and understands its environment. While exploring, the agent might also take some action that could damage itself or the environment. Source: [OpenAI](https://openai.com/blog/concrete-ai-safety-problems/)",
-				"recommendation": "One approach to reduce harm is to optimize the performance of the learning agent in the worst case scenario. When designing the objective function, the designer should not assume that the agent will always operate under optimal conditions. Some explicit reward signal may be added to ensure that the agent does not perform some catastrophic action, even if that leads to more limited actions in the optimal conditions. Source: [OpenAI](https://openai.com/blog/concrete-ai-safety-problems/)",
-				"sources": "[Concrete Problems in AI Safety](https://arxiv.org/pdf/1606.06565.pdf)\n[Concrete AI Safety Problems](https://openai.com/blog/concrete-ai-safety-problems/)",
-				"qr": "",
-				"categories": [
-					"Safety & Environmental Impact"
-				],
-				"phases": [
-					"Design",
-					"Input",
-					"Model",
-					"Output"
-				]
-			}
-		]
-	},
-	{
-		"category": "Unawareness",
-		"id": 6,
-		"colour": "f8d18c",
-		"cards": [
-			{
-				"question": "Do we need to inform users that they are interacting with an AI system?",
-				"threatif": "Yes",
-				"explanation": "* Are users adequately made aware that a decision, content, advice or outcome is the result of an algorithmic decision?\n* Could the AI system generate confusion for some or all users on whether they are interacting with a human or AI system?",
-				"recommendation": "In cases of interactive AI systems (e.g., chatbots, robots) you should inform the users that they are interacting with an AI system instead of a human. This information should be received at the beginning of the interaction.",
-				"sources": "",
-				"qr": "",
-				"categories": [
-					"Transparency & Accessibility"
-				],
-				"phases": [
-					"Design",
-					"Output"
-				]
-			},
-			{
-				"question": "Can we provide the necessary information to the users about possible impacts, benefits and potential risks?",
-				"threatif": "No",
-				"explanation": "* Did you establish mechanisms to inform users about the purpose, criteria and limitations of decisions generated by the AI system?\n* If an AI-assisted decision has been made about a person without any type of explanation or information then this may limit that person's autonomy, scope and self-determination. This is unlikely to be fair.",
-				"recommendation": "* Provide clear information about how and why an AI-assisted decision was made and which personal data was used to train and test the model.\n* The model you choose should be at the right level of interpretability for your use case and for the impact it will have on the decision recipient. If you use a black box model make sure the supplementary explanation techniques you use provide a reliable and accurate representation of the systems behaviour. Source: UK ICO\n* Communicate the benefits, the technical limitations and potential risks of the AI system to users, such as its level of accuracy and/or error rates.\n* Ask your users (with a survey for instance) if they understand the decisions that your product makes.",
-				"sources": "",
-				"qr": "",
-				"categories": [
-					"Transparency & Accessibility"
-				],
-				"phases": [
-					"Design",
-					"Model",
-					"Output"
-				]
-			},
-			{
-				"question": "Can users anticipate the actions of the AI system?",
-				"threatif": "No",
-				"explanation": "Are users aware of the capabilities of the AI system? Users need to be informed about what to expect, not only for transparency reasons but in some products also for safety precautions.",
-				"recommendation": "* Consider this as part of the GDPR transparency principle.\n* Users should be aware of what the AI system can do.\n* Clear Information should be provided on time and made accessible following accessibility design principles.",
-				"sources": "[GDPR transparency principle](https://gdpr-info.eu/recitals/no-58/)",
-				"qr": "",
-				"categories": [
-					"Transparency & Accessibility"
-				],
-				"phases": [
-					"Design",
-					"Model",
-					"Output"
-				]
-			}
-		]
-	},
-	{
-		"category": "Ethics & Human Rights",
-		"id": 7,
+		"category": "Ethics & Fundamental Rights",
+		"id": 8,
 		"colour": "f2bc9a",
 		"cards": [
-			{
-				"question": "Bias & Discrimination: could there be groups who might be disproportionately affected by the outcomes of the AI system?",
-				"threatif": "yes",
-				"explanation": "* Could the AI system potentially negatively discriminate against people on the basis of any of the following grounds: sex, race, colour, ethnic or social origin, genetic features, language, religion or belief, political or any other opinion, membership of a national minority, property, birth, disability, age, gender or sexual orientation?\n* If your model is learning from data specific to some cultural background then the output could be discriminating for members of other cultural backgrounds.",
-				"recommendation": "* Consider the different types of users and contexts where your product is going to be used.\n* Consider the impact of diversity of backgrounds, cultures, and other important different attributes when selecting your input data, features and when testing the output.\n* Assess the risk of possible unfairness towards individuals or communities to avoid discriminating minority groups.\n* The disadvantage to people depends on the kind of harm, severity of the harm and significance (how many people are put at a disadvantage compared to another group of people). Statistical assessments on group differences are an important tool to assess unfair and discriminatory uses of AI.\n* Design with empathy, diversity and respect in mind.",
-				"sources": "[Why Fairness Cannot Be Automated: Bridging the Gap Between EU Non-Discrimination Law and AI](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3547922)\n[The Fairness Handbook](https://www.amsterdamintelligence.com/resources/the-fairness-handbook)",
-				"qr": "",
-				"categories": [
-					"Bias, Fairness & Discrimination"
-				],
-				"phases": [
-					"Design",
-					"Input",
-					"Model",
-					"Output"
-				]
-			},
-			{
-				"question": "Can we expect mostly positive reactions from the users or individuals?",
-				"threatif": "No",
-				"explanation": "* Do the users expect a product functioning like this?\n* Do the users or individuals expect this type of processing of personal data?\n* Can you roll back if people are not happy with the product?",
-				"recommendation": "* Consider the different types of users and contexts your product is going to be used.\n* Consider diversity of backgrounds, cultures, and many other important different attributes.\n* Do enough user testing, like FUPs - Friendly User Pilots.\n* Design with empathy, diversity and respect in mind.\n* Assess the risk of possible unfairness towards individuals or communities to avoid discriminating minority groups and also to prevent a bad reputation for your organisation.",
-				"sources": "",
-				"qr": "",
-				"categories": [
-					"Transparency & Accessibility"
-				],
-				"phases": [
-					"Design",
-					"Input",
-					"Model",
-					"Output"
-				]
-			},
 			{
 				"question": "Could the AI system have an impact on human work?",
 				"threatif": "Yes",
@@ -1120,58 +1436,6 @@
 				]
 			},
 			{
-				"question": "Could children be part of the users of our AI system",
-				"threatif": "Yes",
-				"explanation": "* If children are potential users or exposed to your AI system, it is essential to ensure that the system respects the rights and best interests of the child. \n* This includes considering child protection, ethical communication, and designing the system to avoid harm or exploitation. \n* Inappropriate design or oversight could lead to risks to children’s mental, moral, or physical well-being, including potential misuse of the system by others to harm children.",
-				"recommendation": "* Assess whether an age verification mechanism is necessary to restrict access to certain features or content.\n* Adapt communication and design in both the product and associated documentation, such as the privacy policy, to be child-appropriate and transparent.\n* Develop and enforce policies to ensure the safety and well-being of children when using or being exposed to your AI system.\n* Establish procedures to regularly assess and monitor the usage of your product to identify and mitigate any risks to children’s safety and health.\n* Provide clear labeling and instructions to ensure safe usage by children, including warnings about potential misuse.\n* Monitor for and address inappropriate or harmful usage of the AI system, including any attempts to exploit or harm children.\n* Develop a responsible marketing and advertising policy that explicitly avoids harmful, manipulative, or unethical practices targeting children",
-				"sources": "[Convention on the Rights of the Child](https://www.ohchr.org/en/instruments-mechanisms/instruments/convention-rights-child)",
-				"qr": "",
-				"categories": [
-					"Safety & Environmental Impact"
-				],
-				"phases": [
-					"Design",
-					"Input",
-					"Model",
-					"Output"
-				]
-			},
-			{
-				"question": "Can our AI system be inclusive and represent different norms and values?",
-				"threatif": "No",
-				"explanation": "* Can we build a model that is inclusive? \n* Could cultural and language differences be an issue when it comes to the ethical nuance of your algorithm? Well-meaning values can create unintended consequences.\n* Must the AI system understand the world in all its different contexts?\n* Could ambiguity in rules you teach the AI system be a problem?\n* Can your system interact equitably with users from different cultures and with different abilities?",
-				"recommendation": "* Consider designing with value alignment, what means that you want to ensure consideration of existing values and sensitivity to a wide range of cultural norms and values.\n* Make sure that when you test the product you include a large diversity in type of users.\n* Think carefully about what diversity means in the context where the product is going to be used.\n* Remember that this is a team effort and not an individual decision!",
-				"sources": "[Value alignment](https://www.ibm.com/design/ai/ethics/value-alignment/)\n[Online Ethics Canvas](https://www.ethicscanvas.org/canvas/index.php)\n[AI Values and Alignment](https://www.deepmind.com/publications/artificial-intelligence-values-and-alignment)",
-				"qr": "",
-				"categories": [
-					"Transparency & Accessibility",
-					"Bias, Fairness & Discrimination"
-				],
-				"phases": [
-					"Design",
-					"Input",
-					"Model",
-					"Output"
-				]
-			},
-			{
-				"question": "Could our AI system not be representing current social needs and social context?",
-				"threatif": "Yes",
-				"explanation": "The datasets that you want to use might not be representative of the current social situation. In that case the output of the model is also not representative of the current reality. Depending on the type of product you are designing this could have a big impact on the individual.",
-				"recommendation": "Make sure that you are using correct, complete, accurate and current data. Also make sure that you have sufficient data to represent all possible contexts that you might need.",
-				"sources": "",
-				"qr": "",
-				"categories": [
-					"Bias, Fairness & Discrimination"
-				],
-				"phases": [
-					"Design",
-					"Input",
-					"Model",
-					"Output"
-				]
-			},
-			{
 				"question": "Could our AI system have an impact denying access to jobs, housing, insurance, benefits or education?",
 				"threatif": "Yes",
 				"explanation": "* The output of your model could be used to deny access to certain fundamental rights.\n* How can you be sure that the decisions of your AI system are always fair and correct?\n* How can you prevent causing harm to individuals?",
@@ -1230,270 +1494,6 @@
 				"categories": [
 					"Ethics & Fundamental Rights",
 					"Bias, Fairness & Discrimination",
-					"Privacy & Data Protection"
-				],
-				"phases": [
-					"Design",
-					"Input",
-					"Model",
-					"Output"
-				]
-			},
-			{
-				"question": "Could our AI system automatically label or categorize people?",
-				"threatif": "Yes",
-				"explanation": "* This could have an impact on the way individuals perceive themselves and society. It could constrain identity options and even contribute to erase real identity of the individuals.\n* This threat is also important when designing robots and the way they look. For instance: do care/assistant robots need to have a feminine appearance? Is that the perception you want to give to the world or the one accepted by certain groups in society? What impact does it have on society?",
-				"recommendation": "* It is important that you check the output of your model, not only in isolation but also when this is linked to other information. Think in different possible scenarios that could affect the individuals. Is your output categorizing people or helping to categorize them? In which way? What could be the impact?\n* Think about ways to prevent adverse impact to the individual: provide information to the user, consider changing the design (maybe using different features or attributes?), consider ways to prevent misuse of your output, consider not to release the product to the market.",
-				"sources": "",
-				"qr": "",
-				"categories": [
-					"Bias, Fairness & Discrimination"
-				],
-				"phases": [
-					"Design",
-					"Input",
-					"Model",
-					"Output"
-				]
-			}
-		]
-	},
-	{
-		"category": "Non-compliance",
-		"id": 8,
-		"colour": "eea4b5",
-		"cards": [
-			{
-				"question": "Is data minimization possible while ensuring compliance with regulations like GDPR and maintaining model performance?",
-				"threatif": "No",
-				"explanation": "The principle of data minimization, as outlined in the General Data Protection Regulation (GDPR) and reflected in many global privacy standards, requires that only data necessary for achieving the system's purpose is collected and processed. However, reducing data too much can sometimes negatively impact the accuracy and performance of AI models, leading to critical or damaging consequences. Balancing regulatory compliance with operational effectiveness is essential to avoid undermining the model's reliability while adhering to privacy principles",
-				"recommendation": "* Achieve data minimization by starting with a smaller dataset and iteratively adding data only as needed, based on observed performance improvements, to justify why additional data is necessary.\n* Use high-quality data to reduce the need for large datasets while ensuring sufficient diversity and representativeness for your model.\n* Apply advanced privacy-preserving techniques such as pseudonymization, perturbation, differential privacy, federated learning, or synthetic data generation to comply with privacy regulations while using larger datasets.\n* Collaborate with experts to select the minimum set of features needed, ensuring relevance to the objective and avoiding issues like the Curse of Dimensionality, which can degrade model performance when unnecessary features are included.",
-				"sources": "pag. 13 [Artificial Intelligence and Data Protection How the GDPR Regulates AI](https://www.informationpolicycentre.com/uploads/5/7/1/0/57104281/cipl-hunton_andrews_kurth_legal_note_-_how_gdpr_regulates_ai__12_march_2020_.pdf)\n[Data Minimization for GDPR Compliance in Machine Learning Models](https://arxiv.org/pdf/2008.04113.pdf): Methods like the one proposed in this paper can inspire you to find a way to mitigate the accuracy risk. They show how to reduce the amount of personal data needed to perform predictions, by removing or generalizing some of the input features.\nThe answer to this post also contains information about this problems in different models: [Does Dimensionality curse effect some models more than others?](https://stats.stackexchange.com/questions/186184/does-dimensionality-curse-effect-some-models-more-than-others)\n[Towards Breaking the Curse of Dimensionality for High-Dimensional Privacy](https://epubs.siam.org/doi/epdf/10.1137/1.9781611973440.84)",
-				"qr": "",
-				"categories": [
-					"Privacy & Data Protection"
-				],
-				"phases": [
-					"Design",
-					"Input",
-					"Model",
-					"Output"
-				]
-			},
-			{
-				"question": "Could we be processing sensitive data?",
-				"threatif": "Yes",
-				"explanation": "* According to art. 9 GDPR you might not be allowed to process, under certain circunstances, personal data revealing racial or ethnic origin, political opinions, religious or philosophical beliefs, trade union membership, genetic data, biometric data, health data or data concerning a person’s sex life or sexual orientation.\n* You might be processing sensitive data if the model includes features that are correlated with these protected characteristics (these are called proxies).",
-				"recommendation": "* If you need to use special categories of data as defined in the GDPR art. 9, then you need to check if you have the right lawful basis to do this.\n* Applying techniques like anonymisation might still not justify the fact that you first need to process the original data. Check with your privacy/legal experts.\n* Prevent proxies that could infer sensitive data (especially from vulnerable populations).\n* Check if historical data/practices might bias your data.\n* Identify and remove features that are correlated to sensitive characteristics.\n* Use available methods to test for fairness with respect to different affected groups.",
-				"sources": "[AI Fairness 360](https://aif360.mybluemix.net)\n[What-if Tool: Playing with AI Fairness](https://pair-code.github.io/what-if-tool/ai-fairness.html)\n[Hunting for Discriminatory Proxies in Linear Regression Models](https://papers.nips.cc/paper/7708-hunting-for-discriminatory-proxies-in-linear-regression-models.pdf)\n[Differential Privacy Blog Series](https://www.nist.gov/itl/applied-cybersecurity/privacy-engineering/collaboration-space/focus-areas/de-id/dp-blog)",
-				"qr": "",
-				"categories": [
-					"Privacy & Data Protection"
-				],
-				"phases": [
-					"Design",
-					"Input",
-					"Model",
-					"Output"
-				]
-			},
-			{
-				"question": "Do we have a lawful basis for processing the personal data?",
-				"threatif": "No",
-				"explanation": "Do you know which GDPR legal ground you can apply?\n* (a) Consent: the individual has given clear consent for you to process their personal data for a specific purpose.\n* (b) Contract: the processing is necessary for a contract you have with the individual, or because they have asked you to take specific steps before entering into a contract.\n* (c) Legal obligation: the processing is necessary for you to comply with the law (not including contractual obligations).\n* (d) Vital interests: the processing is necessary to protect someone’s life.\n* (e) Public task: the processing is necessary for you to perform a task in the public interest or for your official functions, and the task or function has a clear basis in law.\n* (f) Legitimate interests: the processing is necessary for your legitimate interests or the legitimate interests of a third party, except where such interests are overridden by the interests or fundamental rights and freedoms of the individual which require protection of personal data, in particular where the individual is a child. (This cannot apply if you are a public authority processing data to perform your official tasks.)",
-				"recommendation": "In the case of the GDPR you need to be able to apply one of the six available legal grounds for processing the data (art. 6). Check with your privacy expert, not being able to apply one of the legal grounds could bring the project in danger.\n\nTake into account, that also other laws besides the GDPR could be applicable.",
-				"sources": "[Lawful basis for processing](https://ico.org.uk/for-organisations/guide-to-data-protection/guide-to-the-general-data-protection-regulation-gdpr/lawful-basis-for-processing/)\n[Artificial Intelligence and Data Protection How the GDPR Regulates AI](https://www.informationpolicycentre.com/uploads/5/7/1/0/57104281/cipl-hunton_andrews_kurth_legal_note_-_how_gdpr_regulates_ai__12_march_2020_.pdf)",
-				"qr": "",
-				"categories": [
-					"Privacy & Data Protection"
-				],
-				"phases": [
-					"Design",
-					"Input",
-					"Model",
-					"Output"
-				]
-			},
-			{
-				"question": "Is the creation of the AI system proportional to the intended goal?",
-				"threatif": "No",
-				"explanation": "* Proportionality is a general principle of EU law. It requires you to strike a balance between the means used and the intended aim.\n* In the context of fundamental rights, proportionality is key for any limitation on these rights.",
-				"recommendation": "* Proportionality requires that advantages due to limiting the right are not outweighed by the disadvantages to exercise the right. In other words, the limitation on the right must be justified.\n* Safeguards accompanying a measure can support the justification of a measure. A pre-condition is that the measure is adequate to achieve the envisaged objective.\n* In addition, when assessing the processing of personal data, proportionality requires that only that personal data which is adequate and relevant for the purposes of the processing is collected and processed. Source: [EDPS](https://edps.europa.eu/data-protection/our-work/subjects/necessity-proportionality_en)",
-				"sources": "Proportionality test: [EDPS Guidelines on assessing the proportionality of measures that limit the fundamental rights to privacy and to the protection of personal data](https://edps.europa.eu/sites/edp/files/publication/19-12-19_edps_proportionality_guidelines_en.pdf)\n\nAssess the possible impact on human rights: [Charter of Fundamental Rights of the European Union](https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:12012P/TXT&from=EN)",
-				"qr": "",
-				"categories": [
-					"Accountability & Human Oversight",
-					"Ethics & Fundamental Rights",
-					"Privacy & Data Protection"
-				],
-				"phases": [
-					"Design",
-					"Input",
-					"Model",
-					"Output"
-				]
-			},
-			{
-				"question": "Can we comply with the purpose limitation principle under GDPR and other global privacy regulations?",
-				"threatif": "No",
-				"explanation": "* The principle of purpose limitation, as defined in the General Data Protection Regulation (GDPR) and echoed in many global privacy frameworks, requires that personal data is collected for specified, explicit, and legitimate purposes and not further processed in a way incompatible with those purposes. Data repurposing is a significant challenge when applying this principle. If datasets were originally collected for a different purpose, their reuse without proper consent or legal justification may violate privacy regulations and ethical standards.",
-				"recommendation": "Consult with your privacy officer or legal team to verify the original purpose of the data collection and evaluate any constraints or legal requirements. If data repurposing is necessary, consider obtaining additional consent, performing a legitimate interest assessment, or applying anonymization techniques to ensure compliance. Additionally, document all decisions and justifications for data reuse to demonstrate accountability under privacy regulations.",
-				"sources": "",
-				"qr": "",
-				"categories": [
-					"Privacy & Data Protection"
-				],
-				"phases": [
-					"Design",
-					"Input",
-					"Model",
-					"Output"
-				]
-			},
-			{
-				"question": "Can we comply with all the applicable GDPR data subjects’ rights?",
-				"threatif": "No",
-				"explanation": "* Can you implement the right to withdraw consent, the right to object to the processing and the right to be forgotten into the development of the AI system?\n* Can you provide individuals with access and a way to rectify their data?",
-				"recommendation": "* Complying with these provisions from the GDPR (art. 15-21) could have an impact on the design of your product. What if users withdraw their consent? Do you need to delete their data used to train the model? What if you cannot identify the users in the datasets anymore? And what information should the users have access to?\n* Consider all these possible scenarios and involve your privacy experts early in the design phase.",
-				"sources": "",
-				"qr": "",
-				"categories": [
-					"Privacy & Data Protection"
-				],
-				"phases": [
-					"Design",
-					"Input",
-					"Model",
-					"Output"
-				]
-			},
-			{
-				"question": "Do we need to start conducting a Data Protection Impact Assessment (DPIA) to address privacy risks?",
-				"threatif": "No",
-				"explanation": "The use of AI is more likely to trigger the requirement for a DPIA, based on criteria in Art 35 GDPR. The GDPR and the EDPB’s Guidelines on DPIAs identify both “new technologies” and the type of automated decision-making that produce legal effects or similarly significantly affect persons as likely to result in a “high risk to the rights and freedoms of natural persons”.",
-				"recommendation": "* This threat modeling library can help you to assess possible risks.\n* Remember that a DPIA is not a piece of paper that needs to be done once the product is in production. The DPIA starts in the design phase by finding and assessing risks, documenting them and taking the necessary actions to create a responsible product from day one until it is finalized.\n* Consider the time and resources that you might need for the execution of a DPIA, as it could have some impact on your project deadlines.",
-				"sources": "",
-				"qr": "",
-				"categories": [
-					"Privacy & Data Protection"
-				],
-				"phases": [
-					"Design",
-					"Input",
-					"Model",
-					"Output"
-				]
-			},
-			{
-				"question": "Are we using third-party providers while processing data from children or other vulnerable individuals?",
-				"threatif": "Yes",
-				"explanation": "* If your system processes data from children or other vulnerable groups, any third-party providers you rely on (such as libraries, SDKs, or other tools) may also have access to this data. In such cases, you must ensure they comply with relevant privacy regulations like GDPR, COPPA, or similar frameworks. Even if your own system adheres to strong data protection measures, vulnerabilities or non-compliance on the part of third-party providers could expose sensitive data or create ethical risks.",
-				"recommendation": "* Audit all third-party applications, libraries, and tools you use to determine what data they collect and ensure they comply with applicable regulations.\n* Confirm that proper agreements (e.g., Data Processing Agreements) are in place with all third-party providers to specify how data is handled.\n* Where possible, configure third-party tools to limit or avoid sharing sensitive data. Implement pseudonymization or anonymization techniques to protect data before sharing.\n* Evaluate the necessity of each third-party provider. If risks are identified, consider replacing or discontinuing use of certain providers, weighing the operational impact on your organization.*",
-				"sources": "",
-				"qr": "",
-				"categories": [
-					"Privacy & Data Protection"
-				],
-				"phases": [
-					"Design",
-					"Input",
-					"Model",
-					"Output"
-				]
-			},
-			{
-				"question": "Do we need to use metadata to train or feed our AI model?",
-				"threatif": "Yes",
-				"explanation": "* Metadata provides descriptive information about other data, such as date, time, author, file size, or geolocation.\n* Although metadata may seem innocuous, it is often considered personal data under privacy regulations (e.g., GDPR) and can contain sensitive information. Misusing or failing to protect metadata can lead to privacy violations and unintended risks, especially if it reveals identifiable information.",
-				"recommendation": "* Ensure that your use of metadata complies with applicable privacy regulations by verifying whether the data can be lawfully processed for your intended purpose.\n* Audit and verify metadata sources to confirm their accuracy and legitimacy.\n* Implement anonymization or pseudonymization techniques to minimize privacy risks while using metadata.\n* Limit the collection of metadata to only what is strictly necessary for the model, adhering to the principle of data minimization.*",
-				"sources": "",
-				"qr": "",
-				"categories": [
-					"Privacy & Data Protection",
-					"Data & Data Governance"
-				],
-				"phases": [
-					"Design",
-					"Input"
-				]
-			},
-			{
-				"question": "Will our AI system make automatic decisions without human intervention?",
-				"threatif": "Yes",
-				"explanation": "* Can these decisions have an important adverse impact on the individual? Think about someone’s legal rights, legal status, rights under a contract, or a decision with similar effects and significance. Article 22 of the GDPR specifically addresses automatic decision-making and profiling, providing safeguards to protect individuals' rights in such cases. Additionally, Article 86 of the AI Act requires transparency and the provision of clear explanations for significant decisions made by high-risk AI systems.",
-				"recommendation": " Check with your privacy expert if your processing falls under Article 22 of the GDPR or under its exceptions. Human oversight is a key mitigation strategy and should be discussed with legal advisors and your development team.\n* Article 22(3) of the GDPR provides individuals with the right to obtain human intervention in automated decisions and the right to contest such decisions. Ensure your system complies with this requirement.\n* Align with the Artificial Intelligence Act (AIA) requirements for high-risk AI systems, which emphasize robust oversight mechanisms, risk management processes, and transparency. Conduct impact assessments to identify and mitigate potential adverse effects.\n* Implement human oversight mechanisms, ensuring that users or experts can intervene when necessary to prevent harm or adverse outcomes.\n* Ensure transparency and accountability by documenting decision-making processes and making these accessible to users. Trustworthy AI requires adherence to principles such as human agency, oversight, and accountability.\n* Regularly audit your system to assess and address risks, particularly in sensitive applications such as legal, healthcare, or employment-related decisions.*",
-				"sources": "[Ethics guidelines for trustworthy AI](https://digital-strategy.ec.europa.eu/en/library/ethics-guidelines-trustworthy-ai)",
-				"qr": "",
-				"categories": [
-					"Privacy & Data Protection",
-					"Accountability & Human Oversight",
-					"Safety & Environmental Impact"
-				],
-				"phases": [
-					"Design",
-					"Input",
-					"Model",
-					"Output"
-				]
-			},
-			{
-				"question": "Could our dataset have copyright or other legal restrictions?",
-				"threatif": "Yes",
-				"explanation": "Can you use the datasets that you need? or are there any restrictions? This could also apply to libraries and any other proprietary elements you might want to use.",
-				"recommendation": "* Consider if you also need to claim ownership or give credits to creators.\n* Think about trademarks, copyrights in databases or training data, patents, license agreements that could be part of the dataset, library or module that you are using.\n* Legal ownership of digital data can sometimes be complex and uncertain so get the proper legal advise here.",
-				"sources": "",
-				"qr": "",
-				"categories": [
-					"Data & Data Governance"
-				],
-				"phases": [
-					"Design",
-					"Input",
-					"Output"
-				]
-			},
-			{
-				"question": "Are we planning to use a third party AI tool?",
-				"threatif": "Yes",
-				"explanation": "If you use a third party tool you might still have a responsibility towards the users. Think about employees, job applicants, patients, etc. It is also your responsibility to make sure that the AI system you choose won't cause harm to the individuals.",
-				"recommendation": "If personal data is involved, review which ones are your responsibilities (look into art. 24 and 28 GDPR).\n\nYou can also start by checking:\n* That you have the right agreements in place with the third party provider.\n* That the origin and data lineage of their datasets are verified.\n* How their models are fed; do they anonymise the data?\n* How you have assessed their security, ethical handling of data, quality process and ways to prevent bias and discrimination in their AI system.\n* That you have informed users accordingly.",
-				"sources": "",
-				"qr": "",
-				"categories": [
-					"Accountability & Human Oversight",
-					"Cybersecurity"
-				],
-				"phases": [
-					"Design",
-					"Input",
-					"Model",
-					"Output"
-				]
-			},
-			{
-				"question": "Could geolocation restrictions or regional regulations impact the implementation of our AI system in other countries?",
-				"threatif": "Yes",
-				"explanation": "* AI systems often process sensitive data, including personal or location-based information, which may be subject to regional data sovereignty laws and ethical restrictions. Additionally, certain countries may restrict the deployment of AI technologies based on local regulatory frameworks, ethical concerns, or national security considerations. This could limit the usage of your product in those regions.",
-				"recommendation": " Stay informed about the evolving regulatory landscape for AI, including data sovereignty, privacy laws, and ethical standards in different countries. Engage legal and compliance experts to assess restrictions in your target markets.\n* Consider designing your AI system with adaptability for regional requirements, such as geofencing, localized processing, or compliance with specific regulations (e.g., GDPR, AI Act, CCPA).\n* Monitor new AI-related regulations and international agreements to proactively address potential restrictions or adapt your system to comply with local laws.*",
-				"sources": "",
-				"qr": "",
-				"categories": [
-					"Privacy & Data Protection"
-				],
-				"phases": [
-					"Design",
-					"Input",
-					"Output"
-				]
-			},
-			{
-				"question": "Can we comply with the storage limitation principle and international data retention regulations?",
-				"threatif": "No",
-				"explanation": "* The principle of storage limitation, as stated in Article 5(e) of the GDPR, requires personal data to be stored only as long as necessary for the intended purpose. Similarly, many global privacy regulations, such as CCPA (California), LGPD (Brazil), and PDPB (India), impose strict rules on data retention and deletion. Do you have a clear understanding of how long you need to keep the data (training data, output data, etc.) and whether you comply with internal, local, national, or international retention requirements?",
-				"recommendation": " Personal data must not be stored longer than necessary for its intended purpose. To comply, it is essential to have a comprehensive overview of the data flow during the life cycle of the model.\n* Analyze all data types, including raw input data, training and testing sets, processed outputs (linked or merged data), and associated metrics. Understand where this data will be stored and for how long.\n* Define clear retention and deletion schedules, ensuring responsible individuals are assigned for managing data retention and disposal.\n* If data must be retained for auditing or quality purposes, anonymize it where possible to minimize privacy risks.\n* Stay informed about and comply with retention rules not only under GDPR but also under international frameworks such as CCPA (California Consumer Privacy Act), LGPD (Brazilian General Data Protection Law), and others. Retention and deletion policies should meet these diverse requirements. \n* Be aware that deleting data from a trained model is inherently challenging, as input data influences the model's internal representation during training. Consider legal implications for the model itself, as encoded thresholds and weights may also be subject to retention laws. Source: [BerryvilleiML](https://berryvilleiml.com/)",
-				"sources": "",
-				"qr": "",
-				"categories": [
 					"Privacy & Data Protection"
 				],
 				"phases": [
