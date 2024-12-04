@@ -2,7 +2,7 @@
 	{
 		"category": "Data & Data Governance",
 		"id": 1,
-		"colour": "eea4b5",
+		"colour": "83b3db",
 		"cards": [
 			{
 				"question": "Can we assure that the data that we need is complete and trustworthy?",
@@ -1396,7 +1396,7 @@
 	{
 		"category": "Accountability & Human Oversight",
 		"id": 8,
-		"colour": "83b3db",
+		"colour": "eea4b5",
 		"cards": [
 			{
 				"question": "Is the task or assignment completely clear?",
