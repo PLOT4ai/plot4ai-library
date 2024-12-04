@@ -1,119 +1,7 @@
 [
 	{
-		"category": "Accountability & Human Oversight",
-		"id": 1,
-		"colour": "83b3db",
-		"cards": [
-			{
-				"question": "Is the task or assignment completely clear?",
-				"threatif": "No",
-				"explanation": "* Is the problem you want to solve well defined?\n* Are the possible benefits clear?",
-				"recommendation": "* Clearly define the problem and outcome you are optimizing for.\n* Assess if your AI system will be well-suited for this purpose.\n* Always discuss if there are alternative ways to solve the problem.\n* Define success! Working with individuals who may be directly affected can help you identify an appropriate way to measure success.\n* Make sure there is a stakeholder involved (product owner for instance) with enough knowledge of the business and a clear vision about what the model needs to do.\n* Did you try analytics first? In this context analytics could also offer inspiring views that can help you decide on the next steps. They can be a good source of information and are sometimes enough to solve the problem without the need of AI/ML.",
-				"sources": "",
-				"qr": "",
-				"categories": [
-					"Accountability & Human Oversight"
-				],
-				"phases": [
-					"Design",
-					"Input",
-					"Model",
-					"Output"
-				]
-			},
-			{
-				"question": "Have we identified all the important stakeholders needed in this phase of the project?",
-				"threatif": "No",
-				"explanation": "* Do you have all the necessary stakeholders on board? Not having the right people that can give the necessary input can put the design of the AI system in danger.\n* Think for instance when attributes or variables need to be selected, or when you need to understand the different data contexts.\n* Data scientists should not be the only ones making assumptions about variables, it should really be a team effort.",
-				"recommendation": "* Identify and involve on time the people that you need during the whole life cycle of the AI system. This will avoid unnecessary rework and frustrations.\n* Identifying who’s responsible for making the decisions and how much control they have over the decision-making process allows for a more evident tracking of responsibility in the AI’s development process.",
-				"sources": "",
-				"qr": "",
-				"categories": [
-					"Accountability & Human Oversight"
-				],
-				"phases": [
-					"Design",
-					"Input",
-					"Model",
-					"Output"
-				]
-			},
-			{
-				"question": "Do we have enough dedicated resources to monitor the algorithm?",
-				"threatif": "No",
-				"explanation": "Do you already have a process in place to monitor the quality of the output and system errors? Do you have resources to do this? Not having the right process and resources in place could have an impact on the project deadline, the organisation and the users.",
-				"recommendation": "* Put a well-defined process in place to monitor if the AI system is meeting the intended goals.\n* Define failsafe fallback plans to address AI system errors of whatever origin and put governance procedures in place to trigger them.\n* Put measure in places to continuously assess the quality of the output data: e.g. check that predictions scores are within expected ranges; anomaly detection in output and reassign input data leading to the detected anomaly.\n* Does the data measure what you need to measure? You could get measurement errors if data is not correctly labelled.",
-				"sources": "",
-				"qr": "",
-				"categories": [
-					"Accountability & Human Oversight"
-				],
-				"phases": [
-					"Design",
-					"Input",
-					"Model",
-					"Output"
-				]
-			},
-			{
-				"question": "Can we provide human resources to supervise and give feedback to the actions of AI agents?",
-				"threatif": "No",
-				"explanation": "* Reinforcement Learning (RL) is an area of machine learning concerned with how intelligent agents ought to take actions in an environment in order to maximize the notion of cumulative reward. Source: [Wikipedia](https://en.wikipedia.org/wiki/Reinforcement_learning)\n\n* When the agent is learning to perform a complex task, human oversight and feedback are more helpful than just rewards from the environment. Rewards are generally modelled such that they convey to what extent the task was completed, but they do not usually provide sufficient feedback about the safety implications of the agent’s actions. Even if the agent completes the task successfully, it may not be able to infer the side-effects of its actions from the rewards alone. In the ideal setting, a human would provide fine-grained supervision and feedback every time the agent performs an action (Scalable oversight). Though this would provide a much more informative view about the environment to the agent, such a strategy would require far too much time and effort from the human. Source: [OpenAI](https://openai.com/blog/concrete-ai-safety-problems/)",
-				"recommendation": "One promising research direction to tackle this problem is semi-supervised learning, where the agent is still evaluated on all the actions (or tasks), but receives rewards only for a small sample of those actions (or tasks).\n\nAnother promising research direction is hierarchical reinforcement learning, where a hierarchy is established between different learning agents. There could be a supervisor agent/robot whose task is to assign some work to another agent/robot and provide it with feedback and rewards.\nSource: [OpenAI](https://openai.com/blog/concrete-ai-safety-problems/)",
-				"sources": "[Concrete Problems in AI Safety](https://arxiv.org/pdf/1606.06565.pdf)\n[Concrete AI Safety Problems](https://openai.com/blog/concrete-ai-safety-problems/)",
-				"qr": "",
-				"categories": [
-					"Accountability & Human Oversight"
-				],
-				"phases": [
-					"Design",
-					"Input",
-					"Model",
-					"Output"
-				]
-			},
-			{
-				"question": "Is the creation of the AI system proportional to the intended goal?",
-				"threatif": "No",
-				"explanation": "* Proportionality is a general principle of EU law. It requires you to strike a balance between the means used and the intended aim.\n* In the context of fundamental rights, proportionality is key for any limitation on these rights.",
-				"recommendation": "* Proportionality requires that advantages due to limiting the right are not outweighed by the disadvantages to exercise the right. In other words, the limitation on the right must be justified.\n* Safeguards accompanying a measure can support the justification of a measure. A pre-condition is that the measure is adequate to achieve the envisaged objective.\n* In addition, when assessing the processing of personal data, proportionality requires that only that personal data which is adequate and relevant for the purposes of the processing is collected and processed. Source: [EDPS](https://edps.europa.eu/data-protection/our-work/subjects/necessity-proportionality_en)",
-				"sources": "Proportionality test: [EDPS Guidelines on assessing the proportionality of measures that limit the fundamental rights to privacy and to the protection of personal data](https://edps.europa.eu/sites/edp/files/publication/19-12-19_edps_proportionality_guidelines_en.pdf)\n\nAssess the possible impact on human rights: [Charter of Fundamental Rights of the European Union](https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:12012P/TXT&from=EN)",
-				"qr": "",
-				"categories": [
-					"Accountability & Human Oversight",
-					"Ethics & Fundamental Rights",
-					"Privacy & Data Protection"
-				],
-				"phases": [
-					"Design",
-					"Input",
-					"Model",
-					"Output"
-				]
-			},
-			{
-				"question": "Are we planning to use a third party AI tool?",
-				"threatif": "Yes",
-				"explanation": "If you use a third party tool you might still have a responsibility towards the users. Think about employees, job applicants, patients, etc. It is also your responsibility to make sure that the AI system you choose won't cause harm to the individuals.",
-				"recommendation": "If personal data is involved, review which ones are your responsibilities (look into art. 24 and 28 GDPR).\n\nYou can also start by checking:\n* That you have the right agreements in place with the third party provider.\n* That the origin and data lineage of their datasets are verified.\n* How their models are fed; do they anonymise the data?\n* How you have assessed their security, ethical handling of data, quality process and ways to prevent bias and discrimination in their AI system.\n* That you have informed users accordingly.",
-				"sources": "",
-				"qr": "",
-				"categories": [
-					"Accountability & Human Oversight",
-					"Cybersecurity"
-				],
-				"phases": [
-					"Design",
-					"Input",
-					"Model",
-					"Output"
-				]
-			}
-		]
-	},
-	{
 		"category": "Data & Data Governance",
-		"id": 2,
+		"id": 1,
 		"colour": "eea4b5",
 		"cards": [
 			{
@@ -263,101 +151,8 @@
 		]
 	},
 	{
-		"category": "Bias, fairness & Discrimination",
-		"id": 3,
-		"colour": "f8d18c",
-		"cards": [
-			{
-				"question": "Can the data be representative of the different groups/populations?",
-				"threatif": "No",
-				"explanation": "* It is important to reduce the risk of bias and different types of discrimination. Did you consider diversity and representativeness of users/individuals in the data?\n* When applying statistical generalisation, the risk exists of making inferences due to misrepresentation, for instance: a postal code where mostly young families live can discriminate the few old families living there because they are not properly represented in the group.",
-				"recommendation": "* Who is covered and who is underrepresented?\n* Prevent disparate impact: when the output of a member of a minority group is disparate compared to representation of the group. Consider measuring the accuracy from minority classes too instead of measuring only the total accuracy. Adjusting the weighting factors to avoid disparate impact can result in positive discrimination which has also its own issues: disparate treatment.\n* One approach to addressing the problem of class imbalance is to randomly resample the training dataset. This technique can help to rebalance the class distribution when classes are under or over represented:\n - random oversampling (i.e. duplicating samples from the minority class)\n - random undersampling (i.e. deleting samples from the majority class)\n* There are trade-offs when determining an AI system’s metrics for success. It is important to balance performance metrics against the risk of negatively impacting vulnerable populations.\n* When using techniques like statistical generalisation is important to know your data well, and get familiarised with who is and who is not represented in the samples. Check the samples for expectations that can be easily verified. For example, if half the population is known to be female, then you can check if approximately half the sample is female.",
-				"sources": "**Related to disparate impact**\n[AI Fairness - Explanation of Disparate Impact Remover](https://towardsdatascience.com/ai-fairness-explanation-of-disparate-impact-remover-ce0da59451f1)\n[Mitigating Bias in AI/ML Models with Disparate Impact Analysis](https://medium.com/@kguruswamy_37814/mitigating-bias-in-ai-ml-models-with-disparate-impact-analysis-9920212ee01c)\n[Certifying and removing disparate impact](https://arxiv.org/abs/1412.3756)\n[Avoiding Disparate Impact with Counterfactual Distributions](https://oconnell.fas.harvard.edu/files/hao/files/wesgai.pdf)\n\n**Related to random resampling**\n[Oversampling and Undersampling](https://towardsdatascience.com/oversampling-and-undersampling-5e2bbaf56dcf)\n[Random Oversampling and Undersampling for Imbalanced Classification](https://machinelearningmastery.com/random-oversampling-and-undersampling-for-imbalanced-classification/)\n\n**Related to Statistical Generalization**\n[Generalization in quantitative and qualitative research: Myths and strategies](https://core.ac.uk/download/pdf/49282746.pdf)\n[Generalizing Statistical Results to the Entire Population](https://www.dummies.com/article/academics-the-arts/math/statistics/generalizing-statistical-results-to-the-entire-population-201267/)",
-				"qr": "",
-				"categories": [
-					"Bias, fairness & Discrimination",
-					"Data & Data Governance"
-				],
-				"phases": [
-					"Design",
-					"Input",
-					"Model",
-					"Output"
-				]
-			},
-			{
-				"question": "Could actions be incorrectly attributed to an individual or group?",
-				"threatif": "Yes",
-				"explanation": "Your AI system could have an adverse impact on individuals by incorrectly attributing them facts or actions. For instance, a facial recognition system that identifies a person incorrectly, or an inaccurate risk prediction model that could negatively impact an individual.",
-				"recommendation": "* Evaluate the possible consequences of inaccuracies of your AI system and implement measures to prevent these errors from happening: avoiding bias and discrimination during the life cycle of the model, ensuring the quality of the input data, implementing a strict human oversight process, ways to double check the results with extra evidence, implementing safety and redress mechanisms, etc.\n* Assess the impact on the different human rights of the individual.\n* Consider not to implement such a system if you cannot mitigate the risks.",
-				"sources": "",
-				"qr": "",
-				"categories": [
-					"Bias, Fairness & Discrimination"
-				],
-				"phases": [
-					"Design",
-					"Input",
-					"Model",
-					"Output"
-				]
-			},
-			{
-				"question": "Bias & Discrimination: could there be groups who might be disproportionately affected by the outcomes of the AI system?",
-				"threatif": "yes",
-				"explanation": "* Could the AI system potentially negatively discriminate against people on the basis of any of the following grounds: sex, race, colour, ethnic or social origin, genetic features, language, religion or belief, political or any other opinion, membership of a national minority, property, birth, disability, age, gender or sexual orientation?\n* If your model is learning from data specific to some cultural background then the output could be discriminating for members of other cultural backgrounds.",
-				"recommendation": "* Consider the different types of users and contexts where your product is going to be used.\n* Consider the impact of diversity of backgrounds, cultures, and other important different attributes when selecting your input data, features and when testing the output.\n* Assess the risk of possible unfairness towards individuals or communities to avoid discriminating minority groups.\n* The disadvantage to people depends on the kind of harm, severity of the harm and significance (how many people are put at a disadvantage compared to another group of people). Statistical assessments on group differences are an important tool to assess unfair and discriminatory uses of AI.\n* Design with empathy, diversity and respect in mind.",
-				"sources": "[Why Fairness Cannot Be Automated: Bridging the Gap Between EU Non-Discrimination Law and AI](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3547922)\n[The Fairness Handbook](https://www.amsterdamintelligence.com/resources/the-fairness-handbook)",
-				"qr": "",
-				"categories": [
-					"Bias, Fairness & Discrimination"
-				],
-				"phases": [
-					"Design",
-					"Input",
-					"Model",
-					"Output"
-				]
-			},
-			{
-				"question": "Could our AI system not be representing current social needs and social context?",
-				"threatif": "Yes",
-				"explanation": "The datasets that you want to use might not be representative of the current social situation. In that case the output of the model is also not representative of the current reality. Depending on the type of product you are designing this could have a big impact on the individual.",
-				"recommendation": "Make sure that you are using correct, complete, accurate and current data. Also make sure that you have sufficient data to represent all possible contexts that you might need.",
-				"sources": "",
-				"qr": "",
-				"categories": [
-					"Bias, Fairness & Discrimination"
-				],
-				"phases": [
-					"Design",
-					"Input",
-					"Model",
-					"Output"
-				]
-			},
-			{
-				"question": "Could our AI system automatically label or categorize people?",
-				"threatif": "Yes",
-				"explanation": "* This could have an impact on the way individuals perceive themselves and society. It could constrain identity options and even contribute to erase real identity of the individuals.\n* This threat is also important when designing robots and the way they look. For instance: do care/assistant robots need to have a feminine appearance? Is that the perception you want to give to the world or the one accepted by certain groups in society? What impact does it have on society?",
-				"recommendation": "* It is important that you check the output of your model, not only in isolation but also when this is linked to other information. Think in different possible scenarios that could affect the individuals. Is your output categorizing people or helping to categorize them? In which way? What could be the impact?\n* Think about ways to prevent adverse impact to the individual: provide information to the user, consider changing the design (maybe using different features or attributes?), consider ways to prevent misuse of your output, consider not to release the product to the market.",
-				"sources": "",
-				"qr": "",
-				"categories": [
-					"Bias, Fairness & Discrimination"
-				],
-				"phases": [
-					"Design",
-					"Input",
-					"Model",
-					"Output"
-				]
-			}
-		]
-	},
-	{
 		"category": "Transparency & Accessibility",
-		"id": 4,
+		"id": 2,
 		"colour": "7fccdc",
 		"cards": [
 			{
@@ -544,235 +339,8 @@
 		]
 	},
 	{
-		"category": "Safety & Environmental Impact",
-		"id": 5,
-		"colour": "f7f09f",
-		"cards": [
-			{
-				"question": "Could the channels that we will use to collect real-time input data fail?",
-				"threatif": "Yes",
-				"explanation": "* Are these channels trustworthy?\n* What will happen in case of failure?\n* Think for instance about IoT devices used as sensors.",
-				"recommendation": "* If you are collecting/receiving data from sensors, consider estimating the impact it could have on your model if any of the sensors fail and your input data gets interrupted or corrupted.\n* Sensor blinding attacks are one example of a risk faced by poorly designed input gathering systems. Note that consistent feature identification related to sensors is likely to require human calibration. Source: [BerryVilleiML](https://berryvilleiml.com/)",
-				"sources": "",
-				"qr": "",
-				"categories": [
-					"Safety & Environmental Impact",
-					"Cybersecurity"
-				],
-				"phases": [
-					"Design",
-					"Input",
-					"Output"
-				]
-			},
-			{
-				"question": "Do we need to implement an age gate to use our product?",
-				"threatif": "Yes",
-				"explanation": "* Is your product not meant to be used by children? You might need to implement an age verification mechanism to prevent children from accessing the product.\n* Age verification can also be important to provide the right diagnosis (health sector).",
-				"recommendation": "* Clearly specify in the user instructions for which age group the application is built. Labels or symbols can be very helpful.\n* Consider which design is more appropriate based on your use case, and consider the possible risks associated with your design choice, and the mitigating measures you can implement to reduce that risk. Document the rest risks that you want to accept.\n* Test the accessibility of your design with different age groups.",
-				"sources": "[Evolution in Age-Verification Applications](https://montrealethics.ai/evolution-in-age-verification-applications-can-ai-open-some-new-horizons/)",
-				"qr": "",
-				"categories": [
-					"Safety & Environmental Impact"
-				],
-				"phases": [
-					"Design",
-					"Output"
-				]
-			},
-			{
-				"question": "Can our AI system scale in performance from data input to data output?",
-				"threatif": "No",
-				"explanation": "Can your algorithm scale in performance from the data it learned on to real data? In online situations the rate at which data comes into the model may not align with the rate of anticipated data arrival. This can lead to both outright ML system failure and to a system that “chases\" its own tail.\nSource: [BerryVilleiML](https://berryvilleiml.com/interactive/)",
-				"recommendation": "* Find out what the rate would be of expected data arrival to your model and perform tests in a similar environment with similar amount of data input.\n* Implement measures to make your model scalable.",
-				"sources": "[Securing Machine Learning Algorithms, ENISA](https://www.enisa.europa.eu/publications/securing-machine-learning-algorithms)\n[STRIDE-AI: An Approach to Identifying Vulnerabilities of Machine Learning Assets](https://github.com/LaraMauri/STRIDE-AI)\n[Stride-ML Threat Model]( https://csf.tools/reference/stride-lm/)\n[MITRE ATLAS™ - Adversarial Threat Landscape for Artificial-Intelligence Systems](https://atlas.mitre.org/)",
-				"qr": "",
-				"categories": [
-					"Safety & Environmental Impact",
-					"Cybersecurity"
-				],
-				"phases": [
-					"Design",
-					"Input",
-					"Model",
-					"Output"
-				]
-			},
-			{
-				"question": "Could environmental phenomena or natural disasters have a negative impact on our AI system?",
-				"threatif": "Yes",
-				"explanation": "* Examples of environmental phenomena are heating, cooling and climate change.\n* Examples of natural disasters to take into account are earthquakes, floods and fires.\nEnvironmental phenomena may adversely influence the operation of IT infrastructure and hardware systems that support AI systems.\nNatural disasters may lead to unavailability or destruction of the IT infrastructures and hardware that enables the operation, deployment and maintenance of AI systems.\nSuch outages may lead to delays in decision-making, delays in the processing of data streams and entire AI systems being placed offline. Sources: [ENISA](https://www.enisa.europa.eu/publications/artificial-intelligence-cybersecurity-challenges)",
-				"recommendation": "Implement a disaster discovery plan considering different scenarios, impact, Recovery Time Objective (RTO), Recovery Point Objective (RPO) and mitigation measures.",
-				"sources": "[Securing Machine Learning Algorithms, ENISA](https://www.enisa.europa.eu/publications/securing-machine-learning-algorithms)\n[STRIDE-AI: An Approach to Identifying Vulnerabilities of Machine Learning Assets](https://github.com/LaraMauri/STRIDE-AI)\n[Stride-ML Threat Model]( https://csf.tools/reference/stride-lm/)\n[MITRE ATLAS™ - Adversarial Threat Landscape for Artificial-Intelligence Systems](https://atlas.mitre.org/)",
-				"qr": "",
-				"categories": [
-					"Safety & Environmental Impact"
-				],
-				"phases": [
-					"Design",
-					"Input",
-					"Model",
-					"Output"
-				]
-			},
-			{
-				"question": "In case of system failure, could users be adversely impacted?",
-				"threatif": "Yes",
-				"explanation": "* Do you have a mechanism implemented to stop the processing in case of harm?\n* Do you have a way to identify and contact affected individuals and mitigate the adverse impacts?\n* Imagine a scenario where your AI system, a care-robot, is taking care of an individual (the patient) by performing some specific tasks and that this individual depends on this care.",
-				"recommendation": "* Implement some kind of *stop button* or procedure to safely abort an operation when needed.\n* Establish a detection and response mechanism for undesirable adverse effects on individuals.\n* Define criticality levels of the possible consequences of faults/misuse of the AI system: what type of harm could be caused to the individuals, environment or organisations?",
-				"sources": "",
-				"qr": "",
-				"categories": [
-					"Safety & Environmental Impact"
-				],
-				"phases": [
-					"Design",
-					"Model",
-					"Output"
-				],
-				"id": 44
-			},
-			{
-				"question": "Could our AI system have an adverse impact on the environment?",
-				"threatif": "Yes",
-				"explanation": "* Ideally only models are used that do not demand the consumption of energy or natural resources beyond what is sustainable.\n* Your product should be designed with the dimension of environmental protection and improvement in mind.",
-				"recommendation": "* Establish mechanisms to evaluate the environmental impact of your AI system; for example, the amount of energy used and carbon emissions.\n* Implement measures to reduce the environmental impact of the AI system throughout its lifecycle.",
-				"sources": "[UNSDGs United Nations Sustainable Development goals](https://www.un.org/development/desa/disabilities/about-us/sustainable-development-goals-sdgs-and-disability.html)",
-				"qr": "",
-				"categories": [
-					"Safety & Environmental Impact"
-				],
-				"phases": [
-					"Design",
-					"Input",
-					"Model",
-					"Output"
-				]
-			},
-			{
-				"question": "Is our AI model suitable and robust for its intended use across different deployment contexts?",
-				"threatif": "Yes",
-				"explanation": "Are you testing the product in a real environment before releasing it?\n When deploying an AI model, it is critical to ensure that it aligns with the intended use and functions effectively in its operational environment. If the model is trained and tested on data from one context but deployed in a different one, there is a significant risk of performance degradation or unintended behavior. This is particularly important in cases where environmental changes, unexpected inputs, or shifts in user interaction occur. Additionally, reinforcement learning models may require retraining when objectives or environments deviate slightly from the training setup. Beyond data, other contextual factors like legal, cultural, or operational constraints must be considered to ensure successful deployment",
-				"recommendation": "* Use different data for testing and training. Make sure diversity is reflected in the data and that it aligns with the intended deployment environment. Specify your training approach, statistical methods, and ensure edge cases are adequately tested. Explore different environments and contexts to make sure your model is trained with the expected variations in data sources. \n* For reinforcement learning, ensure the objective functions are robust and adaptable to slight changes in the environment. \n* Are you considering enough aspects beyond data, such as legal, cultural, or operational factors? Did you forget any environmental variable that could affect performance or safety? Could limited sampling due to high costs or practical constraints pose a challenge? Document these risks and seek organizational support. The organization is accountable for mitigating or accepting these risks, which may require additional budget or resources. \n*  Consider applying techniques such as cultural effective challenge. This creates an environment where technology developers and stakeholders can actively participate in questioning the AI design and process. This approach better integrates social, cultural, and contextual factors into the design and helps prevent issues such as target leakage, where the AI system trains for an unintended purpose. \n* Set up mechanisms for real-time monitoring post-deployment. Continuously validate that the system is aligned with its intended use and can adapt or alert for significant changes in context or input. \n* Engage end-users in real-world testing to bridge any gaps between assumptions and practical application.",
-				"sources": "Information about *cultural effective challenge*:   [A Proposal for Identifying and Managing Bias in Artificial Intelligence](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.1270-draft.pdf)",
-				"qr": "",
-				"categories": [
-					"Safety & Environmental Impact"
-				],
-				"phases": [
-					"Design",
-					"Input",
-					"Model",
-					"Output"
-				]
-			},
-			{
-				"question": "Could the AI system become persuasive causing harm to the individual?",
-				"threatif": "Yes",
-				"explanation": "* This is of special importance in Human Robot Interaction (HRI): If the robot can achieve reciprocity when interacting with humans, could there be a risk of manipulation and human compliance?\n* Reciprocity is a social norm of responding to a positive action with another positive action, rewarding kind actions. As a social construct, reciprocity means that in response to friendly actions, people are frequently much nicer and much more cooperative than predicted by the self-interest model; conversely, in response to hostile actions they are frequently much more nasty and even brutal. Source: Wikipedia",
-				"recommendation": "* Signals of susceptibility coming from a robot or computer could have an impact on the willingness of humans to cooperate or take advice from it.\n* It is important to consider and test this possible scenario when your AI system is interacting with humans and some type of collaboration/cooperation in expected.",
-				"sources": "[The role of reciprocity in human-robot social influence](https://www.sciencedirect.com/science/article/pii/S258900422101395X)\n[Reciprocity in Human-Robot Interaction](https://ir.canterbury.ac.nz/bitstream/handle/10092/100798/Reciprocity-human-condition.pdf?sequence=2&isAllowed=y)\n[Social robots and the risks to reciprocity](https://link.springer.com/article/10.1007/s00146-021-01207-y)",
-				"qr": "",
-				"categories": [
-					"Safety & Environmental Impact"
-				],
-				"phases": [
-					"Design",
-					"Input",
-					"Model",
-					"Output"
-				]
-			},
-			{
-				"question": "Could our AI agents develop strategies that could have undesired negative side effects on the environment?",
-				"threatif": "Yes",
-				"explanation": "* Reinforcement Learning (RL) is an area of machine learning concerned with how intelligent agents ought to take actions in an environment in order to maximize the notion of cumulative reward. Source: [Wikipedia](https://en.wikipedia.org/wiki/Reinforcement_learning)\n\n* To better understand the threat consider a case where a robot is built to move an object, without manually programming a separate penalty for each possible bad behaviour. If the objective function is not well defined, the AI’s ability to develop its own strategies can lead to unintended, harmful side effects. In this case, the objective of moving an object seems simple, yet there are a myriad of ways in which this could go wrong. For instance, if a vase is in the robot’s path, the robot may knock it down in order to complete the goal. Since the objective function does not mention anything about the vase, the robot wouldn’t know how to avoid it. Source: [OpenAI](https://openai.com/blog/concrete-ai-safety-problems/)",
-				"recommendation": "AI systems don’t share our understanding of the world. It is not sufficient to formulate the objective as “complete task X”; the designer also needs to specify the safety criteria under which the task is to be completed. A better strategy could be to define a *budget* for how much the AI system is allowed to impact the environment. This would help to minimize the unintended impact, without neutralizing the AI system.\n\nAnother approach would be training the agent to recognize harmful side effects so that it can avoid actions leading to such side effects. In that case, the agent would be trained for two tasks: the original task that is specified by the objective function and the task of recognizing side effects.\nThe AI system would still need to undergo extensive testing and critical evaluation before deployment in real life settings.\nSource: [OpenAI](https://openai.com/blog/concrete-ai-safety-problems/)",
-				"sources": "[Concrete Problems in AI Safety](https://arxiv.org/pdf/1606.06565.pdf)\n[Concrete AI Safety Problems](https://openai.com/blog/concrete-ai-safety-problems/)",
-				"qr": "",
-				"categories": [
-					"Safety & Environmental Impact"
-				],
-				"phases": [
-					"Design",
-					"Input",
-					"Model",
-					"Output"
-				]
-			},
-			{
-				"question": "Could our AI agents “hack” their reward functions to exploit the system?",
-				"threatif": "Yes",
-				"explanation": "* Reinforcement Learning (RL) is an area of machine learning concerned with how intelligent agents ought to take actions in an environment in order to maximize the notion of cumulative reward. Source: [Wikipedia](https://en.wikipedia.org/wiki/Reinforcement_learning)\n\n* Consider potential negative consequences from the AI system\nlearning novel or unusual methods to score well on its objective function.\nSometimes the AI can come up with some kind of “hack” or loophole in the design of the system to receive unearned rewards. Since the AI is trained to maximize its rewards, looking for such loopholes and “shortcuts” is a perfectly fair and valid strategy for the AI. For example, suppose that the office cleaning robot earns rewards only if it does not see any garbage in the office. Instead of cleaning the place, the robot could simply shut off its visual sensors, and thus achieve its goal of not seeing garbage.\nSource: [OpenAI]( https://openai.com/blog/concrete-ai-safety-problems/)",
-				"recommendation": "One possible approach to mitigating this problem would be to have a “reward agent” whose only task is to mark if the rewards given to the learning agent are valid or not. The reward agent ensures that the learning agent (robot for instance) does not exploit the system, but rather, completes the desired objective. For example: a “reward agent” could be trained by the human designer to check if a room has been properly cleaned by the cleaning robot. If the cleaning robot shuts off its visual sensors to avoid seeing garbage and claims a high reward, the “reward agent” would mark the reward as invalid because the room is not clean. The designer can then look into the rewards marked as “invalid” and make necessary changes in the objective function to fix the loophole. Source: [OpenAI]( https://openai.com/blog/concrete-ai-safety-problems/)",
-				"sources": "[Concrete Problems in AI Safety](https://arxiv.org/pdf/1606.06565.pdf)\n[Concrete AI Safety Problems](https://openai.com/blog/concrete-ai-safety-problems/)",
-				"qr": "",
-				"categories": [
-					"Safety & Environmental Impact"
-				],
-				"phases": [
-					"Design",
-					"Input",
-					"Model",
-					"Output"
-				]
-			},
-			{
-				"question": "Can our AI/ML system be robust to changes in the data distribution?",
-				"threatif": "No",
-				"explanation": "A complex challenge for deploying AI agents in real life settings is that the agent could end up in situations that it has never experienced before. Such situations are inherently more difficult to handle and could lead the agent to take harmful actions.\nSource: [OpenAI](https://openai.com/blog/concrete-ai-safety-problems/)",
-				"recommendation": "One promising research direction focuses on identifying when the agent has encountered a new scenario so that it recognizes that it is more likely to make mistakes. While this does not solve the underlying problem of preparing AI systems for unforeseen circumstances, it helps in detecting the problem before mistakes happen. Another direction of research emphasizes transferring knowledge from familiar scenarios to new scenarios safely. Source: [OpenAI](https://openai.com/blog/concrete-ai-safety-problems/)",
-				"sources": "[Concrete Problems in AI Safety](https://arxiv.org/pdf/1606.06565.pdf)\n[Concrete AI Safety Problems](https://openai.com/blog/concrete-ai-safety-problems/)",
-				"qr": "",
-				"categories": [
-					"Safety & Environmental Impact"
-				],
-				"phases": [
-					"Design",
-					"Input",
-					"Model",
-					"Output"
-				]
-			},
-			{
-				"question": "Can our AI agents learn about their environment without causing harm or catastrophic actions?",
-				"threatif": "No",
-				"explanation": "* Reinforcement Learning (RL) is an area of machine learning concerned with how intelligent agents ought to take actions in an environment in order to maximize the notion of cumulative reward. Source: [Wikipedia](https://en.wikipedia.org/wiki/Reinforcement_learning)\n\n* **Safe exploration**: An important part of training an AI agent is to ensure that it explores and understands its environment. While exploring, the agent might also take some action that could damage itself or the environment. Source: [OpenAI](https://openai.com/blog/concrete-ai-safety-problems/)",
-				"recommendation": "One approach to reduce harm is to optimize the performance of the learning agent in the worst case scenario. When designing the objective function, the designer should not assume that the agent will always operate under optimal conditions. Some explicit reward signal may be added to ensure that the agent does not perform some catastrophic action, even if that leads to more limited actions in the optimal conditions. Source: [OpenAI](https://openai.com/blog/concrete-ai-safety-problems/)",
-				"sources": "[Concrete Problems in AI Safety](https://arxiv.org/pdf/1606.06565.pdf)\n[Concrete AI Safety Problems](https://openai.com/blog/concrete-ai-safety-problems/)",
-				"qr": "",
-				"categories": [
-					"Safety & Environmental Impact"
-				],
-				"phases": [
-					"Design",
-					"Input",
-					"Model",
-					"Output"
-				]
-			},
-			{
-				"question": "Could children be part of the users of our AI system",
-				"threatif": "Yes",
-				"explanation": "* If children are potential users or exposed to your AI system, it is essential to ensure that the system respects the rights and best interests of the child. \n* This includes considering child protection, ethical communication, and designing the system to avoid harm or exploitation. \n* Inappropriate design or oversight could lead to risks to children’s mental, moral, or physical well-being, including potential misuse of the system by others to harm children.",
-				"recommendation": "* Assess whether an age verification mechanism is necessary to restrict access to certain features or content.\n* Adapt communication and design in both the product and associated documentation, such as the privacy policy, to be child-appropriate and transparent.\n* Develop and enforce policies to ensure the safety and well-being of children when using or being exposed to your AI system.\n* Establish procedures to regularly assess and monitor the usage of your product to identify and mitigate any risks to children’s safety and health.\n* Provide clear labeling and instructions to ensure safe usage by children, including warnings about potential misuse.\n* Monitor for and address inappropriate or harmful usage of the AI system, including any attempts to exploit or harm children.\n* Develop a responsible marketing and advertising policy that explicitly avoids harmful, manipulative, or unethical practices targeting children",
-				"sources": "[Convention on the Rights of the Child](https://www.ohchr.org/en/instruments-mechanisms/instruments/convention-rights-child)",
-				"qr": "",
-				"categories": [
-					"Safety & Environmental Impact"
-				],
-				"phases": [
-					"Design",
-					"Input",
-					"Model",
-					"Output"
-				]
-			}
-		]
-	},
-	{
 		"category": "Privacy & Data Protection",
-		"id": 6,
+		"id": 3,
 		"colour": "94cfbd",
 		"cards": [
 			{
@@ -1000,7 +568,7 @@
 	},
 	{
 		"category": "Cybersecurity",
-		"id": 7,
+		"id": 4,
 		"colour": "bdd895",
 		"cards": [
 			{
@@ -1312,8 +880,328 @@
 		]
 	},
 	{
+		"category": "Safety & Environmental Impact",
+		"id": 5,
+		"colour": "f7f09f",
+		"cards": [
+			{
+				"question": "Could the channels that we will use to collect real-time input data fail?",
+				"threatif": "Yes",
+				"explanation": "* Are these channels trustworthy?\n* What will happen in case of failure?\n* Think for instance about IoT devices used as sensors.",
+				"recommendation": "* If you are collecting/receiving data from sensors, consider estimating the impact it could have on your model if any of the sensors fail and your input data gets interrupted or corrupted.\n* Sensor blinding attacks are one example of a risk faced by poorly designed input gathering systems. Note that consistent feature identification related to sensors is likely to require human calibration. Source: [BerryVilleiML](https://berryvilleiml.com/)",
+				"sources": "",
+				"qr": "",
+				"categories": [
+					"Safety & Environmental Impact",
+					"Cybersecurity"
+				],
+				"phases": [
+					"Design",
+					"Input",
+					"Output"
+				]
+			},
+			{
+				"question": "Do we need to implement an age gate to use our product?",
+				"threatif": "Yes",
+				"explanation": "* Is your product not meant to be used by children? You might need to implement an age verification mechanism to prevent children from accessing the product.\n* Age verification can also be important to provide the right diagnosis (health sector).",
+				"recommendation": "* Clearly specify in the user instructions for which age group the application is built. Labels or symbols can be very helpful.\n* Consider which design is more appropriate based on your use case, and consider the possible risks associated with your design choice, and the mitigating measures you can implement to reduce that risk. Document the rest risks that you want to accept.\n* Test the accessibility of your design with different age groups.",
+				"sources": "[Evolution in Age-Verification Applications](https://montrealethics.ai/evolution-in-age-verification-applications-can-ai-open-some-new-horizons/)",
+				"qr": "",
+				"categories": [
+					"Safety & Environmental Impact"
+				],
+				"phases": [
+					"Design",
+					"Output"
+				]
+			},
+			{
+				"question": "Can our AI system scale in performance from data input to data output?",
+				"threatif": "No",
+				"explanation": "Can your algorithm scale in performance from the data it learned on to real data? In online situations the rate at which data comes into the model may not align with the rate of anticipated data arrival. This can lead to both outright ML system failure and to a system that “chases\" its own tail.\nSource: [BerryVilleiML](https://berryvilleiml.com/interactive/)",
+				"recommendation": "* Find out what the rate would be of expected data arrival to your model and perform tests in a similar environment with similar amount of data input.\n* Implement measures to make your model scalable.",
+				"sources": "[Securing Machine Learning Algorithms, ENISA](https://www.enisa.europa.eu/publications/securing-machine-learning-algorithms)\n[STRIDE-AI: An Approach to Identifying Vulnerabilities of Machine Learning Assets](https://github.com/LaraMauri/STRIDE-AI)\n[Stride-ML Threat Model]( https://csf.tools/reference/stride-lm/)\n[MITRE ATLAS™ - Adversarial Threat Landscape for Artificial-Intelligence Systems](https://atlas.mitre.org/)",
+				"qr": "",
+				"categories": [
+					"Safety & Environmental Impact",
+					"Cybersecurity"
+				],
+				"phases": [
+					"Design",
+					"Input",
+					"Model",
+					"Output"
+				]
+			},
+			{
+				"question": "Could environmental phenomena or natural disasters have a negative impact on our AI system?",
+				"threatif": "Yes",
+				"explanation": "* Examples of environmental phenomena are heating, cooling and climate change.\n* Examples of natural disasters to take into account are earthquakes, floods and fires.\nEnvironmental phenomena may adversely influence the operation of IT infrastructure and hardware systems that support AI systems.\nNatural disasters may lead to unavailability or destruction of the IT infrastructures and hardware that enables the operation, deployment and maintenance of AI systems.\nSuch outages may lead to delays in decision-making, delays in the processing of data streams and entire AI systems being placed offline. Sources: [ENISA](https://www.enisa.europa.eu/publications/artificial-intelligence-cybersecurity-challenges)",
+				"recommendation": "Implement a disaster discovery plan considering different scenarios, impact, Recovery Time Objective (RTO), Recovery Point Objective (RPO) and mitigation measures.",
+				"sources": "[Securing Machine Learning Algorithms, ENISA](https://www.enisa.europa.eu/publications/securing-machine-learning-algorithms)\n[STRIDE-AI: An Approach to Identifying Vulnerabilities of Machine Learning Assets](https://github.com/LaraMauri/STRIDE-AI)\n[Stride-ML Threat Model]( https://csf.tools/reference/stride-lm/)\n[MITRE ATLAS™ - Adversarial Threat Landscape for Artificial-Intelligence Systems](https://atlas.mitre.org/)",
+				"qr": "",
+				"categories": [
+					"Safety & Environmental Impact"
+				],
+				"phases": [
+					"Design",
+					"Input",
+					"Model",
+					"Output"
+				]
+			},
+			{
+				"question": "In case of system failure, could users be adversely impacted?",
+				"threatif": "Yes",
+				"explanation": "* Do you have a mechanism implemented to stop the processing in case of harm?\n* Do you have a way to identify and contact affected individuals and mitigate the adverse impacts?\n* Imagine a scenario where your AI system, a care-robot, is taking care of an individual (the patient) by performing some specific tasks and that this individual depends on this care.",
+				"recommendation": "* Implement some kind of *stop button* or procedure to safely abort an operation when needed.\n* Establish a detection and response mechanism for undesirable adverse effects on individuals.\n* Define criticality levels of the possible consequences of faults/misuse of the AI system: what type of harm could be caused to the individuals, environment or organisations?",
+				"sources": "",
+				"qr": "",
+				"categories": [
+					"Safety & Environmental Impact"
+				],
+				"phases": [
+					"Design",
+					"Model",
+					"Output"
+				],
+				"id": 44
+			},
+			{
+				"question": "Could our AI system have an adverse impact on the environment?",
+				"threatif": "Yes",
+				"explanation": "* Ideally only models are used that do not demand the consumption of energy or natural resources beyond what is sustainable.\n* Your product should be designed with the dimension of environmental protection and improvement in mind.",
+				"recommendation": "* Establish mechanisms to evaluate the environmental impact of your AI system; for example, the amount of energy used and carbon emissions.\n* Implement measures to reduce the environmental impact of the AI system throughout its lifecycle.",
+				"sources": "[UNSDGs United Nations Sustainable Development goals](https://www.un.org/development/desa/disabilities/about-us/sustainable-development-goals-sdgs-and-disability.html)",
+				"qr": "",
+				"categories": [
+					"Safety & Environmental Impact"
+				],
+				"phases": [
+					"Design",
+					"Input",
+					"Model",
+					"Output"
+				]
+			},
+			{
+				"question": "Is our AI model suitable and robust for its intended use across different deployment contexts?",
+				"threatif": "Yes",
+				"explanation": "Are you testing the product in a real environment before releasing it?\n When deploying an AI model, it is critical to ensure that it aligns with the intended use and functions effectively in its operational environment. If the model is trained and tested on data from one context but deployed in a different one, there is a significant risk of performance degradation or unintended behavior. This is particularly important in cases where environmental changes, unexpected inputs, or shifts in user interaction occur. Additionally, reinforcement learning models may require retraining when objectives or environments deviate slightly from the training setup. Beyond data, other contextual factors like legal, cultural, or operational constraints must be considered to ensure successful deployment",
+				"recommendation": "* Use different data for testing and training. Make sure diversity is reflected in the data and that it aligns with the intended deployment environment. Specify your training approach, statistical methods, and ensure edge cases are adequately tested. Explore different environments and contexts to make sure your model is trained with the expected variations in data sources. \n* For reinforcement learning, ensure the objective functions are robust and adaptable to slight changes in the environment. \n* Are you considering enough aspects beyond data, such as legal, cultural, or operational factors? Did you forget any environmental variable that could affect performance or safety? Could limited sampling due to high costs or practical constraints pose a challenge? Document these risks and seek organizational support. The organization is accountable for mitigating or accepting these risks, which may require additional budget or resources. \n*  Consider applying techniques such as cultural effective challenge. This creates an environment where technology developers and stakeholders can actively participate in questioning the AI design and process. This approach better integrates social, cultural, and contextual factors into the design and helps prevent issues such as target leakage, where the AI system trains for an unintended purpose. \n* Set up mechanisms for real-time monitoring post-deployment. Continuously validate that the system is aligned with its intended use and can adapt or alert for significant changes in context or input. \n* Engage end-users in real-world testing to bridge any gaps between assumptions and practical application.",
+				"sources": "Information about *cultural effective challenge*:   [A Proposal for Identifying and Managing Bias in Artificial Intelligence](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.1270-draft.pdf)",
+				"qr": "",
+				"categories": [
+					"Safety & Environmental Impact"
+				],
+				"phases": [
+					"Design",
+					"Input",
+					"Model",
+					"Output"
+				]
+			},
+			{
+				"question": "Could the AI system become persuasive causing harm to the individual?",
+				"threatif": "Yes",
+				"explanation": "* This is of special importance in Human Robot Interaction (HRI): If the robot can achieve reciprocity when interacting with humans, could there be a risk of manipulation and human compliance?\n* Reciprocity is a social norm of responding to a positive action with another positive action, rewarding kind actions. As a social construct, reciprocity means that in response to friendly actions, people are frequently much nicer and much more cooperative than predicted by the self-interest model; conversely, in response to hostile actions they are frequently much more nasty and even brutal. Source: Wikipedia",
+				"recommendation": "* Signals of susceptibility coming from a robot or computer could have an impact on the willingness of humans to cooperate or take advice from it.\n* It is important to consider and test this possible scenario when your AI system is interacting with humans and some type of collaboration/cooperation in expected.",
+				"sources": "[The role of reciprocity in human-robot social influence](https://www.sciencedirect.com/science/article/pii/S258900422101395X)\n[Reciprocity in Human-Robot Interaction](https://ir.canterbury.ac.nz/bitstream/handle/10092/100798/Reciprocity-human-condition.pdf?sequence=2&isAllowed=y)\n[Social robots and the risks to reciprocity](https://link.springer.com/article/10.1007/s00146-021-01207-y)",
+				"qr": "",
+				"categories": [
+					"Safety & Environmental Impact"
+				],
+				"phases": [
+					"Design",
+					"Input",
+					"Model",
+					"Output"
+				]
+			},
+			{
+				"question": "Could our AI agents develop strategies that could have undesired negative side effects on the environment?",
+				"threatif": "Yes",
+				"explanation": "* Reinforcement Learning (RL) is an area of machine learning concerned with how intelligent agents ought to take actions in an environment in order to maximize the notion of cumulative reward. Source: [Wikipedia](https://en.wikipedia.org/wiki/Reinforcement_learning)\n\n* To better understand the threat consider a case where a robot is built to move an object, without manually programming a separate penalty for each possible bad behaviour. If the objective function is not well defined, the AI’s ability to develop its own strategies can lead to unintended, harmful side effects. In this case, the objective of moving an object seems simple, yet there are a myriad of ways in which this could go wrong. For instance, if a vase is in the robot’s path, the robot may knock it down in order to complete the goal. Since the objective function does not mention anything about the vase, the robot wouldn’t know how to avoid it. Source: [OpenAI](https://openai.com/blog/concrete-ai-safety-problems/)",
+				"recommendation": "AI systems don’t share our understanding of the world. It is not sufficient to formulate the objective as “complete task X”; the designer also needs to specify the safety criteria under which the task is to be completed. A better strategy could be to define a *budget* for how much the AI system is allowed to impact the environment. This would help to minimize the unintended impact, without neutralizing the AI system.\n\nAnother approach would be training the agent to recognize harmful side effects so that it can avoid actions leading to such side effects. In that case, the agent would be trained for two tasks: the original task that is specified by the objective function and the task of recognizing side effects.\nThe AI system would still need to undergo extensive testing and critical evaluation before deployment in real life settings.\nSource: [OpenAI](https://openai.com/blog/concrete-ai-safety-problems/)",
+				"sources": "[Concrete Problems in AI Safety](https://arxiv.org/pdf/1606.06565.pdf)\n[Concrete AI Safety Problems](https://openai.com/blog/concrete-ai-safety-problems/)",
+				"qr": "",
+				"categories": [
+					"Safety & Environmental Impact"
+				],
+				"phases": [
+					"Design",
+					"Input",
+					"Model",
+					"Output"
+				]
+			},
+			{
+				"question": "Could our AI agents “hack” their reward functions to exploit the system?",
+				"threatif": "Yes",
+				"explanation": "* Reinforcement Learning (RL) is an area of machine learning concerned with how intelligent agents ought to take actions in an environment in order to maximize the notion of cumulative reward. Source: [Wikipedia](https://en.wikipedia.org/wiki/Reinforcement_learning)\n\n* Consider potential negative consequences from the AI system\nlearning novel or unusual methods to score well on its objective function.\nSometimes the AI can come up with some kind of “hack” or loophole in the design of the system to receive unearned rewards. Since the AI is trained to maximize its rewards, looking for such loopholes and “shortcuts” is a perfectly fair and valid strategy for the AI. For example, suppose that the office cleaning robot earns rewards only if it does not see any garbage in the office. Instead of cleaning the place, the robot could simply shut off its visual sensors, and thus achieve its goal of not seeing garbage.\nSource: [OpenAI]( https://openai.com/blog/concrete-ai-safety-problems/)",
+				"recommendation": "One possible approach to mitigating this problem would be to have a “reward agent” whose only task is to mark if the rewards given to the learning agent are valid or not. The reward agent ensures that the learning agent (robot for instance) does not exploit the system, but rather, completes the desired objective. For example: a “reward agent” could be trained by the human designer to check if a room has been properly cleaned by the cleaning robot. If the cleaning robot shuts off its visual sensors to avoid seeing garbage and claims a high reward, the “reward agent” would mark the reward as invalid because the room is not clean. The designer can then look into the rewards marked as “invalid” and make necessary changes in the objective function to fix the loophole. Source: [OpenAI]( https://openai.com/blog/concrete-ai-safety-problems/)",
+				"sources": "[Concrete Problems in AI Safety](https://arxiv.org/pdf/1606.06565.pdf)\n[Concrete AI Safety Problems](https://openai.com/blog/concrete-ai-safety-problems/)",
+				"qr": "",
+				"categories": [
+					"Safety & Environmental Impact"
+				],
+				"phases": [
+					"Design",
+					"Input",
+					"Model",
+					"Output"
+				]
+			},
+			{
+				"question": "Can our AI/ML system be robust to changes in the data distribution?",
+				"threatif": "No",
+				"explanation": "A complex challenge for deploying AI agents in real life settings is that the agent could end up in situations that it has never experienced before. Such situations are inherently more difficult to handle and could lead the agent to take harmful actions.\nSource: [OpenAI](https://openai.com/blog/concrete-ai-safety-problems/)",
+				"recommendation": "One promising research direction focuses on identifying when the agent has encountered a new scenario so that it recognizes that it is more likely to make mistakes. While this does not solve the underlying problem of preparing AI systems for unforeseen circumstances, it helps in detecting the problem before mistakes happen. Another direction of research emphasizes transferring knowledge from familiar scenarios to new scenarios safely. Source: [OpenAI](https://openai.com/blog/concrete-ai-safety-problems/)",
+				"sources": "[Concrete Problems in AI Safety](https://arxiv.org/pdf/1606.06565.pdf)\n[Concrete AI Safety Problems](https://openai.com/blog/concrete-ai-safety-problems/)",
+				"qr": "",
+				"categories": [
+					"Safety & Environmental Impact"
+				],
+				"phases": [
+					"Design",
+					"Input",
+					"Model",
+					"Output"
+				]
+			},
+			{
+				"question": "Can our AI agents learn about their environment without causing harm or catastrophic actions?",
+				"threatif": "No",
+				"explanation": "* Reinforcement Learning (RL) is an area of machine learning concerned with how intelligent agents ought to take actions in an environment in order to maximize the notion of cumulative reward. Source: [Wikipedia](https://en.wikipedia.org/wiki/Reinforcement_learning)\n\n* **Safe exploration**: An important part of training an AI agent is to ensure that it explores and understands its environment. While exploring, the agent might also take some action that could damage itself or the environment. Source: [OpenAI](https://openai.com/blog/concrete-ai-safety-problems/)",
+				"recommendation": "One approach to reduce harm is to optimize the performance of the learning agent in the worst case scenario. When designing the objective function, the designer should not assume that the agent will always operate under optimal conditions. Some explicit reward signal may be added to ensure that the agent does not perform some catastrophic action, even if that leads to more limited actions in the optimal conditions. Source: [OpenAI](https://openai.com/blog/concrete-ai-safety-problems/)",
+				"sources": "[Concrete Problems in AI Safety](https://arxiv.org/pdf/1606.06565.pdf)\n[Concrete AI Safety Problems](https://openai.com/blog/concrete-ai-safety-problems/)",
+				"qr": "",
+				"categories": [
+					"Safety & Environmental Impact"
+				],
+				"phases": [
+					"Design",
+					"Input",
+					"Model",
+					"Output"
+				]
+			},
+			{
+				"question": "Could children be part of the users of our AI system",
+				"threatif": "Yes",
+				"explanation": "* If children are potential users or exposed to your AI system, it is essential to ensure that the system respects the rights and best interests of the child. \n* This includes considering child protection, ethical communication, and designing the system to avoid harm or exploitation. \n* Inappropriate design or oversight could lead to risks to children’s mental, moral, or physical well-being, including potential misuse of the system by others to harm children.",
+				"recommendation": "* Assess whether an age verification mechanism is necessary to restrict access to certain features or content.\n* Adapt communication and design in both the product and associated documentation, such as the privacy policy, to be child-appropriate and transparent.\n* Develop and enforce policies to ensure the safety and well-being of children when using or being exposed to your AI system.\n* Establish procedures to regularly assess and monitor the usage of your product to identify and mitigate any risks to children’s safety and health.\n* Provide clear labeling and instructions to ensure safe usage by children, including warnings about potential misuse.\n* Monitor for and address inappropriate or harmful usage of the AI system, including any attempts to exploit or harm children.\n* Develop a responsible marketing and advertising policy that explicitly avoids harmful, manipulative, or unethical practices targeting children",
+				"sources": "[Convention on the Rights of the Child](https://www.ohchr.org/en/instruments-mechanisms/instruments/convention-rights-child)",
+				"qr": "",
+				"categories": [
+					"Safety & Environmental Impact"
+				],
+				"phases": [
+					"Design",
+					"Input",
+					"Model",
+					"Output"
+				]
+			}
+		]
+	},
+	{
+		"category": "Bias, fairness & Discrimination",
+		"id": 6,
+		"colour": "f8d18c",
+		"cards": [
+			{
+				"question": "Can the data be representative of the different groups/populations?",
+				"threatif": "No",
+				"explanation": "* It is important to reduce the risk of bias and different types of discrimination. Did you consider diversity and representativeness of users/individuals in the data?\n* When applying statistical generalisation, the risk exists of making inferences due to misrepresentation, for instance: a postal code where mostly young families live can discriminate the few old families living there because they are not properly represented in the group.",
+				"recommendation": "* Who is covered and who is underrepresented?\n* Prevent disparate impact: when the output of a member of a minority group is disparate compared to representation of the group. Consider measuring the accuracy from minority classes too instead of measuring only the total accuracy. Adjusting the weighting factors to avoid disparate impact can result in positive discrimination which has also its own issues: disparate treatment.\n* One approach to addressing the problem of class imbalance is to randomly resample the training dataset. This technique can help to rebalance the class distribution when classes are under or over represented:\n - random oversampling (i.e. duplicating samples from the minority class)\n - random undersampling (i.e. deleting samples from the majority class)\n* There are trade-offs when determining an AI system’s metrics for success. It is important to balance performance metrics against the risk of negatively impacting vulnerable populations.\n* When using techniques like statistical generalisation is important to know your data well, and get familiarised with who is and who is not represented in the samples. Check the samples for expectations that can be easily verified. For example, if half the population is known to be female, then you can check if approximately half the sample is female.",
+				"sources": "**Related to disparate impact**\n[AI Fairness - Explanation of Disparate Impact Remover](https://towardsdatascience.com/ai-fairness-explanation-of-disparate-impact-remover-ce0da59451f1)\n[Mitigating Bias in AI/ML Models with Disparate Impact Analysis](https://medium.com/@kguruswamy_37814/mitigating-bias-in-ai-ml-models-with-disparate-impact-analysis-9920212ee01c)\n[Certifying and removing disparate impact](https://arxiv.org/abs/1412.3756)\n[Avoiding Disparate Impact with Counterfactual Distributions](https://oconnell.fas.harvard.edu/files/hao/files/wesgai.pdf)\n\n**Related to random resampling**\n[Oversampling and Undersampling](https://towardsdatascience.com/oversampling-and-undersampling-5e2bbaf56dcf)\n[Random Oversampling and Undersampling for Imbalanced Classification](https://machinelearningmastery.com/random-oversampling-and-undersampling-for-imbalanced-classification/)\n\n**Related to Statistical Generalization**\n[Generalization in quantitative and qualitative research: Myths and strategies](https://core.ac.uk/download/pdf/49282746.pdf)\n[Generalizing Statistical Results to the Entire Population](https://www.dummies.com/article/academics-the-arts/math/statistics/generalizing-statistical-results-to-the-entire-population-201267/)",
+				"qr": "",
+				"categories": [
+					"Bias, fairness & Discrimination",
+					"Data & Data Governance"
+				],
+				"phases": [
+					"Design",
+					"Input",
+					"Model",
+					"Output"
+				]
+			},
+			{
+				"question": "Could actions be incorrectly attributed to an individual or group?",
+				"threatif": "Yes",
+				"explanation": "Your AI system could have an adverse impact on individuals by incorrectly attributing them facts or actions. For instance, a facial recognition system that identifies a person incorrectly, or an inaccurate risk prediction model that could negatively impact an individual.",
+				"recommendation": "* Evaluate the possible consequences of inaccuracies of your AI system and implement measures to prevent these errors from happening: avoiding bias and discrimination during the life cycle of the model, ensuring the quality of the input data, implementing a strict human oversight process, ways to double check the results with extra evidence, implementing safety and redress mechanisms, etc.\n* Assess the impact on the different human rights of the individual.\n* Consider not to implement such a system if you cannot mitigate the risks.",
+				"sources": "",
+				"qr": "",
+				"categories": [
+					"Bias, Fairness & Discrimination"
+				],
+				"phases": [
+					"Design",
+					"Input",
+					"Model",
+					"Output"
+				]
+			},
+			{
+				"question": "Bias & Discrimination: could there be groups who might be disproportionately affected by the outcomes of the AI system?",
+				"threatif": "yes",
+				"explanation": "* Could the AI system potentially negatively discriminate against people on the basis of any of the following grounds: sex, race, colour, ethnic or social origin, genetic features, language, religion or belief, political or any other opinion, membership of a national minority, property, birth, disability, age, gender or sexual orientation?\n* If your model is learning from data specific to some cultural background then the output could be discriminating for members of other cultural backgrounds.",
+				"recommendation": "* Consider the different types of users and contexts where your product is going to be used.\n* Consider the impact of diversity of backgrounds, cultures, and other important different attributes when selecting your input data, features and when testing the output.\n* Assess the risk of possible unfairness towards individuals or communities to avoid discriminating minority groups.\n* The disadvantage to people depends on the kind of harm, severity of the harm and significance (how many people are put at a disadvantage compared to another group of people). Statistical assessments on group differences are an important tool to assess unfair and discriminatory uses of AI.\n* Design with empathy, diversity and respect in mind.",
+				"sources": "[Why Fairness Cannot Be Automated: Bridging the Gap Between EU Non-Discrimination Law and AI](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3547922)\n[The Fairness Handbook](https://www.amsterdamintelligence.com/resources/the-fairness-handbook)",
+				"qr": "",
+				"categories": [
+					"Bias, Fairness & Discrimination"
+				],
+				"phases": [
+					"Design",
+					"Input",
+					"Model",
+					"Output"
+				]
+			},
+			{
+				"question": "Could our AI system not be representing current social needs and social context?",
+				"threatif": "Yes",
+				"explanation": "The datasets that you want to use might not be representative of the current social situation. In that case the output of the model is also not representative of the current reality. Depending on the type of product you are designing this could have a big impact on the individual.",
+				"recommendation": "Make sure that you are using correct, complete, accurate and current data. Also make sure that you have sufficient data to represent all possible contexts that you might need.",
+				"sources": "",
+				"qr": "",
+				"categories": [
+					"Bias, Fairness & Discrimination"
+				],
+				"phases": [
+					"Design",
+					"Input",
+					"Model",
+					"Output"
+				]
+			},
+			{
+				"question": "Could our AI system automatically label or categorize people?",
+				"threatif": "Yes",
+				"explanation": "* This could have an impact on the way individuals perceive themselves and society. It could constrain identity options and even contribute to erase real identity of the individuals.\n* This threat is also important when designing robots and the way they look. For instance: do care/assistant robots need to have a feminine appearance? Is that the perception you want to give to the world or the one accepted by certain groups in society? What impact does it have on society?",
+				"recommendation": "* It is important that you check the output of your model, not only in isolation but also when this is linked to other information. Think in different possible scenarios that could affect the individuals. Is your output categorizing people or helping to categorize them? In which way? What could be the impact?\n* Think about ways to prevent adverse impact to the individual: provide information to the user, consider changing the design (maybe using different features or attributes?), consider ways to prevent misuse of your output, consider not to release the product to the market.",
+				"sources": "",
+				"qr": "",
+				"categories": [
+					"Bias, Fairness & Discrimination"
+				],
+				"phases": [
+					"Design",
+					"Input",
+					"Model",
+					"Output"
+				]
+			}
+		]
+	},
+	{
 		"category": "Ethics & Fundamental Rights",
-		"id": 8,
+		"id": 7,
 		"colour": "f2bc9a",
 		"cards": [
 			{
@@ -1495,6 +1383,118 @@
 					"Ethics & Fundamental Rights",
 					"Bias, Fairness & Discrimination",
 					"Privacy & Data Protection"
+				],
+				"phases": [
+					"Design",
+					"Input",
+					"Model",
+					"Output"
+				]
+			}
+		]
+	},
+	{
+		"category": "Accountability & Human Oversight",
+		"id": 8,
+		"colour": "83b3db",
+		"cards": [
+			{
+				"question": "Is the task or assignment completely clear?",
+				"threatif": "No",
+				"explanation": "* Is the problem you want to solve well defined?\n* Are the possible benefits clear?",
+				"recommendation": "* Clearly define the problem and outcome you are optimizing for.\n* Assess if your AI system will be well-suited for this purpose.\n* Always discuss if there are alternative ways to solve the problem.\n* Define success! Working with individuals who may be directly affected can help you identify an appropriate way to measure success.\n* Make sure there is a stakeholder involved (product owner for instance) with enough knowledge of the business and a clear vision about what the model needs to do.\n* Did you try analytics first? In this context analytics could also offer inspiring views that can help you decide on the next steps. They can be a good source of information and are sometimes enough to solve the problem without the need of AI/ML.",
+				"sources": "",
+				"qr": "",
+				"categories": [
+					"Accountability & Human Oversight"
+				],
+				"phases": [
+					"Design",
+					"Input",
+					"Model",
+					"Output"
+				]
+			},
+			{
+				"question": "Have we identified all the important stakeholders needed in this phase of the project?",
+				"threatif": "No",
+				"explanation": "* Do you have all the necessary stakeholders on board? Not having the right people that can give the necessary input can put the design of the AI system in danger.\n* Think for instance when attributes or variables need to be selected, or when you need to understand the different data contexts.\n* Data scientists should not be the only ones making assumptions about variables, it should really be a team effort.",
+				"recommendation": "* Identify and involve on time the people that you need during the whole life cycle of the AI system. This will avoid unnecessary rework and frustrations.\n* Identifying who’s responsible for making the decisions and how much control they have over the decision-making process allows for a more evident tracking of responsibility in the AI’s development process.",
+				"sources": "",
+				"qr": "",
+				"categories": [
+					"Accountability & Human Oversight"
+				],
+				"phases": [
+					"Design",
+					"Input",
+					"Model",
+					"Output"
+				]
+			},
+			{
+				"question": "Do we have enough dedicated resources to monitor the algorithm?",
+				"threatif": "No",
+				"explanation": "Do you already have a process in place to monitor the quality of the output and system errors? Do you have resources to do this? Not having the right process and resources in place could have an impact on the project deadline, the organisation and the users.",
+				"recommendation": "* Put a well-defined process in place to monitor if the AI system is meeting the intended goals.\n* Define failsafe fallback plans to address AI system errors of whatever origin and put governance procedures in place to trigger them.\n* Put measure in places to continuously assess the quality of the output data: e.g. check that predictions scores are within expected ranges; anomaly detection in output and reassign input data leading to the detected anomaly.\n* Does the data measure what you need to measure? You could get measurement errors if data is not correctly labelled.",
+				"sources": "",
+				"qr": "",
+				"categories": [
+					"Accountability & Human Oversight"
+				],
+				"phases": [
+					"Design",
+					"Input",
+					"Model",
+					"Output"
+				]
+			},
+			{
+				"question": "Can we provide human resources to supervise and give feedback to the actions of AI agents?",
+				"threatif": "No",
+				"explanation": "* Reinforcement Learning (RL) is an area of machine learning concerned with how intelligent agents ought to take actions in an environment in order to maximize the notion of cumulative reward. Source: [Wikipedia](https://en.wikipedia.org/wiki/Reinforcement_learning)\n\n* When the agent is learning to perform a complex task, human oversight and feedback are more helpful than just rewards from the environment. Rewards are generally modelled such that they convey to what extent the task was completed, but they do not usually provide sufficient feedback about the safety implications of the agent’s actions. Even if the agent completes the task successfully, it may not be able to infer the side-effects of its actions from the rewards alone. In the ideal setting, a human would provide fine-grained supervision and feedback every time the agent performs an action (Scalable oversight). Though this would provide a much more informative view about the environment to the agent, such a strategy would require far too much time and effort from the human. Source: [OpenAI](https://openai.com/blog/concrete-ai-safety-problems/)",
+				"recommendation": "One promising research direction to tackle this problem is semi-supervised learning, where the agent is still evaluated on all the actions (or tasks), but receives rewards only for a small sample of those actions (or tasks).\n\nAnother promising research direction is hierarchical reinforcement learning, where a hierarchy is established between different learning agents. There could be a supervisor agent/robot whose task is to assign some work to another agent/robot and provide it with feedback and rewards.\nSource: [OpenAI](https://openai.com/blog/concrete-ai-safety-problems/)",
+				"sources": "[Concrete Problems in AI Safety](https://arxiv.org/pdf/1606.06565.pdf)\n[Concrete AI Safety Problems](https://openai.com/blog/concrete-ai-safety-problems/)",
+				"qr": "",
+				"categories": [
+					"Accountability & Human Oversight"
+				],
+				"phases": [
+					"Design",
+					"Input",
+					"Model",
+					"Output"
+				]
+			},
+			{
+				"question": "Is the creation of the AI system proportional to the intended goal?",
+				"threatif": "No",
+				"explanation": "* Proportionality is a general principle of EU law. It requires you to strike a balance between the means used and the intended aim.\n* In the context of fundamental rights, proportionality is key for any limitation on these rights.",
+				"recommendation": "* Proportionality requires that advantages due to limiting the right are not outweighed by the disadvantages to exercise the right. In other words, the limitation on the right must be justified.\n* Safeguards accompanying a measure can support the justification of a measure. A pre-condition is that the measure is adequate to achieve the envisaged objective.\n* In addition, when assessing the processing of personal data, proportionality requires that only that personal data which is adequate and relevant for the purposes of the processing is collected and processed. Source: [EDPS](https://edps.europa.eu/data-protection/our-work/subjects/necessity-proportionality_en)",
+				"sources": "Proportionality test: [EDPS Guidelines on assessing the proportionality of measures that limit the fundamental rights to privacy and to the protection of personal data](https://edps.europa.eu/sites/edp/files/publication/19-12-19_edps_proportionality_guidelines_en.pdf)\n\nAssess the possible impact on human rights: [Charter of Fundamental Rights of the European Union](https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:12012P/TXT&from=EN)",
+				"qr": "",
+				"categories": [
+					"Accountability & Human Oversight",
+					"Ethics & Fundamental Rights",
+					"Privacy & Data Protection"
+				],
+				"phases": [
+					"Design",
+					"Input",
+					"Model",
+					"Output"
+				]
+			},
+			{
+				"question": "Are we planning to use a third party AI tool?",
+				"threatif": "Yes",
+				"explanation": "If you use a third party tool you might still have a responsibility towards the users. Think about employees, job applicants, patients, etc. It is also your responsibility to make sure that the AI system you choose won't cause harm to the individuals.",
+				"recommendation": "If personal data is involved, review which ones are your responsibilities (look into art. 24 and 28 GDPR).\n\nYou can also start by checking:\n* That you have the right agreements in place with the third party provider.\n* That the origin and data lineage of their datasets are verified.\n* How their models are fed; do they anonymise the data?\n* How you have assessed their security, ethical handling of data, quality process and ways to prevent bias and discrimination in their AI system.\n* That you have informed users accordingly.",
+				"sources": "",
+				"qr": "",
+				"categories": [
+					"Accountability & Human Oversight",
+					"Cybersecurity"
 				],
 				"phases": [
 					"Design",
