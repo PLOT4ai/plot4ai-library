@@ -56,8 +56,8 @@
 			{
 				"question": "Once our model is running, can we keep feeding it data?",
 				"threatif": "No",
-				"explanation": "* Will you use the output from other models to feed the model again (looping)? or will you use other sources ?\n* Are you sure this data will be continuously available?",
-				"recommendation": "* Consider how the model will keep learning. Design a strategy to prevent issues with the next steps.\n* Imagine you planned to feed your model with input obtained by mining surveys and it appears these surveys contain a lot of free text fields. To prepare that data and avoid issues (bias, inaccuracies, etc) you might need extra time. Consider these type of scenarios that could impact the whole life cycle of your product!",
+				"explanation": "* Will you use the output from other models to feed your model again (looping)? Or will you use other sources ?\n* Are you sure this data will be continuously available?",
+				"recommendation": "* Consider how the model will keep learning. Design a strategy to prevent issues with the next steps.\n* Imagine you planned to feed your model with input obtained by mining surveys and it appears these surveys contain a lot of free text fields. To prepare that data and avoid issues (bias, inaccuracies, etc) you might need extra time. Consider these type of scenarios that could impact the whole life cycle of your system!",
 				"sources": "[Text Mining in Survey Data](https://www.surveypractice.org/article/6384-text-mining-in-survey-data)",
 				"qr": "",
 				"categories": [
@@ -66,21 +66,6 @@
 				"phases": [
 					"Design",
 					"Input",
-					"Output"
-				]
-			},
-			{
-				"question": "Is human intervention necessary to oversee the automatic decision making (ADM) process of the AI system?",
-				"threatif": "Yes",
-				"explanation": "* Do humans need to review the process and the decisions of the AI system? Consider the impact that this could have for the organisation.\n* Do you have enough capacitated employees available for this role?",
-				"recommendation": "It is important that people are available for this role and that they receive specific training on how to exercise oversight. The training should teach them how to perform the oversight without being biased by the decision of the AI system (automation bias).",
-				"sources": "[Automation Bias](https://en.wikipedia.org/wiki/Automation_bias)\n[The Flaws of Policies Requiring Human Oversight of Government Algorithms](https://arxiv.org/ftp/arxiv/papers/2109/2109.05067.pdf)\n[The False Comfort of Human Oversight as an Antidote to AI Harm](https://slate.com/technology/2021/06/human-oversight-artificial-intelligence-laws.html)",
-				"qr": "",
-				"categories": [
-					"Data & Data Governance"
-				],
-				"phases": [
-					"Design",
 					"Output"
 				]
 			},
@@ -156,10 +141,10 @@
 		"colour": "7fccdc",
 		"cards": [
 			{
-				"question": "Does the model need to be explainable for the users or affected persons?",
-				"threatif": "Yes",
-				"explanation": "Do you need to be able to give a clear explanation to the user about the logic that the AI system used to reach a certain decision? And can that decision have a big impact on the user?",
-				"recommendation": "* Evaluate the type of models that you could use to solve the problem as specified in your task.\n* Consider what the impact is if certain black box models cannot be used and interpretability tools do not offer sufficient results. You might need to evaluate a possible change in strategy.\n* Data scientists can evaluate the impact from a technical perspective and discuss this with the rest of stakeholders. The decision keeps being a team effort.",
+				"question": "Does the AI system need to be explainable for users or affected persons?",
+				"threatif": "No",
+				"explanation": "Can users understand how the system generates its output? \n*Can users learn more about how the algorithm works or is your AI a 'black box'? \n* Is your model explainable and are you transparent about the data used to train the model, including where and how you sourced them?",
+				"recommendation": "* Evaluate the type of models that you could use to solve the problem as specified in your task.\n* Consider what the impact is if certain black box models cannot be used and interpretability tools do not offer sufficient results. You might need to evaluate a possible change in strategy.\n* An explainable AI system refers not only to the model but also the user interfaces, data pipelines, and other components supporting the model's deployment and interpretation. \n*Data scientists can evaluate the impact from a technical perspective and discuss this with the rest of stakeholders. The decision keeps being a team effort. ",
 				"sources": "[Explainable Artificial Intelligence (XAI)](https://www.darpa.mil/program/explainable-artificial-intelligence)\n[LIME](https://github.com/marcotcr/lime)\n[Why Should I Trust You? Explaining the Predictions of Any Classifier](https://arxiv.org/pdf/1602.04938.pdf)\n[SHAP and LIME: An Evaluation of Discriminative Power in Credit Risk](https://www.frontiersin.org/articles/10.3389/frai.2021.752558/full)\n[Explainable AI](https://www.ibm.com/watson/explainable-ai)\n[Explainable AI - The TAILOR Handbook of Trustworthy AI](http://tailor.isti.cnr.it/handbookTAI/T3.1/T3.1.html)",
 				"qr": "",
 				"categories": [
@@ -174,9 +159,9 @@
 				]
 			},
 			{
-				"question": "Can our system's user interface be used by those with special needs or disabilities?",
+				"question": "Is our AI system inclusive and accessible?",
 				"threatif": "No",
-				"explanation": "* Does your AI system need to be accessible and usable for users of assistive technologies (such as screen readers)?\n* Is it possible to provide text alternatives for instance?",
+				"explanation": "*Think for instance of elderly people, children, or people with disabilities. \n* Does our AI system need to be accessible and usable for users of assistive technologies (such as screen readers)? Is it possible to provide text alternatives for instance? \n* Does the system require a minimum level of AI literacy to be used? \n* Do we make sure that users can access the learning material needed to be able to use the system?\n\n Reference: Charter of fundamental rights of the European Union (rights of the elderly, rights of the child, Integration of persons with disabilities), AI Act(Article 4).",
 				"recommendation": "* Implement Universal Design principles during every step of the planning and development process. This is not only important for web interfaces but also when AI systems/robots assist individuals.\n* Test the accessibility of your design with different users (also with disabilities).",
 				"sources": "[A Proposal of Accessibility Guidelines for Human-Robot Interaction](https://www.mdpi.com/2079-9292/10/5/561/htm)\n[ISO/IEC 40500:2012 Information technology — W3C Web Content Accessibility Guidelines (WCAG) 2.0](https://www.iso.org/standard/58625.html)\n[ISO/IEC GUIDE 71:2001 Guidelines for standards developers to address the needs of older persons and persons with disabilities](https://www.iso.org/standard/33987.html)\n[ISO 9241-171:2008(en) Ergonomics of human-system interaction](https://www.iso.org/obp/ui/#iso:std:iso:9241:-171:ed-1:v1:en)\n[Mandate 376 Standards EU](https://ec.europa.eu/growth/tools-databases/mandates/index.cfm?fuseaction=search.detail&id=333)",
 				"qr": "",
@@ -240,7 +225,7 @@
 			{
 				"question": "Could the learning curve of the product be an issue?",
 				"threatif": "Yes",
-				"explanation": "* Does usage of the AI system require new (digital) skills?\n* How quickly are users expected to learn how to use the product?\n* Difficulties to learn how the system works could also bring the users in danger and have consequences for the reputation of the product or organisation.",
+				"explanation": "* Does usage of the AI system require new (digital) skills?\n*Could a steep learning curve lead to misuse or harm?\n* How quickly are users expected to learn how to use the product?\n* Difficulties to learn how the system works could also bring the users in danger and have consequences for the reputation of the product or organisation.",
 				"recommendation": "* You can also provide assistance, appropriate training material and disclaimers to users on how to adequately use the system.\n* The words and language used in the interface, the complexity and lack of accessibility of some features could exclude people from using the application. Consider making changes in the design of the product where necessary.\n* Consider this also when children are future users.",
 				"sources": "",
 				"qr": "",
@@ -255,10 +240,10 @@
 				]
 			},
 			{
-				"question": "Do we need to inform users that they are interacting with an AI system?",
-				"threatif": "Yes",
-				"explanation": "* Are users adequately made aware that a decision, content, advice or outcome is the result of an algorithmic decision?\n* Could the AI system generate confusion for some or all users on whether they are interacting with a human or AI system?",
-				"recommendation": "In cases of interactive AI systems (e.g., chatbots, robots) you should inform the users that they are interacting with an AI system instead of a human. This information should be received at the beginning of the interaction.",
+				"question": "Do we inform users that they are interacting with an AI system?",
+				"threatif": "No",
+				"explanation": "* Are users adequately made aware that a decision, content, advice or outcome is the result of an algorithmic decision?\n* Users may be unaware they are interacting with AI, causing confusion or lack of trust.",
+				"recommendation": "If you are developing AI systems intended to interact directly with natural persons (e.g., chatbots, robots), you are obliged to inform your end-users that they are interacting with an AI system (Article 50 AI Act). This information should be received at the beginning of the interaction.\n*If you are developing generative AI solutions, you must ensure that the outputs of the AI system are marked in a machine-readable format and detectable as artificially generated or manipulated (Article 50 AI Act).\n*If you are a deployer, you must inform your users if you are using an emotion recognition system or a biometric categorisation system (Article 50 AI Act). \n*If you are a deployer of AI systems that produce deep fakes, you must disclose that the content has been artificially generated or manipulated (Article 50 AI Act).",
 				"sources": "",
 				"qr": "",
 				"categories": [
@@ -270,10 +255,10 @@
 				]
 			},
 			{
-				"question": "Can we provide the necessary information to the users about possible impacts, benefits and potential risks?",
+				"question": "Do we inform users about the AI system's reliability, limitations, and risks?",
 				"threatif": "No",
-				"explanation": "* Did you establish mechanisms to inform users about the purpose, criteria and limitations of decisions generated by the AI system?\n* If an AI-assisted decision has been made about a person without any type of explanation or information then this may limit that person's autonomy, scope and self-determination. This is unlikely to be fair.",
-				"recommendation": "* Provide clear information about how and why an AI-assisted decision was made and which personal data was used to train and test the model.\n* The model you choose should be at the right level of interpretability for your use case and for the impact it will have on the decision recipient. If you use a black box model make sure the supplementary explanation techniques you use provide a reliable and accurate representation of the systems behaviour. Source: UK ICO\n* Communicate the benefits, the technical limitations and potential risks of the AI system to users, such as its level of accuracy and/or error rates.\n* Ask your users (with a survey for instance) if they understand the decisions that your product makes.",
+				"explanation": "*Do users understand the specific context for which the system is designed? Are they aware of any actions or purposes they should avoid when using the system? \n* Do we communicate the level of accuracy of the system's output?\n* If an AI-assisted decision has been made about a person without any type of explanation or information then this may limit that person's autonomy, scope and self-determination. This is unlikely to be fair.",
+				"recommendation": "* Provide clear information about how and why an AI-assisted decision was made and which personal data was used to train and test the model.\n* The model you choose should be at the right level of interpretability for your use case and for the impact it will have on the decision recipient. If you use a black box model make sure the supplementary explanation techniques you use provide a reliable and accurate representation of the systems behaviour. Source: UK ICO\n* Communicate the benefits, the technical limitations and potential risks of the AI system to users, such as its level of accuracy and/or error rates.\n* Ask your users (with a survey for instance) if they understand the decisions that your AI system makes.\n* Update your users about changes in the system that might have an impact on them",
 				"sources": "",
 				"qr": "",
 				"categories": [
@@ -286,52 +271,18 @@
 				]
 			},
 			{
-				"question": "Can users anticipate the actions of the AI system?",
+				"question": "Are users equipped to understand how to use the AI system effectively??",
 				"threatif": "No",
 				"explanation": "Are users aware of the capabilities of the AI system? Users need to be informed about what to expect, not only for transparency reasons but in some products also for safety precautions.",
 				"recommendation": "* Consider this as part of the GDPR transparency principle.\n* Users should be aware of what the AI system can do.\n* Clear Information should be provided on time and made accessible following accessibility design principles.",
 				"sources": "[GDPR transparency principle](https://gdpr-info.eu/recitals/no-58/)",
 				"qr": "",
 				"categories": [
-					"Transparency & Accessibility"
-				],
-				"phases": [
-					"Design",
-					"Model",
-					"Output"
-				]
-			},
-			{
-				"question": "Can we expect mostly positive reactions from the users or individuals?",
-				"threatif": "No",
-				"explanation": "* Do the users expect a product functioning like this?\n* Do the users or individuals expect this type of processing of personal data?\n* Can you roll back if people are not happy with the product?",
-				"recommendation": "* Consider the different types of users and contexts your product is going to be used.\n* Consider diversity of backgrounds, cultures, and many other important different attributes.\n* Do enough user testing, like FUPs - Friendly User Pilots.\n* Design with empathy, diversity and respect in mind.\n* Assess the risk of possible unfairness towards individuals or communities to avoid discriminating minority groups and also to prevent a bad reputation for your organisation.",
-				"sources": "",
-				"qr": "",
-				"categories": [
-					"Transparency & Accessibility"
-				],
-				"phases": [
-					"Design",
-					"Input",
-					"Model",
-					"Output"
-				]
-			},
-			{
-				"question": "Can our AI system be inclusive and represent different norms and values?",
-				"threatif": "No",
-				"explanation": "* Can we build a model that is inclusive? \n* Could cultural and language differences be an issue when it comes to the ethical nuance of your algorithm? Well-meaning values can create unintended consequences.\n* Must the AI system understand the world in all its different contexts?\n* Could ambiguity in rules you teach the AI system be a problem?\n* Can your system interact equitably with users from different cultures and with different abilities?",
-				"recommendation": "* Consider designing with value alignment, what means that you want to ensure consideration of existing values and sensitivity to a wide range of cultural norms and values.\n* Make sure that when you test the product you include a large diversity in type of users.\n* Think carefully about what diversity means in the context where the product is going to be used.\n* Remember that this is a team effort and not an individual decision!",
-				"sources": "[Value alignment](https://www.ibm.com/design/ai/ethics/value-alignment/)\n[Online Ethics Canvas](https://www.ethicscanvas.org/canvas/index.php)\n[AI Values and Alignment](https://www.deepmind.com/publications/artificial-intelligence-values-and-alignment)",
-				"qr": "",
-				"categories": [
 					"Transparency & Accessibility",
-					"Bias, Fairness & Discrimination"
+					"Safety & Environmental Impact"
 				],
 				"phases": [
 					"Design",
-					"Input",
 					"Model",
 					"Output"
 				]
@@ -529,22 +480,19 @@
 				]
 			},
 			{
-				"question": "Will our AI system make automatic decisions without human intervention?",
+				"question": "Could we compromise users’ privacy?",
 				"threatif": "Yes",
-				"explanation": "* Can these decisions have an important adverse impact on the individual? Think about someone’s legal rights, legal status, rights under a contract, or a decision with similar effects and significance. Article 22 of the GDPR specifically addresses automatic decision-making and profiling, providing safeguards to protect individuals' rights in such cases. Additionally, Article 86 of the AI Act requires transparency and the provision of clear explanations for significant decisions made by high-risk AI systems.",
-				"recommendation": " Check with your privacy expert if your processing falls under Article 22 of the GDPR or under its exceptions. Human oversight is a key mitigation strategy and should be discussed with legal advisors and your development team.\n* Article 22(3) of the GDPR provides individuals with the right to obtain human intervention in automated decisions and the right to contest such decisions. Ensure your system complies with this requirement.\n* Align with the Artificial Intelligence Act (AIA) requirements for high-risk AI systems, which emphasize robust oversight mechanisms, risk management processes, and transparency. Conduct impact assessments to identify and mitigate potential adverse effects.\n* Implement human oversight mechanisms, ensuring that users or experts can intervene when necessary to prevent harm or adverse outcomes.\n* Ensure transparency and accountability by documenting decision-making processes and making these accessible to users. Trustworthy AI requires adherence to principles such as human agency, oversight, and accountability.\n* Regularly audit your system to assess and address risks, particularly in sensitive applications such as legal, healthcare, or employment-related decisions.*",
-				"sources": "[Ethics guidelines for trustworthy AI](https://digital-strategy.ec.europa.eu/en/library/ethics-guidelines-trustworthy-ai)",
+				"explanation": "* The AI system may intrude on users' right to privacy by exposing sensitive aspects of their private lives, such as personal behaviors, preferences, or relationships, without their explicit consent or awareness. This can occur through excessive surveillance, unintended inferences, profiling, or sharing personal data without proper safeguards. Such compromises may undermine users' autonomy, dignity, and trust in the system, leading to legal, ethical, and reputational consequences for providers.",
+				"recommendation": "* Ensure that the AI system respects the contextual integrity of users' private lives by limiting inferences and decisions to what is strictly necessary for its intended purpose. \n* Minimize the risk of profiling that could reveal sensitive personal attributes or behaviors unless explicitly justified by the intended use and supported by users’ consent or legal ground. \n*Design the AI system to avoid unnecessary observation or analysis of users’ private spaces, behaviors, or communications unless explicitly required by the use case. \n* Provide clear and accessible information to users about the extent and nature of the AI system's interaction with their private lives, ensuring that they are fully informed about its capabilities. \n* Empower users to set boundaries for their privacy by allowing them to control the scope of data collection and interaction with the AI system (Privacy by default). \n* Include ethical reviews and stakeholder consultations to assess the potential implications of the system on users’ privacy in diverse cultural and social contexts. \n* Implement safeguards to prevent the system from drawing unintended, intrusive, or harmful conclusions about individuals’ private lives. \n* Ensure robust security measures to prevent unauthorized access, surveillance, or other misuse of the system that could violate users’ privacy rights. \n* Provide mechanisms for users to report and address concerns if they feel their privacy has been violated, including remedies for potential harm caused.*",
+				"sources": "Right to privacy (Universal Declaration of Human Rights), Article 7 Respect for Private and Family Life (Charter of fundamental rights of the European Union)",
 				"qr": "",
 				"categories": [
 					"Privacy & Data Protection",
-					"Accountability & Human Oversight",
-					"Safety & Environmental Impact"
+					"Data & Data Governance"
 				],
 				"phases": [
 					"Design",
-					"Input",
-					"Model",
-					"Output"
+					"Input"
 				]
 			},
 			{
@@ -1147,11 +1095,11 @@
 				]
 			},
 			{
-				"question": "Bias & Discrimination: could there be groups who might be disproportionately affected by the outcomes of the AI system?",
+				"question": "Could certain groups be disproportionately affected by the outcomes of the AI system?",
 				"threatif": "yes",
 				"explanation": "* Could the AI system potentially negatively discriminate against people on the basis of any of the following grounds: sex, race, colour, ethnic or social origin, genetic features, language, religion or belief, political or any other opinion, membership of a national minority, property, birth, disability, age, gender or sexual orientation?\n* If your model is learning from data specific to some cultural background then the output could be discriminating for members of other cultural backgrounds.",
-				"recommendation": "* Consider the different types of users and contexts where your product is going to be used.\n* Consider the impact of diversity of backgrounds, cultures, and other important different attributes when selecting your input data, features and when testing the output.\n* Assess the risk of possible unfairness towards individuals or communities to avoid discriminating minority groups.\n* The disadvantage to people depends on the kind of harm, severity of the harm and significance (how many people are put at a disadvantage compared to another group of people). Statistical assessments on group differences are an important tool to assess unfair and discriminatory uses of AI.\n* Design with empathy, diversity and respect in mind.",
-				"sources": "[Why Fairness Cannot Be Automated: Bridging the Gap Between EU Non-Discrimination Law and AI](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3547922)\n[The Fairness Handbook](https://www.amsterdamintelligence.com/resources/the-fairness-handbook)",
+				"recommendation": "* Consider the different types of users and contexts where your product is going to be used.\n* Consider the impact of diversity of backgrounds, cultures, and other important different attributes when selecting your input data, features and when testing the output.\n* Assess the risk of possible unfairness towards individuals or communities to avoid discriminating minority groups.\n* The disadvantage to people depends on the kind of harm, severity of the harm and significance (how many people are put at a disadvantage compared to another group of people). Statistical and causal analyses of group differences are essential tools for evaluating potential unfairness and discriminatory impacts of AI systems.\n* Design with empathy, diversity and respect in mind.",
+				"sources": "[Why Fairness Cannot Be Automated: Bridging the Gap Between EU Non-Discrimination Law and AI](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3547922)\n[The Fairness Handbook](https://www.amsterdamintelligence.com/resources/the-fairness-handbook)\n[Advancing the field of bias detection and mitigation in Large Language Models and Traditional AI Models] (https://rhite.tech/files/bias-detection-in-llms-and-traditional-ai-models_extended.pdf)",
 				"qr": "",
 				"categories": [
 					"Bias, Fairness & Discrimination"
@@ -1164,11 +1112,45 @@
 				]
 			},
 			{
-				"question": "Could our AI system not be representing current social needs and social context?",
+				"question": "Could our AI system not represent current social needs and context?",
 				"threatif": "Yes",
 				"explanation": "The datasets that you want to use might not be representative of the current social situation. In that case the output of the model is also not representative of the current reality. Depending on the type of product you are designing this could have a big impact on the individual.",
 				"recommendation": "Make sure that you are using correct, complete, accurate and current data. Also make sure that you have sufficient data to represent all possible contexts that you might need.",
 				"sources": "",
+				"qr": "",
+				"categories": [
+					"Bias, Fairness & Discrimination"
+				],
+				"phases": [
+					"Design",
+					"Input",
+					"Model",
+					"Output"
+				]
+			},
+			{
+				"question": "Could our AI system fail to uphold and respect human dignity?",
+				"threatif": "Yes",
+				"explanation": "Does the AI system treat all users with respect, ensuring no output undermines their dignity?\n*The need for data labeling is growing. Does our labeling process respect the rights and well-being of the workers involved? ",
+				"recommendation": "Ensure system outputs are designed to avoid degrading, offensive, or dehumanizing content. Regularly test and audit the AI system for potential biases or outputs that could harm individuals’ dignity. \n* Establish fair labor conditions, including proper wages, working hours, and protections for workers involved in data labeling. Avoid exploitative labor practices, such as unreasonably low compensation or unsafe working conditions. Conduct regular audits to verify that third-party providers adhere to ethical standards. \n* Engage stakeholders, including user groups and labor rights organizations, to review and improve practices. \n* Train developers, data labelers, and system operators on the importance of preserving human dignity in AI-related tasks. \n*Include guidelines for respectful and non-discriminatory practices in AI system documentation and policies. \n* Implement mechanisms to identify and address cases where AI system outputs or processes violate human dignity. Provide users and stakeholders with channels to report concerns and ensure timely resolution.",
+				"sources": "Article 1 Human Dignity (Charter of Fundamental Rights of the European Union)",
+				"qr": "",
+				"categories": [
+					"Bias, Fairness & Discrimination"
+				],
+				"phases": [
+					"Design",
+					"Input",
+					"Model",
+					"Output"
+				]
+			},
+			{
+				"question": "Could our AI system contribute to social division or rivalry?",
+				"threatif": "Yes",
+				"explanation": "Could the AI system inadvertently polarize opinions or foster division among groups by amplifying biases or stereotypes in its outputs? \n* Could the system's design or deployment lead to the stigmatization of specific groups, reinforcing harmful narratives or negative assumptions?.\n* AI systems, if not carefully designed and monitored, may unintentionally contribute to societal discord. Outputs influenced by biased data or algorithms could amplify stereotypes, marginalize groups, or reinforce societal divisions. The risks are heightened in applications with broad public interaction, such as social media, news dissemination, or educational tools, where outputs can shape public opinion.",
+				"recommendation": "Conduct regular audits of system outputs to identify and mitigate content that may promote social division or negative stereotypes.\n* Include diverse stakeholder groups in the development process to identify risks of social bias or divisive content. \n* Implement content moderation and fairness mechanisms to ensure outputs are balanced and inclusive. \n* Train the system using representative and unbiased datasets to minimize the risk of amplifying societal divisions. \n* Monitor real-world impacts and continuously refine the system to align with ethical and societal norms.",
+				"sources": "All human beings are free and equal, No discrimination (Universal Declaration of Human Rights)\n* Article 1 Human dignity, Article 20 Equality before the law, Article 21 Non-discrimination (Charter of fundamental rights of the European Union).",
 				"qr": "",
 				"categories": [
 					"Bias, Fairness & Discrimination"
@@ -1200,19 +1182,19 @@
 		]
 	},
 	{
-		"category": "Ethics & Fundamental Rights",
+		"category": "Ethics & Human Rights",
 		"id": 7,
 		"colour": "f2bc9a",
 		"cards": [
 			{
 				"question": "Could the AI system have an impact on human work?",
 				"threatif": "Yes",
-				"explanation": "* Could the use of your AI system affect the safety conditions of employees?\n* Could the AI system create the risk of de-skilling of the workforce? (skilled people being replaced by AI systems)",
-				"recommendation": "* Pave the way for the introduction of the AI system in your organisation by informing and consulting with future impacted workers and their representatives (e.g. trade unions, work councils) in advance.\n* Adopt measures to ensure that the impact of the AI system on human work is well understood.\n* Ensure that workers understand how the AI system operates, which capabilities it has and does not have. Provide workers with the necessary safety instructions (e.g. when using machine-robots).\n* If you are a third party provider of this type of systems, provide information related to this possible risk to your customers. This information should be easily accessible and understandable.",
-				"sources": "",
+				"explanation": "* Risks include de-skilling and changes in safety conditions. \n* Could the use of your AI system affect the safety conditions of employees? \n* Does the system’s design or implementation involve exploitative labor practices? \n* Could the AI system create the risk of de-skilling of the workforce? (skilled people being replaced by AI systems) \n* Could the system’s outputs or actions limit fair competition or disadvantage certain businesses? \n* Does the system hinder workers' ability to organize, negotiate, or take collective action to protect their interests? \n* Could the system indirectly encourage or support child labor or unsafe work practices for young people?",
+				"recommendation": "* Inform and consult impacted workers and their representatives (e.g., trade unions, work councils) before implementing the AI system. Foster an open dialogue to address concerns and ensure transparency. \n*Conduct impact assessments to understand how the AI system affects human work, including safety conditions, worker rights, and labor practices. Use these assessments to develop appropriate risk mitigation strategies. \n* Provide comprehensive training for workers to understand the AI system’s functionalities, limitations, and operational scope. Equip them with safety instructions, particularly when interacting with AI-driven machinery or robots. \n*Ensure that the AI system’s design and implementation uphold fair labor standards and avoid exploitative practices. Include safeguards to prevent indirect encouragement of child labor or unsafe work conditions. \n*Maintain clear documentation and transparency for businesses deploying your AI system. If you are a third-party provider, supply accessible and understandable information regarding the potential risks of the system to your customers. \n*Consider proactive measures to upskill or reskill employees whose roles may be affected by the system, ensuring they can transition to new or augmented roles supported by AI. \n*Regularly evaluate the system’s impact on competition, employee safety, and workplace dynamics. Adjust system features or provide additional guidance as needed to ensure compliance with fair labor and safety standards. \n*Engage with regulatory bodies and labor rights organizations to ensure the AI system complies with laws and ethical guidelines related to worker protection and well-being.",
+				"sources": "Right to work, No slavery (Universal Declaration of Human Rights), article 16 Freedom to conduct a business, article 28 Right of collective bargaining and action, article 5 Prohibition of slavery and forced labor, Article 31 Fair and just working conditions, article 32 Prohibition of child labor and protection of young people at work (Charter of fundamental rights of the European Union).",
 				"qr": "",
 				"categories": [
-					"Ethics & Fundamental Rights"
+					"Ethics & Human Rights"
 				],
 				"phases": [
 					"Design",
@@ -1222,14 +1204,14 @@
 				]
 			},
 			{
-				"question": "Could the AI system have an adverse impact on society at large?",
+				"question": "Could the AI system affect democracy or have an adverse impact on society at large?",
 				"threatif": "Yes",
-				"explanation": "* Could your product be used for monitoring and surveillance purposes?\n* Could the AI system affect the right to democracy by having an influence on voting selections?",
-				"recommendation": "* Consider if your product could be used or misused for this purposes. Maybe it is not possible in the way it currently is but it could be possible with adaptations.\n* Evaluate the possible scenarios and think what role you want to play based on the responsibility and accountability principle.\n* How can you prevent something like that from happening?\n* Does your organisation agree with such a use of the technology?\n* Have you evaluated what the possible impact could be for society and the world you live in?",
-				"sources": "",
+				"explanation": "* Could your product be used for monitoring and surveillance purposes?\n* Could the system interfere with democratic principles, such as having a pluralistic system of political parties and organizations, or ensuring transparency and accountability in public administration?\n* Could the system influence voting choices, limit citizens' access to voting, or restrict their ability to run as candidates in elections?",
+				"recommendation": "*Train the AI system on unbiased data and incorporate mechanisms to detect and address misinformation or disinformation that could affect democratic outcomes. If the system is used in voting or election processes, ensure robust cybersecurity measures and fail-safes to protect against tampering, hacking, or manipulation. \n* Design the system to promote pluralistic views and ensure it does not restrict or prioritize certain political narratives. \n* Adhere to relevant national and international legal standards protecting democracy, political freedoms, and human rights. \n* Continuously monitor the AI system’s impact on democratic institutions and processes, making adjustments as necessary to mitigate risks and uphold democratic principles.\n* Conduct an impact assessment to evaluate how the AI system might influence democratic processes, including political participation, electoral fairness, and public administration transparency. Implement strict policies to prevent the system from favoring or disfavoring specific political parties, candidates, or ideologies. \n* Make the system’s purpose, data sources, and decision-making processes clear and accessible to the public, ensuring that its operations can be scrutinized by independent parties. \n* Collaborate with regulatory bodies and civic organizations to establish oversight committees that monitor the system's impact on democratic processes.",
+				"sources": "Right to democracy (Universal Declaration of Human Rights), article 41 Right to good administration, article 39 Right to vote and to stand as a candidate at elections to the European Parliament, article 40 Right to vote and to stand as a candidate at municipal elections (Charter of fundamental rights of the European Union).",
 				"qr": "",
 				"categories": [
-					"Ethics & Fundamental Rights"
+					"Ethics & Human Rights"
 				],
 				"phases": [
 					"Design",
@@ -1239,14 +1221,48 @@
 				]
 			},
 			{
-				"question": "Could the AI system limit the right to be heard?",
+				"question": "Is our AI system contestable?",
+				"threatif": "No",
+				"explanation": "Are users allowed to disagree with an outcome from the AI system? Consider for instance the risk if your system makes automatic decisions that could have a negative impact on an individual and you do not offer any way to contest that decision.\n* Consider the risk if this was used in a criminal case and the consequences if wrong information is used to condemn someone. Do you have a mechanism to challenge the decisions of your AI system? ",
+				"recommendation": "Ensure the AI system includes mechanisms for contestability, allowing users to challenge or seek review of decisions that negatively impact them. Provide clear instructions on how users can initiate such challenges and ensure that this process is transparent, accessible, and user-friendly. \n*Incorporate features that enable human oversight in decision-making processes, ensuring users have the option to escalate issues to human operators. \n*Establish a redressal process that includes timelines for resolution, a clear escalation hierarchy, and mechanisms for feedback integration to improve the system’s decision-making over time. \n*Regularly audit and evaluate the decision-making outcomes of the AI system, focusing on areas where users frequently raise disputes. Use these audits to improve system accuracy and reduce the need for contestation. \n*Provide detailed and comprehensible explanations of the system’s outputs to users, ensuring they understand how decisions are made and what data was used. \n*Engage relevant stakeholders, including legal experts, ethicists, and representatives from affected user groups to design and evaluate the contestability mechanisms and ensure they meet ethical and regulatory standards. \n*Train system operators and customer support staff to handle disputes arising from the AI system effectively, ensuring they are equipped to assist users in navigating the contestation process.",
+				"sources": "Right to treated fair by court (Universal Declaration of Human Rights), article 11 Freedom of expression and information, article 47 Right to an effective remedy and to a fair trial (Charter of fundamental rights of the European Union).\n*[Ethics guidelines for trustworthy AI](https://digital-strategy.ec.europa.eu/en/library/ethics-guidelines-trustworthy-ai)\n[Operational Guidance on taking account of Fundamental Rights in Commission Impact Assessments](https://ec.europa.eu/info/sites/default/files/opperational-guidance-fundamental-rights-in-impact-assessments_en.pdf)\n[Artificial Intelligence and Fundamental Rights](https://fra.europa.eu/sites/default/files/fra_uploads/fra-2020-artificial-intelligence_en.pdf)",
+				"qr": "[Charter of Fundamental Rights of the European Union](https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:12012P/TXT&from=EN)",
+				"categories": [
+					"Ethics & Human Rights"
+				],
+				"phases": [
+					"Design",
+					"Input",
+					"Model",
+					"Output"
+				]
+			},
+			{
+				"question": "Could the system have an impact on decisions regarding the right to life?",
 				"threatif": "Yes",
-				"explanation": "Consider for instance the risk if your system makes automatic decisions that could have a negative impact on an individual and you do not offer any way to contest that decision.",
-				"recommendation": "It is very important that your product complies with the key EU requirements for achieving a trustworthy AI:\n* human agency and oversight\n* robustness and safety\n* privacy and data governance\n* transparency\n* diversity, non-discrimination and fairness\n* societal and environmental well-being\n* accountability\n\nRemember that there are other human rights that could be affected by your product. Check the other rights in the Charter of Fundamental Rights:",
+				"explanation": "Consider for instance the risk if your AI system is used in the health sector for choosing the right treatment for a patient. Is the output of the model accurate and fair? Are your datasets representative enough and free from bias? Does the system produce outputs, such as fake news, that could put the life of somebody in danger? Could the system encourage harmful health practices or medical misinformation? ",
+				"recommendation": "Design the system with rigorous safety standards to minimize risks in scenarios affecting the right to life, such as healthcare or emergency response. Ensure datasets are representative and regularly validated for fairness, accuracy, and absence of harmful biases. \n*Include safeguards against outputs that may promote harmful practices, misinformation, or decisions endangering life. Conduct robust testing to identify and mitigate potential errors or unintended consequences. \n*Prohibit the dissemination of outputs that could incite violence, endanger health, or spread medical misinformation. Establish a monitoring mechanism to flag and rectify such outputs in real-time. \n*Engage domain experts, such as healthcare professionals or ethics specialists, in the system design and evaluation process. Use their input to ensure the AI system aligns with ethical standards for protecting life. \n*Establish a post-market monitoring system to identify and address risks that may emerge after deployment, especially in dynamic contexts like healthcare or public safety. \n*Provide training for users and operators to ensure they understand the system's limitations and ethical implications, particularly in life-critical decision-making contexts. Encourage informed and responsible use through comprehensive documentation and guidelines. \n*Create mechanisms for users and affected individuals to challenge decisions that may impact the right to life. Implement a robust redressal process to address grievances and prevent recurrence of harmful outcomes.",
+				"sources": "Right to life, No torture and inhuman treatment (Universal Declaration of Human Rights), article 2 Right to life, article 3 Right to the integrity of the person, article 4 Prohibition of torture and inhuman or degrading treatment or punishment (Charter of fundamental rights of the European Union).\n*[Ethics guidelines for trustworthy AI](https://digital-strategy.ec.europa.eu/en/library/ethics-guidelines-trustworthy-ai)\n[Operational Guidance on taking account of Fundamental Rights in Commission Impact Assessments](https://ec.europa.eu/info/sites/default/files/opperational-guidance-fundamental-rights-in-impact-assessments_en.pdf)\n[Artificial Intelligence and Fundamental Rights](https://fra.europa.eu/sites/default/files/fra_uploads/fra-2020-artificial-intelligence_en.pdf)",
+				"qr": "[Charter of Fundamental Rights of the European Union](https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:12012P/TXT&from=EN)",
+				"categories": [
+					"Ethics & Human Rights"
+				],
+				"phases": [
+					"Design",
+					"Input",
+					"Model",
+					"Output"
+				]
+			},
+			{
+				"question": "Could the AI system limit or distort the user input the freedom of expression of its users?",
+				"threatif": "Yes",
+				"explanation": "An AI system may inadvertently or deliberately suppress or distort user input, limiting individuals' ability to express themselves freely. For instance, if the system inaccurately labels text as hate speech, it might block valid expressions of opinion, chilling free speech and stifling open dialogue. Another example is the over-filtering of content based on overly broad or biased definitions of 'inappropriate' or 'unacceptable' language, which could suppress discussions on sensitive but critical topics. Such outcomes can disproportionately impact minority groups or individuals expressing dissenting viewpoints, leading to an erosion of trust in the platform and limiting diversity of thought.",
+				"recommendation": "Adhere to ethical guidelines and ensure transparency and accountability. \n* Regularly audit and refine content moderation algorithms to minimize false positives in detecting harmful content. Incorporate diverse training data that reflects a wide range of cultural, linguistic, and contextual nuances. \n* Provide users with clear explanations and opportunities to contest or appeal content moderation decisions. Develop an independent oversight committee to review contentious cases of content removal. \n* Collaborate with diverse stakeholders to ensure freedom of expression is preserved. Test the system with input from underrepresented communities to identify potential biases or oversights. \n* Allow users to customize their interaction with content filters, such as by adjusting sensitivity levels or choosing topics they wish to see moderated differently. Provide clear guidelines and options for users to express themselves within platform policies. \n* Establish mechanisms for users to report errors in content moderation and provide constructive feedback. \n* Continuously monitor the system's performance and adapt to emerging risks or contexts that may affect freedom of expression. \n* Align the system’s operation with international standards protecting freedom of expression, such as article 11 of the Charter of Fundamental Rights of the European Union and article 19 of the Universal Declaration of Human Rights.",
 				"sources": "[Ethics guidelines for trustworthy AI](https://digital-strategy.ec.europa.eu/en/library/ethics-guidelines-trustworthy-ai)\n[Operational Guidance on taking account of Fundamental Rights in Commission Impact Assessments](https://ec.europa.eu/info/sites/default/files/opperational-guidance-fundamental-rights-in-impact-assessments_en.pdf)\n[Artificial Intelligence and Fundamental Rights](https://fra.europa.eu/sites/default/files/fra_uploads/fra-2020-artificial-intelligence_en.pdf)",
 				"qr": "[Charter of Fundamental Rights of the European Union](https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:12012P/TXT&from=EN)",
 				"categories": [
-					"Ethics & Fundamental Rights"
+					"Ethics & Human Rights"
 				],
 				"phases": [
 					"Design",
@@ -1256,14 +1272,14 @@
 				]
 			},
 			{
-				"question": "Could the system have a big impact on decisions regarding the right to life?",
+				"question": "Could our AI system impact access to healthcare, jobs, housing, insurance, benefits or education?",
 				"threatif": "Yes",
-				"explanation": "Consider for instance the risk if your AI system is used in the health sector for choosing the right treatment for a patient. Is the output of the model accurate and fair? Are your datasets representative enough and free from bias?",
-				"recommendation": "It is very important that your product complies with the key EU requirements for achieving a trustworthy AI:\n* human agency and oversight\n* robustness and safety\n* privacy and data governance\n* transparency\n* diversity, non-discrimination and fairness\n* societal and environmental well-being\n* accountability\n\nRemember that there are other human rights that could be affected by your product. Check the other rights in the Charter of Fundamental Rights:",
-				"sources": "[Ethics guidelines for trustworthy AI](https://digital-strategy.ec.europa.eu/en/library/ethics-guidelines-trustworthy-ai)\n[Operational Guidance on taking account of Fundamental Rights in Commission Impact Assessments](https://ec.europa.eu/info/sites/default/files/opperational-guidance-fundamental-rights-in-impact-assessments_en.pdf)\n[Artificial Intelligence and Fundamental Rights](https://fra.europa.eu/sites/default/files/fra_uploads/fra-2020-artificial-intelligence_en.pdf)",
+				"explanation": "* The output of your model could be used to deny access to certain fundamental rights.\n* How can you be sure that the decisions of your AI system are always fair and correct?\n* How can you prevent causing harm to individuals?\n* AI systems intended to be used to determine access or admission, evaluate learning outcomes, or monitor students’ behaviors are classified as “high risk” by the AI Act (Annex III).\n* Could the AI system create barriers to healthcare access for some groups or individuals?",
+				"recommendation": "Adhere to EU Trustworthy AI guidelines to ensure fairness and accountability\n* Use diverse, representative training data to reduce biases that could disproportionately impact certain groups. \n*Regularly audit the system for unintended discriminatory effects and address identified issues. \n*Provide clear explanations for decisions made by the AI system, including the data and logic used. Allow users to challenge decisions and request human reviews. \n*Establish post-market monitoring processes to detect and address issues that arise after deployment. \n*Update the system regularly to account for changes in legal requirements, societal norms, and data quality. For high-risk applications, such as determining healthcare access or evaluating job candidates, establish stringent safeguards to minimize the risk of harm. Implement thresholds and fail-safes to ensure critical decisions are accurate, fair, and reliable. \n*Work with regulatory bodies, civil society organizations, and industry peers to establish best practices and promote fairness and equity in AI systems. Ensure the AI system is designed to accommodate a wide range of users, including those with varying needs and abilities. Regularly test the system in diverse real-world settings to validate its accessibility and fairness. Use stakeholder consultations to understand the specific needs and vulnerabilities of affected groups.",
+				"sources": "Right to education, Right of social service (Universal Declaration of Human Rights), article 14 Right to education, article 34 Social security and social assistance, article 35 Healthcare, article 36 Access to services of general economic interest,  (Charter of fundamental rights of the European Union)\n*[Ethics guidelines for trustworthy AI](https://digital-strategy.ec.europa.eu/en/library/ethics-guidelines-trustworthy-ai)\n[Operational Guidance on taking account of Fundamental Rights in Commission Impact Assessments](https://ec.europa.eu/info/sites/default/files/opperational-guidance-fundamental-rights-in-impact-assessments_en.pdf)\n[Artificial Intelligence and Fundamental Rights](https://fra.europa.eu/sites/default/files/fra_uploads/fra-2020-artificial-intelligence_en.pdf)",
 				"qr": "[Charter of Fundamental Rights of the European Union](https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:12012P/TXT&from=EN)",
 				"categories": [
-					"Ethics & Fundamental Rights"
+					"Ethics & Human Rights"
 				],
 				"phases": [
 					"Design",
@@ -1273,82 +1289,52 @@
 				]
 			},
 			{
-				"question": "Could the AI system affect the freedom of expression of its users?",
+				"question": "Could our AI system affect human autonomy by interfering with the user’s decision-making process?",
 				"threatif": "Yes",
-				"explanation": "Is the output of the model accurate, fair and not discriminatory? Consider the risk if this could be used, intended or unintended, to prevent the freedom of expression of individuals, for instance by wrongly labelling text as hate speech. In an example like this, users would not be able to freely express their opinions because the text is wrongly labelled as hate speech and the system blocks the opinion automatically.",
-				"recommendation": "It is very important that your product complies with the key EU requirements for achieving a trustworthy AI:\n* human agency and oversight\n* robustness and safety\n* privacy and data governance\n* transparency\n* diversity, non-discrimination and fairness\n* societal and environmental well-being\n* accountability\n\nRemember that there are other human rights that could be affected by your product. Check the other rights in the Charter of Fundamental Rights:",
-				"sources": "[Ethics guidelines for trustworthy AI](https://digital-strategy.ec.europa.eu/en/library/ethics-guidelines-trustworthy-ai)\n[Operational Guidance on taking account of Fundamental Rights in Commission Impact Assessments](https://ec.europa.eu/info/sites/default/files/opperational-guidance-fundamental-rights-in-impact-assessments_en.pdf)\n[Artificial Intelligence and Fundamental Rights](https://fra.europa.eu/sites/default/files/fra_uploads/fra-2020-artificial-intelligence_en.pdf)",
-				"qr": "[Charter of Fundamental Rights of the European Union](https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:12012P/TXT&from=EN)",
-				"categories": [
-					"Ethics & Fundamental Rights"
-				],
-				"phases": [
-					"Design",
-					"Input",
-					"Model",
-					"Output"
-				]
-			},
-			{
-				"question": "Could the AI system affect the freedom of its users?",
-				"threatif": "Yes",
-				"explanation": "Is the output of the model accurate, fair and not discriminatory? Consider the risk if this could be used for monitoring or surveillance purposes; for instance a face recognition system that could wrongly identify a suspect, bringing him/her to jail. Or systems that can spread fake news putting the life of somebody in danger.",
-				"recommendation": "It is very important that your product complies with the key EU requirements for achieving a trustworthy AI:\n* human agency and oversight\n* robustness and safety\n* privacy and data governance\n* transparency\n* diversity, non-discrimination and fairness\n* societal and environmental well-being\n* accountability\n\nRemember that there are other human rights that could be affected by your product. Check the other rights in the Charter of Fundamental Rights:",
-				"sources": "[Ethics guidelines for trustworthy AI](https://digital-strategy.ec.europa.eu/en/library/ethics-guidelines-trustworthy-ai)\n[Operational Guidance on taking account of Fundamental Rights in Commission Impact Assessments](https://ec.europa.eu/info/sites/default/files/opperational-guidance-fundamental-rights-in-impact-assessments_en.pdf)\n[Artificial Intelligence and Fundamental Rights](https://fra.europa.eu/sites/default/files/fra_uploads/fra-2020-artificial-intelligence_en.pdf)",
-				"qr": "[Charter of Fundamental Rights of the European Union](https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:12012P/TXT&from=EN)",
-				"categories": [
-					"Ethics & Fundamental Rights"
-				],
-				"phases": [
-					"Design",
-					"Input",
-					"Model",
-					"Output"
-				]
-			},
-			{
-				"question": "Could the AI system affect the right to a fair hearing?",
-				"threatif": "Yes",
-				"explanation": "* Is the output of the model accurate and fair? Consider the risk if this could be used in a criminal case and the consequences if wrong information is used to condemn someone.\n* Do you have a mechanism to challenge the decisions of your AI system?",
-				"recommendation": "It is very important that your product complies with the key EU requirements for achieving a trustworthy AI:\n* human agency and oversight\n* robustness and safety\n* privacy and data governance\n* transparency\n* diversity, non-discrimination and fairness\n* societal and environmental well-being\n* accountability\n\nRemember that there are other human rights that could be affected by your product. Check the other rights in the Charter of Fundamental Rights:",
-				"sources": "[Ethics guidelines for trustworthy AI](https://digital-strategy.ec.europa.eu/en/library/ethics-guidelines-trustworthy-ai)\n[Operational Guidance on taking account of Fundamental Rights in Commission Impact Assessments](https://ec.europa.eu/info/sites/default/files/opperational-guidance-fundamental-rights-in-impact-assessments_en.pdf)\n[Artificial Intelligence and Fundamental Rights](https://fra.europa.eu/sites/default/files/fra_uploads/fra-2020-artificial-intelligence_en.pdf)",
-				"qr": "[Charter of Fundamental Rights of the European Union](https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:12012P/TXT&from=EN)",
-				"categories": [
-					"Ethics & Fundamental Rights"
-				],
-				"phases": [
-					"Design",
-					"Input",
-					"Model",
-					"Output"
-				]
-			},
-			{
-				"question": "Could our AI system have an impact denying access to jobs, housing, insurance, benefits or education?",
-				"threatif": "Yes",
-				"explanation": "* The output of your model could be used to deny access to certain fundamental rights.\n* How can you be sure that the decisions of your AI system are always fair and correct?\n* How can you prevent causing harm to individuals?",
-				"recommendation": "It is very important that your product complies with the key EU requirements for achieving a trustworthy AI:\n* human agency and oversight\n* robustness and safety\n* privacy and data governance\n* transparency\n* diversity, non-discrimination and fairness\n* societal and environmental well-being\n* accountability\n\nRemember that there are other human rights that could be affected by your product. Check the other rights in the Charter of Fundamental Rights:",
-				"sources": "[Ethics guidelines for trustworthy AI](https://digital-strategy.ec.europa.eu/en/library/ethics-guidelines-trustworthy-ai)\n[Operational Guidance on taking account of Fundamental Rights in Commission Impact Assessments](https://ec.europa.eu/info/sites/default/files/opperational-guidance-fundamental-rights-in-impact-assessments_en.pdf)\n[Artificial Intelligence and Fundamental Rights](https://fra.europa.eu/sites/default/files/fra_uploads/fra-2020-artificial-intelligence_en.pdf)",
-				"qr": "[Charter of Fundamental Rights of the European Union](https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:12012P/TXT&from=EN)",
-				"categories": [
-					"Ethics & Fundamental Rights"
-				],
-				"phases": [
-					"Design",
-					"Input",
-					"Model",
-					"Output"
-				]
-			},
-			{
-				"question": "Could our AI system affect human autonomy by interfering with the user’s decision-making process in an unintended and undesirable way?",
-				"threatif": "Yes",
-				"explanation": "* Could your system affect which choices and which information is made available to people?\n* Could the AI system affect human autonomy by generating over-reliance by users (too much trust on the technology)?\n* Could this reinforce their beliefs or encourage certain behaviours?\n* Could the AI system create human attachment, stimulate addictive behaviour, or manipulate user behaviour?",
-				"recommendation": "* Consider the possibility of your product affecting the behaviour and the freedom of choice of individuals.\n* Test the system with enough and varied groups of users.\n* Consult with experts; this is a team effort and it is very important that adverse impacts to individuals are prevented.",
-				"sources": "[Dispositional and Situational Attributions of Human Versus Robot Behaviour](https://www.frontiersin.org/articles/10.3389/frobt.2021.788242/full)\n[Understanding Human Over-Reliance on Technology](https://www.ismp.org/resources/understanding-human-over-reliance-technology)",
+				"explanation": "* Could your system affect which choices and which information is made available to people?\n* Could the AI system affect human autonomy by generating over-reliance by users (too much trust on the technology)?\n* Could this reinforce their beliefs or encourage certain behaviours?\n* Could the AI system create human attachment, stimulate addictive behaviour, or manipulate user behaviour? \n* Could the AI system mislead consumers or provide false recommendations? ",
+				"recommendation": "* Clearly explain how the AI system processes inputs and generates outputs to avoid unintentional manipulation or misrepresentation. Ensure users understand the limitations and intended purposes of the AI system through user-friendly documentation and communication. Offer features that allow users to adjust or override AI recommendations, ensuring they maintain control over decisions. Implement mechanisms for users to pause, disable, or opt-out of certain AI functionalities.\n* Implement safeguards to detect and reduce over-reliance, such as reminders or notifications encouraging users to seek alternative opinions or double-check recommendations. Include disclaimers or warnings about the system’s limitations in contexts where over-reliance might occur. \n* Refrain from using techniques that exploit psychological vulnerabilities, such as gamification, excessive notifications, or reward loops that could encourage addictive behavior. Periodically evaluate whether design elements unintentionally foster dependency on the system. \n* Test the system with users from various cultural, socioeconomic, and demographic backgrounds to understand potential impacts on different groups. Incorporate diverse perspectives to avoid inadvertent biases that could restrict autonomy for certain populations. \n* Continuously monitor for any behaviors or outputs that may interfere with user decision-making processes. Use post-market monitoring to collect feedback and implement updates to reduce unintended autonomy infringements. Ensure human oversight mechanisms are in place for critical decision-making areas. Clearly define the role of the AI system as a tool to assist, not replace, human decision-making.",
+				"sources": "Article 6 Right to liberty and security, article 3 Right to the integrity of the person, article 38 Consumer protection (Charter of fundamental rights of the European Union), article 5a (AI Act)  \n*[Dispositional and Situational Attributions of Human Versus Robot Behaviour](https://www.frontiersin.org/articles/10.3389/frobt.2021.788242/full)\n[Understanding Human Over-Reliance on Technology](https://www.ismp.org/resources/understanding-human-over-reliance-technology)",
 				"qr": "",
 				"categories": [
-					"Ethics & Fundamental Rights"
+					"Ethics & Human Rights"
+				],
+				"phases": [
+					"Design",
+					"Input",
+					"Model",
+					"Output"
+				]
+			},
+			{
+				"question": "Is our AI designed to promote multiple viewpoints and narratives?",
+				"threatif": "No",
+				"explanation": "* An AI system that does not consider or promote diverse viewpoints and narratives risks reinforcing biases, perpetuating stereotypes, or marginalizing specific groups. Such systems might unintentionally amplify dominant cultural, religious, or linguistic perspectives while excluding or suppressing minority voices. For example, content recommendation systems may disproportionately highlight mainstream viewpoints, reducing exposure to diverse cultural or ideological perspectives. This could hinder freedom of opinion and expression, harm cultural diversity, and lead to discriminatory outcomes.",
+				"recommendation": "* Ensure datasets used for training and validation are diverse and representative of different cultural, religious, and linguistic groups. Design the system to recognize and value multiple perspectives, avoiding the prioritization of any single viewpoint. \n* Regularly test the AI system for biases that may marginalize or exclude certain narratives or groups. Use fairness metrics to evaluate how outputs reflect diversity and inclusivity. \n* Consult with diverse user groups, including minority communities, to understand their needs and perspectives. Include experts in cultural studies, ethics, and human rights during the development process. \n* Provide users with clear explanations of how the AI system processes and prioritizes content. Offer mechanisms for users to provide feedback on perceived biases or lack of representation. \n* Avoid algorithmic designs that overly amplify any particular narrative unless explicitly required by the use case. \n* Continuously monitor system outputs for patterns of exclusion or marginalization. \n* Regularly update models and algorithms to reflect evolving societal values and ensure alignment with inclusivity goals.",
+				"sources": "Freedom of opinion and expression (Universal Declaration of Human Rights), article 11 Freedom of expression and information, article 21 Non-Discrimination, article 22 Cultural, religious and linguistic diversity, article 10 Freedom of thought, Conscience and religion (Charter of fundamental rights of the European Union )\n*[Value alignment](https://www.ibm.com/design/ai/ethics/value-alignment/)\n[Online Ethics Canvas](https://www.ethicscanvas.org/canvas/index.php)\n[AI Values and Alignment](https://www.deepmind.com/publications/artificial-intelligence-values-and-alignment)",
+				"qr": "",
+				"categories": [
+					"Ethics & Human Rights",
+					"Transparency & Accessibility",
+					"Bias, Fairness & Discrimination"
+				],
+				"phases": [
+					"Design",
+					"Input",
+					"Model",
+					"Output"
+				]
+			},
+			{
+				"question": "Does the AI system impose certain values or beliefs on users?",
+				"threatif": "No",
+				"explanation": "* Could cultural and language differences be an issue when it comes to the ethical nuance of your algorithm? Well-meaning values can create unintended consequences.\n* Must the AI system understand the world in all its different contexts?\n* Could ambiguity in rules you teach the AI system be a problem?\n* Can your system interact equitably with users from different cultures and with different abilities?).",
+				"recommendation": "* Consider designing with value alignment, what means that you want to ensure consideration of existing values and sensitivity to a wide range of cultural norms and values.\n* Make sure that when you test the product you include a large diversity in type of users.\n* Think carefully about what diversity means in the context where the product is going to be used.\n* Remember that this is a team effort and not an individual decision!",
+				"sources": "Freedom of thought and religion(Universal Declaration of Human Rights), article 22 Cultural, religious and linguistic diversity, article 10 Freedom of thought, Conscience and religion (Charter of fundamental rights of the European Union )\n*[Value alignment](https://www.ibm.com/design/ai/ethics/value-alignment/)\n[Online Ethics Canvas](https://www.ethicscanvas.org/canvas/index.php)\n[AI Values and Alignment](https://www.deepmind.com/publications/artificial-intelligence-values-and-alignment)",
+				"qr": "",
+				"categories": [
+					"Ethics & Human Rights",
+					"Transparency & Accessibility",
+					"Bias, Fairness & Discrimination"
 				],
 				"phases": [
 					"Design",
@@ -1361,11 +1347,26 @@
 				"question": "Does the labelling of our training data respect the dignity and well-being of the labour force involved?",
 				"threatif": "No",
 				"explanation": "The need for labelling of data grows and unfortunately with that the amount of companies providing cheap labelling services at the cost of the dignity and labour rights of their workforce. Is the data that you are going to use labelled under such conditions?",
-				"recommendation": "Verify the sources of your datasets and who has been responsible for the labelling process. Does your organisation support this unfair practices? Think in ways to help prevent this.",
+				"recommendation": "Conduct thorough audits of dataset sources to ensure they adhere to fair labor practices. Require documentation from third-party providers to verify compliance with labor laws and ethical standards. \n* Include clauses in contracts with vendors to uphold workers' rights, provide fair wages, and ensure safe working conditions. Choose providers who demonstrate commitment to ethical labor practices. \n* Use hybrid approaches combining automated tools and ethical human labor to reduce dependency on exploitative practices. \n* Provide training for teams involved in data acquisition to recognize the importance of ethical labor practices in the AI development pipeline. \n* Collaborate with NGOs, labor unions, and international organizations to promote better working conditions across the AI industry. \n* Develop mechanisms to receive and address complaints or concerns from workers involved in the labeling process. \n* Disclose the labeling process used for your datasets in product or system documentation. Be transparent with stakeholders about steps taken to ensure ethical labor practices in your supply chain.",
 				"sources": "[The exploited labor behind AI](https://www.noemamag.com/the-exploited-labor-behind-artificial-intelligence/)",
 				"qr": "",
 				"categories": [
-					"Ethics & Fundamental Rights"
+					"Ethics & Human Rights"
+				],
+				"phases": [
+					"Design",
+					"Input"
+				]
+			},
+			{
+				"question": "Could the AI system fail to respect and safeguard children’s rights?",
+				"threatif": "Yes",
+				"explanation": "Children interacting with AI systems require special protections to ensure their rights, safety, and well-being are preserved. AI systems used by or designed for children must prioritize their best interests, such as ensuring age-appropriate content, safeguarding their privacy, and fostering their ability to share, learn, and express themselves freely. A failure to address these factors could result in harm, exploitation, or the suppression of their rights. For example, an AI system might expose children to inappropriate content, fail to protect their personal data, or limit their ability to engage in meaningful learning and expression.",
+				"recommendation": "Develop and test the system for age-appropriateness. \n* Implement mechanisms to filter and block harmful or inappropriate content. \n* Adhere to strict data privacy regulations, such as GDPR, ensuring children’s data is protected. Foster safe environments where children can freely share their thoughts and ideas. Include features that support interactive and meaningful learning experiences. \n* Engage with experts in child development, education, and rights advocacy during the design phase. Consult children (where appropriate) to ensure their perspectives are respected and integrated. \n* Continuously monitor the AI system for unintended harms or risks to children. \n* Clearly communicate to parents, guardians, and educators how the AI system works and the measures in place to protect children. Provide accessible guidelines for safe and effective use.",
+				"sources": "Article 24 The rights of the child (Charter of Fundamental Rights of the European Union)[Convention on the Rights of the Child, UNICEF](https://www.unicef.org/child-rights-convention)",
+				"qr": "",
+				"categories": [
+					"Ethics & Human Rights"
 				],
 				"phases": [
 					"Design",
@@ -1377,10 +1378,10 @@
 				"threatif": "Yes",
 				"explanation": "Behavioral data refers to information collected about individuals' actions, habits, or interactions, such as browsing patterns, purchase history, or movement tracking. When using such data, there is a risk of reinforcing conformity behavior or encouraging certain actions deemed 'desirable' or 'undesirable' based on system design. This can lead to unintended consequences, such as behavioral exploitation or manipulation. For example, an authoritarian government might exploit these features to enforce compliance or suppress dissent by labeling or discouraging certain behaviors",
 				"recommendation": "* Clearly define and critically evaluate how behaviors are labeled as 'positive' or 'negative' and consider the broader societal implications of these choices.\n* Incorporate diversity of opinions and perspectives during the design phase to mitigate ethical risks and ensure fairness in the system's outputs.\n* Assess the sufficiency and representativeness of the behavioral data collected, ensuring it is free from bias and aligns with ethical considerations.\n* Regularly audit and review the impact of labeling and feedback mechanisms to avoid reinforcing harmful behaviors or promoting conformity.\n* Establish guidelines and safeguards to prevent misuse of the system for manipulative or exploitative purposes, especially in politically sensitive or authoritarian contexts.",
-				"sources": "",
+				"sources": "Article 1, Human dignitie, article 7 Right to privacy, article 10 Freedom of thought, conscience, and religion (Charter of Fundamental Rights of the European Union)",
 				"qr": "",
 				"categories": [
-					"Ethics & Fundamental Rights",
+					"Ethics & Human Rights",
 					"Bias, Fairness & Discrimination",
 					"Privacy & Data Protection"
 				],
@@ -1433,7 +1434,7 @@
 				]
 			},
 			{
-				"question": "Do we have enough dedicated resources to monitor the algorithm?",
+				"question": "Do we have enough dedicated resources to monitor the AI system?",
 				"threatif": "No",
 				"explanation": "Do you already have a process in place to monitor the quality of the output and system errors? Do you have resources to do this? Not having the right process and resources in place could have an impact on the project deadline, the organisation and the users.",
 				"recommendation": "* Put a well-defined process in place to monitor if the AI system is meeting the intended goals.\n* Define failsafe fallback plans to address AI system errors of whatever origin and put governance procedures in place to trigger them.\n* Put measure in places to continuously assess the quality of the output data: e.g. check that predictions scores are within expected ranges; anomaly detection in output and reassign input data leading to the detected anomaly.\n* Does the data measure what you need to measure? You could get measurement errors if data is not correctly labelled.",
@@ -1467,6 +1468,21 @@
 				]
 			},
 			{
+				"question": "Is human intervention necessary to oversee the automatic decision making (ADM) process of the AI system?",
+				"threatif": "Yes",
+				"explanation": "* Do humans need to review the process and the decisions of the AI system? Consider the impact that this could have for the organisation.\n* Do you have enough capacitated employees available for this role?",
+				"recommendation": "It is important that people are available for this role and that they receive specific training on how to exercise oversight. The training should teach them how to perform the oversight without being biased by the decision of the AI system (automation bias).",
+				"sources": "[Automation Bias](https://en.wikipedia.org/wiki/Automation_bias)\n[The Flaws of Policies Requiring Human Oversight of Government Algorithms](https://arxiv.org/ftp/arxiv/papers/2109/2109.05067.pdf)\n[The False Comfort of Human Oversight as an Antidote to AI Harm](https://slate.com/technology/2021/06/human-oversight-artificial-intelligence-laws.html)",
+				"qr": "",
+				"categories": [
+					"Data & Data Governance"
+				],
+				"phases": [
+					"Design",
+					"Output"
+				]
+			},
+			{
 				"question": "Is the creation of the AI system proportional to the intended goal?",
 				"threatif": "No",
 				"explanation": "* Proportionality is a general principle of EU law. It requires you to strike a balance between the means used and the intended aim.\n* In the context of fundamental rights, proportionality is key for any limitation on these rights.",
@@ -1477,6 +1493,25 @@
 					"Accountability & Human Oversight",
 					"Ethics & Fundamental Rights",
 					"Privacy & Data Protection"
+				],
+				"phases": [
+					"Design",
+					"Input",
+					"Model",
+					"Output"
+				]
+			},
+			{
+				"question": "Will our AI system make automatic decisions without human intervention?",
+				"threatif": "Yes",
+				"explanation": "* Can these decisions have an important adverse impact on the individual? Think about someone’s legal rights, legal status, rights under a contract, or a decision with similar effects and significance. Article 22 of the GDPR specifically addresses automatic decision-making and profiling, providing safeguards to protect individuals' rights in such cases. Additionally, Article 86 of the AI Act requires transparency and the provision of clear explanations for significant decisions made by high-risk AI systems.",
+				"recommendation": " Check with your privacy expert if your processing falls under Article 22 of the GDPR or under its exceptions. Human oversight is a key mitigation strategy and should be discussed with legal advisors and your development team.\n* Article 22(3) of the GDPR provides individuals with the right to obtain human intervention in automated decisions and the right to contest such decisions. Ensure your system complies with this requirement.\n* Align with the Artificial Intelligence Act (AIA) requirements for high-risk AI systems, which emphasize robust oversight mechanisms, risk management processes, and transparency. Conduct impact assessments to identify and mitigate potential adverse effects.\n* Implement human oversight mechanisms, ensuring that users or experts can intervene when necessary to prevent harm or adverse outcomes.\n* Ensure transparency and accountability by documenting decision-making processes and making these accessible to users. Trustworthy AI requires adherence to principles such as human agency, oversight, and accountability.\n* Regularly audit your system to assess and address risks, particularly in sensitive applications such as legal, healthcare, or employment-related decisions.*",
+				"sources": "[Ethics guidelines for trustworthy AI](https://digital-strategy.ec.europa.eu/en/library/ethics-guidelines-trustworthy-ai)",
+				"qr": "",
+				"categories": [
+					"Privacy & Data Protection",
+					"Accountability & Human Oversight",
+					"Safety & Environmental Impact"
 				],
 				"phases": [
 					"Design",
