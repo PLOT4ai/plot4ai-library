@@ -1055,7 +1055,7 @@
 		]
 	},
 	{
-		"category": "Bias, fairness & Discrimination",
+		"category": "Bias, Fairness & Discrimination",
 		"id": 6,
 		"colour": "f8d18c",
 		"cards": [
@@ -1067,7 +1067,7 @@
 				"sources": "**Related to disparate impact**\n[AI Fairness - Explanation of Disparate Impact Remover](https://towardsdatascience.com/ai-fairness-explanation-of-disparate-impact-remover-ce0da59451f1)\n[Mitigating Bias in AI/ML Models with Disparate Impact Analysis](https://medium.com/@kguruswamy_37814/mitigating-bias-in-ai-ml-models-with-disparate-impact-analysis-9920212ee01c)\n[Certifying and removing disparate impact](https://arxiv.org/abs/1412.3756)\n[Avoiding Disparate Impact with Counterfactual Distributions](https://oconnell.fas.harvard.edu/files/hao/files/wesgai.pdf)\n\n**Related to random resampling**\n[Oversampling and Undersampling](https://towardsdatascience.com/oversampling-and-undersampling-5e2bbaf56dcf)\n[Random Oversampling and Undersampling for Imbalanced Classification](https://machinelearningmastery.com/random-oversampling-and-undersampling-for-imbalanced-classification/)\n\n**Related to Statistical Generalization**\n[Generalization in quantitative and qualitative research: Myths and strategies](https://core.ac.uk/download/pdf/49282746.pdf)\n[Generalizing Statistical Results to the Entire Population](https://www.dummies.com/article/academics-the-arts/math/statistics/generalizing-statistical-results-to-the-entire-population-201267/)",
 				"qr": "",
 				"categories": [
-					"Bias, fairness & Discrimination",
+					"Bias, Fairness & Discrimination",
 					"Data & Data Governance"
 				],
 				"phases": [
