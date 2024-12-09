@@ -1475,7 +1475,7 @@
 				"sources": "[Automation Bias](https://en.wikipedia.org/wiki/Automation_bias)\n[The Flaws of Policies Requiring Human Oversight of Government Algorithms](https://arxiv.org/ftp/arxiv/papers/2109/2109.05067.pdf)\n[The False Comfort of Human Oversight as an Antidote to AI Harm](https://slate.com/technology/2021/06/human-oversight-artificial-intelligence-laws.html)",
 				"qr": "",
 				"categories": [
-					"Data & Data Governance"
+					"Accountability & Human Oversight"
 				],
 				"phases": [
 					"Design",
@@ -1509,8 +1509,8 @@
 				"sources": "[Ethics guidelines for trustworthy AI](https://digital-strategy.ec.europa.eu/en/library/ethics-guidelines-trustworthy-ai)",
 				"qr": "",
 				"categories": [
-					"Privacy & Data Protection",
 					"Accountability & Human Oversight",
+					"Privacy & Data Protection",
 					"Safety & Environmental Impact"
 				],
 				"phases": [
