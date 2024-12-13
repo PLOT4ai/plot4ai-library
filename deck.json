@@ -16,7 +16,8 @@
 				],
 				"phases": [
 					"Design",
-					"Input"
+					"Input",
+					"Monitor"
 				]
 			},
 			{
@@ -33,7 +34,7 @@
 					"Design",
 					"Input",
 					"Model",
-					"Output"
+					"Monitor"
 				]
 			},
 			{
@@ -47,10 +48,11 @@
 					"Data & Data Governance"
 				],
 				"phases": [
-					"Design",
 					"Input",
 					"Model",
-					"Output"
+					"Output",
+					"Deploy",
+					"Monitor"
 				]
 			},
 			{
@@ -66,7 +68,8 @@
 				"phases": [
 					"Design",
 					"Input",
-					"Output"
+					"Deploy",
+					"Monitor"
 				]
 			},
 			{
@@ -82,8 +85,8 @@
 				"phases": [
 					"Design",
 					"Input",
-					"Model",
-					"Output"
+					"Deploy",
+					"Monitor"
 				]
 			},
 			{
@@ -98,7 +101,8 @@
 				],
 				"phases": [
 					"Design",
-					"Input"
+					"Input",
+					"Monitor"
 				]
 			},
 			{
@@ -113,8 +117,7 @@
 				],
 				"phases": [
 					"Design",
-					"Input",
-					"Output"
+					"Input"
 				]
 			},
 			{
@@ -130,7 +133,8 @@
 				"phases": [
 					"Design",
 					"Input",
-					"Output"
+					"Deploy",
+					"Monitor"
 				]
 			}
 		]
@@ -155,7 +159,8 @@
 					"Design",
 					"Input",
 					"Model",
-					"Output"
+					"Output",
+					"Deploy"
 				]
 			},
 			{
@@ -170,7 +175,11 @@
 				],
 				"phases": [
 					"Design",
-					"Output"
+					"Input", 
+					"Output", 
+					"Deploy", 
+					"Monitor" 
+
 				]
 			},
 			{
@@ -185,8 +194,9 @@
 				],
 				"phases": [
 					"Design",
-					"Model",
-					"Output"
+					"Output",
+					"Deploy",
+					"Monitor"
 				]
 			},
 			{
@@ -201,8 +211,8 @@
 				],
 				"phases": [
 					"Design",
-					"Model",
-					"Output"
+					"Deploy",
+					"Monitor"
 				]
 			},
 			{
@@ -217,9 +227,8 @@
 				],
 				"phases": [
 					"Design",
-					"Input",
-					"Model",
-					"Output"
+					"Output",
+					"Monitor"
 				]
 			},
 			{
@@ -235,8 +244,8 @@
 				],
 				"phases": [
 					"Design",
-					"Model",
-					"Output"
+					"Deploy",
+					"Monitor"
 				]
 			},
 			{
@@ -251,7 +260,8 @@
 				],
 				"phases": [
 					"Design",
-					"Output"
+					"Deploy",
+					"Monitor"
 				]
 			},
 			{
@@ -266,8 +276,8 @@
 				],
 				"phases": [
 					"Design",
-					"Model",
-					"Output"
+					"Deploy",
+					"Monitor"
 				]
 			},
 			{
@@ -283,8 +293,8 @@
 				],
 				"phases": [
 					"Design",
-					"Model",
-					"Output"
+					"Deploy",
+					"Monitor"
 				]
 			}
 		]
@@ -308,7 +318,8 @@
 					"Design",
 					"Input",
 					"Model",
-					"Output"
+					"Output",
+					"Monitor"
 				]
 			},
 			{
@@ -324,8 +335,9 @@
 				"phases": [
 					"Design",
 					"Input",
-					"Model",
-					"Output"
+					"Output",
+					"Deploy",
+					"Monitor"
 				]
 			},
 			{
@@ -341,7 +353,8 @@
 				"phases": [
 					"Design",
 					"Input",
-					"Output"
+					"Deploy",
+					"Monitor"
 				]
 			},
 			{
@@ -358,7 +371,7 @@
 					"Design",
 					"Input",
 					"Model",
-					"Output"
+					"Monitor"
 				]
 			},
 			{
@@ -375,7 +388,7 @@
 					"Design",
 					"Input",
 					"Model",
-					"Output"
+					
 				]
 			},
 			{
@@ -391,8 +404,8 @@
 				"phases": [
 					"Design",
 					"Input",
-					"Model",
-					"Output"
+					"Deploy",
+					"Monitor"
 				]
 			},
 			{
@@ -408,8 +421,8 @@
 				"phases": [
 					"Design",
 					"Input",
-					"Model",
-					"Output"
+					"Deploy",
+					"Monitor"
 				]
 			},
 			{
@@ -425,8 +438,8 @@
 				"phases": [
 					"Design",
 					"Input",
-					"Model",
-					"Output"
+					"Output",
+					"Monitor"
 				]
 			},
 			{
@@ -442,8 +455,8 @@
 				"phases": [
 					"Design",
 					"Input",
-					"Model",
-					"Output"
+					"Output",
+					"Deploy"
 				]
 			},
 			{
@@ -459,9 +472,8 @@
 				"phases": [
 					"Design",
 					"Input",
-					"Model",
-					"Output"
-				]
+					"Monitor",
+									]
 			},
 			{
 				"question": "Do we need to use metadata to train or feed our AI model?",
@@ -476,7 +488,8 @@
 				],
 				"phases": [
 					"Design",
-					"Input"
+					"Input",
+					"Model"
 				]
 			},
 			{
@@ -492,7 +505,11 @@
 				],
 				"phases": [
 					"Design",
-					"Input"
+					"Input",
+					"Output", 
+					"Deploy", 
+					"Monitor" 
+
 				]
 			},
 			{
@@ -508,8 +525,8 @@
 				"phases": [
 					"Design",
 					"Input",
-					"Model",
-					"Output"
+					"Deploy",
+					"Monitor"
 				]
 			}
 		]
@@ -531,9 +548,9 @@
 				],
 				"phases": [
 					"Design",
-					"Input",
 					"Model",
-					"Output"
+					"Deploy",
+					"Monitor"
 				]
 			},
 			{
@@ -548,9 +565,8 @@
 				],
 				"phases": [
 					"Design",
-					"Input",
-					"Model",
-					"Output"
+					"Deploy",
+					"Monitor"
 				]
 			},
 			{
@@ -566,8 +582,8 @@
 				"phases": [
 					"Design",
 					"Input",
-					"Model",
-					"Output"
+					"Deploy",
+					"Monitor"
 				]
 			},
 			{
@@ -582,9 +598,8 @@
 				],
 				"phases": [
 					"Design",
-					"Input",
-					"Model",
-					"Output"
+					"Model"
+				
 				]
 			},
 			{
@@ -600,7 +615,9 @@
 				],
 				"phases": [
 					"Design",
-					"Model"
+					"Input",
+					"Model",
+					"Deploy"
 				]
 			},
 			{
@@ -615,9 +632,8 @@
 				],
 				"phases": [
 					"Design",
-					"Input",
-					"Model",
-					"Output"
+					"Deploy",
+					"Monitor"
 				]
 			},
 			{
@@ -632,9 +648,9 @@
 				],
 				"phases": [
 					"Design",
-					"Input",
 					"Model",
-					"Output"
+					"Deploy",
+					"Monitor"
 				]
 			},
 			{
@@ -652,7 +668,9 @@
 					"Design",
 					"Input",
 					"Model",
-					"Output"
+					"Output",
+					"Deploy",
+					"Monitor"
 				]
 			},
 			{
@@ -666,10 +684,9 @@
 					"Cybersecurity"
 				],
 				"phases": [
-					"Design",
-					"Input",
 					"Model",
-					"Output"
+					"Deploy",
+					"Monitor"
 				]
 			},
 			{
@@ -683,10 +700,10 @@
 					"Cybersecurity"
 				],
 				"phases": [
-					"Design",
 					"Input",
 					"Model",
-					"Output"
+					"Deploy",
+					"Monitor"
 				]
 			},
 			{
@@ -700,10 +717,9 @@
 					"Cybersecurity"
 				],
 				"phases": [
-					"Design",
-					"Input",
 					"Model",
-					"Output"
+					"Deploy",
+					"Monitor"
 				]
 			},
 			{
@@ -717,10 +733,9 @@
 					"Cybersecurity"
 				],
 				"phases": [
-					"Design",
-					"Input",
 					"Model",
-					"Output"
+					"Deploy",
+					"Monitor"
 				]
 			},
 			{
@@ -734,10 +749,8 @@
 					"Cybersecurity"
 				],
 				"phases": [
-					"Design",
-					"Input",
-					"Model",
-					"Output"
+					"Deploy",
+					"Monitor"
 				]
 			},
 			{
@@ -751,10 +764,8 @@
 					"Cybersecurity"
 				],
 				"phases": [
-					"Design",
-					"Input",
-					"Model",
-					"Output"
+					"Deploy",
+					"Monitor"
 				]
 			},
 			{
@@ -768,10 +779,9 @@
 					"Cybersecurity"
 				],
 				"phases": [
-					"Design",
-					"Input",
 					"Model",
-					"Output"
+					"Deploy",
+					"Monitor"
 				]
 			},
 			{
@@ -788,7 +798,7 @@
 					"Design",
 					"Input",
 					"Model",
-					"Output"
+					"Monitor"
 				]
 			},
 			{
@@ -803,9 +813,8 @@
 				],
 				"phases": [
 					"Design",
-					"Input",
-					"Model",
-					"Output"
+					"Deploy",
+					"Monitor"
 				]
 			},
 			{
@@ -820,9 +829,8 @@
 				],
 				"phases": [
 					"Design",
-					"Input",
-					"Model",
-					"Output"
+					"Deploy",
+					"Monitor"
 				]
 			}
 		]
@@ -846,7 +854,8 @@
 				"phases": [
 					"Design",
 					"Input",
-					"Output"
+					"Deploy",
+					"Monitor"
 				]
 			},
 			{
@@ -861,7 +870,8 @@
 				],
 				"phases": [
 					"Design",
-					"Output"
+					"Output",
+					"Deploy"
 				]
 			},
 			{
@@ -879,7 +889,8 @@
 					"Design",
 					"Input",
 					"Model",
-					"Output"
+					"Deploy",
+					"Monitor"
 				]
 			},
 			{
@@ -894,9 +905,8 @@
 				],
 				"phases": [
 					"Design",
-					"Input",
-					"Model",
-					"Output"
+					"Deploy",
+					"Monitor"
 				]
 			},
 			{
@@ -912,7 +922,9 @@
 				"phases": [
 					"Design",
 					"Model",
-					"Output"
+					"Output",
+					"Deploy",
+					"Monitor"
 				],
 				"id": 44
 			},
@@ -928,9 +940,9 @@
 				],
 				"phases": [
 					"Design",
-					"Input",
 					"Model",
-					"Output"
+					"Deploy",
+					"Monitor"
 				]
 			},
 			{
@@ -947,7 +959,8 @@
 					"Design",
 					"Input",
 					"Model",
-					"Output"
+					"Deploy",
+					"Monitor"
 				]
 			},
 			{
@@ -962,9 +975,8 @@
 				],
 				"phases": [
 					"Design",
-					"Input",
 					"Model",
-					"Output"
+					"Deploy"
 				]
 			},
 			{
@@ -979,9 +991,8 @@
 				],
 				"phases": [
 					"Design",
-					"Input",
 					"Model",
-					"Output"
+					"Monitor"
 				]
 			},
 			{
@@ -996,9 +1007,8 @@
 				],
 				"phases": [
 					"Design",
-					"Input",
 					"Model",
-					"Output"
+					"Monitor"
 				]
 			},
 			{
@@ -1015,7 +1025,7 @@
 					"Design",
 					"Input",
 					"Model",
-					"Output"
+					"Monitor"
 				]
 			},
 			{
@@ -1030,9 +1040,9 @@
 				],
 				"phases": [
 					"Design",
-					"Input",
 					"Model",
-					"Output"
+					"Deploy",
+					"Monitor"
 				]
 			},
 			{
@@ -1049,7 +1059,8 @@
 					"Design",
 					"Input",
 					"Model",
-					"Output"
+					"Deploy",
+					"Monitor"
 				]
 			}
 		]
@@ -1074,7 +1085,8 @@
 					"Design",
 					"Input",
 					"Model",
-					"Output"
+					"Output", 
+					"Monitor"
 				]
 			},
 			{
@@ -1089,9 +1101,9 @@
 				],
 				"phases": [
 					"Design",
-					"Input",
 					"Model",
-					"Output"
+					"Output", 
+					"Monitor"
 				]
 			},
 			{
@@ -1108,7 +1120,8 @@
 					"Design",
 					"Input",
 					"Model",
-					"Output"
+					"Output",
+					"Monitor"
 				]
 			},
 			{
@@ -1125,7 +1138,7 @@
 					"Design",
 					"Input",
 					"Model",
-					"Output"
+					"Monitor"
 				]
 			},
 			{
@@ -1142,7 +1155,8 @@
 					"Design",
 					"Input",
 					"Model",
-					"Output"
+					"Output", 
+					"Monitor"
 				]
 			},
 			{
@@ -1159,7 +1173,8 @@
 					"Design",
 					"Input",
 					"Model",
-					"Output"
+					"Output", 
+					"Monitor"
 				]
 			},
 			{
@@ -1176,7 +1191,8 @@
 					"Design",
 					"Input",
 					"Model",
-					"Output"
+					"Output", 
+					"Monitor"
 				]
 			}
 		]
@@ -1200,7 +1216,8 @@
 					"Design",
 					"Input",
 					"Model",
-					"Output"
+					"Output",
+					"Monitor"
 				]
 			},
 			{
@@ -1217,7 +1234,8 @@
 					"Design",
 					"Input",
 					"Model",
-					"Output"
+					"Output",
+					"Monitor"
 				]
 			},
 			{
@@ -1232,9 +1250,9 @@
 				],
 				"phases": [
 					"Design",
-					"Input",
 					"Model",
-					"Output"
+					"Output",
+					"Monitor"
 				]
 			},
 			{
@@ -1251,7 +1269,8 @@
 					"Design",
 					"Input",
 					"Model",
-					"Output"
+					"Output",
+					"Monitor"
 				]
 			},
 			{
@@ -1268,7 +1287,8 @@
 					"Design",
 					"Input",
 					"Model",
-					"Output"
+					"Output",
+					"Monitor"
 				]
 			},
 			{
@@ -1285,7 +1305,8 @@
 					"Design",
 					"Input",
 					"Model",
-					"Output"
+					"Output",
+					"Monitor"
 				]
 			},
 			{
@@ -1300,9 +1321,9 @@
 				],
 				"phases": [
 					"Design",
-					"Input",
 					"Model",
-					"Output"
+					"Output",
+					"Monitor"
 				]
 			},
 			{
@@ -1319,9 +1340,9 @@
 				],
 				"phases": [
 					"Design",
-					"Input",
 					"Model",
-					"Output"
+					"Output",
+					"Monitor"
 				]
 			},
 			{
@@ -1340,7 +1361,8 @@
 					"Design",
 					"Input",
 					"Model",
-					"Output"
+					"Output",
+					"Monitor"
 				]
 			},
 			{
@@ -1355,7 +1377,8 @@
 				],
 				"phases": [
 					"Design",
-					"Input"
+					"Input",
+					"Monitor"
 				]
 			},
 			{
@@ -1370,7 +1393,10 @@
 				],
 				"phases": [
 					"Design",
-					"Input"
+					"Input", 
+					"Model",
+					"Output", 
+					"Monitor"
 				]
 			},
 			{
@@ -1389,7 +1415,8 @@
 					"Design",
 					"Input",
 					"Model",
-					"Output"
+					"Output",
+					"Monitor"
 				]
 			}
 		]
@@ -1412,9 +1439,8 @@
 				"phases": [
 					"Design",
 					"Input",
-					"Model",
-					"Output"
-				]
+					"Model"
+									]
 			},
 			{
 				"question": "Have we identified all the important stakeholders needed in this phase of the project?",
@@ -1429,8 +1455,8 @@
 				"phases": [
 					"Design",
 					"Input",
-					"Model",
-					"Output"
+					"Deploy",
+					"Monitor"
 				]
 			},
 			{
@@ -1445,9 +1471,8 @@
 				],
 				"phases": [
 					"Design",
-					"Input",
-					"Model",
-					"Output"
+					"Output",
+					"Monitor"
 				]
 			},
 			{
@@ -1462,9 +1487,7 @@
 				],
 				"phases": [
 					"Design",
-					"Input",
-					"Model",
-					"Output"
+					"Monitor"
 				]
 			},
 			{
@@ -1479,7 +1502,8 @@
 				],
 				"phases": [
 					"Design",
-					"Output"
+					"Output", 
+					"Monitor"
 				]
 			},
 			{
@@ -1497,8 +1521,7 @@
 				"phases": [
 					"Design",
 					"Input",
-					"Model",
-					"Output"
+					"Model"
 				]
 			},
 			{
@@ -1515,9 +1538,8 @@
 				],
 				"phases": [
 					"Design",
-					"Input",
-					"Model",
-					"Output"
+					"Output",
+					"Monitor"
 				]
 			},
 			{
@@ -1534,8 +1556,8 @@
 				"phases": [
 					"Design",
 					"Input",
-					"Model",
-					"Output"
+					"Deploy",
+					"Monitor"
 				]
 			}
 		]
