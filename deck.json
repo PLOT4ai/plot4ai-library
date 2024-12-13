@@ -875,6 +875,63 @@
 				]
 			},
 			{
+				"question": "Could the AI system propagate or amplify misinformation?",
+				"threatif": "Yes",
+				"explanation": "* AI systems, particularly language models and content recommendation algorithms, might spread misinformation or generate outputs that mislead users, potentially causing harm.",
+				"recommendation": "* Develop content validation pipelines that identify and address misinformation. \n* Use human oversight to audit and correct generated content before dissemination.\n*Implement explainable AI techniques to clarify the rationale behind outputs.",
+				"sources": "[Bontridder N, Poullet Y. The role of artificial intelligence in disinformation. Data & Policy. 2021;3:e32. doi:10.1017/dap.2021.20](https://www.cambridge.org/core/journals/data-and-policy/article/role-of-artificial-intelligence-in-disinformation/7C4BF6CA35184F149143DE968FC4C3B6)",
+				"qr": "",
+				"categories": [
+					"Safety & Environmental Impact",
+					"Ethics & Human Rights"
+				],
+				"phases": [
+					"Design",
+					"Input",
+					"Output",
+					"Model",
+					"Deploy", 
+					"Monitor"
+				]
+			},
+			{
+				"question": "Could the lack of interpretability in our AI models compromise safety?",
+				"threatif": "Yes",
+				"explanation": "* When AI systems operate as 'black boxes', developers may find it challenging to understand the underlying decision-making processes. This opacity can hinder the identification and rectification of errors, biases, or unintended behaviors, which can lead to unsafe or unreliable behavior in critical applications.",
+				"recommendation": "* Invest in interpretability tools and methodologies that allow developers to analyze how models function and understand the factors influencing their outputs.\n* Incorporate explainability features into AI systems during the development phase to enhance debugging and error detection.\n* Develop and use validation frameworks to assess the safety implications of unexplained model behaviors and improve reliability.\n*Provide training for development teams to equip them with the skills needed to interpret and manage AI models safely.",
+				"sources": "[Key Concepts in AI Safety: Interpretability in Machine Learning](https://cset.georgetown.edu/publication/key-concepts-in-ai-safety-interpretability-in-machine-learning/)",\n"[The AI Safety Atlas](https://ai-safety-atlas.com/chapters/09/)" 
+				"qr": "",
+				"categories": [
+					"Safety & Environmental Impact",
+					"Transparency & Accessibility"
+				],
+				"phases": [
+					"Design",
+					"Model",
+					"Output",
+					"Deploy", 
+					"Monitor"
+				]
+			},
+			{
+				"question": "Can over-reliance on automated systems lead to failures during emergencies?",
+				"threatif": "Yes",
+				"explanation": "* Relying too heavily on automation can reduce human involvement and oversight, making it difficult to respond quickly or effectively to unexpected failures or emergency situations.",
+				"recommendation": "* Design systems with manual override capabilities and ensure operators are trained to use them effectively.\n* Create scenarios for testing human-AI collaboration under stress conditions.\n* Regularly evaluate the balance between automation and human oversight.",
+				"sources": "[The Danger of Overreliance on Automation in Cybersecurity](https://www.automation.com/en-us/articles/december-2023/danger-overreliance-automation-cybersecurity)",\n"[Automation and Situation Awareness] (https://maritimesafetyinnovationlab.org/wp-content/uploads/2019/12/Automation-and-Situation-Awareness-Endsley.pdf)"
+				"qr": "",
+				"categories": [
+					"Safety & Environmental Impact",
+									],
+				"phases": [
+					"Design",
+					"Model",
+					"Output",
+					"Deploy", 
+					"Monitor"
+				]
+			},
+			{
 				"question": "Can our AI system scale in performance from data input to data output?",
 				"threatif": "No",
 				"explanation": "Can your algorithm scale in performance from the data it learned on to real data? In online situations the rate at which data comes into the model may not align with the rate of anticipated data arrival. This can lead to both outright ML system failure and to a system that “chases\" its own tail.\nSource: [BerryVilleiML](https://berryvilleiml.com/interactive/)",
