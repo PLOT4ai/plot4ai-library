@@ -175,11 +175,10 @@
 				],
 				"phases": [
 					"Design",
-					"Input", 
-					"Output", 
-					"Deploy", 
-					"Monitor" 
-
+					"Input",
+					"Output",
+					"Deploy",
+					"Monitor"
 				]
 			},
 			{
@@ -387,8 +386,7 @@
 				"phases": [
 					"Design",
 					"Input",
-					"Model",
-					
+					"Model"
 				]
 			},
 			{
@@ -472,8 +470,8 @@
 				"phases": [
 					"Design",
 					"Input",
-					"Monitor",
-									]
+					"Monitor"
+				]
 			},
 			{
 				"question": "Do we need to use metadata to train or feed our AI model?",
@@ -506,10 +504,9 @@
 				"phases": [
 					"Design",
 					"Input",
-					"Output", 
-					"Deploy", 
-					"Monitor" 
-
+					"Output",
+					"Deploy",
+					"Monitor"
 				]
 			},
 			{
@@ -599,7 +596,6 @@
 				"phases": [
 					"Design",
 					"Model"
-				
 				]
 			},
 			{
@@ -891,7 +887,7 @@
 					"Input",
 					"Output",
 					"Model",
-					"Deploy", 
+					"Deploy",
 					"Monitor"
 				]
 			},
@@ -900,7 +896,7 @@
 				"threatif": "Yes",
 				"explanation": "* When AI systems operate as 'black boxes', developers may find it challenging to understand the underlying decision-making processes. This opacity can hinder the identification and rectification of errors, biases, or unintended behaviors, which can lead to unsafe or unreliable behavior in critical applications.",
 				"recommendation": "* Invest in interpretability tools and methodologies that allow developers to analyze how models function and understand the factors influencing their outputs.\n* Incorporate explainability features into AI systems during the development phase to enhance debugging and error detection.\n* Develop and use validation frameworks to assess the safety implications of unexplained model behaviors and improve reliability.\n*Provide training for development teams to equip them with the skills needed to interpret and manage AI models safely.",
-				"sources": "[Key Concepts in AI Safety: Interpretability in Machine Learning](https://cset.georgetown.edu/publication/key-concepts-in-ai-safety-interpretability-in-machine-learning/)",\n"[The AI Safety Atlas](https://ai-safety-atlas.com/chapters/09/)" 
+				"sources": "[Key Concepts in AI Safety: Interpretability in Machine Learning](https://cset.georgetown.edu/publication/key-concepts-in-ai-safety-interpretability-in-machine-learning/)\n[The AI Safety Atlas](https://ai-safety-atlas.com/chapters/09/)",
 				"qr": "",
 				"categories": [
 					"Safety & Environmental Impact",
@@ -910,7 +906,7 @@
 					"Design",
 					"Model",
 					"Output",
-					"Deploy", 
+					"Deploy",
 					"Monitor"
 				]
 			},
@@ -919,16 +915,16 @@
 				"threatif": "Yes",
 				"explanation": "* Relying too heavily on automation can reduce human involvement and oversight, making it difficult to respond quickly or effectively to unexpected failures or emergency situations.",
 				"recommendation": "* Design systems with manual override capabilities and ensure operators are trained to use them effectively.\n* Create scenarios for testing human-AI collaboration under stress conditions.\n* Regularly evaluate the balance between automation and human oversight.",
-				"sources": "[The Danger of Overreliance on Automation in Cybersecurity](https://www.automation.com/en-us/articles/december-2023/danger-overreliance-automation-cybersecurity)",\n"[Automation and Situation Awareness] (https://maritimesafetyinnovationlab.org/wp-content/uploads/2019/12/Automation-and-Situation-Awareness-Endsley.pdf)"
+				"sources": "[The Danger of Overreliance on Automation in Cybersecurity](https://www.automation.com/en-us/articles/december-2023/danger-overreliance-automation-cybersecurity)\n[Automation and Situation Awareness] (https://maritimesafetyinnovationlab.org/wp-content/uploads/2019/12/Automation-and-Situation-Awareness-Endsley.pdf)",
 				"qr": "",
 				"categories": [
-					"Safety & Environmental Impact",
-									],
+					"Safety & Environmental Impact"
+				],
 				"phases": [
 					"Design",
 					"Model",
 					"Output",
-					"Deploy", 
+					"Deploy",
 					"Monitor"
 				]
 			},
@@ -991,7 +987,7 @@
 				"threatif": "Yes",
 				"explanation": "* The lifecycle of AI systems—spanning training, deployment, and hardware production—imposes significant environmental costs. Training generative AI models requires immense computational power, often with GPUs and TPUs running for weeks or months, leading to substantial carbon emissions. Deployment, while less intensive, contributes to these emissions through constant server operations for real-time queries and 24/7 availability. Additionally, data centers require substantial water for cooling, especially in hot climates, depleting local water resources and exacerbating environmental challenges. AI hardware production further strains sustainability by generating electronic waste, leaking harmful chemicals, and depleting rare minerals like cobalt and lithium, often sourced under exploitative conditions.",
 				"recommendation": "* Establish mechanisms to evaluate the environmental impact of your AI system; for example, the amount of energy used and carbon emissions.\n*Use more resource-efficient models and methods to reduce resource usage.\n* Implement measures to reduce the environmental impact of the AI system throughout its lifecycle.\n*Transition to green energy-powered data centers to minimize carbon emissions.\n*Prioritize waterless cooling technologies and strategically locate data centers in cooler climates with ample resources.\n*Invest in eco-friendly hardware design and promote recycling for electronics and rare metals to address e-waste challenges.\n*enforce ethical sourcing practices to ensure supply chain transparency.",
-				"sources": "[AI’s Carbon Footprint Problem](https://hai.stanford.edu/news/ais-carbon-footprint-problem)", \n"[AI is an energy hog. This is what it means for climate change.](https://www.technologyreview.com/2024/05/23/1092777/ai-is-an-energy-hog-this-is-what-it-means-for-climate-change/)",\n"[Towards Building a Sustainable System of Data Center Cooling and Power Management Utilizing Renewable Energy](https://www.researchgate.net/publication/364608372_Towards_Building_a_Sustainable_System_of_Data_Center_Cooling_and_Power_Management_Utilizing_Renewable_Energy)", \n"[Eco-Friendly Electronics—A Comprehensive Review](https://onlinelibrary.wiley.com/doi/abs/10.1002/admt.202001263)"
+				"sources": "[AI’s Carbon Footprint Problem](https://hai.stanford.edu/news/ais-carbon-footprint-problem)\n[AI is an energy hog. This is what it means for climate change.](https://www.technologyreview.com/2024/05/23/1092777/ai-is-an-energy-hog-this-is-what-it-means-for-climate-change/)\n[Towards Building a Sustainable System of Data Center Cooling and Power Management Utilizing Renewable Energy](https://www.researchgate.net/publication/364608372_Towards_Building_a_Sustainable_System_of_Data_Center_Cooling_and_Power_Management_Utilizing_Renewable_Energy)\n[Eco-Friendly Electronics—A Comprehensive Review](https://onlinelibrary.wiley.com/doi/abs/10.1002/admt.202001263)",
 				"qr": "",
 				"categories": [
 					"Safety & Environmental Impact"
@@ -1143,7 +1139,7 @@
 					"Design",
 					"Input",
 					"Model",
-					"Output", 
+					"Output",
 					"Monitor"
 				]
 			},
@@ -1160,7 +1156,7 @@
 				"phases": [
 					"Design",
 					"Model",
-					"Output", 
+					"Output",
 					"Monitor"
 				]
 			},
@@ -1213,7 +1209,7 @@
 					"Design",
 					"Input",
 					"Model",
-					"Output", 
+					"Output",
 					"Monitor"
 				]
 			},
@@ -1231,7 +1227,7 @@
 					"Design",
 					"Input",
 					"Model",
-					"Output", 
+					"Output",
 					"Monitor"
 				]
 			},
@@ -1249,7 +1245,7 @@
 					"Design",
 					"Input",
 					"Model",
-					"Output", 
+					"Output",
 					"Monitor"
 				]
 			}
@@ -1451,9 +1447,9 @@
 				],
 				"phases": [
 					"Design",
-					"Input", 
+					"Input",
 					"Model",
-					"Output", 
+					"Output",
 					"Monitor"
 				]
 			},
@@ -1498,7 +1494,7 @@
 					"Design",
 					"Input",
 					"Model"
-									]
+				]
 			},
 			{
 				"question": "Have we identified all the important stakeholders needed in this phase of the project?",
@@ -1560,7 +1556,7 @@
 				],
 				"phases": [
 					"Design",
-					"Output", 
+					"Output",
 					"Monitor"
 				]
 			},
