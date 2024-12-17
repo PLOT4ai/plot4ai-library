@@ -1,0 +1,47 @@
+name: Generate PDFs on deck.json change
+
+on:
+  push:
+    paths:
+      - deck.json  # Trigger workflow only when deck.json changes
+
+jobs:
+  generate-pdfs:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Check out the repository
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      # Step 2: Build the Docker image
+      - name: Build Docker Image
+        run: docker build -t json-to-pdf .
+
+      # Step 3: Run Docker container to generate PDFs
+      - name: Run Docker Container
+        run: |
+          mkdir -p output
+          docker run --rm \
+            -v ${{ github.workspace }}/deck.json:/app/deck.json \
+            -v ${{ github.workspace }}/output:/app/output \
+            json-to-pdf
+
+      # Step 4: Upload PDFs as artifacts
+      - name: Upload PDFs as artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: generated-pdfs
+          path: output/*.pdf
+
+      # Step 5: Create GitHub Release
+      - name: Create Release
+        uses: actions/create-release@v1
+        with:
+          tag_name: pdf-release-${{ github.run_number }}
+          release_name: "Generated PDFs"
+          draft: false
+          prerelease: false
+          body: |
+            Automatically generated PDFs from deck.json changes.
+          files: output/*.pdf
