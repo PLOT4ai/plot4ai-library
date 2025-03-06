@@ -918,7 +918,8 @@
 				"sources": "[The Danger of Overreliance on Automation in Cybersecurity](https://www.automation.com/en-us/articles/december-2023/danger-overreliance-automation-cybersecurity)\n[Automation and Situation Awareness] (https://maritimesafetyinnovationlab.org/wp-content/uploads/2019/12/Automation-and-Situation-Awareness-Endsley.pdf)",
 				"qr": "",
 				"categories": [
-					"Safety & Environmental Impact"
+					"Safety & Environmental Impact",
+					"Accountability & Human Oversight"
 				],
 				"phases": [
 					"Design",
@@ -948,7 +949,7 @@
 				]
 			},
 			{
-				"question": "Could environmental phenomena or natural disasters have a negative impact on our AI system?",
+				"question": "Could environmental phenomena or natural disasters compromise our AI system?",
 				"threatif": "Yes",
 				"explanation": "* Examples of environmental phenomena are heating, cooling and climate change.\n* Examples of natural disasters to take into account are earthquakes, floods and fires.\nEnvironmental phenomena may adversely influence the operation of IT infrastructure and hardware systems that support AI systems.\nNatural disasters may lead to unavailability or destruction of the IT infrastructures and hardware that enables the operation, deployment and maintenance of AI systems.\nSuch outages may lead to delays in decision-making, delays in the processing of data streams and entire AI systems being placed offline. Sources: [ENISA](https://www.enisa.europa.eu/publications/artificial-intelligence-cybersecurity-challenges)",
 				"recommendation": "Implement a disaster discovery plan considering different scenarios, impact, Recovery Time Objective (RTO), Recovery Point Objective (RPO) and mitigation measures.",
@@ -981,23 +982,6 @@
 					"Monitor"
 				],
 				"id": 44
-			},
-			{
-				"question": "Could our AI system have an adverse impact on the environment?",
-				"threatif": "Yes",
-				"explanation": "* The lifecycle of AI systems—spanning training, deployment, and hardware production—imposes significant environmental costs. Training generative AI models requires immense computational power, often with GPUs and TPUs running for weeks or months, leading to substantial carbon emissions. Deployment, while less intensive, contributes to these emissions through constant server operations for real-time queries and 24/7 availability. Additionally, data centers require substantial water for cooling, especially in hot climates, depleting local water resources and exacerbating environmental challenges. AI hardware production further strains sustainability by generating electronic waste, leaking harmful chemicals, and depleting rare minerals like cobalt and lithium, often sourced under exploitative conditions.",
-				"recommendation": "* Establish mechanisms to evaluate the environmental impact of your AI system; for example, the amount of energy used and carbon emissions.\n*Use more resource-efficient models and methods to reduce resource usage.\n* Implement measures to reduce the environmental impact of the AI system throughout its lifecycle.\n*Transition to green energy-powered data centers to minimize carbon emissions.\n*Prioritize waterless cooling technologies and strategically locate data centers in cooler climates with ample resources.\n*Invest in eco-friendly hardware design and promote recycling for electronics and rare metals to address e-waste challenges.\n*enforce ethical sourcing practices to ensure supply chain transparency.",
-				"sources": "[AI’s Carbon Footprint Problem](https://hai.stanford.edu/news/ais-carbon-footprint-problem)\n[AI is an energy hog. This is what it means for climate change.](https://www.technologyreview.com/2024/05/23/1092777/ai-is-an-energy-hog-this-is-what-it-means-for-climate-change/)\n[Towards Building a Sustainable System of Data Center Cooling and Power Management Utilizing Renewable Energy](https://www.researchgate.net/publication/364608372_Towards_Building_a_Sustainable_System_of_Data_Center_Cooling_and_Power_Management_Utilizing_Renewable_Energy)\n[Eco-Friendly Electronics—A Comprehensive Review](https://onlinelibrary.wiley.com/doi/abs/10.1002/admt.202001263)",
-				"qr": "",
-				"categories": [
-					"Safety & Environmental Impact"
-				],
-				"phases": [
-					"Design",
-					"Model",
-					"Deploy",
-					"Monitor"
-				]
 			},
 			{
 				"question": "Is our AI model suitable and robust for its intended use across different deployment contexts?",
@@ -1098,6 +1082,69 @@
 					"Deploy",
 					"Monitor"
 				]
+			},
+			{
+				"question": "Does training and deploying our AI system generate high CO₂ emissions?",
+				"threatif": "Yes",
+				"explanation": "* AI systems, especially large-scale models, require a lot of computational power. It’s important to consider the environmental impact of building and maintaining your system: does its scope and the benefits it provides justify its emissions? Are you effectively minimizing CO₂ emissions throughout your supply chain?.",
+				"recommendation": "Prioritize renewable energy for data centers.\n*Reduce training time and computational waste by improving model efficiency.\n*Use energy-efficient chips and cooling systems to upgrade hardware. \n*Scale resources according to actual usage to avoid unnecessary deployment.\n*Track your carbon footprint and invest in offsets when needed.",
+				"sources": "[AI’s Carbon Footprint Problem](https://hai.stanford.edu/news/ais-carbon-footprint-problem)",
+				"qr": "",
+				"categories": [
+					"Safety & Environmental Impact"
+				],
+				"phases": [
+					"Design",
+					"Model",
+					"Deploy",
+					"Monitor"
+				]
+			},
+			{
+				"question": "Is our data center's cooling process sustainable?",
+				"threatif": "No",
+				"explanation": "* Data centers use large volumes of water for server cooling, especially in hot climate regions. This could negatively impact the local supply of water, particularly in those territories already suffer from water scarcity.",
+				"recommendation": "Prioritize waterless cooling technologies to reduce dependence on water. \n*Consider locating data centers in cooler climates or areas with better water management capabilities.",
+				"sources": "[Our commitment to climate-conscious data center cooling](https://blog.google/outreach-initiatives/sustainability/our-commitment-to-climate-conscious-data-center-cooling/)", "[Towards Building a Sustainable System of Data Center Cooling and Power Management Utilizing Renewable Energy](https://www.researchgate.net/publication/364608372_Towards_Building_a_Sustainable_System_of_Data_Center_Cooling_and_Power_Management_Utilizing_Renewable_Energy)",
+				"qr": "",
+				"categories": [
+					"Safety & Environmental Impact"
+				],
+				"phases": [
+					"Design",
+				]
+			},
+			{
+				"question": "Is the production of our AI hardware exploiting limited material resources?",
+				"threatif": "Yes",
+				"explanation": "* AI hardware production relies on rare minerals like cobalt and lithium, which are often extracted at the cost of environmental damage and community exploitation. The short lifespan of AI devices also creates electronic waste and can involve leaking toxic chemicals into ecosystems and harming human health. When assessing your hardware, consider the resource availability and the risks of relying on these materials. Does your current hardware use materials that are becoming harder to source? Could this create future supply chain issues or environmental impact?.",
+				"recommendation": "Invest in sustainable alternatives to rare minerals and prioritize ethical sourcing with transparent supply chains. \n*Promote recycling programs to recover rare metals and reduce electronic waste. \n*Design AI hardware for longer lifespans and easier recyclability using eco-friendly materials to minimize environmental harm.",
+				"sources": "[Recyclable vitrimer-based printed circuit board for circular electronics](https://arxiv.org/abs/2308.12496)", "[Eco-Friendly Electronics—A Comprehensive Review](https://advanced.onlinelibrary.wiley.com/doi/abs/10.1002/admt.202001263)", "[Attributes of Commodity Supply Chains](https://uwspace.uwaterloo.ca/items/ffb47140-06e4-4d50-be6a-82ed01575998)",
+				"qr": "",
+				"categories": [
+					"Safety & Environmental Impact"
+				],
+				"phases": [
+					"Design",
+									]
+			},
+			{
+				"question": "Are we assessing our AI system’s environmental impact across its entire life cycle?",
+				"threatif": "No",
+				"explanation": "* An AI system’s environmental footprint goes beyond its operational phase. A full life cycle assessment (LCA) should account for resource extraction, hardware manufacturing, training, deployment, and end-of-life disposal. Key impact indicators include CO₂ emissions, energy and water consumption, and raw material use. Since many AI systems run in mixed-use facilities, properly allocating environmental costs can be complex but necessary for accurate reporting.",
+				"recommendation": "Analyse the full environmental footprint of your system, from development to retirement. \n*Use clear metrics (e.g., emissions per token or annual energy use) to monitor impact. \n*Develop methodologies to fairly allocate environmental costs in shared computing environments. \n*Integrate LCA results into corporate reporting and sustainability strategies.",
+				"sources": "[AI’s Carbon Footprint Problem](https://hai.stanford.edu/news/ais-carbon-footprint-problem)", "[AI is an energy hog. This is what it means for climate change](https://www.technologyreview.com/2024/05/23/1092777/ai-is-an-energy-hog-this-is-what-it-means-for-climate-change/)",
+				"categories": [
+					"Safety & Environmental Impact"
+				],
+				"phases": [
+					"Design",
+					"Input",
+					"Model",
+					"Output",
+					"Deploy",
+					"Monitor"
+									]
 			},
 			{
 				"question": "Could children be part of the users of our AI system",
