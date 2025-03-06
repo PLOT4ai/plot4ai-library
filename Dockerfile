@@ -30,5 +30,8 @@ RUN composer install --no-dev
 # Copy all application files into the container
 COPY . .
 
+# create cache folder
+RUN mkdir -p /app/scripts/cache/qr
+
 # Command to run the PHP script
 ENTRYPOINT ["bash", "scripts/generate-all-pdfs.sh"]
