@@ -1719,7 +1719,7 @@
 				"question": "Are we planning to use a third party AI tool?",
 				"threatif": "Yes",
 				"explanation": "If you use a third party tool you might still have a responsibility towards the users. Think about employees, job applicants, patients, etc. It is also your responsibility to make sure that the AI system you choose won't cause harm to the individuals.",
-				"recommendation": "If personal data is involved, review which ones are your responsibilities (look into art. 24 and 28 GDPR).\n\nYou can also start by checking:\n* That you have the right agreements in place with the third party provider.\n* That the origin and data lineage of their datasets are verified.\n* How their models are fed; do they anonymise the data?\n* How you have assessed their security, ethical handling of data, quality process and ways to prevent bias and discrimination in their AI system.\n* That you have informed users accordingly.",
+				"recommendation": "If this personal data is involved, review which ones are your responsibilities (look into art. 24 and 28 GDPR).\n\nYou can also start by checking:\n* That you have the right agreements in place with the third party provider.\n* That the origin and data lineage of their datasets are verified.\n* How their models are fed; do they anonymise the data?\n* How you have assessed their security, ethical handling of data, quality process and ways to prevent bias and discrimination in their AI system.\n* That you have informed users accordingly.",
 				"sources": "",
 				"qr": "",
 				"categories": [
