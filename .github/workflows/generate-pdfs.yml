@@ -36,12 +36,23 @@ jobs:
 
       # Step 5: Create GitHub Release
       - name: Create Release
+        id: create_release
         uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           tag_name: pdf-release-${{ github.run_number }}
-          release_name: "Generated PDFs"
+          release_name: "Generated PDFs Release ${{ github.run_number }}"
+          body: "Automatically generated PDFs from deck.json changes."
           draft: false
           prerelease: false
-          body: |
-            Automatically generated PDFs from deck.json changes.
-          files: output/*.pdf
+
+      # Step 6: Upload each PDF file to the Release
+      - name: Upload PDFs to Release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          for file in output/*.pdf; do
+            echo "Uploading $file..."
+            gh release upload pdf-release-${{ github.run_number }} "$file"
+          done
