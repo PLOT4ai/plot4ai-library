@@ -1644,6 +1644,61 @@
 				]
 			},
 			{
+				"question": "Is there a clear escalation path when AI decisions lead to unintended consequences?",
+				"threatif": "No",
+				"explanation": "*If an AI system produces harmful or incorrect outputs, is there a predefined process for reporting and addressing these issues? \n*Are employees aware of how to escalate AI failures, and do they have clear channels to report incidents?",
+				"recommendation": "Set up clear escalation protocols to identify, report, and resolve AI-related incidents. \n*Assign responsibilities to ensure accountability for handling AI failures. \n*Keep assessing and improving incident response strategies over time, especially after performing changes or updates in the AI systems.*",
+				"sources": "[AI: An Accountability Framework for Federal Agencies and Other Entities](https://www.gao.gov/assets/gao-21-519sp.pdf)", "[The Human Factor in AI Safety](https://arxiv.org/abs/2201.04263)",
+				"qr": "",
+				"categories": [
+					"Accountability & Human Oversight",
+					"Safety & Environmental Impact"
+				],
+				"phases": [
+					"Design",
+					"Deploy",
+					"Monitor"
+				]
+			},
+			{
+				"question": "Is the responsibility for AI decisions clearly assigned within the organization?",
+				"threatif": "No",
+				"explanation": "*AI outputs can lead to mistakes or even cause harm. In such cases, is it clear who is responsible within your organization? Are accountability structures well-defined and documented? ",
+				"recommendation": "*Assign and communicate responsibilities for AI decision-making, considering both legal and ethical accountability. \n*Use decision logs and role-based access control to document and track accountability throughout the AI system’s lifecycle. \n*Get leadership involved in maintaining oversight, keeping accountability a priority at all levels.",
+				"sources": "[AI: An Accountability Framework for Federal Agencies and Other Entities](https://www.gao.gov/assets/gao-21-519sp.pdf)","[Algorithmic Accountability for the Public Sector](https://ainowinstitute.org/publication/algorithmic-accountability-for-the-public-sector-report)",
+				"qr": "",
+				"categories": [
+					"Accountability & Human Oversight",
+					"Privacy & Data Protection"
+				],
+				"phases": [
+					"Design",
+					"Input",
+					"Model",
+					"Output",
+					"Deply",
+					"Monitor"
+				]
+			},
+			{
+				"question": "Is there a mechanism to reassess the AI system’s goals and assumptions over time?",
+				"threatif": "No",
+				"explanation": "* AI models and their objectives may drift from their original intent, making human oversight crucial to ensure ongoing alignment with ethical and business objectives. Are there periodic human-led reviews in place to monitor AI system behavior, validate outcomes, and reassess goals? Human oversight should play an active role in detecting unintended consequences, adjusting governance policies, and maintaining accountability throughout the AI system’s lifecycle.",
+				"recommendation": "Schedule regular reassessments of AI objectives and assumptions.\n*Update training data, governance policies, and oversight structures as AI systems evolve.*",
+				"sources": "[Embedding Ethical Oversight in AI Governance through Independent Review](https://www.responsible.ai/embedding-ethical-oversight-in-ai-governance-through-independent-review/)", "[Effective Human Oversight of AI-Based Systems: A Signal Detection Perspective on the Detection of Inaccurate and Unfair Outputs](https://link.springer.com/article/10.1007/s11023-024-09701-0)",
+				"qr": "",
+				"categories": [
+					"Accountability & Human Oversight",
+					"Safety & Environmental Impact"
+				],
+				"phases": [
+					"Design",
+					"Output",
+					"Deploy",
+					"Monitor"
+				]
+			},
+			{
 				"question": "Are we planning to use a third party AI tool?",
 				"threatif": "Yes",
 				"explanation": "If you use a third party tool you might still have a responsibility towards the users. Think about employees, job applicants, patients, etc. It is also your responsibility to make sure that the AI system you choose won't cause harm to the individuals.",
