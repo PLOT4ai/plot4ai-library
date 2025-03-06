@@ -21,9 +21,9 @@
 				]
 			},
 			{
-				"question": "Are we preventing Data Leakage?",
+				"question": "Are we preventing Target Leakage?",
 				"threatif": "No",
-				"explanation": " Data Leakage is present when your features contain information that your model should not legitimately be allowed to use, leading to overestimation of the model's performance. It can occur when information from outside the training dataset is improperly included in the model during training, leading to an unrealistically high performance during evaluation",
+				"explanation": " Target Leakage is present when your features contain information that your model should not legitimately be allowed to use, leading to overestimation of the model's performance. It can occur when information from outside the training dataset is improperly included in the model during training, leading to an unrealistically high performance during evaluation",
 				"recommendation": "* Avoid using proxies for the outcome variable as a feature.\n* Do not use the entire data set for imputations, data-based transformations or feature selection.\n* Avoid doing standard k-fold cross-validation when you have temporal data.\n* Avoid using data that happened before model training time but is not available until later. This is common where there is delay in data collection.\n* Do not use data in the training set based on information from the future: if X happened after Y, you shouldn’t build a model that uses X to predict Y.",
 				"sources": "[Leakage in data mining: formulation, detection, and avoidance](https://www.cs.umb.edu/~ding/history/470_670_fall_2011/papers/cs670_Tran_PreferredPaper_LeakingInDataMining.pdf)\n[The Treachery of Leakage](https://medium.com/@colin.fraser/the-treachery-of-leakage-56a2d7c4e931)\n[Top 10 ways your Machine Learning models may have leakage](http://www.rayidghani.com/2020/01/24/top-10-ways-your-machine-learning-models-may-have-leakage/)\n[Leakage and the Reproducibility Crisis in ML-based Science](https://reproducible.cs.princeton.edu/)",
 				"qr": "",
@@ -111,6 +111,21 @@
 				"explanation": "Could you face difficulties obtaining certain type of data? This could be due to different reasons such as legal, proprietary, financial, physical, technical, etc. This could put the whole project in danger.",
 				"recommendation": "In the early phases of the project (as soon as the task becomes more clear), start considering which raw data and types of datasets you might need. You might not have the definitive answer until you have tested the model, but it will already help to avoid extra delays and surprises. You might have to involve your legal and financial department. Remember that this is a team effort.",
 				"sources": "",
+				"qr": "",
+				"categories": [
+					"Data & Data Governance"
+				],
+				"phases": [
+					"Design",
+					"Input"
+				]
+			},
+			{
+				"question": "Are we tracking data provenance and lineage for AI models?",
+				"threatif": "No",
+				"explanation": "AI models require traceability of data sources to ensure ethical usage, reproducibility, and compliance. Without proper data lineage, it is difficult to verify the credibility and accuracy of training data.",
+				"recommendation": "Use data lineage tracking tools to monitor where data originates and how it is modified over time.\n* Implement metadata standards (e.g., Datasheets for Datasets) to ensure clear documentation of data sources. \n*Regularly audit data providers to verify their reliability and adherence to ethical guidelines.",
+				"sources": "[Datasheets for Datasets](https://arxiv.org/pdf/1803.09010)","[Datasheets for Datasets](https://arxiv.org/pdf/1803.09010)",
 				"qr": "",
 				"categories": [
 					"Data & Data Governance"
