@@ -379,7 +379,8 @@
 				"sources": "pag. 13 [Artificial Intelligence and Data Protection How the GDPR Regulates AI](https://www.informationpolicycentre.com/uploads/5/7/1/0/57104281/cipl-hunton_andrews_kurth_legal_note_-_how_gdpr_regulates_ai__12_march_2020_.pdf)\n[Data Minimization for GDPR Compliance in Machine Learning Models](https://arxiv.org/pdf/2008.04113.pdf): Methods like the one proposed in this paper can inspire you to find a way to mitigate the accuracy risk. They show how to reduce the amount of personal data needed to perform predictions, by removing or generalizing some of the input features.\nThe answer to this post also contains information about this problems in different models: [Does Dimensionality curse effect some models more than others?](https://stats.stackexchange.com/questions/186184/does-dimensionality-curse-effect-some-models-more-than-others)\n[Towards Breaking the Curse of Dimensionality for High-Dimensional Privacy](https://epubs.siam.org/doi/epdf/10.1137/1.9781611973440.84)",
 				"qr": "",
 				"categories": [
-					"Privacy & Data Protection"
+					"Privacy & Data Protection",
+					"Data & Data Governance"
 				],
 				"phases": [
 					"Design",
@@ -532,7 +533,8 @@
 				"sources": "",
 				"qr": "",
 				"categories": [
-					"Privacy & Data Protection"
+					"Privacy & Data Protection",
+					"Data & Data Governance"
 				],
 				"phases": [
 					"Design",
