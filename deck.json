@@ -125,7 +125,7 @@
 				"threatif": "No",
 				"explanation": "AI models require traceability of data sources to ensure ethical usage, reproducibility, and compliance. Without proper data lineage, it is difficult to verify the credibility and accuracy of training data.",
 				"recommendation": "Use data lineage tracking tools to monitor where data originates and how it is modified over time.\n* Implement metadata standards (e.g., Datasheets for Datasets) to ensure clear documentation of data sources. \n*Regularly audit data providers to verify their reliability and adherence to ethical guidelines.",
-				"sources": "[Datasheets for Datasets](https://arxiv.org/pdf/1803.09010)","[Datasheets for Datasets](https://arxiv.org/pdf/1803.09010)",
+				"sources": "[Datasheets for Datasets](https://arxiv.org/pdf/1803.09010)\n[Datasheets for Datasets](https://arxiv.org/pdf/1803.09010)",
 				"qr": "",
 				"categories": [
 					"Data & Data Governance"
@@ -1122,13 +1122,13 @@
 				"threatif": "No",
 				"explanation": "* Data centers use large volumes of water for server cooling, especially in hot climate regions. This could negatively impact the local supply of water, particularly in those territories already suffer from water scarcity.",
 				"recommendation": "Prioritize waterless cooling technologies to reduce dependence on water. \n*Consider locating data centers in cooler climates or areas with better water management capabilities.",
-				"sources": "[Our commitment to climate-conscious data center cooling](https://blog.google/outreach-initiatives/sustainability/our-commitment-to-climate-conscious-data-center-cooling/)", "[Towards Building a Sustainable System of Data Center Cooling and Power Management Utilizing Renewable Energy](https://www.researchgate.net/publication/364608372_Towards_Building_a_Sustainable_System_of_Data_Center_Cooling_and_Power_Management_Utilizing_Renewable_Energy)",
+				"sources": "[Our commitment to climate-conscious data center cooling](https://blog.google/outreach-initiatives/sustainability/our-commitment-to-climate-conscious-data-center-cooling/)\n[Towards Building a Sustainable System of Data Center Cooling and Power Management Utilizing Renewable Energy](https://www.researchgate.net/publication/364608372_Towards_Building_a_Sustainable_System_of_Data_Center_Cooling_and_Power_Management_Utilizing_Renewable_Energy)",
 				"qr": "",
 				"categories": [
 					"Safety & Environmental Impact"
 				],
 				"phases": [
-					"Design",
+					"Design"
 				]
 			},
 			{
@@ -1136,21 +1136,21 @@
 				"threatif": "Yes",
 				"explanation": "* AI hardware production relies on rare minerals like cobalt and lithium, which are often extracted at the cost of environmental damage and community exploitation. The short lifespan of AI devices also creates electronic waste and can involve leaking toxic chemicals into ecosystems and harming human health. When assessing your hardware, consider the resource availability and the risks of relying on these materials. Does your current hardware use materials that are becoming harder to source? Could this create future supply chain issues or environmental impact?.",
 				"recommendation": "Invest in sustainable alternatives to rare minerals and prioritize ethical sourcing with transparent supply chains. \n*Promote recycling programs to recover rare metals and reduce electronic waste. \n*Design AI hardware for longer lifespans and easier recyclability using eco-friendly materials to minimize environmental harm.",
-				"sources": "[Recyclable vitrimer-based printed circuit board for circular electronics](https://arxiv.org/abs/2308.12496)", "[Eco-Friendly Electronics—A Comprehensive Review](https://advanced.onlinelibrary.wiley.com/doi/abs/10.1002/admt.202001263)", "[Attributes of Commodity Supply Chains](https://uwspace.uwaterloo.ca/items/ffb47140-06e4-4d50-be6a-82ed01575998)",
+				"sources": "[Recyclable vitrimer-based printed circuit board for circular electronics](https://arxiv.org/abs/2308.12496)\n[Eco-Friendly Electronics—A Comprehensive Review](https://advanced.onlinelibrary.wiley.com/doi/abs/10.1002/admt.202001263)\n[Attributes of Commodity Supply Chains](https://uwspace.uwaterloo.ca/items/ffb47140-06e4-4d50-be6a-82ed01575998)",
 				"qr": "",
 				"categories": [
 					"Safety & Environmental Impact"
 				],
 				"phases": [
-					"Design",
-									]
+					"Design"
+				]
 			},
 			{
 				"question": "Are we assessing our AI system’s environmental impact across its entire life cycle?",
 				"threatif": "No",
 				"explanation": "* An AI system’s environmental footprint goes beyond its operational phase. A full life cycle assessment (LCA) should account for resource extraction, hardware manufacturing, training, deployment, and end-of-life disposal. Key impact indicators include CO₂ emissions, energy and water consumption, and raw material use. Since many AI systems run in mixed-use facilities, properly allocating environmental costs can be complex but necessary for accurate reporting.",
 				"recommendation": "Analyse the full environmental footprint of your system, from development to retirement. \n*Use clear metrics (e.g., emissions per token or annual energy use) to monitor impact. \n*Develop methodologies to fairly allocate environmental costs in shared computing environments. \n*Integrate LCA results into corporate reporting and sustainability strategies.",
-				"sources": "[AI’s Carbon Footprint Problem](https://hai.stanford.edu/news/ais-carbon-footprint-problem)", "[AI is an energy hog. This is what it means for climate change](https://www.technologyreview.com/2024/05/23/1092777/ai-is-an-energy-hog-this-is-what-it-means-for-climate-change/)",
+				"sources": "[AI’s Carbon Footprint Problem](https://hai.stanford.edu/news/ais-carbon-footprint-problem)\n[AI is an energy hog. This is what it means for climate change](https://www.technologyreview.com/2024/05/23/1092777/ai-is-an-energy-hog-this-is-what-it-means-for-climate-change/)",
 				"categories": [
 					"Safety & Environmental Impact"
 				],
@@ -1161,7 +1161,7 @@
 					"Output",
 					"Deploy",
 					"Monitor"
-									]
+				]
 			},
 			{
 				"question": "Could children be part of the users of our AI system",
@@ -1665,7 +1665,7 @@
 				"threatif": "No",
 				"explanation": "*If an AI system produces harmful or incorrect outputs, is there a predefined process for reporting and addressing these issues? \n*Are employees aware of how to escalate AI failures, and do they have clear channels to report incidents?",
 				"recommendation": "Set up clear escalation protocols to identify, report, and resolve AI-related incidents. \n*Assign responsibilities to ensure accountability for handling AI failures. \n*Keep assessing and improving incident response strategies over time, especially after performing changes or updates in the AI systems.*",
-				"sources": "[AI: An Accountability Framework for Federal Agencies and Other Entities](https://www.gao.gov/assets/gao-21-519sp.pdf)", "[The Human Factor in AI Safety](https://arxiv.org/abs/2201.04263)",
+				"sources": "[AI: An Accountability Framework for Federal Agencies and Other Entities](https://www.gao.gov/assets/gao-21-519sp.pdf)\n[The Human Factor in AI Safety](https://arxiv.org/abs/2201.04263)",
 				"qr": "",
 				"categories": [
 					"Accountability & Human Oversight",
@@ -1682,7 +1682,7 @@
 				"threatif": "No",
 				"explanation": "*AI outputs can lead to mistakes or even cause harm. In such cases, is it clear who is responsible within your organization? Are accountability structures well-defined and documented? ",
 				"recommendation": "*Assign and communicate responsibilities for AI decision-making, considering both legal and ethical accountability. \n*Use decision logs and role-based access control to document and track accountability throughout the AI system’s lifecycle. \n*Get leadership involved in maintaining oversight, keeping accountability a priority at all levels.",
-				"sources": "[AI: An Accountability Framework for Federal Agencies and Other Entities](https://www.gao.gov/assets/gao-21-519sp.pdf)","[Algorithmic Accountability for the Public Sector](https://ainowinstitute.org/publication/algorithmic-accountability-for-the-public-sector-report)",
+				"sources": "[AI: An Accountability Framework for Federal Agencies and Other Entities](https://www.gao.gov/assets/gao-21-519sp.pdf)\n[Algorithmic Accountability for the Public Sector](https://ainowinstitute.org/publication/algorithmic-accountability-for-the-public-sector-report)",
 				"qr": "",
 				"categories": [
 					"Accountability & Human Oversight",
@@ -1702,7 +1702,7 @@
 				"threatif": "No",
 				"explanation": "* AI models and their objectives may drift from their original intent, making human oversight crucial to ensure ongoing alignment with ethical and business objectives. Are there periodic human-led reviews in place to monitor AI system behavior, validate outcomes, and reassess goals? Human oversight should play an active role in detecting unintended consequences, adjusting governance policies, and maintaining accountability throughout the AI system’s lifecycle.",
 				"recommendation": "Schedule regular reassessments of AI objectives and assumptions.\n*Update training data, governance policies, and oversight structures as AI systems evolve.*",
-				"sources": "[Embedding Ethical Oversight in AI Governance through Independent Review](https://www.responsible.ai/embedding-ethical-oversight-in-ai-governance-through-independent-review/)", "[Effective Human Oversight of AI-Based Systems: A Signal Detection Perspective on the Detection of Inaccurate and Unfair Outputs](https://link.springer.com/article/10.1007/s11023-024-09701-0)",
+				"sources": "[Embedding Ethical Oversight in AI Governance through Independent Review](https://www.responsible.ai/embedding-ethical-oversight-in-ai-governance-through-independent-review/)\n[Effective Human Oversight of AI-Based Systems: A Signal Detection Perspective on the Detection of Inaccurate and Unfair Outputs](https://link.springer.com/article/10.1007/s11023-024-09701-0)",
 				"qr": "",
 				"categories": [
 					"Accountability & Human Oversight",
