@@ -458,7 +458,7 @@
 			},
 			{
 				"question": "Do we need to start conducting a Data Protection Impact Assessment (DPIA) to address privacy risks?",
-				"threatif": "No",
+				"threatif": "Yes",
 				"explanation": "The use of AI is more likely to trigger the requirement for a DPIA, based on criteria in Art 35 GDPR. The GDPR and the EDPB’s Guidelines on DPIAs identify both “new technologies” and the type of automated decision-making that produce legal effects or similarly significantly affect persons as likely to result in a “high risk to the rights and freedoms of natural persons”.",
 				"recommendation": "* This threat modeling library can help you to assess possible risks.\n* Remember that a DPIA is not a piece of paper that needs to be done once the product is in production. The DPIA starts in the design phase by finding and assessing risks, documenting them and taking the necessary actions to create a responsible product from day one until it is finalized.\n* Consider the time and resources that you might need for the execution of a DPIA, as it could have some impact on your project deadlines.",
 				"sources": "",
@@ -521,6 +521,81 @@
 					"Design",
 					"Input",
 					"Output",
+					"Deploy",
+					"Monitor"
+				]
+			},
+			{
+				"question": "Are we providing sufficient transparency about how the AI model collects, processes, and uses data?",
+				"threatif": "No",
+				"explanation": "* Users and stakeholders may not fully understand how data is collected, processed, and utilized, leading to concerns about privacy, accountability, and trust. \n*A lack of transparency can make it difficult to verify whether personal data is being used lawfully or ethically. \n*AI decision-making may be opaque, increasing risks of bias, discrimination, or unfair outcomes.",
+				"recommendation": "* Implement explainability tools that provide insights into AI decision-making.\n*Use clear and accessible documentation detailing data collection, storage, processing, and sharing.\n*Follow transparency principles from the EU AI Act and GDPR regarding automated decision-making.\n*Utilize model cards, data sheets, and algorithmic auditing to enhance transparency.*",
+				"sources": "Right to privacy (Universal Declaration of Human Rights), Article 7 Respect for Private and Family Life (Charter of fundamental rights of the European Union)",
+				"qr": "",
+				"categories": [
+					"Privacy & Data Protection",
+					"Data & Data Governance"
+				],
+				"phases": [
+					"Design",
+					"Model",
+					"Output",
+					"Monitor"
+				]
+			},
+			{
+				"question": "Are we unintentionally logging or storing user input data in ways that could pose privacy risks?",
+				"threatif": "Yes",
+				"explanation": "* AI systems, particularly Large Language Models (LLMs), may log user inputs and outputs for debugging or model fine-tuning, potentially storing sensitive data without explicit user consent.\n*Logged data could be included in training datasets, making it possible for adversaries to conduct data poisoning attacks, influencing model behavior.\n*Even metadata from logs may reveal sensitive details about users.",
+				"recommendation": "* mplement strict access controls and data minimization techniques to prevent excessive logging.\n*Provide opt-in or opt-out options for data collection and obtain explicit consent where needed.\n*Regularly audit and delete logs containing personal or sensitive data.\n*Use differential privacy, encryption, or synthetic data to minimize risks while analyzing logs.\n*Detect and mitigate adversarial attacks aimed at poisoning training data.*",
+				"sources": "[WiP: An On-device LLM-based Approach to Query Privacy Protection](https://dl.acm.org/doi/10.1145/3662006.3662060)",
+				"qr": "",
+				"categories": [
+					"Privacy & Data Protection",
+					"Data & Data Governance",
+					"Cybersecurity"
+				],
+				"phases": [
+					"Design",
+					"Input",
+					"Output",
+					"Deploy",
+					"Monitor"
+				]
+			},
+			{
+				"question": "Could the AI system generate inaccurate or sensitive responses that harm users or spread misinformation?",
+				"threatif": "Yes",
+				"explanation": "* AI models, especially generative AI, may produce hallucinations—inaccurate, misleading, or fabricated information.\n*Outputs may inadvertently reveal sensitive data or personal details, leading to privacy breaches.\n*When multiple AI agents interact, hallucinations and errors can amplify, increasing the likelihood of spreading misinformation.",
+				"recommendation": "* Implement fact-checking and validation mechanisms before AI-generated responses are shown to users.\n*Use retrieval-augmented generation (RAG) and human-in-the-loop (HITL) approaches to improve accuracy.\n*Red-team AI models by stress-testing them for misinformation and privacy risks.\n*Allow users to report inaccurate or harmful content, enabling iterative model improvements.\n*Restrict AI-generated outputs on sensitive topics unless rigorous verification is in place.*",
+				"sources": "[Hallucination Detection in Large Language Models with Metamorphic Relations](https://arxiv.org/abs/2502.15844)\n[Unraveling Large Language Model Hallucinations](https://towardsdatascience.com/unraveling-large-language-model-hallucinations/)"
+				"qr": "",
+				"categories": [
+					"Privacy & Data Protection",
+					"Data & Data Governance", 
+					"Ethics and Human Rights"
+				],
+				"phases": [
+					"Design",
+					"Input",
+					"Model",
+					"Output",
+					"Monitor"
+				]
+			},
+			{
+				"question": "Are we transferring personal data to countries that lack adequate privacy protections?",
+				"threatif": "Yes",
+				"explanation": "* AI systems may store or process data in countries with weaker privacy protections, leading to GDPR violations.\n*Transfers outside the EU/EEA may violate: GDPR Art. 44-46 (restricting international data transfers without adequate safeguards).\n*Privacy Shield invalidation (some U.S. cloud services may lack compliance guarantees).\n*If personal data is processed in non-compliant jurisdictions, organizations face legal, financial, and reputational risks.",
+				"recommendation": "* Conduct a Data Transfer Impact Assessment (DTIA) before processing data outside GDPR-compliant regions.\n*Use Standard Contractual Clauses (SCCs), Binding Corporate Rules (BCRs), or adequacy decisions when transferring data.\n*Store and process personal data in localized environments to comply with data sovereignty laws.\n*Implement encryption and anonymization before data is transferred across jurisdictions.\n*Continuously monitor regulatory updates to ensure ongoing compliance with global privacy laws.*",
+				"sources": "[International dimension of data protection](https://commission.europa.eu/law/law-topic/data-protection/international-dimension-data-protection_en)\n[Court of Justice Schrems II](https://curia.europa.eu/jcms/upload/docs/application/pdf/2020-07/cp200091en.pdf)",
+				"qr": "",
+				"categories": [
+					"Privacy & Data Protection",
+					"Data & Data Governance"
+				],
+				"phases": [
+					"Design",
 					"Deploy",
 					"Monitor"
 				]
