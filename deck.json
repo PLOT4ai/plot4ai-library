@@ -568,11 +568,11 @@
 				"threatif": "Yes",
 				"explanation": "* AI models, especially generative AI, may produce hallucinations—inaccurate, misleading, or fabricated information.\n*Outputs may inadvertently reveal sensitive data or personal details, leading to privacy breaches.\n*When multiple AI agents interact, hallucinations and errors can amplify, increasing the likelihood of spreading misinformation.",
 				"recommendation": "* Implement fact-checking and validation mechanisms before AI-generated responses are shown to users.\n*Use retrieval-augmented generation (RAG) and human-in-the-loop (HITL) approaches to improve accuracy.\n*Red-team AI models by stress-testing them for misinformation and privacy risks.\n*Allow users to report inaccurate or harmful content, enabling iterative model improvements.\n*Restrict AI-generated outputs on sensitive topics unless rigorous verification is in place.*",
-				"sources": "[Hallucination Detection in Large Language Models with Metamorphic Relations](https://arxiv.org/abs/2502.15844)\n[Unraveling Large Language Model Hallucinations](https://towardsdatascience.com/unraveling-large-language-model-hallucinations/)"
+				"sources": "[Hallucination Detection in Large Language Models with Metamorphic Relations](https://arxiv.org/abs/2502.15844)\n[Unraveling Large Language Model Hallucinations](https://towardsdatascience.com/unraveling-large-language-model-hallucinations/)",
 				"qr": "",
 				"categories": [
 					"Privacy & Data Protection",
-					"Data & Data Governance", 
+					"Data & Data Governance",
 					"Ethics and Human Rights"
 				],
 				"phases": [
