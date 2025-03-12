@@ -5,6 +5,9 @@ on:
     paths:
       - deck.json  # Trigger workflow only when deck.json changes
 
+permissions:
+  contents: write  # Grant write permissions for creating releases
+  
 jobs:
   generate-pdfs:
     runs-on: ubuntu-latest
