@@ -601,6 +601,23 @@
 				]
 			},
 			{
+				"question": "Does our AI system track behaviour?",
+				"threatif": "Yes",
+				"explanation": "* AI systems that track and analyze human behavior—such as keystroke patterns, purchasing habits, device usage, or affect recognition—pose serious privacy and human rights concerns. Behavioral data is deeply personal and can act as a proxy for protected characteristics such as gender, age, or ethnicity, leading to indirect discrimination.\n* Surveillance & Privacy Violations: Continuous monitoring of individuals, particularly without explicit consent, can infringe upon fundamental rights to privacy under the EU General Data Protection Regulation (GDPR) and the European Convention on Human Rights (ECHR).\n* Profiling & Autonomy Risks: AI-driven behavior tracking could enable profiling that influences creditworthiness, employment opportunities, or access to services, potentially leading to unfair treatment.\n* Chilling Effects & Control: Ubiquitous tracking can deter individuals from freely expressing opinions or engaging in online activities, raising concerns under the EU AI Act’s provisions on high-risk AI systems.",
+				"recommendation": "* Ensure AI systems comply with GDPR Article 22, which restricts automated decision-making that significantly impacts individuals.\n* Implement privacy-preserving AI techniques, such as differential privacy and federated learning, to minimize personal data exposure.\n* Develop clear opt-in mechanisms for users, ensuring informed consent before behavior tracking is activated, \n* Conduct algorithmic audits to assess potential bias in behavior-based profiling and implement mitigation strategies.\n* Apply impact assessments under the EU AI Act to determine if behavior tracking AI falls under high-risk applications requiring regulatory oversight.",
+				"sources": "[International dimension of data protection](https://commission.europa.eu/law/law-topic/data-protection/international-dimension-data-protection_en)\n[Court of Justice Schrems II](https://curia.europa.eu/jcms/upload/docs/application/pdf/2020-07/cp200091en.pdf)\n[Human Rights Impact Assessment, Ontario Human Rights Commission](https://www3.ohrc.on.ca/en/human-rights-ai-impact-assessment)",
+				"qr": "",
+				"categories": [
+					"Privacy & Data Protection",
+					"Data & Data Governance"
+				],
+				"phases": [
+					"Design",
+					"Deploy",
+					"Monitor"
+				]
+			},
+			{
 				"question": "Can we comply with the storage limitation principle and international data retention regulations?",
 				"threatif": "No",
 				"explanation": "* The principle of storage limitation, as stated in Article 5(e) of the GDPR, requires personal data to be stored only as long as necessary for the intended purpose. Similarly, many global privacy regulations, such as CCPA (California), LGPD (Brazil), and PDPB (India), impose strict rules on data retention and deletion. Do you have a clear understanding of how long you need to keep the data (training data, output data, etc.) and whether you comply with internal, local, national, or international retention requirements?",
@@ -896,6 +913,116 @@
 				"explanation": "* Owing to large resources (data + computation) required to train algorithms, the current practice is to reuse models trained by large corporations, and modify them slightly for the task at hand. These models are curated in a Model Zoo.\n In this attack, the adversary attacks the models hosted in the Model Zoo, thereby poisoning the well for anyone else.\n* Example: researchers showed how it was possible for an attacker to insert malicious code into one of the popular models. An unsuspecting ML developer downloaded this model and used it as part of the image recognition system in their code.\n\nSource: Microsoft, Threat Modelling AI/ML Systems and Dependencies.",
 				"recommendation": "* Minimize 3rd-party dependencies for models and data where possible.\n* Incorporate these dependencies into your threat modeling process.\n* Leverage strong authentication, access control and encryption between 1st/3rd-party systems.\n\nSource: Microsoft, Threat Modelling AI/ML Systems and Dependencies.\n* Perform integrity checks where possible to detect tampering.",
 				"sources": "[Microsoft, Threat Modelling AI/ML Systems and Dependencies](https://docs.microsoft.com/en-us/security/engineering/threat-modeling-aiml)\n[Securing Machine Learning Algorithms, ENISA](https://www.enisa.europa.eu/publications/securing-machine-learning-algorithms)\n[STRIDE-AI: An Approach to Identifying Vulnerabilities of Machine Learning Assets](https://github.com/LaraMauri/STRIDE-AI)\n[Stride-ML Threat Model]( https://csf.tools/reference/stride-lm/)\n[MITRE ATLAS™ - Adversarial Threat Landscape for Artificial-Intelligence Systems](https://atlas.mitre.org/)",
+				"qr": "",
+				"categories": [
+					"Cybersecurity"
+				],
+				"phases": [
+					"Design",
+					"Deploy",
+					"Monitor"
+				]
+			},
+			{
+				"question": "Could the AI system be vulnerable to jailbreak techniques, allowing attackers to bypass safety restrictions?",
+				"threatif": "Yes",
+				"explanation": "* OAttackers can exploit **jailbreak techniques** to bypass an AI system’s built-in safety constraints, enabling it to generate restricted or harmful content.\n\n **Instruction Manipulation:** Attackers can craft prompts that trick AI models into breaking content restrictions by rephrasing or disguising requests.\n **Contextual Exploitation:** Some jailbreak techniques work by introducing misleading context that influences the AI’s behavior.\n- **Adversarial Fine-Tuning:** Attackers can modify AI models or create fine-tuned versions that remove ethical constraints.",
+				"recommendation": "* Use **reinforcement learning with human feedback (RLHF)** to harden AI models against jailbreak exploits.\n*Deploy **dynamic prompt filtering** to detect and block malicious jailbreak attempts in real-time.\n*Implement **multi-layer safety protocols**, ensuring that AI models reject unsafe requests consistently.\n*Regularly update **safety mechanisms** to adapt to emerging jailbreak techniques.\n*Conduct **red team assessments** to test AI resilience against adversarial jailbreak tactics.",
+				"sources": "[MITRE ATLAS™ - Adversarial Threat Landscape for Artificial-Intelligence Systems](https://atlas.mitre.org/)",
+				"qr": "",
+				"categories": [
+					"Cybersecurity"
+				],
+				"phases": [
+					"Design",
+					"Input",
+					"Output",
+					"Deploy",
+					"Monitor"
+				]
+			},
+			{
+				"question": "Could AI-generated hallucinations lead to misinformation or decision-making risks?",
+				"threatif": "Yes",
+				"explanation": "* AI models may generate **hallucinations**, producing incorrect, misleading, or fabricated information. These errors can undermine trust, propagate misinformation, and lead to unsafe decision-making.\n\n **Unreliable Responses:** AI models might fabricate facts, references, or responses that appear credible but lack verification.\n **Misinformation Amplification:** False information generated by AI could be exploited in disinformation campaigns or lead to incorrect medical, financial, or legal advice.\n **Reinforcement of Biases:** AI hallucinations could disproportionately affect marginalized groups, reinforcing biases in generated content.",
+				"recommendation": "* Integrate **fact-checking mechanisms** that verify AI-generated outputs against authoritative sources.\n*Implement **confidence scoring** to indicate when AI responses are uncertain or speculative.\n*Deploy **human-in-the-loop oversight** for high-risk applications like healthcare and legal AI systems.\n*Use **AI hallucination monitoring systems** to detect and mitigate factually incorrect responses.\n*Train AI models on **diverse and verified datasets** to reduce knowledge gaps and speculative responses.",
+				"sources": "[MITRE ATLAS™ - Adversarial Threat Landscape for Artificial-Intelligence Systems](https://atlas.mitre.org/)",
+				"qr": "",
+				"categories": [
+					"Cybersecurity",
+					"Privacy & Data Protection",
+					"Safety & Environmental Impact"
+				],
+				"phases": [
+					"Design",
+					"Input",
+					"Model",
+					"Output",
+					"Deploy",
+					"Monitor"
+				]
+			},
+			{
+				"question": "Could the AI system be vulnerable to prompt injection attacks, leading to unauthorized access or manipulation?",
+				"threatif": "Yes",
+				"explanation": "* AI models, particularly large language models (LLMs), are susceptible to **prompt injection attacks**, where adversaries craft inputs designed to override model constraints, extract sensitive data, or manipulate system behavior.\n\n **Meta Prompt Extraction:** Attackers can manipulate prompts to reveal system instructions, policies, or proprietary data.\n **Indirect Injection Attacks:** If an AI model consumes untrusted external content (e.g., from emails, chatbots, or web pages), attackers can embed malicious prompts to modify responses or execute unauthorized actions.\n **System Command Override:** Specially crafted prompts could trick AI models into executing unintended actions or disclosing confidential information.",
+				"recommendation": "* IUse **input validation and sanitization** to detect and neutralize malicious prompts.\n*Implement **adversarial training** to harden the AI against prompt injection attacks.\n*Limit the AI’s ability to access sensitive system instructions or proprietary data through **context isolation**.\n*Monitor AI interactions in real-time to detect **anomalous behaviors and injection attempts**.\n*Regularly test AI models using **red teaming** to identify and patch vulnerabilities in prompt handling.",
+				"sources": "[MITRE ATLAS™ - Adversarial Threat Landscape for Artificial-Intelligence Systems](https://atlas.mitre.org/)",
+				"qr": "",
+				"categories": [
+					"Cybersecurity",
+					"Privacy & Data Protection",
+					"Safety & Environmental Impact"
+				],
+				"phases": [
+					"Design",
+					"Input",
+					"Model",
+					"Output",
+					"Deploy",
+					"Monitor"
+				]
+			},
+			{
+				"question": "Could an unprotected training environment lead to unauthorized data access or model compromise?",
+				"threatif": "Yes",
+				"explanation": "* AI training environments often handle sensitive data and require extensive computational resources. If left unprotected, they become a target for adversaries who may attempt to steal data, modify training sets, or inject adversarial inputs.\n **Unauthorized Access to Training Data:** Malicious actors could exfiltrate sensitive training datasets, leading to data leaks or compliance violations.\n **Model Poisoning & Integrity Attacks:** Attackers may inject biased or adversarial data into the training process, leading to degraded or manipulated AI outputs.\n **Infrastructure Vulnerabilities:** Misconfigured cloud environments or weak authentication mechanisms could expose training pipelines to external threats.",
+				"recommendation": "* MImplement **strict access controls and role-based permissions** for training environments.\n*Use **end-to-end encryption** for training data to prevent unauthorized interception.\n*Deploy **secure multi-party computation (SMPC)** and homomorphic encryption to protect sensitive datasets.\n*Regularly audit and monitor **training infrastructure** for security vulnerabilities.\n*Adopt **sandboxed environments** to isolate training processes and prevent malicious tampering.",
+				"sources": "[MITRE ATLAS™ - Adversarial Threat Landscape for Artificial-Intelligence Systems](https://atlas.mitre.org/)",
+				"qr": "",
+				"categories": [
+					"Cybersecurity"
+				],
+				"phases": [
+					"Design",
+					"Input",
+					"Model",
+					"Deploy",
+					"Monitor"
+				]
+			},
+			{
+				"question": "Could the AI system be vulnerable to unauthorized access leading to data breaches or model exploitation?",
+				"threatif": "Yes",
+				"explanation": "* Unauthorized access to AI systems can result in data breaches, model theft, and exploitation of sensitive functionalities. Without proper access control, attackers can extract model parameters, manipulate system behavior, or leak confidential data.\n **Credential & API Key Exposure:** Weak authentication mechanisms can lead to unauthorized access, allowing attackers to exploit API endpoints or modify AI responses.\n **Model Extraction Attacks:** Attackers can systematically query an AI system to recreate and steal proprietary models, leading to intellectual property theft.\n **Privilege Escalation Risks:** Poorly managed user roles and permissions may allow attackers to escalate access, gaining control over critical AI operations.",
+				"recommendation": "* Enforce **multi-factor authentication (MFA)** and strong password policies for AI system access.\n*Restrict API access using **role-based access control (RBAC)** and **least privilege principles**. \n*Monitor AI usage logs for **anomalous access patterns** and potential security breaches.\n*Apply **rate limiting** and **query monitoring** to detect and mitigate model extraction attacks.\n*Use **secure enclaves and differential privacy** to protect sensitive AI models and training data.",
+				"sources": "[MITRE ATLAS™ - Adversarial Threat Landscape for Artificial-Intelligence Systems](https://atlas.mitre.org/)",
+				"qr": "",
+				"categories": [
+					"Cybersecurity"
+				],
+				"phases": [
+					"Design",
+					"Deploy",
+					"Monitor"
+				]
+			},
+			{
+				"question": "Could plugin attacks compromise system security?",
+				"threatif": "Yes",
+				"explanation": "* AI systems rely on complex supply chains, including third-party plugins and dependencies. Malicious actors could exploit vulnerabilities in these components to inject harmful code, compromise data integrity, or gain unauthorized control over the system.\n **Plugin Attacks & Dependency Hijacking:** AI models often integrate third-party plugins or APIs, which may introduce security risks if compromised. Attackers can inject malicious code through dependencies, leading to backdoors or data breaches.\n **Tampering with Pre-trained Models:** Attackers could alter pre-trained models at the source or during distribution, embedding hidden threats such as bias injections or backdoors.\n **Data Poisoning Risks:** If an attacker gains access to data pipelines, they can manipulate training data to introduce biases, reduce accuracy, or create exploitable vulnerabilities.",
+				"recommendation": "* Implement **supply chain security best practices**, including verifying third-party plugins and dependencies before integration.\n*Use **cryptographic signatures and checksums** to verify the integrity of AI models and updates.\n*Regularly audit and monitor **third-party components** for vulnerabilities and unauthorized modifications.\n*Limit **permissions** for external plugins to minimize potential attack vectors.\n*Adopt **zero-trust security models** to restrict access to critical AI infrastructure.",
+				"sources": "[MITRE ATLAS™ - Adversarial Threat Landscape for Artificial-Intelligence Systems](https://atlas.mitre.org/)",
 				"qr": "",
 				"categories": [
 					"Cybersecurity"
@@ -1255,6 +1382,82 @@
 					"Deploy",
 					"Monitor"
 				]
+			},
+			{
+				"question": "Could AI be misused for malicious purposes, such as such as disinformation or cyberattacks?",
+				"threatif": "Yes",
+				"explanation": "* Powerful AI technologies present immense benefits but also pose significant risks when exploited by malicious actors. AI systems could be leveraged to spread large-scale disinformation, launch cyberattacks, and manipulate social behavior, leading to societal destabilization.\n* Disinformation & Psychological Manipulation: AI-generated deepfakes and persuasive content could be used to erode public trust, manipulate political outcomes, and incite violence. AI-driven chatbots and personalized propaganda campaigns may create echo chambers that exacerbate polarization and undermine democracy.\n*Cybercrime & Hacking: AI-enhanced malware, phishing attacks, and automated cyber intrusions could allow malicious actors to compromise critical systems at an unprecedented scale. AI could autonomously identify security vulnerabilities and exploit them faster than defenders can react.\n*Weaponized AI for Criminal Activity: AI could be used to automate fraud, identity theft, or even develop autonomous attack drones. The growing sophistication of AI-generated scams, such as deepfake voices and synthetic identity fraud, increases financial and security risks.",
+				"recommendation": "* Limit access to AI tools capable of creating persuasive disinformation and cyberattacks.\n*Develop AI detection mechanisms to identify deepfakes and AI-generated false content. \n*Implement international AI governance frameworks to prevent criminal misuse of AI tools.\n*Enhance cybersecurity measures to counteract AI-driven cyberattacks and intrusion attempts.",
+				"sources": "[AI Safety, Ethics & Society](https://www.aisafetybook.com/textbook/malicious-use)",
+				"qr": "",
+				"categories": [
+					"Safety & Environmental Impact",
+					"Cybersecurity"
+				],
+				"phases": [
+					"Design",
+					"Input",
+					"Model",
+					"Deploy",
+					"Monitor"
+				]
+			},
+			{
+				"question": "Could AI accelerate the development of bioweapons and increase CBRN threats?",
+				"threatif": "Yes",
+				"explanation": "* AI could significantly lower barriers to developing and deploying biological and chemical weapons. The risk of AI-assisted bioterrorism grows as AI advances in bioengineering, genetic manipulation, and synthetic chemistry.\n* Bioweapon Development: AI-driven drug discovery models can be repurposed to design highly lethal pathogens or chemical agents.\n*  CBRN Weapon Proliferation: AI can assist in nuclear proliferation by optimizing enrichment processes, improving delivery systems, and circumventing existing safeguards. \n* Pandemic Acceleration & Public Health Risks: AI could be used to engineer viruses with enhanced transmissibility and lethality. Malicious actors could exploit AI to design bioweapons capable of circumventing modern vaccines or treatments.",
+				"recommendation": "* Implement strict AI governance policies to regulate AI applications in biotechnology and chemistry.\n*Enforce global monitoring of AI-driven drug discovery tools to prevent misuse in bioweapon design.\n*Develop AI-powered countermeasures for pandemic prevention, such as rapid detection of bioengineered pathogens.\n*",
+				"sources": "[AI Safety, Ethics & Society](https://www.aisafetybook.com/textbook/malicious-use)",
+				"qr": "",
+				"categories": [
+					"Safety & Environmental Impact",
+					"Cybersecurity"
+				],
+				"phases": [
+					"Design",
+					"Input",
+					"Model",
+					"Deploy",
+					"Monitor"
+				]
+			},
+			{
+				"question": "Could AI accelerate the development of bioweapons and increase CBRN threats?",
+				"threatif": "Yes",
+				"explanation": "* AI could significantly lower barriers to developing and deploying biological and chemical weapons. The risk of AI-assisted bioterrorism grows as AI advances in bioengineering, genetic manipulation, and synthetic chemistry.\n* Bioweapon Development: AI-driven drug discovery models can be repurposed to design highly lethal pathogens or chemical agents.\n*  CBRN Weapon Proliferation: AI can assist in nuclear proliferation by optimizing enrichment processes, improving delivery systems, and circumventing existing safeguards. \n* Pandemic Acceleration & Public Health Risks: AI could be used to engineer viruses with enhanced transmissibility and lethality. Malicious actors could exploit AI to design bioweapons capable of circumventing modern vaccines or treatments.",
+				"recommendation": "* Implement strict AI governance policies to regulate AI applications in biotechnology and chemistry.\n*Enforce global monitoring of AI-driven drug discovery tools to prevent misuse in bioweapon design.\n*Develop AI-powered countermeasures for pandemic prevention, such as rapid detection of bioengineered pathogens.\n*",
+				"sources": "[AI Safety, Ethics & Society](https://www.aisafetybook.com/textbook/malicious-use)",
+				"qr": "",
+				"categories": [
+					"Safety & Environmental Impact",
+					"Cybersecurity"
+				],
+				"phases": [
+					"Design",
+					"Input",
+					"Model",
+					"Deploy",
+					"Monitor"
+				]
+			},
+			{
+				"question": "Could the development of autonomous AI agents lead to loss of control and concentration of power?",
+				"threatif": "Yes",
+				"explanation": "* Autonomous AI systems are increasingly capable of making independent decisions, executing commands, and adapting to changing environments. If misaligned or maliciously designed, these systems could act unpredictably or against human interests.\n* Rogue AI Agents: AI models with self-improving capabilities could become uncontrollable, executing harmful actions without human oversight. An AI system optimized for efficiency, with no ethical constraints, could exploit resources or override human decisions.\n* Power Concentration & Authoritarian AI Governance: Governments or corporations with access to advanced AI could monopolize information, enforce mass surveillance, and suppress dissent. AI-driven censorship and predictive policing could erode civil liberties and democracy.\n* Automation & Human Displacement: AI-driven automation could centralize economic and political power, reducing workforce participation and increasing inequality. Without equitable AI governance, decision-making power may become concentrated among a small elite.",
+				"recommendation": "*Implement AI alignment research to ensure AI agents follow human ethical guidelines.\n* Strengthen regulations against AI-driven mass surveillance and authoritarian control.\n* Design transparent and accountable AI systems to prevent unintended consequences.\n* Promote decentralized AI governance to distribute AI decision-making power across diverse stakeholders.",
+				"sources": "[AI Safety, Ethics & Society](https://www.aisafetybook.com/textbook/malicious-use)",
+				"qr": "",
+				"categories": [
+					"Safety & Environmental Impact",
+					"Cybersecurity"
+				],
+				"phases": [
+					"Design",
+					"Input",
+					"Model",
+					"Deploy",
+					"Monitor"
+				]
 			}
 		]
 	},
@@ -1264,11 +1467,12 @@
 		"colour": "f8d18c",
 		"cards": [
 			{
-				"question": "Can the data be representative of the different groups/populations?",
+				"question": "Is the dataset representative of the different real-world groups, populations and environment?",
 				"threatif": "No",
-				"explanation": "It is important to reduce the risk of bias and different types of discrimination. Did you consider diversity and representativeness of users/individuals in the data?\n* When applying statistical generalisation, the risk exists of making inferences due to misrepresentation, for instance: a postal code where mostly young families live can discriminate the few old families living there because they are not properly represented in the group.",
-				"recommendation": "* Who is covered and who is underrepresented?\n* Prevent disparate impact: when the output of a member of a minority group is disparate compared to representation of the group. Consider measuring the accuracy from minority classes too instead of measuring only the total accuracy. Adjusting the weighting factors to avoid disparate impact can result in positive discrimination which has also its own issues: disparate treatment.\n* One approach to addressing the problem of class imbalance is to randomly resample the training dataset. This technique can help to rebalance the class distribution when classes are under or over represented:\n - random oversampling (i.e. duplicating samples from the minority class)\n - random undersampling (i.e. deleting samples from the majority class)\n* There are trade-offs when determining an AI system’s metrics for success. It is important to balance performance metrics against the risk of negatively impacting vulnerable populations.\n* When using techniques like statistical generalisation is important to know your data well, and get familiarised with who is and who is not represented in the samples. Check the samples for expectations that can be easily verified. For example, if half the population is known to be female, then you can check if approximately half the sample is female.",
-				"sources": "**Related to disparate impact**\n[AI Fairness - Explanation of Disparate Impact Remover](https://towardsdatascience.com/ai-fairness-explanation-of-disparate-impact-remover-ce0da59451f1)\n[Mitigating Bias in AI/ML Models with Disparate Impact Analysis](https://medium.com/@kguruswamy_37814/mitigating-bias-in-ai-ml-models-with-disparate-impact-analysis-9920212ee01c)\n[Certifying and removing disparate impact](https://arxiv.org/abs/1412.3756)\n[Avoiding Disparate Impact with Counterfactual Distributions](https://oconnell.fas.harvard.edu/files/hao/files/wesgai.pdf)\n\n**Related to random resampling**\n[Oversampling and Undersampling](https://towardsdatascience.com/oversampling-and-undersampling-5e2bbaf56dcf)\n[Random Oversampling and Undersampling for Imbalanced Classification](https://machinelearningmastery.com/random-oversampling-and-undersampling-for-imbalanced-classification/)\n\n**Related to Statistical Generalization**\n[Generalization in quantitative and qualitative research: Myths and strategies](https://core.ac.uk/download/pdf/49282746.pdf)\n[Generalizing Statistical Results to the Entire Population](https://www.dummies.com/article/academics-the-arts/math/statistics/generalizing-statistical-results-to-the-entire-population-201267/)",
+				"label": "Deployment, Representation & Sampling Bias",
+				"explanation": "It is important to reduce the risk of bias and different types of discrimination. Did you consider diversity and representativeness of users/individuals and groups in the data?\n* When applying statistical generalisation, the risk exists of making inferences due to misrepresentation, for instance: a postal code where mostly young families live can discriminate the few old families living there because they are not properly represented in the group.\n*Deployment bias arises when there is a mismatch between the environment where the AI is developed and where it is deployed. Key data-related biases that contribute to it include:\n * Mismatch between the target population and the actual user base. \n*Underrepresentation of certain groups.\n*Flaws in the data collection/selection process, such as: \n  *Sampling bias: Data isn't randomly collected, skewing the representation. \n*Self-selection bias: Certain groups opt out, leading to gaps in the data. \n* Coverage bias: The data collection method fails to include all relevant segments of the population. ",
+				"recommendation": "* Who is covered and who is underrepresented?\n* Prevent disparate impact: when the output of a member of a minority group is disparate compared to representation of the group. Consider measuring the accuracy from minority classes too instead of measuring only the total accuracy. Adjusting the weighting factors to avoid disparate impact can result in positive discrimination which has also its own issues: disparate treatment.\n* One approach to addressing the problem of class imbalance is to randomly resample the training dataset. This technique can help to rebalance the class distribution when classes are under or over represented:\n - random oversampling (i.e. duplicating samples from the minority class)\n - random undersampling (i.e. deleting samples from the majority class)\n* There are trade-offs when determining an AI system’s metrics for success. It is important to balance performance metrics against the risk of negatively impacting vulnerable populations.\n* When using techniques like statistical generalisation is important to know your data well, and get familiarised with who is and who is not represented in the samples. Check the samples for expectations that can be easily verified. For example, if half the population is known to be female, then you can check if approximately half the sample is female.\n* After deployment, monitor the AI’s performance to catch any unexpected issues.\n* Focus on making the model interpretable so that deployment problems can be quickly identified and addressed.",
+				"sources": "**Related to disparate impact**\n[AI Fairness - Explanation of Disparate Impact Remover](https://towardsdatascience.com/ai-fairness-explanation-of-disparate-impact-remover-ce0da59451f1)\n[Mitigating Bias in AI/ML Models with Disparate Impact Analysis](https://medium.com/@kguruswamy_37814/mitigating-bias-in-ai-ml-models-with-disparate-impact-analysis-9920212ee01c)\n[Certifying and removing disparate impact](https://arxiv.org/abs/1412.3756)\n[Avoiding Disparate Impact with Counterfactual Distributions](https://oconnell.fas.harvard.edu/files/hao/files/wesgai.pdf)\n\n**Related to random resampling**\n[Oversampling and Undersampling](https://towardsdatascience.com/oversampling-and-undersampling-5e2bbaf56dcf)\n[Random Oversampling and Undersampling for Imbalanced Classification](https://machinelearningmastery.com/random-oversampling-and-undersampling-for-imbalanced-classification/)\n\n**Related to Statistical Generalization**\n[Generalization in quantitative and qualitative research: Myths and strategies](https://core.ac.uk/download/pdf/49282746.pdf)\n[Generalizing Statistical Results to the Entire Population](https://www.dummies.com/article/academics-the-arts/math/statistics/generalizing-statistical-results-to-the-entire-population-201267/) \n[From Inception to Retirement: Addressing Bias Throughout the Lifecycle of AI Systems](https://rhite.tech/files/From-Inception-to-Retirement-Addressing-Bias-Throughout-the-Lifecycle-of-AI-Systems.pdf)",
 				"qr": "",
 				"categories": [
 					"Bias, Fairness & Discrimination",
@@ -1285,15 +1489,17 @@
 			{
 				"question": "Could actions be incorrectly attributed to an individual or group?",
 				"threatif": "Yes",
+				"label": "Incorrect Attribution",
 				"explanation": "Your AI system could have an adverse impact on individuals by incorrectly attributing them facts or actions. For instance, a facial recognition system that identifies a person incorrectly, or an inaccurate risk prediction model that could negatively impact an individual.",
 				"recommendation": "* Evaluate the possible consequences of inaccuracies of your AI system and implement measures to prevent these errors from happening: avoiding bias and discrimination during the life cycle of the model, ensuring the quality of the input data, implementing a strict human oversight process, ways to double check the results with extra evidence, implementing safety and redress mechanisms, etc.\n* Assess the impact on the different human rights of the individual.\n* Consider not to implement such a system if you cannot mitigate the risks.",
-				"sources": "",
+				"sources": "[From Inception to Retirement: Addressing Bias Throughout the Lifecycle of AI Systems](https://rhite.tech/files/From-Inception-to-Retirement-Addressing-Bias-Throughout-the-Lifecycle-of-AI-Systems.pdf)",
 				"qr": "",
 				"categories": [
 					"Bias, Fairness & Discrimination"
 				],
 				"phases": [
 					"Design",
+					"Input",
 					"Model",
 					"Output",
 					"Monitor"
@@ -1302,9 +1508,10 @@
 			{
 				"question": "Could certain groups be disproportionately affected by the outcomes of the AI system?",
 				"threatif": "yes",
-				"explanation": "* Could the AI system potentially negatively discriminate against people on the basis of any of the following grounds: sex, race, colour, ethnic or social origin, genetic features, language, religion or belief, political or any other opinion, membership of a national minority, property, birth, disability, age, gender or sexual orientation?\n* If your model is learning from data specific to some cultural background then the output could be discriminating for members of other cultural backgrounds.",
+				"label": "Unfair Disproportion",
+				"explanation": "* Could the AI system potentially negatively discriminate against people on the basis of any of the following protected characteristics: sex, race, colour, ethnic or social origin, genetic features, language, religion or belief, political or any other opinion, membership of a national minority, property, birth, disability, age, gender or sexual orientation?\n* If your model is learning from data specific to some cultural background then the output could be discriminating for members of other cultural backgrounds.",
 				"recommendation": "* Consider the different types of users and contexts where your product is going to be used.\n* Consider the impact of diversity of backgrounds, cultures, and other important different attributes when selecting your input data, features and when testing the output.\n* Assess the risk of possible unfairness towards individuals or communities to avoid discriminating minority groups.\n* The disadvantage to people depends on the kind of harm, severity of the harm and significance (how many people are put at a disadvantage compared to another group of people). Statistical and causal analyses of group differences are essential tools for evaluating potential unfairness and discriminatory impacts of AI systems.\n* Design with empathy, diversity and respect in mind.",
-				"sources": "[Why Fairness Cannot Be Automated: Bridging the Gap Between EU Non-Discrimination Law and AI](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3547922)\n[The Fairness Handbook](https://www.amsterdamintelligence.com/resources/the-fairness-handbook)\n[Advancing the field of bias detection and mitigation in Large Language Models and Traditional AI Models] (https://rhite.tech/files/bias-detection-in-llms-and-traditional-ai-models_extended.pdf)",
+				"sources": "[Why Fairness Cannot Be Automated: Bridging the Gap Between EU Non-Discrimination Law and AI](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3547922)\n[The Fairness Handbook](https://www.amsterdamintelligence.com/resources/the-fairness-handbook)\n[Advancing the field of bias detection and mitigation in Large Language Models and Traditional AI Models] (https://rhite.tech/files/bias-detection-in-llms-and-traditional-ai-models_extended.pdf), [From Inception to Retirement: Addressing Bias Throughout the Lifecycle of AI Systems](https://rhite.tech/files/From-Inception-to-Retirement-Addressing-Bias-Throughout-the-Lifecycle-of-AI-Systems.pdf)",
 				"qr": "",
 				"categories": [
 					"Bias, Fairness & Discrimination"
@@ -1318,11 +1525,50 @@
 				]
 			},
 			{
-				"question": "Could our AI system not represent current social needs and context?",
+				"question": "Are we reinforcing systemic inequalities?",
 				"threatif": "Yes",
-				"explanation": "The datasets that you want to use might not be representative of the current social situation. In that case the output of the model is also not representative of the current reality. Depending on the type of product you are designing this could have a big impact on the individual.",
-				"recommendation": "Make sure that you are using correct, complete, accurate and current data. Also make sure that you have sufficient data to represent all possible contexts that you might need.",
-				"sources": "",
+				"label": "Institutional Bias",
+				"explanation": "Institutional biases, like racism or sexism, are often rooted in organizational structures and policies. Could such biases, intentionally or unintentionally, be embedded or influence the design or the system? ",
+				"recommendation": "Outline the stakeholders to involve in each phase of the AI lifecycle. Involving diverse stakeholders with different perspectives and experiences helps address blind spots and reduce bias.\n*Identify and define the demographic groups affected by the AI system. Considering their needs and concerns can help minimize institutional bias and create fairer outcomes.",
+				"sources": "[From Inception to Retirement: Addressing Bias Throughout the Lifecycle of AI Systems](https://rhite.tech/files/From-Inception-to-Retirement-Addressing-Bias-Throughout-the-Lifecycle-of-AI-Systems.pdf)",
+				"qr": "",
+				"categories": [
+					"Bias, Fairness & Discrimination"
+				],
+				"phases": [
+					"Design",
+					"Input",
+					"Model",
+					"Output",
+					"Monitor"
+				]
+			},
+			{
+				"question": "Does our AI system oversimplify real-world problems?",
+				"threatif": "Yes",
+				"label": "Abstraction Traps",
+				"explanation": "AI systems can sometimes overlook the social context in which they operate, leading to unintended consequences. Specifically, watch out for these types of abstraction traps: \n* The formalism trap: focusing too narrowly on technical aspects without considering real-world context. \n* The ripple effect trap: ignoring how an AI system might alter behaviors within a social system, causing unforeseen impacts. \n* The solutionism trap: over-relying on AI as the answer to all problems, neglecting simpler, more ethical, or effective alternatives. \n* The framing trap: failing to account for the broader context or related factors in which the system it operates, leading to inaccurate outcomes. \n* The portability trap: applying AI systems outside their original context, potentially resulting in errors or harm. For example, self-driving cars trained in one country may struggle with different traffic rules and conditions elsewhere.",
+				"recommendation": "*Align the problem formulation with the relevant social context to avoid oversimplification. Ensure all actors and factors within the system are considered to account for the broader context in which the AI operates. \n* Evaluate potential shifts in power dynamics and unintended consequences as the system interacts with other components. Consider how geographical, cultural, or temporal differences might affect its performance when applied to new contexts.\n* Critically assess if AI is truly the best solution, or if simpler alternatives might serve the same purpose more effectively.",
+				"sources": "[From Inception to Retirement: Addressing Bias Throughout the Lifecycle of AI Systems](https://rhite.tech/files/From-Inception-to-Retirement-Addressing-Bias-Throughout-the-Lifecycle-of-AI-Systems.pdf)",
+				"qr": "",
+				"categories": [
+					"Bias, Fairness & Discrimination"
+				],
+				"phases": [
+					"Design",
+					"Input",
+					"Model",
+					"Output",
+					"Monitor"
+				]
+			},
+			{
+				"question": "Does our AI system accurately capture the factors it's designed to measure?",
+				"threatif": "No",
+				"label": "Construction Validity Bias",
+				"explanation": "*Known as construct validity bias, this phenomenon occurs when a feature or target variable does not adequately capture the construct it is meant to represent, leading to inaccurate measurements and potential biases. \n* For example, using income alone to measure socioeconomic status neglects other factors like wealth and education. This bias can arise during various stages of the AI lifecycle and should be addressed early on to improve system accuracy.",
+				"recommendation": "*Collect multiple measures for complex constructs to ensure a more complete and accurate representation. \n*Document and report the considerations and rationale behind the choice of target variables and features. \n*Acknowledge and account for the variability in how features may be interpreted differently by diverse individuals.\n*Regularly review the measures used to capture constructs to ensure they remain relevant and valid throughout the AI system’s lifecycle.",
+				"sources": "[From Inception to Retirement: Addressing Bias Throughout the Lifecycle of AI Systems](https://rhite.tech/files/From-Inception-to-Retirement-Addressing-Bias-Throughout-the-Lifecycle-of-AI-Systems.pdf)",
 				"qr": "",
 				"categories": [
 					"Bias, Fairness & Discrimination"
@@ -1335,11 +1581,103 @@
 				]
 			},
 			{
-				"question": "Could our AI system fail to uphold and respect human dignity?",
+				"question": "Could the AI system reinforce historical inequalities embedded in the data?",
 				"threatif": "Yes",
-				"explanation": "Does the AI system treat all users with respect, ensuring no output undermines their dignity?\n*The need for data labeling is growing. Does our labeling process respect the rights and well-being of the workers involved? ",
-				"recommendation": "Ensure system outputs are designed to avoid degrading, offensive, or dehumanizing content. Regularly test and audit the AI system for potential biases or outputs that could harm individuals’ dignity. \n* Establish fair labor conditions, including proper wages, working hours, and protections for workers involved in data labeling. Avoid exploitative labor practices, such as unreasonably low compensation or unsafe working conditions. Conduct regular audits to verify that third-party providers adhere to ethical standards. \n* Engage stakeholders, including user groups and labor rights organizations, to review and improve practices. \n* Train developers, data labelers, and system operators on the importance of preserving human dignity in AI-related tasks. \n*Include guidelines for respectful and non-discriminatory practices in AI system documentation and policies. \n* Implement mechanisms to identify and address cases where AI system outputs or processes violate human dignity. Provide users and stakeholders with channels to report concerns and ensure timely resolution.",
-				"sources": "Article 1 Human Dignity (Charter of Fundamental Rights of the European Union)",
+				"label": "Historical Bias",
+				"explanation": "*Historical bias occurs when AI systems mirror or worsen past social and cultural inequalities, even with accurate data. For example, an AI healthcare tool trained on historical patient data may reflect disparities in healthcare access. Minority groups, underrepresented in the data due to systemic inequities, result in less accurate diagnoses for these communities, perpetuating racial bias even without explicit racial features.",
+				"recommendation": "*Ensure datasets represent minority groups by applying oversampling or undersampling techniques.\n*Collaborate with domain experts to identify unjust patterns and address them effectively.",
+				"sources": "[From Inception to Retirement: Addressing Bias Throughout the Lifecycle of AI Systems](https://rhite.tech/files/From-Inception-to-Retirement-Addressing-Bias-Throughout-the-Lifecycle-of-AI-Systems.pdf)",
+				"qr": "",
+				"categories": [
+					"Bias, Fairness & Discrimination"
+				],
+				"phases": [
+					"Design",
+					"Input",
+					"Model",
+					"Monitor"
+				]
+			},
+			{
+				"question": "Are we labelling data consistently?",
+				"threatif": "Yes",
+				"label": "Labelling Bias",
+				"explanation": "*Labelling bias happens when the data labels are inconsistently applied by different annotators, which can affect the fairness and accuracy of the AI model. This can occur when: \n*Label definitions are unclear.\n*Annotators have different interpretations. \n*There are subjective judgments in labelling. ",
+				"recommendation": "*Clarify labelling requirements, ensuring that label definitions are precise and consistent from the start.\n*Train annotators and provide clear guidelines to reduce subjectivity. \n*Review labelling processes: regularly check annotations for consistency and accuracy.",
+				"sources": "[From Inception to Retirement: Addressing Bias Throughout the Lifecycle of AI Systems](https://rhite.tech/files/From-Inception-to-Retirement-Addressing-Bias-Throughout-the-Lifecycle-of-AI-Systems.pdf)",
+				"qr": "",
+				"categories": [
+					"Bias, Fairness & Discrimination"
+				],
+				"phases": [
+					"Design",
+					"Input",
+					"Model",
+					"Monitor"
+				]
+			},
+			{
+				"question": "Does our AI system use proxies? ",
+				"threatif": "Yes",
+				"label": "Proxies",
+				"explanation": "*A proxy variable is an indirect measure used to represent a hard-to-quantify concept. While proxies can be helpful, they pose risks when correlated with sensitive attributes, potentially leading to bias or discrimination. Even if datasets lack explicit sensitive features, proxies can still impact certain groups unfairly.",
+				"recommendation": "*Evaluate proxies critically to ensure they don’t unintentionally reflect sensitive attributes.\n*If possible, include sensitive features during development to test for fairness.\n*Focus on proxies that are relevant to the problem, avoiding those that could reinforce bias.",
+				"sources": "[From Inception to Retirement: Addressing Bias Throughout the Lifecycle of AI Systems](https://rhite.tech/files/From-Inception-to-Retirement-Addressing-Bias-Throughout-the-Lifecycle-of-AI-Systems.pdf)",
+				"qr": "",
+				"categories": [
+					"Bias, Fairness & Discrimination"
+				],
+				"phases": [
+					"Design",
+					"Input",
+					"Model",
+					"Monitor"
+				]
+			},
+			{
+				"question": "Could the AI system’s design choices lead to unfair outcomes? ",
+				"threatif": "Yes",
+				"label": "Algorithmic, Aggregation, Omitted-Variable & Learning Bias",
+				"explanation": "*Biases can emerge from the way an AI model is designed and trained, even if the dataset itself is unbiased. The model's design choices and development process can introduce various types of biases that impact fairness and accuracy. \n*Algorithmic bias: this type of bias is introduced by design decisions during model development, such as the selection of optimization functions or the application of regularization techniques. These choices, if not carefully considered, can distort the model's predictions and lead to unfair outcomes. \n*Aggregation bias: this occurs when a model assumes that all data follows the same distribution, which is often not the case. When the model applies a one-size-fits-all approach, it may fail to account for distinct differences between groups, leading to inaccurate results for those groups. \n*Omitted-Variable bias: this bias arises when an important factor is left out of the model, which can distort the relationship between features and outcomes. For example, if a model predicting customer drop-off rates fails to consider a new, lower-priced competitor, it may inaccurately predict customer behaviour, leading to misleading conclusions.\n*Learning bias: this happens when a model optimizes for one objective, such as accuracy, at the expense of others, like fairness. As a result, the model might deliver skewed outcomes that disproportionately benefit certain groups over others.",
+				"recommendation": "*Critically assess how optimization methods, loss functions, and regularization impact fairness.\n*Account for group differences: Avoid assuming uniform data distributions. Identify and model distinct subgroups where necessary.\n*Use feature importance techniques to detect and include relevant variables that could influence predictions. \n*Balance performance trade-offs: Monitor both overall accuracy and subgroup performance to prevent the model from favouring certain groups or objectives unfairly.",
+				"sources": "[From Inception to Retirement: Addressing Bias Throughout the Lifecycle of AI Systems](https://rhite.tech/files/From-Inception-to-Retirement-Addressing-Bias-Throughout-the-Lifecycle-of-AI-Systems.pdf)",
+				"qr": "",
+				"categories": [
+					"Bias, Fairness & Discrimination"
+				],
+				"phases": [
+					"Design",
+					"Input",
+					"Model",
+					"Output",
+					"Monitor"
+				]
+			},
+			{
+				"question": "Are we over-relying on early results?  ",
+				"threatif": "Yes",
+				"label": "Evaluation, Automation and Anchoring Bias, Reinforcing feedback loops ",
+				"explanation": "*Biases can emerge during the evaluation and validation stages of AI models, especially when over-relying on early test results or automated AI decisions. This can lead to misleading conclusions. Specific biases include: \n*Evaluation bias: when chosen metrics don't align with the model’s real-world application. \n*Anchoring bias: when too much focus is placed on initial results.\n*Automation bias: when excessive trust is placed in AI outputs. **Even in less risky phases like validation or monitoring, biases can develop. For instance, during the monitoring phase, reinforcing feedback loops can occur when biased model outputs are fed back into the system, amplifying distortions over time.",
+				"recommendation": "*Tailor evaluation metrics to the model and target population, and watch for overfitting across different groups. \n*Identify performance gaps between groups and adjust for data imbalances to ensure fairness. \n*Limit reliance on initial results; test across diverse datasets for robustness.\n*Include human oversight in validation to prevent over-trust in AI decisions. \n*Monitor model performance post-deployment to catch biases or feedback loops early. \n*Address data drift regularly to maintain model fairness and accuracy.",
+				"sources": "[From Inception to Retirement: Addressing Bias Throughout the Lifecycle of AI Systems](https://rhite.tech/files/From-Inception-to-Retirement-Addressing-Bias-Throughout-the-Lifecycle-of-AI-Systems.pdf)",
+				"qr": "",
+				"categories": [
+					"Bias, Fairness & Discrimination"
+				],
+				"phases": [
+					"Design",
+					"Input",
+					"Model",
+					"Monitor"
+				]
+			},
+			{
+				"question": "Could popularity bias reduce the variety of recommendations in your system? ",
+				"threatif": "Yes",
+				"label": "Popularity Bias",
+				"explanation": "*Recommendation systems often amplify what’s already popular, making it harder for niche or less-known options to be discovered. This can reduce diversity, personalization, and fairness in recommendations, limiting user exposure to a broader range of choices.",
+				"recommendation": "*Balance training data to include both popular and lesser-known items. \n*Use bias-mitigation techniques like re-weighting or fairness-aware training. \n*Apply post-processing methods like re-ranking to diversify recommendations. \n*Regularly test for bias and adjust algorithms before deployment.",
+				"sources": "[From Inception to Retirement: Addressing Bias Throughout the Lifecycle of AI Systems](https://rhite.tech/files/From-Inception-to-Retirement-Addressing-Bias-Throughout-the-Lifecycle-of-AI-Systems.pdf)",
 				"qr": "",
 				"categories": [
 					"Bias, Fairness & Discrimination"
@@ -1355,9 +1693,10 @@
 			{
 				"question": "Could our AI system contribute to social division or rivalry?",
 				"threatif": "Yes",
+				"label": "Social Division",
 				"explanation": "Could the AI system inadvertently polarize opinions or foster division among groups by amplifying biases or stereotypes in its outputs? \n* Could the system's design or deployment lead to the stigmatization of specific groups, reinforcing harmful narratives or negative assumptions?.\n* AI systems, if not carefully designed and monitored, may unintentionally contribute to societal discord. Outputs influenced by biased data or algorithms could amplify stereotypes, marginalize groups, or reinforce societal divisions. The risks are heightened in applications with broad public interaction, such as social media, news dissemination, or educational tools, where outputs can shape public opinion.",
 				"recommendation": "Conduct regular audits of system outputs to identify and mitigate content that may promote social division or negative stereotypes.\n* Include diverse stakeholder groups in the development process to identify risks of social bias or divisive content. \n* Implement content moderation and fairness mechanisms to ensure outputs are balanced and inclusive. \n* Train the system using representative and unbiased datasets to minimize the risk of amplifying societal divisions. \n* Monitor real-world impacts and continuously refine the system to align with ethical and societal norms.",
-				"sources": "All human beings are free and equal, No discrimination (Universal Declaration of Human Rights)\n* Article 1 Human dignity, Article 20 Equality before the law, Article 21 Non-discrimination (Charter of fundamental rights of the European Union).",
+				"sources": "All human beings are free and equal, No discrimination (Universal Declaration of Human Rights)\n* Article 1 Human dignity, Article 20 Equality before the law, Article 21 Non-discrimination (Charter of fundamental rights of the European Union), [From Inception to Retirement: Addressing Bias Throughout the Lifecycle of AI Systems](https://rhite.tech/files/From-Inception-to-Retirement-Addressing-Bias-Throughout-the-Lifecycle-of-AI-Systems.pdf)",
 				"qr": "",
 				"categories": [
 					"Bias, Fairness & Discrimination"
@@ -1373,9 +1712,10 @@
 			{
 				"question": "Could our AI system automatically label or categorize people?",
 				"threatif": "Yes",
+				"label": "Categorization",
 				"explanation": "* This could have an impact on the way individuals perceive themselves and society. It could constrain identity options and even contribute to erase real identity of the individuals.\n* This threat is also important when designing robots and the way they look. For instance: do care/assistant robots need to have a feminine appearance? Is that the perception you want to give to the world or the one accepted by certain groups in society? What impact does it have on society?",
 				"recommendation": "* It is important that you check the output of your model, not only in isolation but also when this is linked to other information. Think in different possible scenarios that could affect the individuals. Is your output categorizing people or helping to categorize them? In which way? What could be the impact?\n* Think about ways to prevent adverse impact to the individual: provide information to the user, consider changing the design (maybe using different features or attributes?), consider ways to prevent misuse of your output, consider not to release the product to the market.",
-				"sources": "",
+				"sources": "[From Inception to Retirement: Addressing Bias Throughout the Lifecycle of AI Systems](https://rhite.tech/files/From-Inception-to-Retirement-Addressing-Bias-Throughout-the-Lifecycle-of-AI-Systems.pdf)",
 				"qr": "",
 				"categories": [
 					"Bias, Fairness & Discrimination"
@@ -1404,6 +1744,24 @@
 				"qr": "",
 				"categories": [
 					"Ethics & Human Rights"
+				],
+				"phases": [
+					"Design",
+					"Input",
+					"Model",
+					"Output",
+					"Monitor"
+				]
+			},
+			{
+				"question": "Could our AI system fail to uphold and respect human dignity?",
+				"threatif": "Yes",
+				"explanation": "Does the AI system treat all users with respect, ensuring no output undermines their dignity?\n*The need for data labeling is growing. Does our labeling process respect the rights and well-being of the workers involved? ",
+				"recommendation": "Ensure system outputs are designed to avoid degrading, offensive, or dehumanizing content. Regularly test and audit the AI system for potential biases or outputs that could harm individuals’ dignity. \n* Establish fair labor conditions, including proper wages, working hours, and protections for workers involved in data labeling. Avoid exploitative labor practices, such as unreasonably low compensation or unsafe working conditions. Conduct regular audits to verify that third-party providers adhere to ethical standards. \n* Engage stakeholders, including user groups and labor rights organizations, to review and improve practices. \n* Train developers, data labelers, and system operators on the importance of preserving human dignity in AI-related tasks. \n*Include guidelines for respectful and non-discriminatory practices in AI system documentation and policies. \n* Implement mechanisms to identify and address cases where AI system outputs or processes violate human dignity. Provide users and stakeholders with channels to report concerns and ensure timely resolution.",
+				"sources": "Article 1 Human Dignity (Charter of Fundamental Rights of the European Union)",
+				"qr": "",
+				"categories": [
+					"Bias, Fairness & Discrimination"
 				],
 				"phases": [
 					"Design",
