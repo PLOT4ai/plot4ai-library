@@ -694,7 +694,8 @@
 					"Model",
 					"Deploy",
 					"Monitor"
-				]
+				],
+				"cia": []
 			},
 			{
 				"question": "Are our APIs securely implemented?",
@@ -711,7 +712,8 @@
 					"Design",
 					"Deploy",
 					"Monitor"
-				]
+				],
+				"cia": []
 			},
 			{
 				"question": "Is our data storage protected?",
@@ -729,7 +731,8 @@
 					"Input",
 					"Deploy",
 					"Monitor"
-				]
+				],
+				"cia": ["c","i","a"]
 			},
 			{
 				"question": "If our AI system uses randomness, is the source of randomness properly protected?",
@@ -745,7 +748,8 @@
 				"phases": [
 					"Design",
 					"Model"
-				]
+				],
+				"cia": ["i"]
 			},
 			{
 				"question": "Is our model suited for processing confidential information?",
@@ -764,7 +768,8 @@
 					"Input",
 					"Model",
 					"Deploy"
-				]
+				],
+				"cia": ["c"]
 			},
 			{
 				"question": "Are we protected from insider threats?",
@@ -781,7 +786,8 @@
 					"Design",
 					"Deploy",
 					"Monitor"
-				]
+				],
+				"cia": ["c","i","a"]
 			},
 			{
 				"question": "Are we protected against model sabotage?",
@@ -799,7 +805,8 @@
 					"Model",
 					"Deploy",
 					"Monitor"
-				]
+				],
+				"cia": ["i"]
 			},
 			{
 				"question": "Could there be possible malicious use, misuse or inappropriate use of our AI system?",
@@ -820,7 +827,8 @@
 					"Output",
 					"Deploy",
 					"Monitor"
-				]
+				],
+				"cia": []
 			},
 			{
 				"question": "Are we protected from evasion attacks?",
@@ -838,7 +846,8 @@
 					"Model",
 					"Output",
 					"Monitor"
-				]
+				],
+				"cia": ["i"]
 			},
 			{
 				"question": "Are we protected from poisoning attacks?",
@@ -856,7 +865,8 @@
 					"Model",
 					"Deploy",
 					"Monitor"
-				]
+				],
+				"cia": ["i"]
 			},
 			{
 				"question": "Are we protected from model inversion attacks?",
@@ -873,7 +883,8 @@
 					"Model",
 					"Deploy",
 					"Monitor"
-				]
+				],
+				"cia": ["c"]
 			},
 			{
 				"question": "Are we protected from membership inference attacks?",
@@ -890,7 +901,8 @@
 					"Model",
 					"Deploy",
 					"Monitor"
-				]
+				],
+				"cia": ["c"]
 			},
 			{
 				"question": "Are we protected from model stealing attacks?",
@@ -906,7 +918,8 @@
 				"phases": [
 					"Deploy",
 					"Monitor"
-				]
+				],
+				"cia": ["c"]
 			},
 			{
 				"question": "Are we protected from reprogramming deep neural nets attacks?",
@@ -922,7 +935,8 @@
 				"phases": [
 					"Deploy",
 					"Monitor"
-				]
+				],
+				"cia": ["i"]
 			},
 			{
 				"question": "Are we protected from adversarial example?",
@@ -939,7 +953,8 @@
 					"Model",
 					"Deploy",
 					"Monitor"
-				]
+				],
+				"cia": ["i"]
 			},
 			{
 				"question": "Are we protected from malicious AI/ML providers who could recover training data?",
@@ -957,7 +972,8 @@
 					"Input",
 					"Model",
 					"Monitor"
-				]
+				],
+				"cia": ["c"]
 			},
 			{
 				"question": "Are we protected from attacks to the AI/ML Supply Chain?",
@@ -974,7 +990,8 @@
 					"Design",
 					"Deploy",
 					"Monitor"
-				]
+				],
+				"cia": ["c","i","a"]
 			},
 			{
 				"question": "Could the AI system be vulnerable to jailbreak techniques, allowing attackers to bypass safety restrictions?",
@@ -993,7 +1010,8 @@
 					"Output",
 					"Deploy",
 					"Monitor"
-				]
+				],
+				"cia": ["c","i"]
 			},
 			{
 				"question": "Could AI-generated hallucinations lead to misinformation or decision-making risks?",
@@ -1015,7 +1033,8 @@
 					"Output",
 					"Deploy",
 					"Monitor"
-				]
+				],
+				"cia": ["i"]
 			},
 			{
 				"question": "Could the AI system be vulnerable to prompt injection attacks, leading to unauthorized access or manipulation?",
@@ -1037,7 +1056,8 @@
 					"Output",
 					"Deploy",
 					"Monitor"
-				]
+				],
+				"cia": ["c","i"]
 			},
 			{
 				"question": "Could an unprotected training environment lead to unauthorized data access or model compromise?",
@@ -1056,7 +1076,8 @@
 					"Model",
 					"Deploy",
 					"Monitor"
-				]
+				],
+				"cia": ["c","i","a"]
 			},
 			{
 				"question": "Could the AI system be vulnerable to unauthorized access leading to data breaches or model exploitation?",
@@ -1073,7 +1094,8 @@
 					"Design",
 					"Deploy",
 					"Monitor"
-				]
+				],
+				"cia": ["c","i","a"]
 			},
 			{
 				"question": "Could plugin attacks compromise system security?",
@@ -1090,7 +1112,8 @@
 					"Design",
 					"Deploy",
 					"Monitor"
-				]
+				],
+				"cia": ["c","i","a"]
 			},
 			{
 				"question": "Are we protected from exploits on software dependencies of our AI/ML systems?",
@@ -1107,7 +1130,8 @@
 					"Design",
 					"Deploy",
 					"Monitor"
-				]
+				],
+				"cia": ["c","i","a"]
 			}
 		]
 	},
