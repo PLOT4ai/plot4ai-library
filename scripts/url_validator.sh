@@ -130,4 +130,3 @@ process_file() {
 
 # Run the script
 process_file "$INPUT_FILE"
-

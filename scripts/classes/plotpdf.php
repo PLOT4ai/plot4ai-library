@@ -54,6 +54,7 @@ class PlotPDF
    * constants we use for the QR images
    */
   private const QR_IMG_DIR = __DIR__."/../cache/qr";
+  private const QR_OVERRIDE_CACHE = true;
   private const QR_CONF_ECC_LEVEL = QRCode::ECC_M; // Error correction level M
   private const QR_CONF_SCALE     = 3; // Scale (size multiplier)
   private const QR_CONF_MARGIN    = 4; // Margin (padding around the QR code)
@@ -69,6 +70,58 @@ class PlotPDF
    private const PDF_TITLE = "PLOT4ai";
    private const PDF_SUBJECT = "Threat Library";
    private const PDF_KEYWORDS = "PLOT4ai, Practical, Threat Modeling, library";
+
+   private $ciaValues = array(
+     "c" => "Confidentiality",
+     "i" => "Integrity",
+     "a" => "Availability"
+   );
+
+   /**
+    *
+    */
+  private $categoryColours = array(
+    // Data & Data Governance
+    "83b3db" => array(
+      "main" => "83b3db",
+      "light" => "b2cde8",
+    ),
+    // Transparency & Accessibility
+    "7fccdc" => array(
+      "main" => "7fccdc",
+      "light" => "b2dee9",
+    ),
+    // Privacy & Data Protection
+    "94cfbd" => array(
+      "main" => "94cfbd",
+      "light" => "bde0d4",
+    ),
+    // Cybersecurity
+    "bdd895" => array(
+      "main" => "bdd895",
+      "light" => "d5e5bd",
+    ),
+    // Safety & Environmental Impact
+    "f7f09f" => array(
+      "main" => "f7f09f",
+      "light" => "f8f6c6",
+    ),
+    // Bias, Fairness & Discrimination
+    "f8d18c" => array(
+      "main" => "f8d18c",
+      "light" => "fae0b5",
+    ),
+    // Ethics & Human Rights
+    "f2bc9a" => array(
+      "main" => "f2bc9a",
+      "light" => "f6d4bd",
+    ),
+    // Accountability & Human Oversight
+    "eea4b5" => array(
+      "main" => "eea4b5",
+      "light" => "f5c7d0",
+    ),
+  );
 
    /**
     * Constructor,
@@ -179,7 +232,7 @@ class PlotPDF
     // set document information
     $this->pdf->SetCreator(self::PDF_CREATOR);
     $this->pdf->SetAuthor(self::PDF_AUTHOR);
-    $this->pdf->SetTitle(self::PDF_TITLE);
+    $this->pdf->SetTitle(self::PDF_TITLE." (".$this->size->sizeStr.")");
     $this->pdf->SetSubject(self::PDF_SUBJECT);
     $this->pdf->SetKeywords(self::PDF_KEYWORDS);
 
@@ -327,19 +380,19 @@ class PlotPDF
         <table width="'.$this->size->tablePhase.'" cellspacing="0" cellpadding="4">
             <tbody>
               <tr>
-                <td style="'.$firstCellStyle.'"><img src="'.self::IMGS_PATH.'/icons/design.png" width="'.$this->size->phasePic.'px"></td>
+                <td style="'.$firstCellStyle.'"><img src="'.self::IMGS_PATH.'/icons/lifecycle/design.png" width="'.$this->size->phasePic.'px"></td>
                 <td style="'.$secondCellStyle.'"><div style="line-height:16px;">Design</div></td>
               </tr>
               <tr>
-                <td style="'.$firstCellStyle.'"><img src="'.self::IMGS_PATH.'/icons/input.png" width="'.$this->size->phasePic.'px"></td>
+                <td style="'.$firstCellStyle.'"><img src="'.self::IMGS_PATH.'/icons/lifecycle/input.png" width="'.$this->size->phasePic.'px"></td>
                 <td style="'.$secondCellStyle.'"><div style="line-height:16px;">Input</div></td>
               </tr>
               <tr>
-                <td style="'.$firstCellStyle.'"><img src="'.self::IMGS_PATH.'/icons/model.png" width="'.$this->size->phasePic.'px"></td>
+                <td style="'.$firstCellStyle.'"><img src="'.self::IMGS_PATH.'/icons/lifecycle/model.png" width="'.$this->size->phasePic.'px"></td>
                 <td style="'.$secondCellStyle.'"><div style="line-height:16px;">Model</div></td>
               </tr>
               <tr>
-                <td style="'.$firstCellStyle.'"><img src="'.self::IMGS_PATH.'/icons/output.png" width="'.$this->size->phasePic.'px"></td>
+                <td style="'.$firstCellStyle.'"><img src="'.self::IMGS_PATH.'/icons/lifecycle/output.png" width="'.$this->size->phasePic.'px"></td>
                 <td style="'.$secondCellStyle.'"><div style="line-height:16px;">Output</div></td>
               </tr>
             </tbody>
@@ -446,7 +499,14 @@ class PlotPDF
     // set font
     $this->generateCardColours($threat);
 
-    $this->generateIcons($threat);
+    $this->generateIcons($threat, true);
+
+    $this->pdf->setY($this->size->frontCategoryTextY);
+    $this->pdf->SetAlpha(0.5);
+    $this->pdf->SetFont('helvetica', '', $this->size->fontCategory);
+    $html = '<h2 style="text-align: center;">'.$threat->label.'</h2>';
+    $this->pdf->writeHTML($html, true, 0, true, true);
+    $this->pdf->SetAlpha(1);
 
     $this->pdf->setY($this->size->frontQuestionYInit);
 
@@ -507,24 +567,73 @@ class PlotPDF
       '<p style="text-align:justify; font-size: '.$fontSize.'pt;">'.$text.'</p>';
       $this->pdf->writeHTML($html, true, 0, true, true);
 
+    // if applicable, indicate CIA triad
+    if (isset($threat->cia) && is_array($threat->cia) && count($threat->cia) > 0) {
+      $this->pdf->setY($this->size->frontCIATextY);
+      $this->pdf->SetAlpha(0.67);
+      $this->pdf->writeHTML('<p style="font-size: '.$this->size->fontCIAText.'pt;">CIA triad impact:<p>', true, 0, true, true);
+
+      $this->pdf->SetAlpha(1);
+      $this->pdf->setY($this->size->frontCIALabelY);
+      $words = array();
+      foreach ($threat->cia AS $i => $ciaKey) {
+        $words[] = $this->ciaValues[$ciaKey];
+      }
+      $this->showCIA($words);
+    }
     //$this->pdf->SetLeftMargin($this->size->marginLeft);
-    $this->pdf->setY($this->size->frontThreatIfY1);
+    $this->pdf->setY($this->size->frontThreatIfY);
     $html =
-      '<p style="text-align:center; font-size: '.$this->size->fontThreatIf1.'pt; color: white;">If your answer is <b>'.mb_strtoupper($threat->threatif).'</b> then you are at risk</p>';
+      '<p style="text-align:center; font-size: '.$this->size->fontThreatIf.'pt; color: white;">If your answer is <b>'.mb_strtoupper($threat->threatif).'</b> or <b>MAYBE</b>, you might be at risk</p>';
     $this->pdf->writeHTML($html, true, 0, true, true);
-    $this->pdf->setY($this->size->frontThreatIfY2);
+    /*$this->pdf->setY($this->size->frontThreatIfY2);
     $html =
       '<p style="text-align:center; font-size: '.$this->size->fontThreatIf2.'pt; color: white;;">If you are <b>not sure</b>, then you might be at risk too</p>';
     $this->pdf->writeHTML($html, true, 0, true, true);
-
+    */
 
     // draw pictures
     $this->pdf->SetAlpha(0.6);
-    $this->pdf->Image(self::IMGS_PATH.'/icons/info-circle.png', $this->size->frontTextPicX, ((($y1+$y2)/2)-($this->size->frontTextPicSize/2)), '', $this->size->frontTextPicSize, '', '', '', false, 300);
     $this->pdf->Image(self::IMGS_PATH.'/icons/exclamation_triangle.png', $this->size->frontTextPicX, $this->size->frontExclamationPicYPos, '', $this->size->frontTextPicSize, '', '', '', false, 300);
     $this->pdf->SetAlpha(1);
 
     $this->generateFooter();
+  }
+
+
+  private function showCIA($words) {
+    $padding = $this->size->ciaLabelPadding;
+    $height = $this->size->ciaLabelHeight;
+    $x = $this->pdf->GetX();
+    $y = $this->pdf->GetY();
+
+    $this->pdf->SetFont('helvetica', '', $this->size->fontCIALabels);
+
+    // Loop over each word
+    foreach ($words as $word) {
+        $word = strtoupper($word);
+        $width = $this->pdf->GetStringWidth($word) + ($padding * 2);
+
+        // ---- 1. Draw Transparent Background ----
+        $this->pdf->StartTransform(); // optional: group drawing commands
+        $this->pdf->SetAlpha(0.2); // transparent white fill
+        $this->pdf->SetFillColor(255, 255, 255);
+        $this->pdf->Rect($x, $y, $width, $height, 'F'); // fill only
+        $this->pdf->StopTransform();
+
+        // ---- 2. Draw Transparent Border ----
+        $this->pdf->SetAlpha(0.25, 'Normal', 'Stroke'); // apply alpha only to the stroke
+        $this->pdf->SetDrawColor(0, 0, 0);
+        $this->pdf->Rect($x, $y, $width, $height, 'D'); // draw only
+
+        // ---- 3. Draw Opaque Text ----
+        $this->pdf->SetAlpha(0.67);
+        $this->pdf->SetTextColor(0, 0, 0);
+        $this->pdf->SetXY($x, $y);
+        $this->pdf->Cell($width, $height, $word, 0, 0, 'C', false);
+
+        $x += $width + 3;
+    }
   }
 
   private function generateCardBack($threat) {
@@ -535,43 +644,27 @@ class PlotPDF
     //var_dump($threat);
     $this->generateCardColours($threat, false);
 
-    $this->generateIcons($threat);
+    $this->generateIcons($threat, false);
 
-    $this->pdf->setY($this->size->frontQuestionYInit);
+    // display the label
+    $this->pdf->setY($this->size->frontCategoryTextY);
+    $this->pdf->SetAlpha(0.5);
+    $this->pdf->SetFont('helvetica', '', $this->size->fontCategory);
+    $html = '<h2 style="text-align: center;">'.$threat->label.'</h2>';
+    $this->pdf->writeHTML($html, true, 0, true, true);
+    $this->pdf->SetAlpha(1);
 
-      // calculating the right font-size so we can stay within the boundaries of the question section
-      $fontSize = $this->size->fontFrontQuestionInit;
-      $y2 = $this->size->frontQuestionY2Init;
-      $c = 0;
-      while ($y2 > $this->size->frontQuestionYWhileCheck) {
-        $fontSize = $fontSize - $this->size->fontQuestionSizeIncrease;
-        $this->pdf->SetFont('helvetica', 'B', $fontSize);
-        $html = '<h1 style="text-align: center;">'.$threat->question.'</h1>';
-        $this->pdf->startTransaction();
-        $this->pdf->writeHTML($html, true, 0, true, true);
-        $y2 = $this->pdf->getY();
-        $this->pdf = $this->pdf->rollbackTransaction();
-        $c++;
-        if ($fontSize < 1) {
-          break;
-        }
-      }
-      // end of calculating font-size
-
-    // set font
-    $this->pdf->SetFont('helvetica', 'B', $fontSize);
+    // Rcommendation Header (question at the front)
+    $this->pdf->setY($this->size->backRecommendationHeaderY);
+    $this->pdf->SetFont('helvetica', 'B', $this->size->fontRecommendationHeader);
     // write the question
-    $html = '<h1 style="text-align: center;">'.$threat->question.'</h1>';
+    $html = '<h1 style="text-align: center;">Recommendations</h1>';
     $this->pdf->writeHTML($html, true, 0, true, true);
 
     $this->pdf->SetFont('helvetica', '', $this->size->fontExplanation);
     $this->pdf->setY($this->size->backRecommendationY);
     //$this->pdf->SetMargins($this->size->marginLeft+30, $this->size->marginTop, $this->size->marginRight);
     $this->getQrPath($threat);
-
-    $html =
-      '<h3 style="text-align: center;">Recommendations</h3>';
-    $this->pdf->writeHTML($html, true, 0, true, true);
 
     $this->pdf->SetLeftMargin($this->size->frontExplanationMargin);
     $y1 = $this->pdf->getY();
@@ -620,11 +713,6 @@ class PlotPDF
     $imgdata  = file_get_contents($qrPath, false);
     $this->pdf->Image("@".$imgdata, $this->size->backQrXPos, $this->size->backQrYPos, $this->size->backQrWidth, '', '', '', '', false, 300);
 
-    // draw pictures
-    $this->pdf->SetAlpha(0.6);
-    $this->pdf->Image(self::IMGS_PATH.'/icons/recommendations.png', $this->size->frontTextPicX, ((($y1+$y2)/2)-($this->size->frontTextPicSize/2)), '', $this->size->frontTextPicSize, '', '', '', false, 300);
-    $this->pdf->SetAlpha(1);
-
     // set core font
     $this->pdf->SetFont('helvetica', '', $this->size->fontNormalPlus);
 
@@ -636,19 +724,35 @@ class PlotPDF
     //$this->pdf->Ln();
   }
 
-  private function generateCardColours($threat, $dark = true) {
-    $colour = $this->getCategoryColour($threat->categories[0]);
-    $this->pdf->Rect(0, 0, $this->pdf->getPageWidth(),  $this->size->frontHeaderHeight, 'DF', array("width"=>0),  $colour);
-    $this->pdf->Rect(0, $this->size->frontExplanationYPos, $this->pdf->getPageWidth(), ($this->pdf->getPageHeight()-$this->size->frontExplanationYFromBottom), 'DF', array("width"=>0),  $colour);
-    if ($dark) {
+  private function generateCardColours($threat, $front = true) {
+    $shade = $front ? "main" : "light";
+    $mainBgColour = $this->getCategoryColour($threat->categories[0], $shade);
+    $explanationColour = $this->getCategoryColour($threat->categories[0], "main");
+    // header with icons
+    $this->pdf->Rect(0, 0, $this->pdf->getPageWidth(),  $this->size->frontHeaderHeight, 'DF', array("width"=>0),  $mainBgColour);
+    // label
+    $this->pdf->SetAlpha(0.7);
+    $this->pdf->Rect(0, $this->size->frontCategoryYPos, $this->pdf->getPageWidth(), $this->size->frontCategoryHeight, 'DF', array("width"=>0), $mainBgColour);
+    $this->pdf->SetAlpha(1);
+    if (!$front) {
+      // explanation
+      $explanationHeaderYPos = ($this->size->frontCategoryYPos + $this->size->frontCategoryHeight);
+      $explanationHeaderYHeight = $this->size->frontExplanationYPos - $explanationHeaderYPos;
+      $this->pdf->Rect(0, $explanationHeaderYPos, $this->pdf->getPageWidth(), $explanationHeaderYHeight, 'DF', array("width"=>0), $explanationColour);
+    }
+    // main body of the card with thext
+    $this->pdf->Rect(0, $this->size->frontExplanationYPos, $this->pdf->getPageWidth(), ($this->pdf->getPageHeight()-$this->size->frontExplanationYFromBottom), 'DF', array("width"=>0), $mainBgColour);
+    // dark banner yes/no
+    if ($front) {
       $this->pdf->SetAlpha(0.25);
       $this->pdf->Rect(0, $this->size->frontDarkYPos1, $this->pdf->getPageWidth(), $this->size->frontDarkYPos2, 'DF', array("width"=>0),  array(0, 0, 0));
       $this->pdf->SetAlpha(1);
     }
+    // footer
     $this->pdf->Rect(0, $this->size->frontDarkYPos2, $this->pdf->getPageWidth(), ($this->pdf->getPageHeight()-$this->size->frontDarkYPos2), 'DF', array("width"=>0),  array(255, 255, 255));
   }
 
-  private function generateIcons($threat) {
+  private function generateIcons($threat, $isFront) {
     $x = $this->size->iconCatX;
     $y = $this->size->iconCatY;
 
@@ -659,35 +763,47 @@ class PlotPDF
     $yPos = $y;
 
     // set alpha to semi-transparency
-    $this->pdf->SetAlpha(0.5);
+    $this->pdf->SetAlpha(1);
 
+    $i = 0;
     foreach ($threat->categories AS $category) {
-      $src = self::IMGS_PATH."/icons/".str_replace(" ", "_", str_replace(" & ", "-", mb_strtolower($category))).".png";
-      $this->pdf->Image($src, $xPos, $yPos, $width, '', '', '', '', false, 300);
-//      $this->pdf->ImageSVG($src, $xPos, $yPos, $width, $width, false, $align='left', $palign='', $border=0, $fitonpage=false);
-      //$phaseIcons .= "<img src=\"".__DIR__."/img/icons/".mb_strtolower($phase).".svg\" width\"50px\">";
+      $category_filename = str_replace(" ", "_", str_replace(", ", "-", str_replace(" & ", "-", mb_strtolower($category))));
+      $src = self::IMGS_PATH."/icons/categories/".$category_filename.".svg";
+      //$this->pdf->Image($src, $xPos, $yPos, $width, '', '', '', '', false, 300);
+      $this->pdf->ImageSVG($src, $xPos, $yPos, '', $width, $link='', $align='', $palign='', $border=0, $fitonpage=false);
+      if ($i == 0) {
+        // this is the main category, so we display the category background image
+        $bgSrc = self::IMGS_PATH."/backgrounds/bg_".$category_filename.".svg";
+      }
       $xPos += $width + $margin;
+      $i++;
     }
 
     $xPos = $this->size->iconPhaseX;
     // substract the space the icons take, so we can draw them from left to right
     $xPos = $xPos - (($width + $margin) * (count($threat->phases) - 1));
+
+    $this->pdf->SetAlpha(0.6);
     foreach ($threat->phases AS $phase) {
       $fase = mb_strtolower($phase);
-      //$src = __DIR__."/img/icons/".mb_strtolower($phase).".svg";
-      $src = self::IMGS_PATH."/icons/".mb_strtolower($fase).".png";
+      $src = self::IMGS_PATH."/icons/lifecycle/".mb_strtolower($fase).".png";
       $this->pdf->Image($src, $xPos, $yPos, $width, '', '', '', '', false, 300);
-      //$this->pdf->Image($src, $xPos, $yPos, $width, $width, false, '', true, 150, '', false, false, 1, false, false, false);
-      //$this->pdf->ImageSVG($src, $xPos, $yPos, $width, $width, false, $align='left', $palign='', $border=0, $fitonpage=false);
-      //$phaseIcons .= "<img src=\"".__DIR__."/img/icons/".mb_strtolower($phase).".svg\" width\"50px\">";
       $xPos += $width + $margin;
     }
+    $this->pdf->SetAlpha(1);
 
     $this->pdf->SetX($x);
     $this->pdf->SetY($y + $width + $margin + $margin);
 
-    // set alpha to semi-transparency
-    $this->pdf->SetAlpha(1);
+    if ($isFront) {
+      // category background image
+      $this->pdf->SetAlpha(0.2);
+      //$this->pdf->setRTL(true);
+      $bgY = $this->size->frontExplanationY+$this->size->backgroundHeightAdjustY;
+      $this->pdf->ImageSVG($bgSrc, $x=0, $y=$bgY, $w='', $h=$this->size->backgroundHeight, $link='', $align='', $palign='', $border=0, $fitonpage=false);
+      //$this->pdf->setRTL(false);
+      $this->pdf->SetAlpha(1);
+    }
   }
 
   private function getQr($path) {
@@ -695,7 +811,6 @@ class PlotPDF
     $qrPath = self::QR_IMG_DIR."/".$hash.".png";
     if (!file_exists($qrPath)) {
       $url = "https://plot4.ai/".$path;
-      //QRcode::png($url, $qrPath, QR_ECLEVEL_M, 3, 4, false);
       $this->generateQRCode($url, $qrPath, $this->qrOptions, null);
     }
     return $qrPath;
@@ -703,9 +818,9 @@ class PlotPDF
   private function getQrPath($threat) {
     $hash = $this->createCardId($threat->categories[0], $threat->question);
     $qrPath = self::QR_IMG_DIR."/".$hash.".png";
-    if (!file_exists($qrPath)) {
+    if (!file_exists($qrPath) || self::QR_OVERRIDE_CACHE) {
       $url = "https://plot4.ai/library/card/".$hash;
-      $color = hexdec($this->getCategoryColour($threat->categories[0], false));
+      $color = hexdec($this->getCategoryColour($threat->categories[0], "main", false));
         /*---
           $text,
           $outfile = false,
@@ -722,15 +837,23 @@ class PlotPDF
     return $qrPath;
   }
   private function generateQRCode(string $url, string $path, QROptions $options, ?int $color = null) {
-    $qrcode = new QRCode($options);
-
     if ($color !== null) {
         $rgbColor = $this->intToRgb($color);
+        /*
         $options->moduleValues = [
-            0 => [255, 255, 255], // Background color (white)
+            0 => [60, 0, 0], // Background color (white)
             1 => $rgbColor,          // Foreground color
         ];
+        */
+        //var_dump($options->moduleValues);
+        //$options->bgColor = $rgbColor;
+        //$options->imageTransparent = true;
+        //$options->transparencyColor = [255, 255, 255];
+        $options->bgColor = $rgbColor;
     }
+    //var_dump($options);
+
+    $qrcode = new QRCode($options);
 
     // Generate and save the QR code
     $qrcode->render($url, $path);
@@ -745,20 +868,36 @@ class PlotPDF
     return $qrPath;
   }
 
-  private function getCategoryColour($cat, $asArray = true) {
+  private function getCategoryColour($cat, $shade, $asArray = true) {
     foreach ($this->categories AS $catObj) {
       if ($catObj->category == $cat) {
-        if ($asArray) {
-          return $this->getRgbArr("#".$catObj->colour);
+        $catColour = $catObj->colour;
+        if (!array_key_exists($catColour, $this->categoryColours)) {
+          echo $catColour." doesn't exist in :";
+          var_dump($this->categoryColours);
         }
         else {
-          return $catObj->colour;
+          $catColours = $this->categoryColours[$catColour];
+          if (!array_key_exists($shade, $catColours)) {
+            echo "invalid shade. must be one of ".print_r(array_keys($catColours), true);
+            exit;
+          }
+          else {
+            if ($asArray) {
+              return $this->getRgbArr("#".$catColours[$shade]);
+            }
+            else {
+              return $catColours[$shade];
+            }
+          }
         }
       }
     }
+    /*
     echo "Couldn't find category ".$cat."<br>\n";
     var_dump($this->categories);
     exit;
+    */
     // category not found, returning black
     return array(0, 0, 0);
   }

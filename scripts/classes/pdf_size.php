@@ -57,6 +57,8 @@ class PDF_Size
 class PDF_Size_A4 extends PDF_Size
 {
   public function __construct() {
+    $this->sizeStr = "A4";
+
     $this->format = "A4";
     $this->widthMm = 210;
     $this->heightMm = 297;
@@ -94,31 +96,40 @@ class PDF_Size_A4 extends PDF_Size
     $this->frontHeaderHeight = 30;
     $this->frontExplanationYPos = 72;
     $this->frontExplanationYFromBottom = 60;
-    $this->frontDarkYPos1 = 240;
+    $this->frontDarkYPos1 = 256;
     $this->frontDarkYPos2 = 280;
 
     /* icons */
-    $this->iconCatX = 8;
-    $this->iconCatY = 7;
-    $this->iconCatWidth = 17;
-    $this->iconCatMargin = 5;
+    $this->iconCatX = 6;
+    $this->iconCatY = 5;
+    $this->iconCatWidth = 15;
+    $this->iconCatMargin = 3;
     $this->iconPhaseX = 185;
 
+    /* background */
+    $this->backgroundHeight = 208;
+    $this->backgroundHeightAdjustY = 2;
+
     /* card front */
-    $this->frontQuestionYInit = 35;
+    $this->frontQuestionYInit = 45;
     $this->frontQuestionY2Init = 75;
     $this->frontQuestionYWhileCheck = 72;
     $this->fontQuestionSizeIncrease = 1;
+    $this->frontCategoryYPos = $this->frontHeaderHeight;
+    $this->frontCategoryHeight = 10;
+    $this->frontCategoryTextY = $this->frontCategoryYPos + 1;
     $this->frontExplanationY = 70;
-    $this->frontExplanationMargin = 28;
+    $this->frontExplanationMargin = 15;
     $this->frontExplanationY2Init = 250;
     $this->frontExplanationYWhileCheck = 240;
     $this->fontExplanationSizeIncrease = 0.5;
-    $this->frontThreatIfY1 = 250;
-    $this->frontThreatIfY2 = 260;
-    $this->frontTextPicSize = 15;
-    $this->frontTextPicX = 7;
-    $this->frontExclamationPicYPos = 252;
+    $this->frontCIATextY = 235;
+    $this->frontCIALabelY = 244;
+    $this->frontThreatIfY = 263;
+    $this->frontTextPicSize = 13;
+    $this->frontTextPicX = 10;
+    $this->frontExclamationPicYPos = 261;
+    $this->backRecommendationHeaderY = 50;
     $this->backRecommendationY = 74;
     $this->backQrX = 100;
     $this->backQrY = 240;
@@ -128,22 +139,30 @@ class PDF_Size_A4 extends PDF_Size
     $this->backInfoQrAdjustY = 10;
     $this->backInfoQrWidth = 30;
 
+    /* CIA values */
+    $this->ciaLabelPadding = 4;
+    $this->ciaLabelHeight = 10;
+
     /* font sizes */
     $this->fontFooterPlot = 22;
     $this->fontFooterAI = 20;
     $this->fontNormal = 12;
     $this->fontNormalPlus = 14;
     $this->fontH1 = 16;
+    $this->fontCategory = 13;
     $this->fontFrontQuestionInit = 21;
+    $this->fontCIAText = 15;
+    $this->fontCIALabels = 14;
+    $this->fontRecommendationHeader = 21;
     $this->fontExplanation = 18;
     $this->fontFrontExplanationInit = 17.5;
-    $this->fontThreatIf1 = 24;
-    $this->fontThreatIf2 = 21;
+    $this->fontThreatIf = 18;
   }
 }
 class PDF_Size_A6 extends PDF_Size
 {
   public function __construct() {
+    $this->sizeStr = "A6";
     /**
      * going to define a custom format instead of A6, so we can have a 3mm excess
      *
@@ -192,26 +211,35 @@ class PDF_Size_A6 extends PDF_Size
 
     /* icons */
     $this->iconCatX = 5;
-    $this->iconCatY = 5;
-    $this->iconCatWidth = 8.5;
+    $this->iconCatY = 2.5;
+    $this->iconCatWidth = 8;
     $this->iconCatMargin = 2.5;
     $this->iconPhaseX = 97.5;
 
+    /* background */
+    $this->backgroundHeight = 108;
+    $this->backgroundHeightAdjustY = 0;
+
     /* card front */
-    $this->frontQuestionYInit = 17.5;
+    $this->frontQuestionYInit = 21.5;
     $this->frontQuestionY2Init = 37.5;
     $this->frontQuestionYWhileCheck = 36;
     $this->fontQuestionSizeIncrease = 0.5;
+    $this->frontCategoryYPos = $this->frontHeaderHeight;
+    $this->frontCategoryHeight = 5;
+    $this->frontCategoryTextY = $this->frontCategoryYPos + 0.5;
     $this->frontExplanationY = 35;
     $this->frontExplanationMargin = 14;
     $this->frontExplanationY2Init = 130;
     $this->frontExplanationYWhileCheck = 125;
     $this->fontExplanationSizeIncrease = 0.25;
-    $this->frontThreatIfY1 = 129;
-    $this->frontThreatIfY2 = 134;
+    $this->frontCIATextY = 115;
+    $this->frontCIALabelY = 119;
+    $this->frontThreatIfY = 131;
     $this->frontTextPicSize = 7.5;
     $this->frontTextPicX = 5.5;
     $this->frontExclamationPicYPos = 130;
+    $this->backRecommendationHeaderY = 25;
     $this->backRecommendationY = 37;
     $this->backQrX = 50;
     $this->backQrY = 125.5;
@@ -221,16 +249,23 @@ class PDF_Size_A6 extends PDF_Size
     $this->backInfoQrAdjustY = 5;
     $this->backInfoQrWidth = 15;
 
+    /* CIA values */
+    $this->ciaLabelPadding = 2;
+    $this->ciaLabelHeight = 5;
+
     /* font sizes */
     $this->fontFooterPlot = 11;
     $this->fontFooterAI = 10;
     $this->fontNormal = 7;
     $this->fontNormalPlus = 8;
     $this->fontH1 = 9;
-    $this->fontFrontQuestionInit = 10.5;
+    $this->fontCategory = 5.5;
+    $this->fontFrontQuestionInit = 9;
+    $this->fontCIAText = 7.5;
+    $this->fontCIALabels = 7;
     $this->fontExplanation = 9;
     $this->fontFrontExplanationInit = 8.75;
-    $this->fontThreatIf1 = 12;
-    $this->fontThreatIf2 = 10.5;
+    $this->fontRecommendationHeader = 10.5;
+    $this->fontThreatIf = 10;
   }
 }
