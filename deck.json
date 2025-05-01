@@ -1080,7 +1080,7 @@
 				"threatif": "Yes",
 				"label": "TBD",
 				"explanation": "* AI models, particularly large language models (LLMs), are susceptible to **prompt injection attacks**, where adversaries craft inputs designed to override model constraints, extract sensitive data, or manipulate system behavior.\n\n **Meta Prompt Extraction:** Attackers can manipulate prompts to reveal system instructions, policies, or proprietary data.\n **Indirect Injection Attacks:** If an AI model consumes untrusted external content (e.g., from emails, chatbots, or web pages), attackers can embed malicious prompts to modify responses or execute unauthorized actions.\n **System Command Override:** Specially crafted prompts could trick AI models into executing unintended actions or disclosing confidential information.",
-				"recommendation": "* IUse **input validation and sanitization** to detect and neutralize malicious prompts.\n*Implement **adversarial training** to harden the AI against prompt injection attacks.\n*Limit the AI’s ability to access sensitive system instructions or proprietary data through **context isolation**.\n*Monitor AI interactions in real-time to detect **anomalous behaviors and injection attempts**.\n*Regularly test AI models using **red teaming** to identify and patch vulnerabilities in prompt handling.",
+				"recommendation": "* Use **input validation and sanitization** to detect and neutralize malicious prompts.\n*Implement **adversarial training** to harden the AI against prompt injection attacks.\n*Limit the AI’s ability to access sensitive system instructions or proprietary data through **context isolation**.\n*Monitor AI interactions in real-time to detect **anomalous behaviors and injection attempts**.\n*Regularly test AI models using **red teaming** to identify and patch vulnerabilities in prompt handling.",
 				"sources": "[MITRE ATLAS™ - Adversarial Threat Landscape for Artificial-Intelligence Systems](https://atlas.mitre.org/)",
 				"qr": "",
 				"categories": [
@@ -1106,7 +1106,7 @@
 				"threatif": "Yes",
 				"label": "Unauthorized Access Risks",
 				"explanation": "* AI training environments often handle sensitive data and require extensive computational resources. If left unprotected, they become a target for adversaries who may attempt to steal data, modify training sets, or inject adversarial inputs.\n **Unauthorized Access to Training Data:** Malicious actors could exfiltrate sensitive training datasets, leading to data leaks or compliance violations.\n **Model Poisoning & Integrity Attacks:** Attackers may inject biased or adversarial data into the training process, leading to degraded or manipulated AI outputs.\n **Infrastructure Vulnerabilities:** Misconfigured cloud environments or weak authentication mechanisms could expose training pipelines to external threats.",
-				"recommendation": "* MImplement **strict access controls and role-based permissions** for training environments.\n*Use **end-to-end encryption** for training data to prevent unauthorized interception.\n*Deploy **secure multi-party computation (SMPC)** and homomorphic encryption to protect sensitive datasets.\n*Regularly audit and monitor **training infrastructure** for security vulnerabilities.\n*Adopt **sandboxed environments** to isolate training processes and prevent malicious tampering.",
+				"recommendation": "* Implement **strict access controls and role-based permissions** for training environments.\n*Use **end-to-end encryption** for training data to prevent unauthorized interception.\n*Deploy **secure multi-party computation (SMPC)** and homomorphic encryption to protect sensitive datasets.\n*Regularly audit and monitor **training infrastructure** for security vulnerabilities.\n*Adopt **sandboxed environments** to isolate training processes and prevent malicious tampering.",
 				"sources": "[MITRE ATLAS™ - Adversarial Threat Landscape for Artificial-Intelligence Systems](https://atlas.mitre.org/)",
 				"qr": "",
 				"categories": [
@@ -1126,7 +1126,7 @@
 				]
 			},
 			{
-				"question": "will the deployed AI system be protected from unauthorized access and misuse?",
+				"question": "Will the deployed AI system be protected from unauthorized access and misuse?",
 				"threatif": "Yes",
 				"label": "Unauthorized Access Risks",
 				"explanation": "* Unauthorized access to AI systems can result in data breaches, model theft, and exploitation of sensitive functionalities. Without proper access control, attackers can extract model parameters, manipulate system behavior, or leak confidential data.\n **Credential & API Key Exposure:** Weak authentication mechanisms can lead to unauthorized access, allowing attackers to exploit API endpoints or modify AI responses.\n **Model Extraction Attacks:** Attackers can systematically query an AI system to recreate and steal proprietary models, leading to intellectual property theft.\n **Privilege Escalation Risks:** Poorly managed user roles and permissions may allow attackers to escalate access, gaining control over critical AI operations.",
@@ -2163,7 +2163,7 @@
 				"sources": "Article 1 Human Dignity (Charter of Fundamental Rights of the European Union)",
 				"qr": "",
 				"categories": [
-					"Bias, Fairness & Discrimination"
+					"Ethics & Human Rights"
 				],
 				"phases": [
 					"Design",
