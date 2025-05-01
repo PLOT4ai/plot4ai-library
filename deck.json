@@ -340,9 +340,9 @@
 				"question": "Can the training data be linked to individuals?",
 				"threatif": "Yes",
 				"label": "TBD",
-				"explanation": "Do you need to use unique identifiers in your training dataset? If personal data is not necessary for the model you would not really have a legal justification for using it.",
-				"recommendation": "* Unique identifiers might be included in the training set when you want to be able to link the results to individuals. Consider using pseudo-identifiers or other techniques that can help you protect personal data.\n* Document the measures you are taking to protect the data. Consider if your measures are necessary and proportional.",
-				"sources": "",
+				"explanation": "Do you need to use unique identifiers in your training dataset? If personal data is not necessary for the model you would not really have a legal justification for using it.\n*Training datasets for LLMs may inadvertently include personal data, leading to potential privacy breaches. Even if direct identifiers are removed, indirect identifiers or quasi-identifiers can still enable re-identification. This poses risks under data protection regulations like the GDPR, especially if the data subjects have not provided explicit consent for their data to be used in this manner",
+				"recommendation": "* Unique identifiers might be included in the training set when you want to be able to link the results to individuals. Consider using pseudo-identifiers or other robust pseudonymization techniques that can help you protect personal data.\n* Document the measures you are taking to protect the data. Consider if your measures are necessary and proportional.",
+				"sources": "[EDPB AI Privacy Risks & Mitigations – Large Language Models (LLMs)](https://www.edpb.europa.eu/system/files/2025-04/ai-privacy-risks-and-mitigations-in-llms.pdf)",
 				"qr": "",
 				"categories": [
 					"Privacy & Data Protection"
@@ -536,7 +536,7 @@
 				]
 			},
 			{
-				"question": "Could we compromise users’ privacy?",
+				"question": "Could we compromise users’ rights to privacy and to a private and family life?",
 				"threatif": "Yes",
 				"label": "TBD",
 				"explanation": "* The AI system may intrude on users' right to privacy by exposing sensitive aspects of their private lives, such as personal behaviors, preferences, or relationships, without their explicit consent or awareness. This can occur through excessive surveillance, unintended inferences, profiling, or sharing personal data without proper safeguards. Such compromises may undermine users' autonomy, dignity, and trust in the system, leading to legal, ethical, and reputational consequences for providers.",
@@ -556,7 +556,7 @@
 				]
 			},
 			{
-				"question": "Are we providing sufficient transparency about how the AI model collects, processes, and uses data?",
+				"question": "Are we providing sufficient transparency about how the AI model collects, processes, and uses personal data?",
 				"threatif": "No",
 				"label": "TBD",
 				"explanation": "* Users and stakeholders may not fully understand how data is collected, processed, and utilized, leading to concerns about privacy, accountability, and trust. \n*A lack of transparency can make it difficult to verify whether personal data is being used lawfully or ethically. \n*AI decision-making may be opaque, increasing risks of bias, discrimination, or unfair outcomes.",
@@ -732,7 +732,11 @@
 					"Deploy",
 					"Monitor"
 				],
-				"cia": ["c","i","a"]
+				"cia": [
+					"c",
+					"i",
+					"a"
+				]
 			},
 			{
 				"question": "If our AI system uses randomness, is the source of randomness properly protected?",
@@ -749,7 +753,9 @@
 					"Design",
 					"Model"
 				],
-				"cia": ["i"]
+				"cia": [
+					"i"
+				]
 			},
 			{
 				"question": "Is our model suited for processing confidential information?",
@@ -769,7 +775,9 @@
 					"Model",
 					"Deploy"
 				],
-				"cia": ["c"]
+				"cia": [
+					"c"
+				]
 			},
 			{
 				"question": "Are we protected from insider threats?",
@@ -787,7 +795,11 @@
 					"Deploy",
 					"Monitor"
 				],
-				"cia": ["c","i","a"]
+				"cia": [
+					"c",
+					"i",
+					"a"
+				]
 			},
 			{
 				"question": "Are we protected against model sabotage?",
@@ -806,7 +818,9 @@
 					"Deploy",
 					"Monitor"
 				],
-				"cia": ["i"]
+				"cia": [
+					"i"
+				]
 			},
 			{
 				"question": "Could there be possible malicious use, misuse or inappropriate use of our AI system?",
@@ -847,7 +861,9 @@
 					"Output",
 					"Monitor"
 				],
-				"cia": ["i"]
+				"cia": [
+					"i"
+				]
 			},
 			{
 				"question": "Are we protected from poisoning attacks?",
@@ -866,7 +882,9 @@
 					"Deploy",
 					"Monitor"
 				],
-				"cia": ["i"]
+				"cia": [
+					"i"
+				]
 			},
 			{
 				"question": "Are we protected from model inversion attacks?",
@@ -884,7 +902,9 @@
 					"Deploy",
 					"Monitor"
 				],
-				"cia": ["c"]
+				"cia": [
+					"c"
+				]
 			},
 			{
 				"question": "Are we protected from membership inference attacks?",
@@ -902,7 +922,9 @@
 					"Deploy",
 					"Monitor"
 				],
-				"cia": ["c"]
+				"cia": [
+					"c"
+				]
 			},
 			{
 				"question": "Are we protected from model stealing attacks?",
@@ -919,7 +941,9 @@
 					"Deploy",
 					"Monitor"
 				],
-				"cia": ["c"]
+				"cia": [
+					"c"
+				]
 			},
 			{
 				"question": "Are we protected from reprogramming deep neural nets attacks?",
@@ -936,13 +960,15 @@
 					"Deploy",
 					"Monitor"
 				],
-				"cia": ["i"]
+				"cia": [
+					"i"
+				]
 			},
 			{
 				"question": "Are we protected from adversarial example?",
 				"threatif": "No",
 				"label": "TBD",
-				"explanation": "* Adversarial examples are a type of adversarial attack where malicious inputs are deliberately crafted to mislead AI models. These inputs are minimally modified, often imperceptible to humans, but can cause the model to produce incorrect or harmful predictions. Examples include researchers demonstrating that carefully designed patterns on accessories, like sunglasses, could deceive facial recognition systems into misidentifying individuals. Such examples are particularly problematic in critical domains like healthcare, finance, and security, where incorrect predictions could lead to severe consequences.\n\nSource: Microsoft, Threat Modelling AI/ML Systems and Dependencies.",
+				"explanation": "* Adversarial examples are a type of evasion attack where malicious inputs are deliberately crafted to mislead AI models. These inputs are minimally modified, often imperceptible to humans, but can cause the model to produce incorrect or harmful predictions. Examples include researchers demonstrating that carefully designed patterns on accessories, like sunglasses, could deceive facial recognition systems into misidentifying individuals. Such examples are particularly problematic in critical domains like healthcare, finance, and security, where incorrect predictions could lead to severe consequences.\n\nSource: Microsoft, Threat Modelling AI/ML Systems and Dependencies.",
 				"recommendation": "Include adversarial examples in the training data to make models more robust against similar attacks. \n* Apply techniques such as input normalization, noise addition, or image resizing to reduce the impact of adversarial perturbations. \n* Design models with built-in robustness features to detect and counteract adversarial modifications. \n* Use multiple models and aggregate their predictions to make it harder for adversarial examples to deceive all models simultaneously. \n* Develop and apply techniques that mathematically guarantee the model’s resistance to certain adversarial manipulations. \n* Regularly test and monitor the system for new adversarial techniques to stay ahead of potential attacks.",
 				"sources": "[Microsoft, Threat Modelling AI/ML Systems and Dependencies](https://docs.microsoft.com/en-us/security/engineering/threat-modeling-aiml)\n[Securing Machine Learning Algorithms, ENISA](https://www.enisa.europa.eu/publications/securing-machine-learning-algorithms)\n[STRIDE-AI: An Approach to Identifying Vulnerabilities of Machine Learning Assets](https://github.com/LaraMauri/STRIDE-AI)\n[Stride-ML Threat Model]( https://csf.tools/reference/stride-lm/)\n[MITRE ATLAS™ - Adversarial Threat Landscape for Artificial-Intelligence Systems](https://atlas.mitre.org/)\n[Attribution-driven Causal Analysis for Detection of Adversarial Examples](https://arxiv.org/abs/1903.05821)",
 				"qr": "",
@@ -954,12 +980,14 @@
 					"Deploy",
 					"Monitor"
 				],
-				"cia": ["i"]
+				"cia": [
+					"i"
+				]
 			},
 			{
 				"question": "Are we protected from malicious AI/ML providers who could recover training data?",
 				"threatif": "No",
-				"label": "TBD",
+				"label": "AI Supply Chain Risk",
 				"explanation": "* Malicious ML providers could query the model used by a customer and recover this customer’s training data. The training process is either fully or partially outsourced to a malicious third party who wants to provide the user with a trained model that contains a backdoor.\n* Example: researchers showed how a malicious provider presented a backdoored algorithm, wherein the private training data was recovered. They were able to reconstruct faces and texts, given the model alone.\n\nSource: Microsoft, Threat Modelling AI/ML Systems and Dependencies.",
 				"recommendation": "* Research papers demonstrating the viability of this attack indicate Homomorphic Encryption could be an effective mitigation. Check for more information [Threat Modeling AI/ML Systems and Dependencies](https://docs.microsoft.com/en-us/security/engineering/threat-modeling-aiml)\n* Train all sensitive models in-house.\n* Catalog training data or ensure it comes from a trusted third party with strong security practices.\n* Threat model the interaction between the MLaaS provider and your own systems.\n\nSource: Microsoft, Threat Modelling AI/ML Systems and Dependencies.",
 				"sources": "[Microsoft, Threat Modelling AI/ML Systems and Dependencies](https://docs.microsoft.com/en-us/security/engineering/threat-modeling-aiml)\n[Securing Machine Learning Algorithms, ENISA](https://www.enisa.europa.eu/publications/securing-machine-learning-algorithms)\n[STRIDE-AI: An Approach to Identifying Vulnerabilities of Machine Learning Assets](https://github.com/LaraMauri/STRIDE-AI)\n[Stride-ML Threat Model]( https://csf.tools/reference/stride-lm/)\n[MITRE ATLAS™ - Adversarial Threat Landscape for Artificial-Intelligence Systems](https://atlas.mitre.org/)",
@@ -973,12 +1001,14 @@
 					"Model",
 					"Monitor"
 				],
-				"cia": ["c"]
+				"cia": [
+					"c"
+				]
 			},
 			{
 				"question": "Are we protected from attacks to the AI/ML Supply Chain?",
 				"threatif": "No",
-				"label": "TBD",
+				"label": "AI Supply Chain Risk",
 				"explanation": "* Owing to large resources (data + computation) required to train algorithms, the current practice is to reuse models trained by large corporations, and modify them slightly for the task at hand. These models are curated in a Model Zoo.\n In this attack, the adversary attacks the models hosted in the Model Zoo, thereby poisoning the well for anyone else.\n* Example: researchers showed how it was possible for an attacker to insert malicious code into one of the popular models. An unsuspecting ML developer downloaded this model and used it as part of the image recognition system in their code.\n\nSource: Microsoft, Threat Modelling AI/ML Systems and Dependencies.",
 				"recommendation": "* Minimize 3rd-party dependencies for models and data where possible.\n* Incorporate these dependencies into your threat modeling process.\n* Leverage strong authentication, access control and encryption between 1st/3rd-party systems.\n\nSource: Microsoft, Threat Modelling AI/ML Systems and Dependencies.\n* Perform integrity checks where possible to detect tampering.",
 				"sources": "[Microsoft, Threat Modelling AI/ML Systems and Dependencies](https://docs.microsoft.com/en-us/security/engineering/threat-modeling-aiml)\n[Securing Machine Learning Algorithms, ENISA](https://www.enisa.europa.eu/publications/securing-machine-learning-algorithms)\n[STRIDE-AI: An Approach to Identifying Vulnerabilities of Machine Learning Assets](https://github.com/LaraMauri/STRIDE-AI)\n[Stride-ML Threat Model]( https://csf.tools/reference/stride-lm/)\n[MITRE ATLAS™ - Adversarial Threat Landscape for Artificial-Intelligence Systems](https://atlas.mitre.org/)",
@@ -991,13 +1021,17 @@
 					"Deploy",
 					"Monitor"
 				],
-				"cia": ["c","i","a"]
+				"cia": [
+					"c",
+					"i",
+					"a"
+				]
 			},
 			{
 				"question": "Could the AI system be vulnerable to jailbreak techniques, allowing attackers to bypass safety restrictions?",
 				"threatif": "Yes",
 				"label": "TBD",
-				"explanation": "* OAttackers can exploit **jailbreak techniques** to bypass an AI system’s built-in safety constraints, enabling it to generate restricted or harmful content.\n\n **Instruction Manipulation:** Attackers can craft prompts that trick AI models into breaking content restrictions by rephrasing or disguising requests.\n **Contextual Exploitation:** Some jailbreak techniques work by introducing misleading context that influences the AI’s behavior.\n- **Adversarial Fine-Tuning:** Attackers can modify AI models or create fine-tuned versions that remove ethical constraints.",
+				"explanation": "* Attackers can exploit **jailbreak techniques** to bypass an AI system’s built-in safety constraints, enabling it to generate restricted or harmful content.\n\n **Instruction Manipulation:** Attackers can craft prompts that trick AI models into breaking content restrictions by rephrasing or disguising requests.\n **Contextual Exploitation:** Some jailbreak techniques work by introducing misleading context that influences the AI’s behavior.\n- **Adversarial Fine-Tuning:** Attackers can modify AI models or create fine-tuned versions that remove ethical constraints.",
 				"recommendation": "* Use **reinforcement learning with human feedback (RLHF)** to harden AI models against jailbreak exploits.\n*Deploy **dynamic prompt filtering** to detect and block malicious jailbreak attempts in real-time.\n*Implement **multi-layer safety protocols**, ensuring that AI models reject unsafe requests consistently.\n*Regularly update **safety mechanisms** to adapt to emerging jailbreak techniques.\n*Conduct **red team assessments** to test AI resilience against adversarial jailbreak tactics.",
 				"sources": "[MITRE ATLAS™ - Adversarial Threat Landscape for Artificial-Intelligence Systems](https://atlas.mitre.org/)",
 				"qr": "",
@@ -1011,7 +1045,10 @@
 					"Deploy",
 					"Monitor"
 				],
-				"cia": ["c","i"]
+				"cia": [
+					"c",
+					"i"
+				]
 			},
 			{
 				"question": "Could AI-generated hallucinations lead to misinformation or decision-making risks?",
@@ -1034,7 +1071,9 @@
 					"Deploy",
 					"Monitor"
 				],
-				"cia": ["i"]
+				"cia": [
+					"i"
+				]
 			},
 			{
 				"question": "Could the AI system be vulnerable to prompt injection attacks, leading to unauthorized access or manipulation?",
@@ -1057,12 +1096,15 @@
 					"Deploy",
 					"Monitor"
 				],
-				"cia": ["c","i"]
+				"cia": [
+					"c",
+					"i"
+				]
 			},
 			{
-				"question": "Could an unprotected training environment lead to unauthorized data access or model compromise?",
+				"question": "Is the AI training environment secured against unauthorized access and manipulation?",
 				"threatif": "Yes",
-				"label": "TBD",
+				"label": "Unauthorized Access Risks",
 				"explanation": "* AI training environments often handle sensitive data and require extensive computational resources. If left unprotected, they become a target for adversaries who may attempt to steal data, modify training sets, or inject adversarial inputs.\n **Unauthorized Access to Training Data:** Malicious actors could exfiltrate sensitive training datasets, leading to data leaks or compliance violations.\n **Model Poisoning & Integrity Attacks:** Attackers may inject biased or adversarial data into the training process, leading to degraded or manipulated AI outputs.\n **Infrastructure Vulnerabilities:** Misconfigured cloud environments or weak authentication mechanisms could expose training pipelines to external threats.",
 				"recommendation": "* MImplement **strict access controls and role-based permissions** for training environments.\n*Use **end-to-end encryption** for training data to prevent unauthorized interception.\n*Deploy **secure multi-party computation (SMPC)** and homomorphic encryption to protect sensitive datasets.\n*Regularly audit and monitor **training infrastructure** for security vulnerabilities.\n*Adopt **sandboxed environments** to isolate training processes and prevent malicious tampering.",
 				"sources": "[MITRE ATLAS™ - Adversarial Threat Landscape for Artificial-Intelligence Systems](https://atlas.mitre.org/)",
@@ -1077,12 +1119,16 @@
 					"Deploy",
 					"Monitor"
 				],
-				"cia": ["c","i","a"]
+				"cia": [
+					"c",
+					"i",
+					"a"
+				]
 			},
 			{
-				"question": "Could the AI system be vulnerable to unauthorized access leading to data breaches or model exploitation?",
+				"question": "will the deployed AI system be protected from unauthorized access and misuse?",
 				"threatif": "Yes",
-				"label": "TBD",
+				"label": "Unauthorized Access Risks",
 				"explanation": "* Unauthorized access to AI systems can result in data breaches, model theft, and exploitation of sensitive functionalities. Without proper access control, attackers can extract model parameters, manipulate system behavior, or leak confidential data.\n **Credential & API Key Exposure:** Weak authentication mechanisms can lead to unauthorized access, allowing attackers to exploit API endpoints or modify AI responses.\n **Model Extraction Attacks:** Attackers can systematically query an AI system to recreate and steal proprietary models, leading to intellectual property theft.\n **Privilege Escalation Risks:** Poorly managed user roles and permissions may allow attackers to escalate access, gaining control over critical AI operations.",
 				"recommendation": "* Enforce **multi-factor authentication (MFA)** and strong password policies for AI system access.\n*Restrict API access using **role-based access control (RBAC)** and **least privilege principles**. \n*Monitor AI usage logs for **anomalous access patterns** and potential security breaches.\n*Apply **rate limiting** and **query monitoring** to detect and mitigate model extraction attacks.\n*Use **secure enclaves and differential privacy** to protect sensitive AI models and training data.",
 				"sources": "[MITRE ATLAS™ - Adversarial Threat Landscape for Artificial-Intelligence Systems](https://atlas.mitre.org/)",
@@ -1095,12 +1141,16 @@
 					"Deploy",
 					"Monitor"
 				],
-				"cia": ["c","i","a"]
+				"cia": [
+					"c",
+					"i",
+					"a"
+				]
 			},
 			{
 				"question": "Could plugin attacks compromise system security?",
 				"threatif": "Yes",
-				"label": "TBD",
+				"label": "AI Supply Chain Risk",
 				"explanation": "* AI systems rely on complex supply chains, including third-party plugins and dependencies. Malicious actors could exploit vulnerabilities in these components to inject harmful code, compromise data integrity, or gain unauthorized control over the system.\n **Plugin Attacks & Dependency Hijacking:** AI models often integrate third-party plugins or APIs, which may introduce security risks if compromised. Attackers can inject malicious code through dependencies, leading to backdoors or data breaches.\n **Tampering with Pre-trained Models:** Attackers could alter pre-trained models at the source or during distribution, embedding hidden threats such as bias injections or backdoors.\n **Data Poisoning Risks:** If an attacker gains access to data pipelines, they can manipulate training data to introduce biases, reduce accuracy, or create exploitable vulnerabilities.",
 				"recommendation": "* Implement **supply chain security best practices**, including verifying third-party plugins and dependencies before integration.\n*Use **cryptographic signatures and checksums** to verify the integrity of AI models and updates.\n*Regularly audit and monitor **third-party components** for vulnerabilities and unauthorized modifications.\n*Limit **permissions** for external plugins to minimize potential attack vectors.\n*Adopt **zero-trust security models** to restrict access to critical AI infrastructure.",
 				"sources": "[MITRE ATLAS™ - Adversarial Threat Landscape for Artificial-Intelligence Systems](https://atlas.mitre.org/)",
@@ -1113,12 +1163,16 @@
 					"Deploy",
 					"Monitor"
 				],
-				"cia": ["c","i","a"]
+				"cia": [
+					"c",
+					"i",
+					"a"
+				]
 			},
 			{
 				"question": "Are we protected from exploits on software dependencies of our AI/ML systems?",
 				"threatif": "No",
-				"label": "TBD",
+				"label": "AI Supply Chain Risk",
 				"explanation": "* In this case, the attacker does NOT manipulate the algorithms, but instead exploits traditional software vulnerabilities such as buffer overflows or cross-site scripting.\n* Example: an adversary customer finds a vulnerability in a common OSS dependency that you use and uploads a specially crafted training data payload to compromise your service.\n\nSource: Microsoft, Threat Modelling AI/ML Systems and Dependencies.",
 				"recommendation": "Work with your security team to follow applicable Security Development Lifecycle/Operational Security Assurance best practices. Source: Microsoft, Threat Modelling AI/ML Systems and Dependencies.",
 				"sources": "[Microsoft, Threat Modelling AI/ML Systems and Dependencies](https://docs.microsoft.com/en-us/security/engineering/threat-modeling-aiml)\n[Securing Machine Learning Algorithms, ENISA](https://www.enisa.europa.eu/publications/securing-machine-learning-algorithms)\n[STRIDE-AI: An Approach to Identifying Vulnerabilities of Machine Learning Assets](https://github.com/LaraMauri/STRIDE-AI)\n[Stride-ML Threat Model]( https://csf.tools/reference/stride-lm/)\n[MITRE ATLAS™ - Adversarial Threat Landscape for Artificial-Intelligence Systems](https://atlas.mitre.org/)",
@@ -1131,7 +1185,246 @@
 					"Deploy",
 					"Monitor"
 				],
-				"cia": ["c","i","a"]
+				"cia": [
+					"c",
+					"i",
+					"a"
+				]
+			},
+			{
+				"question": "Could the AI system generate or execute unsafe SQL queries?",
+				"threatif": "Yes",
+				"label": "TBD",
+				"explanation": "* LLMs integrated with backend systems may generate SQL queries based on user input, exposing the system to SQL injection attacks. If input prompts are not properly validated or sanitized, attackers may inject malicious SQL fragments into natural language inputs, which the LLM translates into executable queries.\n\n* These vulnerabilities are often underestimated due to misplaced trust in the AI’s output or assumptions that the AI understands secure coding practices. In reality, models may generate insecure or dangerous SQL if prompted accordingly.\n\n* This risk is particularly severe in domains like finance or healthcare, where AI-generated queries could expose sensitive records or enable privilege escalation.",
+				"recommendation": "* Never execute AI-generated SQL directly. Use intermediate layers that validate and parameterize AI-generated queries.\n* Sanitize all user inputs before allowing them to reach the LLM.\n* Apply query allow-lists, parameterized queries, and database permissions to constrain what LLMs can do.\n* Use static and dynamic code analysis on AI-generated queries before execution.\n* Educate developers and product teams about the unique risks of LLM-driven SQL generation.",
+				"sources": "[IBM Atlas – SQL Generation Risk](https://www.ibm.com/docs/en/watsonx/saas?topic=atlas-sql-generation)",
+				"qr": "",
+				"categories": [
+					"Cybersecurity"
+				],
+				"phases": [
+					"Design",
+					"Input",
+					"Output",
+					"Deploy",
+					"Monitor"
+				],
+				"cia": [
+					"c",
+					"i",
+					"a"
+				]
+			},
+			{
+				"question": "Could the AI system allow execution of untrusted code generated via user input?",
+				"threatif": "Yes",
+				"label": "TBD",
+				"explanation": "* LLMs capable of code generation (e.g., math solvers, dev assistants) may be exploited to generate and execute malicious code if user input is not properly isolated. \n\n* Adversaries can craft prompts that cause the model to generate harmful code, such as importing modules, writing to disk, or leaking environment variables. If this code is executed directly (e.g., in a math or scripting agent), the attacker may achieve Remote Code Execution (RCE).\n\n* Case studies such as MathGPT demonstrate how seemingly benign capabilities (e.g., formula evaluation) can be weaponized to access server resources or keys.",
+				"recommendation": "* Never run AI-generated code in the same environment as your application backend.\n* Use containerization (e.g., Docker) with strict sandboxing, network isolation, and resource limits for code execution.\n* Inspect AI-generated code before execution, and apply static analysis tools to flag dangerous patterns.\n* Implement output sanitization to prevent exfiltration of sensitive data.\n* Disable or severely limit code execution features unless explicitly required.",
+				"sources": "[IBM Atlas – RCE Risk](https://www.ibm.com/docs/en/watsonx/saas?topic=atlas-remote-code-execution)",
+				"qr": "",
+				"categories": [
+					"Cybersecurity"
+				],
+				"phases": [
+					"Design",
+					"Input",
+					"Deploy",
+					"Monitor"
+				],
+				"cia": [
+					"c",
+					"i",
+					"a"
+				]
+			},
+			{
+				"question": "Could autonomous agents access or interact with malicious web content?",
+				"threatif": "Yes",
+				"label": "Agentic AI",
+				"explanation": "* AI agents that browse the internet or invoke external APIs may inadvertently land on or interact with malicious websites. These pages can host malware, deceptive interfaces, or phishing payloads designed to compromise the AI system or extract sensitive data.\n\n* The risk is amplified when agents operate autonomously or chain multiple tools (e.g., browsers, file downloaders, LLMs) without strict boundaries, potentially triggering harmful scripts or revealing internal state.",
+				"recommendation": "* Apply strict domain allow-lists and restrict browsing to pre-approved sources.\n* Disable JavaScript, downloads, or plugin execution in browser environments.\n* Monitor and log all external interactions for anomalous behavior.\n* Use URL and content scanning before any AI agent accesses external resources.\n* Employ a retrieval proxy to intermediate and sanitize third-party web content before it is passed to the agent.",
+				"sources": "[IBM Atlas – Internet Access Risk](https://www.ibm.com/docs/en/watsonx/saas?topic=atlas-agent-risk),[OWASP Agentic AI – Threats and Mitigations (v1.0.1)](https://owasp.org/www-project-agentic-ai/assets/publications/Agentic-AI-Threats-and-Mitigations_v1.0.1.pdf)",
+				"qr": "",
+				"categories": [
+					"Cybersecurity"
+				],
+				"phases": [
+					"Design",
+					"Input",
+					"Output",
+					"Deploy",
+					"Monitor"
+				],
+				"cia": [
+					"c",
+					"i"
+				]
+			},
+			{
+				"question": "Can agent memory be poisoned with malicious or misleading information?",
+				"threatif": "Yes",
+				"label": "Agentic AI",
+				"explanation": "* Agentic systems with persistent memory can be manipulated over time by injecting false, biased, or adversarial content. This may alter future reasoning, planning, or tool use.\n* For example, a user might insert misleading facts into a chatbot's memory, resulting in hallucinations or dangerous outputs later on.\n* Long-term memory makes these risks cumulative and harder to detect.",
+				"recommendation": "* Limit write access to memory: only trusted or validated agents/users should modify persistent memory.\n* Implement memory sanitation, validation, and confidence scoring.\n* Provide mechanisms to audit memory entries and detect unusual patterns.\n* Isolate memory by task or session where feasible to limit long-term contamination.",
+				"sources": "[OWASP Agentic AI – Threats and Mitigations (v1.0.1)](https://owasp.org/www-project-agentic-ai/assets/publications/Agentic-AI-Threats-and-Mitigations_v1.0.1.pdf)",
+				"qr": "",
+				"categories": [
+					"Cybersecurity"
+				],
+				"phases": [
+					"Deploy",
+					"Monitor"
+				],
+				"cia": [
+					"i"
+				]
+			},
+			{
+				"question": "Could agents misuse tools or APIs they are allowed to access?",
+				"threatif": "Yes",
+				"label": "Agentic AI",
+				"explanation": "* Agents that have access to tools (e.g., file systems, webhooks, APIs) may invoke them in unintended or harmful ways.\n* This misuse can result from adversarial prompts, faulty reasoning, or misunderstood intent.\n* Example: an agent with access to a web browser could issue API delete requests or trigger real-world effects in connected systems.",
+				"recommendation": "* Use allow-lists to tightly control which tools an agent can access.\n* Apply RBAC or contextual constraints (e.g., only allow file writes for task X).\n* Monitor tool use patterns and block anomalous calls.\n* Require human-in-the-loop confirmation for high-risk tool use.",
+				"sources": "[OWASP Agentic AI – Threats and Mitigations (v1.0.1)](https://owasp.org/www-project-agentic-ai/assets/publications/Agentic-AI-Threats-and-Mitigations_v1.0.1.pdf)",
+				"qr": "",
+				"categories": [
+					"Cybersecurity"
+				],
+				"phases": [
+					"Design",
+					"Deploy",
+					"Monitor"
+				],
+				"cia": [
+					"c",
+					"i",
+					"a"
+				]
+			},
+			{
+				"question": "Could hallucinations from one agent propagate and mislead others?",
+				"threatif": "Yes",
+				"label": "Agentic AI",
+				"explanation": "* In multi-agent systems, one agent’s hallucinated output can become another’s input.\n* This can cause cascading misinformation, particularly if agents defer to each other’s outputs without validation.\n* Example: Agent A misclassifies a vulnerability, Agent B acts on this and takes inappropriate mitigation actions.",
+				"recommendation": "* Require independent validation or confidence scoring for agent-to-agent communication.\n* Avoid blind trust between agents—use verification protocols.\n* Implement mechanisms to trace provenance of information across agents.\n* Regularly retrain agents on hallucination-resistant architectures and factual QA tasks.",
+				"sources": "[OWASP Agentic AI – Threats and Mitigations (v1.0.1)](https://owasp.org/www-project-agentic-ai/assets/publications/Agentic-AI-Threats-and-Mitigations_v1.0.1.pdf)",
+				"qr": "",
+				"categories": [
+					"Cybersecurity"
+				],
+				"phases": [
+					"Model",
+					"Deploy",
+					"Monitor"
+				],
+				"cia": [
+					"i"
+				]
+			},
+			{
+				"question": "Can we trace the decisions and actions of autonomous agents in our system?",
+				"threatif": "Yes",
+				"label": "Agentic AI",
+				"explanation": "* Without strong logging and traceability, it becomes difficult to audit or understand decisions made by autonomous agents.\n* This increases the risk of undetected errors, malicious actions, and limits post-incident forensics.\n* Repudiation becomes likely when actions cannot be linked to responsible entities (agent or user).",
+				"recommendation": "* Log all agent actions, tool uses, memory writes, and external interactions.\n* Implement immutable audit trails.\n* Assign unique identifiers to agents and their outputs.\n* Use cryptographic signing for sensitive agent actions to support accountability.",
+				"sources": "[OWASP Agentic AI – Threats and Mitigations (v1.0.1)](https://owasp.org/www-project-agentic-ai/assets/publications/Agentic-AI-Threats-and-Mitigations_v1.0.1.pdf)",
+				"qr": "",
+				"categories": [
+					"Cybersecurity"
+				],
+				"phases": [
+					"Deploy",
+					"Monitor"
+				],
+				"cia": [
+					"i",
+					"a"
+				]
+			},
+			{
+				"question": "Could a compromised or malicious agent subvert the goals of a multi-agent system?",
+				"threatif": "Yes",
+				"label": "Agentic AI",
+				"explanation": "* In decentralized or loosely coordinated agentic systems, a single compromised agent can act against the intended goals of the system.\n* Rogue agents may inject misleading information, sabotage coordination, or exploit trust relationships.\n* These threats are especially relevant in federated learning, autonomous swarm systems, or large-scale multi-agent deployments.",
+				"recommendation": "* Implement agent authentication and authorization protocols.\n* Monitor agent outputs for inconsistencies or divergence from assigned tasks.\n* Apply anomaly detection to communication and behavior across agents.\n* Quarantine or disable agents that exhibit deviant or suspicious activity.",
+				"sources": "[OWASP Agentic AI – Threats and Mitigations (v1.0.1)](https://owasp.org/www-project-agentic-ai/assets/publications/Agentic-AI-Threats-and-Mitigations_v1.0.1.pdf)",
+				"qr": "",
+				"categories": [
+					"Cybersecurity"
+				],
+				"phases": [
+					"Deploy",
+					"Monitor"
+				],
+				"cia": [
+					"c",
+					"i",
+					"a"
+				]
+			},
+			{
+				"question": "Could an agent gain access to functions or data beyond its intended permissions?",
+				"threatif": "Yes",
+				"label": "Agentic AI",
+				"explanation": "* Agents may discover or exploit misconfigurations to access privileged tools, APIs, or data.\n* Escalation can result from incorrect role assignments, prompt manipulation, or logic flaws in access validation.\n* This could lead to the agent invoking destructive actions or leaking confidential data.",
+				"recommendation": "* Apply least privilege principles and context-aware access controls to agent capabilities.\n* Regularly audit role definitions and permissions assigned to agents.\n* Include privilege escalation scenarios in red-teaming and testing efforts.\n* Use runtime guards to detect and block unauthorized function calls.",
+				"sources": "[OWASP Agentic AI – Threats and Mitigations (v1.0.1)](https://owasp.org/www-project-agentic-ai/assets/publications/Agentic-AI-Threats-and-Mitigations_v1.0.1.pdf)",
+				"qr": "",
+				"categories": [
+					"Cybersecurity"
+				],
+				"phases": [
+					"Design",
+					"Deploy",
+					"Monitor"
+				],
+				"cia": [
+					"c",
+					"i",
+					"a"
+				]
+			},
+			{
+				"question": "Could the agent be misused to manipulate or deceive users?",
+				"threatif": "Yes",
+				"label": "Agentic AI",
+				"explanation": "* Agentic systems capable of persuasive language or personalized interaction can be manipulated to influence human decisions, emotions, or behaviors.\n* This creates risks of social engineering, phishing, misinformation, or undue influence, especially if the agent mimics authority figures or trusted personas.\n* The risk is amplified when agents use persistent memory or learn user preferences over time.",
+				"recommendation": "* Impose ethical use constraints and define red lines (e.g., no impersonation, no medical/legal advice without oversight).\n* Use transparency mechanisms to disclose when users are interacting with agents.\n* Enable user control and opt-out of persuasive or adaptive behaviors.\n* Monitor for behavior that resembles coercion, manipulation, or impersonation.",
+				"sources": "[OWASP Agentic AI – Threats and Mitigations (v1.0.1)](https://owasp.org/www-project-agentic-ai/assets/publications/Agentic-AI-Threats-and-Mitigations_v1.0.1.pdf)",
+				"qr": "",
+				"categories": [
+					"Cybersecurity",
+					"Ethics & Human Rights"
+				],
+				"phases": [
+					"Deploy",
+					"Monitor"
+				],
+				"cia": [
+					"c",
+					"i"
+				]
+			},
+			{
+				"question": "Could an attacker tamper with communication between agents?",
+				"threatif": "Yes",
+				"label": "Agentic AI",
+				"explanation": "* Agents that exchange messages may be vulnerable to communication poisoning, where an attacker injects or modifies messages to alter system behavior.\n* This can mislead agents, propagate misinformation, or trigger unintended actions in chained workflows.\n* Examples include impersonating an agent, sending conflicting commands, or embedding adversarial prompts.",
+				"recommendation": "* Authenticate all agent-to-agent messages.\n* Use encryption and integrity checks to prevent tampering.\n* Log and analyze communication flows to detect unusual patterns.\n* Limit what kinds of messages agents can send and which agents can receive them.",
+				"sources": "[OWASP Agentic AI – Threats and Mitigations (v1.0.1)](https://owasp.org/www-project-agentic-ai/assets/publications/Agentic-AI-Threats-and-Mitigations_v1.0.1.pdf)",
+				"qr": "",
+				"categories": [
+					"Cybersecurity"
+				],
+				"phases": [
+					"Deploy",
+					"Monitor"
+				],
+				"cia": [
+					"c",
+					"i"
+				]
 			}
 		]
 	},
