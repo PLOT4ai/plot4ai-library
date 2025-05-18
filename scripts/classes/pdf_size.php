@@ -94,7 +94,7 @@ class PDF_Size_A4 extends PDF_Size
 
     /* card colours */
     $this->frontHeaderHeight = 30;
-    $this->frontExplanationYPos = 72;
+    $this->frontExplanationYPos = 76;
     $this->frontExplanationYFromBottom = 60;
     $this->frontDarkYPos1 = 256;
     $this->frontDarkYPos2 = 280;
@@ -111,13 +111,13 @@ class PDF_Size_A4 extends PDF_Size
     $this->backgroundHeightAdjustY = 2;
 
     /* card front */
-    $this->frontQuestionYInit = 45;
+    $this->frontQuestionYInit = 48;
     $this->frontQuestionY2Init = 75;
     $this->frontQuestionYWhileCheck = 72;
     $this->fontQuestionSizeIncrease = 1;
     $this->frontCategoryYPos = $this->frontHeaderHeight;
-    $this->frontCategoryHeight = 10;
-    $this->frontCategoryTextY = $this->frontCategoryYPos + 1;
+    $this->frontCategoryHeight = 14;
+    $this->frontCategoryTextY = $this->frontCategoryYPos + 3;
     $this->frontExplanationY = 70;
     $this->frontExplanationMargin = 15;
     $this->frontExplanationY2Init = 250;
@@ -204,7 +204,7 @@ class PDF_Size_A6 extends PDF_Size
 
     /* card colours */
     $this->frontHeaderHeight = 15;
-    $this->frontExplanationYPos = 36;
+    $this->frontExplanationYPos = 38;
     $this->frontExplanationYFromBottom = 30;
     $this->frontDarkYPos1 = 125.5;
     $this->frontDarkYPos2 = 142.5;
@@ -221,13 +221,13 @@ class PDF_Size_A6 extends PDF_Size
     $this->backgroundHeightAdjustY = 0;
 
     /* card front */
-    $this->frontQuestionYInit = 21.5;
+    $this->frontQuestionYInit = 23.5;
     $this->frontQuestionY2Init = 37.5;
     $this->frontQuestionYWhileCheck = 36;
     $this->fontQuestionSizeIncrease = 0.5;
     $this->frontCategoryYPos = $this->frontHeaderHeight;
-    $this->frontCategoryHeight = 5;
-    $this->frontCategoryTextY = $this->frontCategoryYPos + 0.5;
+    $this->frontCategoryHeight = 7;
+    $this->frontCategoryTextY = $this->frontCategoryYPos + 1.5;
     $this->frontExplanationY = 35;
     $this->frontExplanationMargin = 14;
     $this->frontExplanationY2Init = 130;

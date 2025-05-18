@@ -1,10 +1,8 @@
 <?php
 require_once __DIR__.'/markdown.php';
 require_once __DIR__.'/pdf_size.php';
-#require_once __DIR__.'/../lib/phpqrcode/qrlib.php';
-
-use chillerlan\QRCode\QRCode;
-use chillerlan\QRCode\QROptions;
+require_once __DIR__.'/pngqr.php';
+require_once __DIR__.'/svgqr.php';
 
 /**
  * Class that can generate the card deck in PDF format, based on a json file with all the data
@@ -28,6 +26,7 @@ class PlotPDF
    * Each card belongs to a category.
    * This array will hold all categories once the json is parsed
    */
+
   private $categories;
   /**
    * The print mode determines how the PDF is printed:
@@ -49,18 +48,6 @@ class PlotPDF
 
   private const BASE_PATH_DATA= __DIR__."/../";
   private const IMGS_PATH     = __DIR__."/../img";
-
-  /**
-   * constants we use for the QR images
-   */
-  private const QR_IMG_DIR = __DIR__."/../cache/qr";
-  private const QR_OVERRIDE_CACHE = true;
-  private const QR_CONF_ECC_LEVEL = QRCode::ECC_M; // Error correction level M
-  private const QR_CONF_SCALE     = 3; // Scale (size multiplier)
-  private const QR_CONF_MARGIN    = 4; // Margin (padding around the QR code)
-  private const QR_CONF_TYPE      = QRCode::OUTPUT_IMAGE_PNG; // Output as PNG
-  // this private variable will be filled with the QR_CONF defaults defined above
-  private $qrOptions;
 
   /**
    * constants we use in the PDF
@@ -143,12 +130,6 @@ class PlotPDF
     $this->setPrintMode(self::PRINT_MODE_BOTH);
     $this->md = new Markdown();
     $this->pdf = new TCPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, $this->size->format, true, 'UTF-8', false);
-    $this->qrOptions = new QROptions([
-      'eccLevel' => self::QR_CONF_ECC_LEVEL,
-      'scale'    => self::QR_CONF_SCALE ,
-      'margin'   => self::QR_CONF_MARGIN,
-      'outputType' => QRCode::OUTPUT_IMAGE_PNG,
-    ]);
   }
 
   public function setCategories($arr) {
@@ -305,19 +286,21 @@ class PlotPDF
 
     $this->pdf->setY($this->size->marginTop + 20);
 
-    $src = self::IMGS_PATH."/pdf/phases-and-categories_whitebg_800.png";
+    $src = self::IMGS_PATH."/pdf/phases-and-categories.png";
     $this->pdf->Image($src, $xPos, $yPos + $this->size->page1AddXPic, $width, '', '', '', '', false, 300);
 
     $this->generateFooter();
   }
   private function page1Back($width, $xPos, $yPos) {
+    $qr = new PngQr($this->categories, $this->categoryColours);
     $this->pdf->AddPage();
     $this->pdf->SetFont('helvetica', '', 12);
-    $qrPath = $this->getQr("how-does-it-work?qr&instructions");
+    $qrPath = $qr->getQr("how-does-it-work?qr&instructions");
     $imgdata  = file_get_contents($qrPath, false);
     $imgWidth = $this->pdf->getPageWidth() * $this->size->introPageWidthFactor;
     $imgWidth = $width;
     $this->pdf->Image("@".$imgdata, $xPos, $yPos + $this->size->page1AddXPic, $imgWidth, '', '', '', '', false, 300);
+    //$this->pdf->ImageSVG("@".$imgdata, $xPos, $yPos + $this->size->page1AddXPic, '', $imgWidth, $link='', $align='', $palign='', $border=0, $fitonpage=false);
     $this->generateFooter();
   }
   private function page2Front($width, $xPos, $yPos) {
@@ -638,10 +621,11 @@ class PlotPDF
 
   private function generateCardBack($threat) {
     // add a page
+    $qr = new SvgQr($this->categories, $this->categoryColours);
+
     $this->pdf->AddPage();
     $this->pdf->SetMargins($this->size->marginLeft, $this->size->marginTop, $this->size->marginRight);
 
-    //var_dump($threat);
     $this->generateCardColours($threat, false);
 
     $this->generateIcons($threat, false);
@@ -664,7 +648,7 @@ class PlotPDF
     $this->pdf->SetFont('helvetica', '', $this->size->fontExplanation);
     $this->pdf->setY($this->size->backRecommendationY);
     //$this->pdf->SetMargins($this->size->marginLeft+30, $this->size->marginTop, $this->size->marginRight);
-    $this->getQrPath($threat);
+    $qr->getQrPath($threat);
 
     $this->pdf->SetLeftMargin($this->size->frontExplanationMargin);
     $y1 = $this->pdf->getY();
@@ -701,27 +685,38 @@ class PlotPDF
       $yPos = $this->pdf->getY() - $this->size->backInfoQrAdjustY;
       $imgWidth = $this->size->backInfoQrWidth;
       $xPos = ($this->pdf->getPageWidth() - $imgWidth) / 2;
-      $qrPath = $this->getCardQrPath($threat);
+      $qrPath = $qr->getCardQrPath($threat);
       $imgdata  = file_get_contents($qrPath, false);
       $this->pdf->Image("@".$imgdata, $xPos, $yPos, $imgWidth, '', '', '', '', false, 300);
+      //$this->pdf->ImageSVG("@".$imgdata, $xPos, $yPos, '', $imgWidth, $link='', $align='', $palign='', $border=0, $fitonpage=false);
     }
 
     // no links in the PDF, we generate a qr instead
-    $qrPath = $this->getQrPath($threat);
+    $qrPath = $qr->getQrPath($threat);
     $this->pdf->setX($this->size->backQrX);
     $this->pdf->setY($this->size->backQrY);
     $imgdata  = file_get_contents($qrPath, false);
-    $this->pdf->Image("@".$imgdata, $this->size->backQrXPos, $this->size->backQrYPos, $this->size->backQrWidth, '', '', '', '', false, 300);
+
+    /**
+     * // HACK:
+     * the SVQ QR doesn't want to scale, so we need to manually add a width, height & viewport
+     * note: changing the width and height doesn't actually work, but seems to be needed for the viewBox to work
+     */
+    $fixedWidth = "100.00mm";
+    $fixedHeight = "100.00mm";
+    $svg = preg_replace(
+      '/<svg([^>]*)viewBox="[^"]*"/',
+      //'<svg$1width="' . $fixedWidth . '" height="' . $fixedHeight . '" viewBox="0 0 68.28 90.26"',
+      '<svg$1width="' . $fixedWidth . '" height="' . $fixedHeight . '" viewBox="0 0 42 55.520"',
+      $imgdata
+    );
+
+    $this->pdf->ImageSVG("@".$svg, $this->size->backQrXPos, $this->size->backQrYPos, '', ($this->size->backQrWidth), $link='', $align='', $palign='', $border=0, $fitonpage=true);
 
     // set core font
     $this->pdf->SetFont('helvetica', '', $this->size->fontNormalPlus);
 
     $this->generateFooter();
-
-    // output the HTML content
-    //$this->pdf->writeHTML($html, true, 0, true, true);
-
-    //$this->pdf->Ln();
   }
 
   private function generateCardColours($threat, $front = true) {
@@ -757,6 +752,7 @@ class PlotPDF
     $y = $this->size->iconCatY;
 
     $width = $this->size->iconCatWidth;
+    $svgWidthAdjustment = 3;
     $margin = $this->size->iconCatMargin;
 
     $xPos = $x;
@@ -768,7 +764,11 @@ class PlotPDF
     $i = 0;
     foreach ($threat->categories AS $category) {
       $category_filename = str_replace(" ", "_", str_replace(", ", "-", str_replace(" & ", "-", mb_strtolower($category))));
-      $src = self::IMGS_PATH."/icons/categories/".$category_filename.".svg";
+      $iconPath = self::IMGS_PATH."/icons/categories";
+      if ($i > 0) {
+        $iconPath .= "/trans";
+      }
+      $src = $iconPath."/".$category_filename.".svg";
       //$this->pdf->Image($src, $xPos, $yPos, $width, '', '', '', '', false, 300);
       $this->pdf->ImageSVG($src, $xPos, $yPos, '', $width, $link='', $align='', $palign='', $border=0, $fitonpage=false);
       if ($i == 0) {
@@ -786,8 +786,12 @@ class PlotPDF
     $this->pdf->SetAlpha(0.6);
     foreach ($threat->phases AS $phase) {
       $fase = mb_strtolower($phase);
+      /*
       $src = self::IMGS_PATH."/icons/lifecycle/".mb_strtolower($fase).".png";
       $this->pdf->Image($src, $xPos, $yPos, $width, '', '', '', '', false, 300);
+      */
+      $src = self::IMGS_PATH."/icons/lifecycle/".mb_strtolower($fase).".svg";
+      $this->pdf->ImageSVG($src, $xPos, $yPos, '', $width+$svgWidthAdjustment, $link='', $align='', $palign='', $border=0, $fitonpage=false);
       $xPos += $width + $margin;
     }
     $this->pdf->SetAlpha(1);
@@ -804,68 +808,6 @@ class PlotPDF
       //$this->pdf->setRTL(false);
       $this->pdf->SetAlpha(1);
     }
-  }
-
-  private function getQr($path) {
-    $hash = $this->createPathHash($path);
-    $qrPath = self::QR_IMG_DIR."/".$hash.".png";
-    if (!file_exists($qrPath)) {
-      $url = "https://plot4.ai/".$path;
-      $this->generateQRCode($url, $qrPath, $this->qrOptions, null);
-    }
-    return $qrPath;
-  }
-  private function getQrPath($threat) {
-    $hash = $this->createCardId($threat->categories[0], $threat->question);
-    $qrPath = self::QR_IMG_DIR."/".$hash.".png";
-    if (!file_exists($qrPath) || self::QR_OVERRIDE_CACHE) {
-      $url = "https://plot4.ai/library/card/".$hash;
-      $color = hexdec($this->getCategoryColour($threat->categories[0], "main", false));
-        /*---
-          $text,
-          $outfile = false,
-          $level = QR_ECLEVEL_L,
-          $size = 3,
-          $margin = 4,
-          $saveandprint=false,
-          $back_color = 0xFFFFFF,
-          $fore_color = 0x000000
-          */
-      //QRcode::png($url, $qrPath, QR_ECLEVEL_M, 3, 4, false, $color);
-      $this->generateQRCode($url, $qrPath, $this->qrOptions, $color);
-    }
-    return $qrPath;
-  }
-  private function generateQRCode(string $url, string $path, QROptions $options, ?int $color = null) {
-    if ($color !== null) {
-        $rgbColor = $this->intToRgb($color);
-        /*
-        $options->moduleValues = [
-            0 => [60, 0, 0], // Background color (white)
-            1 => $rgbColor,          // Foreground color
-        ];
-        */
-        //var_dump($options->moduleValues);
-        //$options->bgColor = $rgbColor;
-        //$options->imageTransparent = true;
-        //$options->transparencyColor = [255, 255, 255];
-        $options->bgColor = $rgbColor;
-    }
-    //var_dump($options);
-
-    $qrcode = new QRCode($options);
-
-    // Generate and save the QR code
-    $qrcode->render($url, $path);
-  }
-  private function getCardQrPath($threat) {
-    $filename = "card_qr_".substr(hash('sha256', $threat->question.$threat->qr), 0, 12);
-    $qrPath = self::QR_IMG_DIR."/".$filename.".png";
-    if (!file_exists($qrPath)) {
-      //QRcode::png(MarkDown::getLinkUrlOnly($threat->qr), $qrPath, QR_ECLEVEL_M, 3, 4, false);
-      $this->generateQRCode(MarkDown::getLinkUrlOnly($threat->qr), $qrPath, $this->qrOptions, null);
-    }
-    return $qrPath;
   }
 
   private function getCategoryColour($cat, $shade, $asArray = true) {
@@ -893,11 +835,7 @@ class PlotPDF
         }
       }
     }
-    /*
-    echo "Couldn't find category ".$cat."<br>\n";
-    var_dump($this->categories);
-    exit;
-    */
+
     // category not found, returning black
     return array(0, 0, 0);
   }
@@ -905,19 +843,8 @@ class PlotPDF
     list($r, $g, $b) = sscanf($hex, "#%02x%02x%02x");
     return array($r, $g, $b);
   }
-  // convert an integer (result of hexdec) into an RGB array
-  private function intToRgb(int $color) {
-    return [
-        ($color >> 16) & 0xFF, // Extract the red component
-        ($color >> 8) & 0xFF,  // Extract the green component
-        $color & 0xFF          // Extract the blue component
-    ];
-}
 
   private function createCardId($cat, $question) {
     return "h".substr(hash('sha256', $cat."_".$question), 0, 12);
-  }
-  private function createPathHash($path) {
-    return "path".substr(hash('sha256', $path), 0, 12);
   }
 }
