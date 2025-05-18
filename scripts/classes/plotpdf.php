@@ -240,7 +240,7 @@ class PlotPDF
         $this->pdf->setLanguageArray($l);
     }
 
-    $this->createIntro();
+    $this->createIntro($threats);
 
     // ---------------------------------------------------------
 
@@ -256,7 +256,7 @@ class PlotPDF
     }
   }
 
-  private function createIntro() {
+  private function createIntro($threats) {
     $width = $this->pdf->getPageWidth() * $this->size->introPageWidthFactor;
     $xPos = ($this->pdf->getPageWidth() - $width) / 2;
     $yPos = $this->pdf->getY() + 10;
@@ -273,7 +273,7 @@ class PlotPDF
     elseif ($this->printMode == self::PRINT_MODE_BOTH) {
       $this->page1Front($width, $xPos, $yPos);
       $this->page1Back($width, $xPos, $yPos);
-      $this->page2Front($width, $xPos, $yPos);
+      $this->page2Front($width, $xPos, $yPos, $threats);
       $this->page2Back($width, $xPos, $yPos);
       $this->page3Front($width, $xPos, $yPos);
       $this->page3Back($width, $xPos, $yPos);
@@ -303,47 +303,48 @@ class PlotPDF
     //$this->pdf->ImageSVG("@".$imgdata, $xPos, $yPos + $this->size->page1AddXPic, '', $imgWidth, $link='', $align='', $palign='', $border=0, $fitonpage=false);
     $this->generateNeutralFooter();
   }
-  private function page2Front($width, $xPos, $yPos) {
+  private function page2Front($width, $xPos, $yPos, $threats) {
+    $catPath = self::IMGS_PATH.'/icons/categories/';
     $this->pdf->AddPage();
-    $this->pdf->SetFont('helvetica', '', $this->size->fontNormal);
+    $this->pdf->SetFont('helvetica', '', ($this->size->fontNormal-1));
     $imgWidth = $this->size->categoryPic;
     $firstCellStyle = "width: ".$this->size->tableMaxCell1."; border-bottom: 1px solid black; text-align: center;";
     $secondCellStyle = "border-bottom: 1px solid black; font-size: ".$this->size->fontNormalPlus."pt; text-align: justify";
     $table = '<h1 style="font-size: '.$this->size->fontH1.'pt; text-align: center; color: #0f71d4;">Guidelines</h1>'.
-      '<p style="text-align: justify;">PLOT4ai is a library containing 86 threats classified under the following <strong>8 categories:</strong></p>'.
+      '<p style="text-align: justify;">PLOT4ai is a library containing '.count($threats).' threats classified under the following <strong>8 categories:</strong></p>'.
       '<table width="'.$this->size->tableMax.'" cellspacing="0" cellpadding="'.$this->size->tableMaxCellPadding.'">
             <tbody>
               <tr>
-                <td style="'.$firstCellStyle.'"><img src="'.self::IMGS_PATH.'/pdf/technique.png" width="'.$imgWidth.'px"><br>Technique &amp; Processes</td>
+                <td style="'.$firstCellStyle.'"><img src="data:image/png;base64,'.base64_encode(file_get_contents($catPath.'/data-data_governance.png')).'" width="'.$imgWidth.'px"><br>Data &amp; Data Governance</td>
                 <td style="'.$secondCellStyle.'">Our processes and/or technical actions can have an adverse impact on individuals or cause harm</td>
               </tr>
               <tr>
-                <td style="'.$firstCellStyle.'"><img src="'.self::IMGS_PATH.'/pdf/accessibility.png" width="'.$imgWidth.'px"><br>Accessibility</td>
-                <td style="'.$secondCellStyle.'">We are not providing the ability to access and use our AI systems considering all types of individuals</td>
+                <td style="'.$firstCellStyle.'"><img src="data:image/png;base64,'.base64_encode(file_get_contents($catPath.'/transparency-accessibility.png')).'" width="'.$imgWidth.'px"><br>Transparency &amp; Accessibility</td>
+                <td style="'.$secondCellStyle.'">The AI decisions or interactions are not understandable or accessible to all users, which limits the usability of your AI system and reduces trust.</td>
               </tr>
               <tr>
-                <td style="'.$firstCellStyle.'"><img src="'.self::IMGS_PATH.'/pdf/identifiability.png" width="'.$imgWidth.'px"><br>Identifiability &amp; Linkability</td>
-                <td style="'.$secondCellStyle.'">Individuals can be linked to certain attributes or individuals and they can also be identified</td>
+                <td style="'.$firstCellStyle.'"><img src="data:image/png;base64,'.base64_encode(file_get_contents($catPath.'/privacy-data_protection.png')).'" width="'.$imgWidth.'px"><br>Privacy &amp; Data Protection</td>
+                <td style="'.$secondCellStyle.'">Lack of proper personal data protection measures, increasing the risk of unauthorized access, misuse, or legal violations.</td>
               </tr>
               <tr>
-                <td style="'.$firstCellStyle.'"><img src="'.self::IMGS_PATH.'/pdf/security.png" width="'.$imgWidth.'px"><br>Security</td>
-                <td style="'.$secondCellStyle.'">We can cause harm or have an adverse impact on individuals by not protecting our AI systems and processes from security threats</td>
+                <td style="'.$firstCellStyle.'"><img src="data:image/png;base64,'.base64_encode(file_get_contents($catPath.'/cybersecurity.png')).'" width="'.$imgWidth.'px"><br>Cybersecurity</td>
+                <td style="'.$secondCellStyle.'">Insufficient security measures that can lead to data breaches, adversarial attacks, or system manipulation.</td>
               </tr>
               <tr>
-                <td style="'.$firstCellStyle.'"><img src="'.self::IMGS_PATH.'/pdf/safety.png" width="'.$imgWidth.'px"><br>Safety</td>
-                <td style="'.$secondCellStyle.'">We do not recognize hazards and protect individuals from harms or other dangers</td>
+                <td style="'.$firstCellStyle.'"><img src="data:image/png;base64,'.base64_encode(file_get_contents($catPath.'/safety-environmental_impact.png')).'" width="'.$imgWidth.'px"><br>Safety &amp; Environmental Impact</td>
+                <td style="'.$secondCellStyle.'">Hazards that might cause harm to employees, users, infrastructure, or the environment.</td>
               </tr>
               <tr>
-                <td style="'.$firstCellStyle.'"><img src="'.self::IMGS_PATH.'/pdf/unawareness.png" width="'.$imgWidth.'px"><br>Unawareness</td>
-                <td style="'.$secondCellStyle.'">We do not inform individuals and offer them the possibility to intervene</td>
+                <td style="'.$firstCellStyle.'"><img src="data:image/png;base64,'.base64_encode(file_get_contents($catPath.'/bias-fairness-discrimination.png')).'" width="'.$imgWidth.'px"><br>Bias, Fairness &amp; Discrimination</td>
+                <td style="'.$secondCellStyle.'">Presence of bias in the data or design of the AI system, leading to unfair treatment of individuals or groups.</td>
               </tr>
               <tr>
-                <td style="'.$firstCellStyle.'"><img src="'.self::IMGS_PATH.'/pdf/ethics.png" width="'.$imgWidth.'px"><br>Ethics &amp;<br>Human Rights</td>
-                <td style="'.$secondCellStyle.'">We do not reflect on matters of value and principles that can have an adverse impact on individuals or cause harm</td>
+                <td style="'.$firstCellStyle.'"><img src="data:image/png;base64,'.base64_encode(file_get_contents($catPath.'/ethics-human_rights.png')).'" width="'.$imgWidth.'px"><br>Ethics &amp; Human Rights</td>
+                <td style="'.$secondCellStyle.'">Overlooking the ethical and societal impact of the AI system, which could result in interference with one or more human rights or lead to unintended harm.</td>
               </tr>
               <tr>
-                <td style="'.$firstCellStyle.'"><img src="'.self::IMGS_PATH.'/pdf/non-compliance.png" width="'.$imgWidth.'px"><br>Non-compliance</td>
-                <td style="'.$secondCellStyle.'">We do not comply with data protection law and/or other related regulations</td>
+                <td style="'.$firstCellStyle.'"><img src="data:image/png;base64,'.base64_encode(file_get_contents($catPath.'/accountability-human_oversight.png')).'" width="'.$imgWidth.'px"><br>Accountability &amp; Human Oversight</td>
+                <td style="'.$secondCellStyle.'">Unclear responsibility for decisions of the AI system and lack of mechanisms for human oversight, increasing the risk of unintended consequences.</td>
               </tr>
             </tbody>
           </table>';
@@ -353,17 +354,26 @@ class PlotPDF
     $this->generateNeutralFooter();
   }
   private function page2Back($width, $xPos, $yPos) {
+    $lcPath = self::IMGS_PATH.'/icons/lifecycle';
     $this->pdf->AddPage();
     $this->pdf->SetFont('helvetica', '', $this->size->fontNormal);
     $firstCellStyle = "width: ".$this->size->tablePhaseCell1."; border-bottom: 1px solid black; border-right: 1px solid black; padding: 135px; text-align: center;";
     $secondCellStyle = "border-bottom: 1px solid black; padding: 5px; font-size: ".$this->size->fontH1."pt;";
+    $cellStyle = "width: 16.67%; text-align: center;";
     $table = '<h1 style="font-size: '.$this->size->fontH1.'pt; text-align: center; color: #0f71d4;">Development Lifecycle (DLC)</h1>'.
-      '<p>PLOT4ai contains a set of only <strong>4 DLC</strong> phases where threats can apply:</p>'.
+      '<p>PLOT4ai contains a set of <strong>6 DLC</strong> phases where threats can apply:</p>'.
+      '<table><tr><td style="'.$cellStyle.'"><img src="data:image/png;base64,'.base64_encode(file_get_contents($lcPath.'/design.png')).'" width="'.$this->size->phasePic.'px"></td>'.
+      '<td style="'.$cellStyle.'"><img src="data:image/png;base64,'.base64_encode(file_get_contents($lcPath.'/input.png')).'" width="'.$this->size->phasePic.'px"></td>'.
+      '<td style="'.$cellStyle.'"><img src="data:image/png;base64,'.base64_encode(file_get_contents($lcPath.'/model.png')).'" width="'.$this->size->phasePic.'px"></td>'.
+      '<td style="'.$cellStyle.'"><img src="data:image/png;base64,'.base64_encode(file_get_contents($lcPath.'/output.png')).'" width="'.$this->size->phasePic.'px"></td>'.
+      '<td style="'.$cellStyle.'"><img src="data:image/png;base64,'.base64_encode(file_get_contents($lcPath.'/deploy.png')).'" width="'.$this->size->phasePic.'px"></td>'.
+      '<td style="'.$cellStyle.'"><img src="data:image/png;base64,'.base64_encode(file_get_contents($lcPath.'/monitor.png')).'" width="'.$this->size->phasePic.'px"></td></tr></table>'.
+      /*
       '<table><tr><td style="width:30%"></td><td style="width:50%">
         <table width="'.$this->size->tablePhase.'" cellspacing="0" cellpadding="4">
             <tbody>
               <tr>
-                <td style="'.$firstCellStyle.'"><img src="'.self::IMGS_PATH.'/icons/lifecycle/design.png" width="'.$this->size->phasePic.'px"></td>
+                <td style="'.$firstCellStyle.'"><img src="data:image/png;base64,'.base64_encode(file_get_contents($lcPath.'/design.png')).'" width="'.$this->size->phasePic.'px"></td>
                 <td style="'.$secondCellStyle.'"><div style="line-height:16px;">Design</div></td>
               </tr>
               <tr>
@@ -380,7 +390,7 @@ class PlotPDF
               </tr>
             </tbody>
           </table>
-        </td><td style="width:20%"></td></tr></table><br><br>'.
+        </td><td style="width:20%"></td></tr></table>*/'<br><br>'.
         '<h1 style="font-size: '.$this->size->fontH1.'pt; text-align: center; color: #0f71d4;">How can you apply PLOT4ai in practice?</h1>'.
         '<h2 style="font-size: '.$this->size->fontNormalPlus.'pt; color: #0f71d4;">Quick tips before starting:</h2><ul>'.
           '<li style="text-align: justifyt;">Sessions should not be longer than 1.5, max. 2 hours to avoid tiredness and lack of focus. You can also do 30 min. timeboxed sessions focussing on just one or two specific categories.</li>'.
