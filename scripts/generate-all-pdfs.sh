@@ -24,9 +24,9 @@ fi
 if jq empty deck.json; then
   #php scripts/generate-qr.php
   php scripts/generate-pdf.php plot4ai-A4.pdf A4 FrontAndBack
-  #php scripts/generate-pdf.php plot4ai-A6.pdf A6 FrontAndBack
-  #php scripts/generate-pdf.php plot4ai-A6-frontsides.pdf A6 Fronts
-  #php scripts/generate-pdf.php plot4ai-A6-backsides.pdf A6 Backs
+  php scripts/generate-pdf.php plot4ai-A6.pdf A6 FrontAndBack
+  php scripts/generate-pdf.php plot4ai-A6-frontsides.pdf A6 Fronts
+  php scripts/generate-pdf.php plot4ai-A6-backsides.pdf A6 Backs
   echo "Done"
 else
   echo "Error: deck.json contains invalid JSON; please check the contents."
