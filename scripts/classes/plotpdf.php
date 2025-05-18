@@ -289,7 +289,7 @@ class PlotPDF
     $src = self::IMGS_PATH."/pdf/phases-and-categories.png";
     $this->pdf->Image($src, $xPos, $yPos + $this->size->page1AddXPic, $width, '', '', '', '', false, 300);
 
-    $this->generateFooter();
+    $this->generateNeutralFooter();
   }
   private function page1Back($width, $xPos, $yPos) {
     $qr = new PngQr($this->categories, $this->categoryColours);
@@ -301,7 +301,7 @@ class PlotPDF
     $imgWidth = $width;
     $this->pdf->Image("@".$imgdata, $xPos, $yPos + $this->size->page1AddXPic, $imgWidth, '', '', '', '', false, 300);
     //$this->pdf->ImageSVG("@".$imgdata, $xPos, $yPos + $this->size->page1AddXPic, '', $imgWidth, $link='', $align='', $palign='', $border=0, $fitonpage=false);
-    $this->generateFooter();
+    $this->generateNeutralFooter();
   }
   private function page2Front($width, $xPos, $yPos) {
     $this->pdf->AddPage();
@@ -350,7 +350,7 @@ class PlotPDF
     $this->pdf->SetLeftMargin($xPos);
     $this->pdf->SetRightMargin($xPos);
     $this->pdf->writeHTML($table, true, 0, true, true);
-    $this->generateFooter();
+    $this->generateNeutralFooter();
   }
   private function page2Back($width, $xPos, $yPos) {
     $this->pdf->AddPage();
@@ -393,7 +393,7 @@ class PlotPDF
     $this->pdf->SetLeftMargin($xPos);
     $this->pdf->SetRightMargin($xPos);
     $this->pdf->writeHTML($table, true, 0, true, true);
-    $this->generateFooter();
+    $this->generateNeutralFooter();
   }
   private function page3Front($width, $xPos, $yPos) {
     $this->pdf->AddPage();
@@ -414,7 +414,7 @@ class PlotPDF
     $this->pdf->SetLeftMargin($xPos);
     $this->pdf->SetRightMargin($xPos);
     $this->pdf->writeHTML($html, true, 0, true, true);
-    $this->generateFooter();
+    $this->generateNeutralFooter();
   }
   private function page3Back($width, $xPos, $yPos) {
     $this->pdf->AddPage();
@@ -442,31 +442,37 @@ class PlotPDF
     $this->pdf->SetLeftMargin($xPos);
     $this->pdf->SetRightMargin($xPos);
     $this->pdf->writeHTML($html, true, 0, true, true);
-    $this->generateFooter();
+    $this->generateNeutralFooter();
   }
 
-  private function generateFooter() {
-    $this->pdf->Image(self::IMGS_PATH.'/pdf/logo-sub.png', $this->size->footerOffsetX+$this->size->footerAddXLogoSub, $this->size->footerOffsetY, '', $this->size->logoSubHeight, '', '', '', false, 300);
-    $this->pdf->SetFont('helvetica', 'B', $this->size->fontFooterPlot);
-
-    $this->pdf->SetXY($this->size->footerOffsetX, $this->size->footerOffsetY+1);
-    $html = "<span style=\"color: #666;\">PLOT</span><span style=\"color: #999;\">4</span>";
-    $this->pdf->writeHTML($html, true, 0, true, true);
-
-    $this->pdf->SetXY($this->size->footerOffsetX+$this->size->footerAddXAI, $this->size->footerOffsetY+$this->size->footerAddYAI);
-    $this->pdf->SetFont('helvetica', 'B', $this->size->fontFooterAI);
-    $html = "<span style=\"color: #666;\">AI</span>";
-    $this->pdf->writeHTML($html, true, 0, true, true);
-
-    //$this->drawGutter();
+  private function generateNeutralFooter() {
+    $this->pdf->Image(self::IMGS_PATH.'/pdf/plot4ai_black.png', $x='', $y=$this->size->footerOffsetY, $w='', $h=$this->size->logoHeight, $type='PNG', $link='', $align='', $resize=false, $dpi=300, $palign='C', $ismask=false,
+      $imgmask=false, $borde=0, $fitbox=false, $hidden=false, $fitonpage=false, $alt=false, $altimgs = array());
+  }
+  private function generateFooter($threat, $side) {
+    $this->pdf->SetAlpha(1);
+    if ($side == "front") {
+      if (in_array("Traditional", $threat->aitypes)) {
+        $imgPath = self::IMGS_PATH.'/pdf/plot4ai_black.png';
+      }
+      else {
+        $imgPath = self::IMGS_PATH.'/pdf/plot4genai_black.png';
+      }
+    }
+    elseif ($side == "back") {
+      if (in_array("Generative", $threat->aitypes)) {
+        $imgPath = self::IMGS_PATH.'/pdf/plot4genai_black.png';
+      }
+      else {
+        $imgPath = self::IMGS_PATH.'/pdf/plot4ai_black.png';
+      }
+    }
+    $this->pdf->Image($imgPath, $x='', $y=$this->size->footerOffsetY, $w='', $h=$this->size->logoHeight, $type='PNG', $link='', $align='', $resize=false, $dpi=300, $palign='C', $ismask=false,
+      $imgmask=false, $borde=0, $fitbox=false, $hidden=false, $fitonpage=false, $alt=false, $altimgs = array());
   }
 
   private function drawGutter() {
-    $this->pdf->SetDrawColor(255, 0, 0);/*
-    $this->pdf->Line(3, 3, $this->size->widthMm-3, 3);
-    $this->pdf->Line($this->size->widthMm-3, 3, $this->size->widthMm-3, $this->size->heightMm-3);
-    $this->pdf->Line($this->size->widthMm-3, $this->size->heightMm-3, 3, $this->size->heightMm-3);
-    $this->pdf->Line(3, $this->size->heightMm-3, 3, 3);*/
+    $this->pdf->SetDrawColor(255, 0, 0);
     $this->pdf->Line(3, 3, $this->size->widthMm+3, 3);
     $this->pdf->Line($this->size->widthMm+3, 3, $this->size->widthMm+3, $this->size->heightMm+3);
     $this->pdf->Line($this->size->widthMm+3, $this->size->heightMm+3, 3, $this->size->heightMm+3);
@@ -562,35 +568,29 @@ class PlotPDF
       foreach ($threat->cia AS $i => $ciaKey) {
         $words[] = $this->ciaValues[$ciaKey];
       }
-      $this->showCIA($words);
+      $this->showTags($words);
     }
     //$this->pdf->SetLeftMargin($this->size->marginLeft);
     $this->pdf->setY($this->size->frontThreatIfY);
     $html =
       '<p style="text-align:center; font-size: '.$this->size->fontThreatIf.'pt; color: white;">If your answer is <b>'.mb_strtoupper($threat->threatif).'</b> or <b>MAYBE</b>, you might be at risk</p>';
     $this->pdf->writeHTML($html, true, 0, true, true);
-    /*$this->pdf->setY($this->size->frontThreatIfY2);
-    $html =
-      '<p style="text-align:center; font-size: '.$this->size->fontThreatIf2.'pt; color: white;;">If you are <b>not sure</b>, then you might be at risk too</p>';
-    $this->pdf->writeHTML($html, true, 0, true, true);
-    */
 
     // draw pictures
     $this->pdf->SetAlpha(0.6);
     $this->pdf->Image(self::IMGS_PATH.'/icons/exclamation_triangle.png', $this->size->frontTextPicX, $this->size->frontExclamationPicYPos, '', $this->size->frontTextPicSize, '', '', '', false, 300);
     $this->pdf->SetAlpha(1);
 
-    $this->generateFooter();
+    $this->generateFooter($threat, "front");
   }
 
-
-  private function showCIA($words) {
-    $padding = $this->size->ciaLabelPadding;
-    $height = $this->size->ciaLabelHeight;
+  private function showTags($words) {
+    $padding = $this->size->tagLabelPadding;
+    $height = $this->size->tagLabelHeight;
     $x = $this->pdf->GetX();
     $y = $this->pdf->GetY();
 
-    $this->pdf->SetFont('helvetica', '', $this->size->fontCIALabels);
+    $this->pdf->SetFont('helvetica', '', $this->size->fontTagLabels);
 
     // Loop over each word
     foreach ($words as $word) {
@@ -691,6 +691,21 @@ class PlotPDF
       //$this->pdf->ImageSVG("@".$imgdata, $xPos, $yPos, '', $imgWidth, $link='', $align='', $palign='', $border=0, $fitonpage=false);
     }
 
+    // if applicable, indicate roles
+    if (isset($threat->roles) && is_array($threat->roles) && count($threat->roles) > 0) {
+      $this->pdf->setY($this->size->frontRoleTextY);
+      $this->pdf->SetAlpha(0.67);
+      $this->pdf->writeHTML('<p style="font-size: '.$this->size->fontRoleText.'pt;">Applicable to the following roles:<p>', true, 0, true, true);
+
+      $this->pdf->SetAlpha(1);
+      $this->pdf->setY($this->size->frontRoleLabelY);
+      $roles = array();
+      foreach ($threat->roles AS $i => $role) {
+        $roles[] = $role;
+      }
+      $this->showTags($roles);
+    }
+
     // no links in the PDF, we generate a qr instead
     $qrPath = $qr->getQrPath($threat);
     $this->pdf->setX($this->size->backQrX);
@@ -716,7 +731,7 @@ class PlotPDF
     // set core font
     $this->pdf->SetFont('helvetica', '', $this->size->fontNormalPlus);
 
-    $this->generateFooter();
+    $this->generateFooter($threat, "back");
   }
 
   private function generateCardColours($threat, $front = true) {

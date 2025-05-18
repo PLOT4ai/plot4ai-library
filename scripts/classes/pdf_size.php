@@ -18,8 +18,7 @@ class PDF_Size
   public $footerOffsetX;
   public $footerOffsetY;
   public $footerAddXAI;
-  public $footerAddXLogoSub;
-  public $logoSubHeight;
+  public $logoHeight;
 
   /* page 1 */
   public $page1AddXPic;
@@ -75,8 +74,7 @@ class PDF_Size_A4 extends PDF_Size
     $this->footerOffsetY = 282;
     $this->footerAddXAI = 25;
     $this->footerAddYAI = 3;
-    $this->footerAddXLogoSub = 32;
-    $this->logoSubHeight = 8;
+    $this->logoHeight = 14;
 
     /* page 1 */
     $this->page1AddXPic = 50;
@@ -125,6 +123,8 @@ class PDF_Size_A4 extends PDF_Size
     $this->fontExplanationSizeIncrease = 0.5;
     $this->frontCIATextY = 235;
     $this->frontCIALabelY = 244;
+    $this->frontRoleTextY = 238;
+    $this->frontRoleLabelY = 247;
     $this->frontThreatIfY = 263;
     $this->frontTextPicSize = 13;
     $this->frontTextPicX = 10;
@@ -140,8 +140,8 @@ class PDF_Size_A4 extends PDF_Size
     $this->backInfoQrWidth = 30;
 
     /* CIA values */
-    $this->ciaLabelPadding = 4;
-    $this->ciaLabelHeight = 10;
+    $this->tagLabelPadding = 4;
+    $this->tagLabelHeight = 10;
 
     /* font sizes */
     $this->fontFooterPlot = 22;
@@ -152,7 +152,8 @@ class PDF_Size_A4 extends PDF_Size
     $this->fontCategory = 13;
     $this->fontFrontQuestionInit = 21;
     $this->fontCIAText = 15;
-    $this->fontCIALabels = 14;
+    $this->fontRoleText = 15;
+    $this->fontTagLabels = 14;
     $this->fontRecommendationHeader = 21;
     $this->fontExplanation = 18;
     $this->fontFrontExplanationInit = 17.5;
@@ -185,8 +186,7 @@ class PDF_Size_A6 extends PDF_Size
     $this->footerOffsetY = 144;
     $this->footerAddXAI = 12.5;
     $this->footerAddYAI = 2.1;
-    $this->footerAddXLogoSub = 16;
-    $this->logoSubHeight = 4;
+    $this->logoHeight = 7;
 
     /* page 1 */
     $this->page1AddXPic = 20;
@@ -235,6 +235,8 @@ class PDF_Size_A6 extends PDF_Size
     $this->fontExplanationSizeIncrease = 0.25;
     $this->frontCIATextY = 115;
     $this->frontCIALabelY = 119;
+    $this->frontRoleTextY = 118;
+    $this->frontRoleLabelY = 122;
     $this->frontThreatIfY = 131;
     $this->frontTextPicSize = 7.5;
     $this->frontTextPicX = 5.5;
@@ -250,8 +252,8 @@ class PDF_Size_A6 extends PDF_Size
     $this->backInfoQrWidth = 15;
 
     /* CIA values */
-    $this->ciaLabelPadding = 2;
-    $this->ciaLabelHeight = 5;
+    $this->tagLabelPadding = 2;
+    $this->tagLabelHeight = 5;
 
     /* font sizes */
     $this->fontFooterPlot = 11;
@@ -262,7 +264,8 @@ class PDF_Size_A6 extends PDF_Size
     $this->fontCategory = 5.5;
     $this->fontFrontQuestionInit = 9;
     $this->fontCIAText = 7.5;
-    $this->fontCIALabels = 7;
+    $this->fontRoleText = 7.5;
+    $this->fontTagLabels = 7;
     $this->fontExplanation = 9;
     $this->fontFrontExplanationInit = 8.75;
     $this->fontRecommendationHeader = 10.5;
