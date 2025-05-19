@@ -5,7 +5,7 @@
 		"colour": "83b3db",
 		"cards": [
 			{
-				"question": "Is our data complete, up-to-date, and trustworthy?",
+				"question": "Is our data complete, up-to-date, and trustwortthy?",
 				"threatif": "No",
 				"label": "Data Quality",
 				"tags": [
