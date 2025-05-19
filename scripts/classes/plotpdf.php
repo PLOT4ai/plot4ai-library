@@ -52,11 +52,11 @@ class PlotPDF
   /**
    * constants we use in the PDF
    */
-   private const PDF_CREATOR = "Isabel Barbera - plot4ai";
+   private const PDF_CREATOR = "Isabel Barbera - PLOT4AI";
    private const PDF_AUTHOR = "Isabel Barbera";
-   private const PDF_TITLE = "PLOT4ai";
+   private const PDF_TITLE = "PLOT4AI";
    private const PDF_SUBJECT = "Threat Library";
-   private const PDF_KEYWORDS = "PLOT4ai, Practical, Threat Modeling, library";
+   private const PDF_KEYWORDS = "PLOT4AI, Practical, Threat Modeling, library";
 
    private $ciaValues = array(
      "c" => "Confidentiality",
@@ -309,9 +309,9 @@ class PlotPDF
     $this->pdf->SetFont('helvetica', '', ($this->size->fontNormal-1));
     $imgWidth = $this->size->categoryPic;
     $firstCellStyle = "width: ".$this->size->tableMaxCell1."; border-bottom: 1px solid black; text-align: center;";
-    $secondCellStyle = "border-bottom: 1px solid black; font-size: ".$this->size->fontNormalPlus."pt; text-align: justify";
+    $secondCellStyle = "border-bottom: 1px solid black; font-size: ".($this->size->fontNormalPlus-1)."pt; text-align: justify";
     $table = '<h1 style="font-size: '.$this->size->fontH1.'pt; text-align: center; color: #0f71d4;">Guidelines</h1>'.
-      '<p style="text-align: justify;">PLOT4ai is a library containing '.count($threats).' threats classified under the following <strong>8 categories:</strong></p>'.
+      '<p style="text-align: justify;">PLOT4AI is a library containing '.count($threats).' threats classified under the following <strong>8 categories:</strong></p>'.
       '<table width="'.$this->size->tableMax.'" cellspacing="0" cellpadding="'.$this->size->tableMaxCellPadding.'">
             <tbody>
               <tr>
@@ -360,45 +360,22 @@ class PlotPDF
     $firstCellStyle = "width: ".$this->size->tablePhaseCell1."; border-bottom: 1px solid black; border-right: 1px solid black; padding: 135px; text-align: center;";
     $secondCellStyle = "border-bottom: 1px solid black; padding: 5px; font-size: ".$this->size->fontH1."pt;";
     $cellStyle = "width: 16.67%; text-align: center;";
-    $table = '<h1 style="font-size: '.$this->size->fontH1.'pt; text-align: center; color: #0f71d4;">Development Lifecycle (DLC)</h1>'.
-      '<p>PLOT4ai contains a set of <strong>6 DLC</strong> phases where threats can apply:</p>'.
+    $table = '<h1 style="font-size: '.$this->size->fontH1.'pt; text-align: center; color: #0f71d4;">AI Lifecycle</h1>'.
+      '<p>PLOT4AI contains a set of six lifecycle phases where threats can apply:</p>'.
       '<table><tr><td style="'.$cellStyle.'"><img src="data:image/png;base64,'.base64_encode(file_get_contents($lcPath.'/design.png')).'" width="'.$this->size->phasePic.'px"></td>'.
       '<td style="'.$cellStyle.'"><img src="data:image/png;base64,'.base64_encode(file_get_contents($lcPath.'/input.png')).'" width="'.$this->size->phasePic.'px"></td>'.
       '<td style="'.$cellStyle.'"><img src="data:image/png;base64,'.base64_encode(file_get_contents($lcPath.'/model.png')).'" width="'.$this->size->phasePic.'px"></td>'.
       '<td style="'.$cellStyle.'"><img src="data:image/png;base64,'.base64_encode(file_get_contents($lcPath.'/output.png')).'" width="'.$this->size->phasePic.'px"></td>'.
       '<td style="'.$cellStyle.'"><img src="data:image/png;base64,'.base64_encode(file_get_contents($lcPath.'/deploy.png')).'" width="'.$this->size->phasePic.'px"></td>'.
-      '<td style="'.$cellStyle.'"><img src="data:image/png;base64,'.base64_encode(file_get_contents($lcPath.'/monitor.png')).'" width="'.$this->size->phasePic.'px"></td></tr></table>'.
-      /*
-      '<table><tr><td style="width:30%"></td><td style="width:50%">
-        <table width="'.$this->size->tablePhase.'" cellspacing="0" cellpadding="4">
-            <tbody>
-              <tr>
-                <td style="'.$firstCellStyle.'"><img src="data:image/png;base64,'.base64_encode(file_get_contents($lcPath.'/design.png')).'" width="'.$this->size->phasePic.'px"></td>
-                <td style="'.$secondCellStyle.'"><div style="line-height:16px;">Design</div></td>
-              </tr>
-              <tr>
-                <td style="'.$firstCellStyle.'"><img src="'.self::IMGS_PATH.'/icons/lifecycle/input.png" width="'.$this->size->phasePic.'px"></td>
-                <td style="'.$secondCellStyle.'"><div style="line-height:16px;">Input</div></td>
-              </tr>
-              <tr>
-                <td style="'.$firstCellStyle.'"><img src="'.self::IMGS_PATH.'/icons/lifecycle/model.png" width="'.$this->size->phasePic.'px"></td>
-                <td style="'.$secondCellStyle.'"><div style="line-height:16px;">Model</div></td>
-              </tr>
-              <tr>
-                <td style="'.$firstCellStyle.'"><img src="'.self::IMGS_PATH.'/icons/lifecycle/output.png" width="'.$this->size->phasePic.'px"></td>
-                <td style="'.$secondCellStyle.'"><div style="line-height:16px;">Output</div></td>
-              </tr>
-            </tbody>
-          </table>
-        </td><td style="width:20%"></td></tr></table>*/'<br><br>'.
-        '<h1 style="font-size: '.$this->size->fontH1.'pt; text-align: center; color: #0f71d4;">How can you apply PLOT4ai in practice?</h1>'.
+      '<td style="'.$cellStyle.'"><img src="data:image/png;base64,'.base64_encode(file_get_contents($lcPath.'/monitor.png')).'" width="'.$this->size->phasePic.'px"></td></tr></table><br><br>'.
+        '<h1 style="font-size: '.$this->size->fontH1.'pt; text-align: center; color: #0f71d4;">How can you apply PLOT4AI in practice?</h1>'.
         '<h2 style="font-size: '.$this->size->fontNormalPlus.'pt; color: #0f71d4;">Quick tips before starting:</h2><ul>'.
           '<li style="text-align: justifyt;">Sessions should not be longer than 1.5, max. 2 hours to avoid tiredness and lack of focus. You can also do 30 min. timeboxed sessions focussing on just one or two specific categories.</li>'.
           '<li style="text-align: justifyt;">It is important to identify all the relevant stakeholders that need to be present in the session. Especially during the design phase it is recommended that you involve all the people that have the knowledge and/or can take decisions. Remember that diversity is very important!</li>'.
-          '<li style="text-align: justifyt;">A facilitator is needed to guide the sessions. Decide who will be taking this role. It does not have to be a privacy expert but having some knowledge can be helpful.</li>'.
+          '<li style="text-align: justifyt;">A facilitator is needed to guide the sessions. Decide who will be taking this role. It does not have to be an AI expert but having some knowledge can be helpful.</li>'.
           '<li style="text-align: justifyt;">Preparing for the session by selecting the right questions is very important. For instance, after the design phase, once the requirements are (more) clear, try to avoid selecting cards related to threats that are already taken care of during your quality assurance and control process. Not doing this will otherwise feel like a duplication of work and create frustrations.</li>'.
           '<li style="text-align: justifyt;">If prioritization of the threats is important, consider adding an extra column for Effort in the Threat Report Template (see step 8 below). The priority can then also take into account the effort that is required.</li>'.
-          '<li style="text-align: justifyt;">This is like a game. Establish clear rules for time boxing: how long can discussions last per threat and when is an exception allowed.</li>'.
+          '<li style="text-align: justifyt;">This is like a game. Establish clear rules for time boxing: how long can discussions last per threat and when an exception is allowed.</li>'.
           '</ul>';
     $this->pdf->SetLeftMargin($xPos);
     $this->pdf->SetRightMargin($xPos);
@@ -416,10 +393,11 @@ class PlotPDF
           '<li style="text-align: justifyt;">For each selected card, read out loud the question and the extra info provided on the card.</li>'.
           '<li style="text-align: justifyt;">Discuss the possible threat together. Time box how long you want to think about an answer: 2 minutes per answer can be sufficient but consider accepting exceptions if extra time is required because the group finds it difficult to reach consensus.<br>When threat modeling the category Ethics & Human Rights consider giving more time per question. This category usually asks for a higher level of reflection in the group.</li>'.
           '<li style="text-align: justifyt;">The card will indicate if answering YES or NO to the main question means that you have found a threat.<br>If you are not sure, then it is always a possibility that you have found a threat.</li>'.
-          '<li style="text-align: justifyt;">If you have found a threat, turn the card to read the recommendations. This is optional, you can also decide to do that after the session.</li>'.
+          '<li style="text-align: justifyt;">When a threat has been identified, turn the card to read the recommendations. This is optional, you can also decide to do that after the session.</li>'.
           '<li style="text-align: justifyt;">Document the threat. You can use the Threat Report Template that we provide for that.</li>'.
-          '<li style="text-align: justifyt;">Mark the question as a threat in the file and quickly discuss with the group if the threat should be classified as a Low, Medium or High risk. This is helpful to prioritize actions. You can also take the opportunity to write down some notes about possible actions and even indicate a (risk) owner.<br><br><img src="'.self::IMGS_PATH.'/threat-report.png"><br></li>'.
-          '<li style="text-align: justifyt;">You are finished when time is over or when all cards are examined.</li>'.
+          '<li style="text-align: justifyt;">Mark the question as a threat in the file and quickly discuss with the group if the threat should be classified as a Low, Medium or High risk. This is helpful to prioritize actions. You can also take the opportunity to write down some notes about possible actions and even indicate a (risk) owner.<br>'.
+          '<br><img src="data:image/png;base64,'.base64_encode(file_get_contents(self::IMGS_PATH.'/threat-report.png')).'"><br></li>'.
+          '<li style="text-align: justifyt;">You are finished when time is over or when all cards have been examined.</li>'.
           '</ol>';
     $this->pdf->SetLeftMargin($xPos);
     $this->pdf->SetRightMargin($xPos);
@@ -434,8 +412,7 @@ class PlotPDF
           '<li style="text-align: justifyt;"i>Threats can also be added to your project backlog (in Jira for instance).</li>'.
           '<li style="text-align: justifyt;">You can decide to focus on easy/quick fixes first and later follow up on the rest.</li>'.
           '<li style="text-align: justifyt;">You will find threats that can be considered like a warning, but that are not really risks yet that you can mitigate at that moment. It is also important to document these threats and review them regularly.</li>'.
-          '<li style="text-align: justifyt;">Consider establishing (privacy) acceptance criteria within your development team(s).</li>'.
-          '<li style="text-align: justifyt;">In Agile: you can do privacy refinements to go through all the privacy user stories in the backlog.</li>'.
+          '<li style="text-align: justifyt;">Continue with the assessment and evaluation of the threats following the risk management process of your organization.</li>'.
           '<li style="text-align: justifyt;">You can train your team in knowledge areas such as privacy, data protection and ethics. This can also be beneficial to facilitate the threat modeling sessions.</li>'.
           '</ul>';
     $html .=
@@ -447,8 +424,10 @@ class PlotPDF
           '<li style="text-align: justifyt;">It brings structure and focus to the teams, increases knowledge and collaboration.</li>'.
           '</ul>';
     $html .=
-      '<div style="height: 30px;"> </div><p><i style="font-size: '.$this->size->fontNormalPlus.'pt; color: #0f71d4;">&quot;By applying privacy threat modeling to AI/ML we have learned to humanize the machine. '.
-      'The combination of human and machine learning is clearly beneficial for the creation of safe, respectful and privacy friendly products.&quot;</i> PLOT4ai</p>';
+      '<div style="height: 30px;"> </div><p><i style="font-size: '.$this->size->fontNormalPlus.'pt; color: #0f71d4;">'.
+        'So, why does PLOT4AI work? Because it\'s practical. It simplifies risk identification, saving you time and effort. It helps you stay compliant with regulations; it improves your processes by addressing risks early and systematically. '.
+        'And it fosters collaboration, ensuring that everyone—from developers to policymakers—is on the same page.<br><br>'.
+        'In a world where AI risks are becoming more complex and subtle, PLOT4AI gives you a clear, structured way to identify them.</i></p>';
     $this->pdf->SetLeftMargin($xPos);
     $this->pdf->SetRightMargin($xPos);
     $this->pdf->writeHTML($html, true, 0, true, true);
