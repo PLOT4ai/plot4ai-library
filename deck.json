@@ -1988,8 +1988,8 @@
 				"sources": "[Harmful Fine-tuning Attacks and Defenses for Large Language Models (arXiv:2409.18169)](https://arxiv.org/abs/2409.18169)",
 				"qr": "",
 				"categories": [
-					"Safety & Environmental Impact",
-					"Cybersecurity"
+					"Cybersecurity",
+					"Safety & Environmental Impact"
 				],
 				"phases": [
 					"Model",
@@ -3147,7 +3147,7 @@
 				],
 				"explanation": "Are users allowed to disagree with an outcome from the AI system? Consider for instance the risk if your system makes automatic decisions that could have a negative impact on an individual and you do not offer any way to contest that decision.\n* Consider the risk if this was used in a criminal case and the consequences if wrong information is used to condemn someone. Do you have a mechanism to challenge the decisions of your AI system? ",
 				"recommendation": "Ensure the AI system includes mechanisms for contestability, allowing users to challenge or seek review of decisions that negatively impact them. Provide clear instructions on how users can initiate such challenges and ensure that this process is transparent, accessible, and user-friendly. \n*Incorporate features that enable human oversight in decision-making processes, ensuring users have the option to escalate issues to human operators. \n*Establish a redressal process that includes timelines for resolution, a clear escalation hierarchy, and mechanisms for feedback integration to improve the system’s decision-making over time. \n*Regularly audit and evaluate the decision-making outcomes of the AI system, focusing on areas where users frequently raise disputes. Use these audits to improve system accuracy and reduce the need for contestation. \n*Provide detailed and comprehensible explanations of the system’s outputs to users, ensuring they understand how decisions are made and what data was used. \n*Engage relevant stakeholders, including legal experts, ethicists, and representatives from affected user groups to design and evaluate the contestability mechanisms and ensure they meet ethical and regulatory standards. \n*Train system operators and customer support staff to handle disputes arising from the AI system effectively, ensuring they are equipped to assist users in navigating the contestation process.",
-				"sources": "Right to treated fair by court (Universal Declaration of Human Rights), article 11 Freedom of expression and information, article 47 Right to an effective remedy and to a fair trial (Charter of fundamental rights of the European Union).\n*[Ethics guidelines for trustworthy AI](https://digital-strategy.ec.europa.eu/en/library/ethics-guidelines-trustworthy-ai)\n[Operational Guidance on taking account of Fundamental Rights in Commission Impact Assessments](https://ec.europa.eu/info/sites/default/files/opperational-guidance-fundamental-rights-in-impact-assessments_en.pdf)\n[Artificial Intelligence and Fundamental Rights](https://fra.europa.eu/sites/default/files/fra_uploads/fra-2020-artificial-intelligence_en.pdf)",
+				"sources": "Right to be treated fairly by a court (Universal Declaration of Human Rights), article 11 Freedom of expression and information, article 47 Right to an effective remedy and to a fair trial (Charter of fundamental rights of the European Union).\n*[Ethics guidelines for trustworthy AI](https://digital-strategy.ec.europa.eu/en/library/ethics-guidelines-trustworthy-ai)\n[Operational Guidance on taking account of Fundamental Rights in Commission Impact Assessments](https://ec.europa.eu/info/sites/default/files/opperational-guidance-fundamental-rights-in-impact-assessments_en.pdf)\n[Artificial Intelligence and Fundamental Rights](https://fra.europa.eu/sites/default/files/fra_uploads/fra-2020-artificial-intelligence_en.pdf)",
 				"qr": "[Charter of Fundamental Rights of the European Union](https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:12012P/TXT&from=EN)",
 				"categories": [
 					"Ethics & Human Rights"
@@ -3216,7 +3216,7 @@
 			{
 				"question": "Could our AI system affect access to healthcare, employment, housing, insurance, benefits or education?",
 				"threatif": "Yes",
-				"label": "Access to Essencial Services",
+				"label": "Access to Essential Services",
 				"aitypes": [
 					"Traditional",
 					"Generative"
@@ -3252,7 +3252,7 @@
 					"Provider",
 					"Deployer"
 				],
-				"explanation": "* Could your system affect which choices and which information is made available to people?\n* Could the AI system affect human autonomy by generating over-reliance by users (too much trust on the technology)?\n* Could this reinforce their beliefs or encourage certain behaviors?\n* Could the AI system create human attachment, stimulate addictive behaviour, or manipulate user behaviour? \n* Could the AI system mislead consumers or provide false recommendations? ",
+				"explanation": "* Could your system affect which choices and which information is made available to people?\n* Could the AI system affect human autonomy by generating over-reliance by users (too much trust on the technology)?\n* Could this reinforce their beliefs or encourage certain behaviors?\n* Could the AI system create human attachment, stimulate addictive behavior, or manipulate user behavior? \n* Could the AI system mislead consumers or provide false recommendations? ",
 				"recommendation": "* Clearly explain how the AI system processes inputs and generates outputs to avoid unintentional manipulation or misrepresentation. Ensure users understand the limitations and intended purposes of the AI system through user-friendly documentation and communication. Offer features that allow users to adjust or override AI recommendations, ensuring they maintain control over decisions. Implement mechanisms for users to pause, disable, or opt-out of certain AI functionalities.\n* Implement safeguards to detect and reduce over-reliance, such as reminders or notifications encouraging users to seek alternative opinions or double-check recommendations. Include disclaimers or warnings about the system’s limitations in contexts where over-reliance might occur. \n* Refrain from using techniques that exploit psychological vulnerabilities, such as gamification, excessive notifications, or reward loops that could encourage addictive behavior. Periodically evaluate whether design elements unintentionally foster dependency on the system. \n* Test the system with users from various cultural, socioeconomic, and demographic backgrounds to understand potential impacts on different groups. Incorporate diverse perspectives to avoid inadvertent biases that could restrict autonomy for certain populations. \n* Continuously monitor for any behaviors or outputs that may interfere with user decision-making processes. Use post-market monitoring to collect feedback and implement updates to reduce unintended autonomy infringements. Ensure human oversight mechanisms are in place for critical decision-making areas. Clearly define the role of the AI system as a tool to assist, not replace, human decision-making.",
 				"sources": "Article 6 Right to liberty and security, article 3 Right to the integrity of the person, article 38 Consumer protection (Charter of fundamental rights of the European Union), article 5a (AI Act)  \n*[Dispositional and Situational Attributions of Human Versus Robot Behaviour](https://www.frontiersin.org/articles/10.3389/frobt.2021.788242/full)\n[Understanding Human Over-Reliance on Technology](https://www.ismp.org/resources/understanding-human-over-reliance-technology)",
 				"qr": "",
@@ -3309,7 +3309,7 @@
 					"Deployer"
 				],
 				"explanation": "* Could cultural and language differences be an issue when it comes to the ethical nuance of your algorithm? Well-meaning values can create unintended consequences.\n* Must the AI system understand the world in all its different contexts?\n* Could ambiguity in rules you teach the AI system be a problem?\n* Can your system interact equitably with users from different cultures and with different abilities?).",
-				"recommendation": "* Consider designing with value alignment, what means that you want to ensure consideration of existing values and sensitivity to a wide range of cultural norms and values.\n* Make sure that when you test the product you include a large diversity in type of users.\n* Think carefully about what diversity means in the context where the product is going to be used.\n* Remember that this is a team effort and not an individual decision!",
+				"recommendation": "* Consider designing with value alignment, which means that you want to ensure consideration of existing values and sensitivity to a wide range of cultural norms and values.\n* Make sure that when you test the product you include a large diversity in type of users.\n* Think carefully about what diversity means in the context where the product is going to be used.\n* Remember that this is a team effort and not an individual decision!",
 				"sources": "Freedom of thought and religion(Universal Declaration of Human Rights), article 22 Cultural, religious and linguistic diversity, article 10 Freedom of thought, Conscience and religion (Charter of fundamental rights of the European Union )\n*[Value alignment](https://www.ibm.com/design/ai/ethics/value-alignment/)\n[Online Ethics Canvas](https://www.ethicscanvas.org/canvas/index.php)\n[AI Values and Alignment](https://www.deepmind.com/publications/artificial-intelligence-values-and-alignment)",
 				"qr": "",
 				"categories": [
@@ -3422,7 +3422,7 @@
 				],
 				"explanation": "* Behavioral data includes individuals' actions, habits, preferences, or biometric responses — such as keystrokes, browsing history, device usage, or emotional expressions.\n* AI systems that track and learn from behavior can create serious risks, such as:\n  - **Privacy violations** through covert or unconsented surveillance.\n  - **Profiling and discrimination**, as behavioral traits may act as proxies for protected characteristics (e.g., gender, ethnicity, age).\n  - **Manipulation and behavioral exploitation**, especially if labeling or feedback loops reinforce conformity or nudge users toward certain actions.\n  - **Chilling effects on autonomy and expression**, particularly in politically sensitive or authoritarian contexts.\n* These risks implicate key rights under the **EU Charter of Fundamental Rights**, the **ECHR**, and the **EU AI Act**, which designates behavior-influencing AI as high-risk.",
 				"recommendation": "* Define and document how behavioral data is collected, labeled, and used — including value judgments behind 'positive' or 'negative' classifications.\n* Obtain **explicit, informed consent** for behavior tracking and provide opt-out mechanisms.\n* Implement **privacy-preserving techniques** (e.g., differential privacy, federated learning) to reduce data exposure.\n* Regularly **audit for bias** in behavior-based profiling and assess the representativeness and fairness of training data.\n* Conduct **Human Rights Impact Assessments** or **DPIAs** where applicable.\n* Apply safeguards to prevent misuse in sensitive domains (e.g., employment, finance, public services), and assess whether the system qualifies as **high-risk under the EU AI Act**.",
-				"sources": "Article 1, Human dignitie, article 7 Right to privacy, article 10 Freedom of thought, conscience, and religion (Charter of Fundamental Rights of the European Union)\n[International dimension of data protection](https://commission.europa.eu/law/law-topic/data-protection/international-dimension-data-protection_en)\n[Court of Justice Schrems II](https://curia.europa.eu/jcms/upload/docs/application/pdf/2020-07/cp200091en.pdf)\n[Human Rights Impact Assessment, Ontario Human Rights Commission](https://www3.ohrc.on.ca/en/human-rights-ai-impact-assessment)",
+				"sources": "Article 1, Human dignity, article 7 Right to privacy, article 10 Freedom of thought, conscience, and religion (Charter of Fundamental Rights of the European Union)\n[International dimension of data protection](https://commission.europa.eu/law/law-topic/data-protection/international-dimension-data-protection_en)\n[Court of Justice Schrems II](https://curia.europa.eu/jcms/upload/docs/application/pdf/2020-07/cp200091en.pdf)\n[Human Rights Impact Assessment, Ontario Human Rights Commission](https://www3.ohrc.on.ca/en/human-rights-ai-impact-assessment)",
 				"qr": "",
 				"categories": [
 					"Ethics & Human Rights",
@@ -3458,7 +3458,7 @@
 					"Deployer"
 				],
 				"explanation": "* Is the problem you want to solve well defined?\n* Are the possible benefits clear?",
-				"recommendation": "* Clearly define the problem and outcome you are optimizing for.\n* Assess if your AI system will be well-suited for this purpose.\n* Always discuss if there are alternative ways to solve the problem.\n* Define success! Working with individuals who may be directly affected can help you identify an appropriate way to measure success.\n* Make sure there is a stakeholder involved (product owner for instance) with enough knowledge of the business and a clear vision about what the model needs to do.\n* Did you try analytics first? In this context analytics could also offer inspiring views that can help you decide on the next steps. They can be a good source of information and are sometimes enough to solve the problem without the need of AI/ML.",
+				"recommendation": "* Clearly define the problem and outcome you are optimizing for.\n* Assess if your AI system will be well-suited for this purpose.\n* Always discuss if there are alternative ways to solve the problem.\n* Define success! Working with individuals who may be directly affected can help you identify an appropriate way to measure success.\n* Make sure there is a stakeholder involved (product owner for instance) with enough knowledge of the business and a clear vision about what the model needs to do.\n* Have you considered using analytics first? In this context analytics could also offer inspiring views that can help you decide on the next steps. They can be a good source of information and are sometimes enough to solve the problem without the need of AI/ML.",
 				"sources": "[Data Analytics Functionality Index](https://www.functionalai.org)",
 				"qr": "",
 				"categories": [
@@ -3483,7 +3483,7 @@
 					"Deployer"
 				],
 				"explanation": "* Do you have all the necessary stakeholders on board? Not having the right people that can give the necessary input can put the design of the AI system in danger.\n* Think for instance when attributes or variables need to be selected, or when you need to understand the different data contexts.\n* Data scientists should not be the only ones making assumptions about variables, it should really be a team effort.",
-				"recommendation": "* Identify and involve on time the people that you need during the whole life cycle of the AI system. This will avoid unnecessary rework and frustrations.\n* Identifying who’s responsible for making the decisions and how much control they have over the decision-making process allows for a more evident tracking of responsibility in the AI’s development process.",
+				"recommendation": "* Identify and involve relevant stakeholders early in the AI system lifecycle. This will avoid unnecessary rework and frustrations.\n* Identifying who is responsible for making the decisions and how much control they have over the decision-making process allows for a more evident tracking of responsibility in the AI’s development process.",
 				"sources": "",
 				"qr": "",
 				"categories": [
@@ -3508,7 +3508,7 @@
 					"Deployer"
 				],
 				"explanation": "Do you already have a process in place to monitor the quality of the output and system errors? Do you have resources to do this? Not having the right process and resources in place could have an impact on the project deadline, the organisation and the users.",
-				"recommendation": "* Put a well-defined process in place to monitor if the AI system is meeting the intended goals.\n* Define failsafe fallback plans to address AI system errors of whatever origin and put governance procedures in place to trigger them.\n* Put measure in places to continuously assess the quality of the output data: e.g. check that predictions scores are within expected ranges; anomaly detection in output and reassign input data leading to the detected anomaly.\n* Does the data measure what you need to measure? You could get measurement errors if data is not correctly labelled.",
+				"recommendation": "* Put a well-defined process in place to monitor if the AI system is meeting the intended goals.\n* Define failsafe fallback plans to address AI system errors of whatever origin and put governance procedures in place to trigger them.\n* Put measures in places to continuously assess the quality of the output data: e.g. check that prediction scores are within expected ranges; anomaly detection in output and reassign input data leading to the detected anomaly.\n* Does the data measure what you need to measure? You could get measurement errors if data is not correctly labelled.",
 				"sources": "",
 				"qr": "",
 				"categories": [
@@ -3554,7 +3554,7 @@
 				"roles": [
 					"Deployer"
 				],
-				"explanation": "* Human oversight is essential for identifying errors, biases, or unintended consequences in AI systems, especially in high-risk contexts. However, meaningful oversight requires not only a procedural mechanism but also adequate staffing, expertise, training, and organizational support.\n* Without sufficient resourcing, human reviewers may rubber-stamp decisions or fall into automation bias, reducing accountability and increasing the likelihood of harmful outcomes.",
+				"explanation": "* Human oversight is essential for identifying errors, biases, or unintended consequences in AI systems, especially in high-risk contexts. However, meaningful oversight requires not only a procedural mechanism but also adequate staffing, expertise, training, and organizational support.\n* Without sufficient resources, human reviewers may merely rubber-stamp decisions or fall into automation bias, reducing accountability and increasing the likelihood of harmful outcomes.",
 				"recommendation": "* Allocate clear roles and responsibilities for oversight.\n* Train reviewers to recognize automation bias and understand the system's limitations.\n* Establish workflows that support human-in-the-loop or human-on-the-loop oversight.\n* Involve multidisciplinary stakeholders in the review process to ensure meaningful checks and balances.",
 				"sources": "[Automation Bias](https://en.wikipedia.org/wiki/Automation_bias)\n[The Flaws of Policies Requiring Human Oversight of Government Algorithms](https://arxiv.org/ftp/arxiv/papers/2109/2109.05067.pdf)\n[The False Comfort of Human Oversight as an Antidote to AI Harm](https://slate.com/technology/2021/06/human-oversight-artificial-intelligence-laws.html)",
 				"qr": "",
@@ -3579,7 +3579,7 @@
 					"Deployer"
 				],
 				"explanation": "*If an AI system produces harmful or incorrect outputs, is there a predefined process for reporting and addressing these issues? \n*Are employees aware of how to escalate AI failures, and do they have clear channels to report incidents?",
-				"recommendation": "Set up clear escalation protocols to identify, report, and resolve AI-related incidents. \n*Assign responsibilities to ensure accountability for handling AI failures. \n*Keep assessing and improving incident response strategies over time, especially after performing changes or updates in the AI systems.*",
+				"recommendation": "Set up clear escalation protocols to identify, report, and resolve AI-related incidents. \n*Assign responsibilities to ensure accountability for handling AI failures. \n*Keep assessing and improving incident response strategies over time, especially after performing changes or updates in the AI systems.",
 				"sources": "[AI: An Accountability Framework for Federal Agencies and Other Entities](https://www.gao.gov/assets/gao-21-519sp.pdf)\n[The Human Factor in AI Safety](https://arxiv.org/abs/2201.04263)",
 				"qr": "",
 				"categories": [
@@ -3603,7 +3603,7 @@
 				"roles": [
 					"Deployer"
 				],
-				"explanation": "*AI outputs can lead to mistakes or even cause harm. In such cases, is it clear who is responsible within your organization? Are accountability structures well-defined and documented? ",
+				"explanation": "*AI outputs can lead to mistakes or even cause harm. In such cases, is it clear who is responsible within your organization? Are accountability structures clearly defined and documented? ",
 				"recommendation": "*Assign and communicate responsibilities for AI decision-making, considering both legal and ethical accountability. \n*Use decision logs and role-based access control to document and track accountability throughout the AI system’s lifecycle. \n*Get leadership involved in maintaining oversight, keeping accountability a priority at all levels.",
 				"sources": "[AI: An Accountability Framework for Federal Agencies and Other Entities](https://www.gao.gov/assets/gao-21-519sp.pdf)\n[Algorithmic Accountability for the Public Sector](https://ainowinstitute.org/publication/algorithmic-accountability-for-the-public-sector-report)",
 				"qr": "",
@@ -3633,7 +3633,7 @@
 					"Deployer"
 				],
 				"explanation": "* AI models and their objectives may drift from their original intent, making human oversight crucial to ensure ongoing alignment with ethical and business objectives. Are there periodic human-led reviews in place to monitor AI system behavior, validate outcomes, and reassess goals? Human oversight should play an active role in detecting unintended consequences, adjusting governance policies, and maintaining accountability throughout the AI system’s lifecycle.",
-				"recommendation": "Schedule regular reassessments of AI objectives and assumptions.\n*Update training data, governance policies, and oversight structures as AI systems evolve.*",
+				"recommendation": "Schedule regular reassessments of AI objectives and assumptions.\n Update training data, governance policies, and oversight structures as AI systems evolve.",
 				"sources": "[Embedding Ethical Oversight in AI Governance through Independent Review](https://www.responsible.ai/embedding-ethical-oversight-in-ai-governance-through-independent-review/)\n[Effective Human Oversight of AI-Based Systems: A Signal Detection Perspective on the Detection of Inaccurate and Unfair Outputs](https://link.springer.com/article/10.1007/s11023-024-09701-0)",
 				"qr": "",
 				"categories": [
@@ -3684,9 +3684,9 @@
 					"Provider",
 					"Deployer"
 				],
-				"explanation": "*Failing to assess liability risks can expose your organization to legal, financial, and reputational damage.\n* Have you identified who could be held liable—your organization, end-users, third parties?\n* Black-box AI systems complicate the attribution of responsibility, especially in high-risk or harmful scenarios, increasing the burden of proof for affected individuals.\n* Legal liability varies across jurisdictions, and evolving regulations such as the EU AI Liability Directive may significantly affect your obligations.\n* Failure to document decision-making processes and ensure auditability can weaken your defense in case of litigation.",
+				"explanation": "* Failing to assess liability risks can expose your organization to legal, financial, and reputational damage.\n* Have you identified who could be held liable—your organization, end-users, third parties?\n* Black-box AI systems complicate the attribution of responsibility, especially in high-risk or harmful scenarios, increasing the burden of proof for affected individuals.\n* Legal liability varies across jurisdictions, and evolving regulations such as the EU AI Liability Directive may significantly affect your obligations.\n* Failure to document decision-making processes and ensure auditability can weaken your defense in case of litigation.",
 				"recommendation": "* Conduct a liability risk assessment for your AI system, including mapping potential damages and responsible parties.\n* Implement transparency, traceability, and auditability mechanisms throughout the AI lifecycle to support accountability.\n* Ensure that risk scenarios are documented and, where relevant, covered by insurance policies.\n* Stay informed about legal developments in AI liability.\n* Provide training to relevant teams on legal accountability and AI governance best practices.",
-				"sources": "[Liability RUles on Artificial Intelligence](https://commission.europa.eu/business-economy-euro/doing-business-eu/contract-rules/digital-contracts/liability-rules-artificial-intelligence_en)",
+				"sources": "[Liability Rules on Artificial Intelligence](https://commission.europa.eu/business-economy-euro/doing-business-eu/contract-rules/digital-contracts/liability-rules-artificial-intelligence_en)",
 				"qr": "",
 				"categories": [
 					"Accountability & Human Oversight",
@@ -3709,8 +3709,8 @@
 				"roles": [
 					"Deployer"
 				],
-				"explanation": "If you use a third party tool you might still have a responsibility towards the users. Think about employees, job applicants, patients, etc. It is also your responsibility to make sure that the AI system you choose won't cause harm to the individuals.",
-				"recommendation": "If personal data is involved, review which ones are your responsibilities (look into art. 24 and 28 GDPR).\n\nYou can also start by checking:\n* That you have the right agreements in place with the third party provider.\n* That the origin and data lineage of their datasets are verified.\n* How their models are fed; do they anonymise the data?\n* How you have assessed their security, ethical handling of data, quality process and ways to prevent bias and discrimination in their AI system.\n* That you have informed users accordingly.",
+				"explanation": "If you use a third-party tool you might still have a responsibility towards the users. Think about employees, job applicants, patients, etc. It is also your responsibility to make sure that the AI system you choose won't cause harm to the individuals.",
+				"recommendation": "If personal data is involved, review which ones are your responsibilities (look into art. 24 and 28 GDPR).\n\nYou can also start by checking:\n* That you have the right agreements in place with the third party provider.\n* That the origin and data lineage of their datasets are verified.\n* How their models are fed; do they anonymize the data?\n* How you have assessed their security, ethical data handling, quality processes and measures to prevent bias and discrimination in their AI system.\n* That you have informed users accordingly.",
 				"sources": "",
 				"qr": "",
 				"categories": [
