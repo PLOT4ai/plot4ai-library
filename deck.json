@@ -151,7 +151,7 @@
 				"sources": "[Providing Assurance and Scrutability on Shared Data and Machine Learning Models with Verifiable Credentials](https://arxiv.org/pdf/2105.06370.pdf)\n[Synthetic Data – Anonymisation Groundhog Day](https://arxiv.org/pdf/2011.07018.pdf)\n[Model Cards](https://modelcards.withgoogle.com/about)\n[Model Cards for Model Reporting](https://arxiv.org/pdf/1810.03993.pdf)\n[Datasheets for Datasets](https://arxiv.org/pdf/1803.09010.pdf)",
 				"qr": "",
 				"categories": [
-					"Data & Data Governance", 
+					"Data & Data Governance",
 					"Transparency & Accessibility"
 				],
 				"phases": [
@@ -343,7 +343,7 @@
 				"sources": "[EU guidelines on ethics in artificial intelligence: Context and implementation](https://www.europarl.europa.eu/RegData/etudes/BRIE/2019/640163/EPRS_BRI(2019)640163_EN.pdf)",
 				"qr": "",
 				"categories": [
-					"Transparency & Accessibility", 
+					"Transparency & Accessibility",
 					"Accountability & Human Oversight"
 				],
 				"phases": [
@@ -1025,7 +1025,7 @@
 					"Deploy",
 					"Monitor"
 				],
-				"cia": [					
+				"cia": [
 					"c",
 					"i",
 					"a"
@@ -1995,7 +1995,7 @@
 					"Model",
 					"Deploy",
 					"Monitor"
-				]
+				],
 				"cia": [
 					"c",
 					"i",
