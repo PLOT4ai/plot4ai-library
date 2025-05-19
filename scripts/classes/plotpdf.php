@@ -440,21 +440,18 @@ class PlotPDF
   }
   private function generateFooter($threat, $side) {
     $this->pdf->SetAlpha(1);
-    if ($side == "front") {
-      if (in_array("Traditional", $threat->aitypes)) {
-        $imgPath = self::IMGS_PATH.'/pdf/plot4ai_black.png';
+    $imgPath = self::IMGS_PATH.'/pdf/plot4ai_black.png';
+    if (isset($threat->aitypes)) {
+      if ($side == "front" && !in_array("Traditional", $threat->aitypes)) {
+        $imgPath = self::IMGS_PATH.'/pdf/plot4genai_black.png';
       }
-      else {
+      elseif ($side == "back" && in_array("Generative", $threat->aitypes)) {
         $imgPath = self::IMGS_PATH.'/pdf/plot4genai_black.png';
       }
     }
-    elseif ($side == "back") {
-      if (in_array("Generative", $threat->aitypes)) {
-        $imgPath = self::IMGS_PATH.'/pdf/plot4genai_black.png';
-      }
-      else {
-        $imgPath = self::IMGS_PATH.'/pdf/plot4ai_black.png';
-      }
+    else {
+      echo "threat without ai-types:\n";
+      var_dump($threat);
     }
     $this->pdf->Image($imgPath, $x='', $y=$this->size->footerOffsetY, $w='', $h=$this->size->logoHeight, $type='PNG', $link='', $align='', $resize=false, $dpi=300, $palign='C', $ismask=false,
       $imgmask=false, $borde=0, $fitbox=false, $hidden=false, $fitonpage=false, $alt=false, $altimgs = array());
@@ -676,8 +673,9 @@ class PlotPDF
       $xPos = ($this->pdf->getPageWidth() - $imgWidth) / 2;
       $qrPath = $qr->getCardQrPath($threat);
       $imgdata  = file_get_contents($qrPath, false);
-      $this->pdf->Image("@".$imgdata, $xPos, $yPos, $imgWidth, '', '', '', '', false, 300);
+      //$this->pdf->Image("@".$imgdata, $xPos, $yPos, $imgWidth, '', '', '', '', false, 300);
       //$this->pdf->ImageSVG("@".$imgdata, $xPos, $yPos, '', $imgWidth, $link='', $align='', $palign='', $border=0, $fitonpage=false);
+      $this->pdf->ImageSVG("@".$this->fixSvgContents($imgdata), $xPos, $yPos, '', $imgWidth, $link='', $align='', $palign='', $border=0, $fitonpage=true);
     }
 
     // if applicable, indicate roles
@@ -701,26 +699,28 @@ class PlotPDF
     $this->pdf->setY($this->size->backQrY);
     $imgdata  = file_get_contents($qrPath, false);
 
-    /**
-     * // HACK:
-     * the SVQ QR doesn't want to scale, so we need to manually add a width, height & viewport
-     * note: changing the width and height doesn't actually work, but seems to be needed for the viewBox to work
-     */
-    $fixedWidth = "100.00mm";
-    $fixedHeight = "100.00mm";
-    $svg = preg_replace(
-      '/<svg([^>]*)viewBox="[^"]*"/',
-      //'<svg$1width="' . $fixedWidth . '" height="' . $fixedHeight . '" viewBox="0 0 68.28 90.26"',
-      '<svg$1width="' . $fixedWidth . '" height="' . $fixedHeight . '" viewBox="0 0 42 55.520"',
-      $imgdata
-    );
-
-    $this->pdf->ImageSVG("@".$svg, $this->size->backQrXPos, $this->size->backQrYPos, '', ($this->size->backQrWidth), $link='', $align='', $palign='', $border=0, $fitonpage=true);
+    $this->pdf->ImageSVG("@".$this->fixSvgContents($imgdata), $this->size->backQrXPos, $this->size->backQrYPos, '', ($this->size->backQrWidth), $link='', $align='', $palign='', $border=0, $fitonpage=true);
 
     // set core font
     $this->pdf->SetFont('helvetica', '', $this->size->fontNormalPlus);
 
     $this->generateFooter($threat, "back");
+  }
+
+  /**
+   * // HACK:
+   * the SVQ QR doesn't want to scale, so we need to manually add a width, height & viewport
+   * note: changing the width and height doesn't actually work, but seems to be needed for the viewBox to work
+   */
+  private function fixSvgContents($svgData) {
+    $fixedWidth = "100.00mm";
+    $fixedHeight = "100.00mm";
+    return preg_replace(
+      '/<svg([^>]*)viewBox="[^"]*"/',
+      //'<svg$1width="' . $fixedWidth . '" height="' . $fixedHeight . '" viewBox="0 0 68.28 90.26"',
+      '<svg$1width="' . $fixedWidth . '" height="' . $fixedHeight . '" viewBox="0 0 42 55.520"',
+      $svgData
+    );
   }
 
   private function generateCardColours($threat, $front = true) {

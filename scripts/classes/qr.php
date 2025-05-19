@@ -42,7 +42,7 @@ abstract class QR {
     $qrPath = self::QR_IMG_DIR."/".$filename.".".$this->getFileExtension();
     if (!file_exists($qrPath)) {
       //QRcode::png(MarkDown::getLinkUrlOnly($threat->qr), $qrPath, QR_ECLEVEL_M, 3, 4, false);
-      $this->generateQRCode(MarkDown::getLinkUrlOnly($threat->qr), $qrPath, $this->options, null);
+      $this->generateQRCode(MarkDown::getLinkUrlOnly($threat->qr), $qrPath, null);
     }
     return $qrPath;
   }
