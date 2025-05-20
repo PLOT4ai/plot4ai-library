@@ -667,6 +667,7 @@ class PlotPDF
     $this->pdf->writeHTML($html, true, 0, true, true);
 
     // qr from card (at this moment the Human Rights link)
+    /**
     if (!empty($threat->qr)) {
       $yPos = $this->pdf->getY() - $this->size->backInfoQrAdjustY;
       $imgWidth = $this->size->backInfoQrWidth;
@@ -677,7 +678,8 @@ class PlotPDF
       //$this->pdf->ImageSVG("@".$imgdata, $xPos, $yPos, '', $imgWidth, $link='', $align='', $palign='', $border=0, $fitonpage=false);
       $this->pdf->ImageSVG("@".$this->fixSvgContents($imgdata), $xPos, $yPos, '', $imgWidth, $link='', $align='', $palign='', $border=0, $fitonpage=true);
     }
-
+    */
+    
     // if applicable, indicate roles
     if (isset($threat->roles) && is_array($threat->roles) && count($threat->roles) > 0) {
       $this->pdf->setY($this->size->frontRoleTextY);
