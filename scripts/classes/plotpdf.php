@@ -262,7 +262,7 @@ class PlotPDF
     $yPos = $this->pdf->getY() + 10;
     if ($this->printMode == self::PRINT_MODE_FRONTS) {
       $this->page1Front($width, $xPos, $yPos);
-      $this->page2Front($width, $xPos, $yPos);
+      $this->page2Front($width, $xPos, $yPos, $threats);
       $this->page3Front($width, $xPos, $yPos);
     }
     elseif ($this->printMode == self::PRINT_MODE_BACKS) {
