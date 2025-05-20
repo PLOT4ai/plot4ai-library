@@ -682,7 +682,7 @@ class PlotPDF
     if (isset($threat->roles) && is_array($threat->roles) && count($threat->roles) > 0) {
       $this->pdf->setY($this->size->frontRoleTextY);
       $this->pdf->SetAlpha(0.67);
-      $this->pdf->writeHTML('<p style="font-size: '.$this->size->fontRoleText.'pt;">Applicable to the following roles:<p>', true, 0, true, true);
+      $this->pdf->writeHTML('<p style="font-size: '.$this->size->fontRoleText.'pt;">Might be applicable to the following roles:<p>', true, 0, true, true);
 
       $this->pdf->SetAlpha(1);
       $this->pdf->setY($this->size->frontRoleLabelY);
