@@ -1770,7 +1770,7 @@
 			{
 				"question": "Can we trace and audit the actions and decisions of autonomous agents in our system?",
 				"threatif": "No",
-				"label": "Agentic AI Actions Tracing",
+				"label": "Agentic AI Actions Traceability",
 				"aitypes": [
 					"Generative"
 				],
@@ -1852,6 +1852,62 @@
 					"c",
 					"i",
 					"a"
+				]
+			},
+			{
+				"question": "Could an attacker or user intentionally overload the AI system’s resources to degrade performance or cause failures?",
+ 				"threatif": "Yes",
+  				"label": "Resource Overload",
+  				"aitypes": [
+				    "Traditional",
+				    "Generative"
+				],
+				"roles": [
+				    "Provider",
+				    "Deployer"
+				],
+				"explanation": "* AI systems, especially large models, are resource-intensive and vulnerable to overload attacks targeting compute, memory, I/O, or API bandwidth.\n* Malicious actors may send high-frequency or computationally expensive queries to exhaust system capacity.\n* This can lead to degraded service, denial of service, or delayed model responses—impacting availability and user trust.\n* Multi-agent environments are particularly vulnerable when agents interact recursively or generate long-running tasks without resource limits.",
+				"recommendation": "* Implement rate limiting and quotas per user, agent, or session to restrict excessive usage.\n* Use priority-based scheduling, timeouts, and request throttling for costly model operations.\n* Monitor runtime metrics (CPU/GPU load, memory, inference time) and trigger alerts for anomalies.\n* Apply load balancing and autoscaling in production to absorb usage spikes.\n* Include safeguards in agent instructions to prevent recursive or resource-exhausting task loops.\n* Log resource-heavy requests and investigate patterns indicative of misuse or attack.",
+				"sources": "[OWASP Agentic AI Threats](https://owasp.org/www-project-agentic-ai/assets/publications/Agentic-AI-Threats-and-Mitigations_v1.0.1.pdf)",
+				"categories": [
+				    "Cybersecurity",
+				    "Safety & Environmental Impact"
+				],
+				"phases": [
+				    "Deploy",
+				    "Monitor"
+				],
+				"cia": [
+				    "a",
+				    "i"
+				]
+			},
+			{
+ 			        "question": "Could an attacker or agent impersonate a user or AI identity to gain unauthorized influence?",
+			        "threatif": "Yes",
+				"label": "Identity Spoofing & Impersonation",
+				"aitypes": [
+					"Traditional", 
+					"Generative"
+				],
+				"roles": [
+					"Provider", 
+					"Deployer"
+				],
+				"explanation": "* Attackers may spoof legitimate identities of users, agents, or services to bypass authentication and gain control or influence over AI behavior.\n* This can enable unauthorized data access, prompt injection, or manipulation of trust-based systems.",
+				"recommendation": "* Use cryptographic signatures or authentication tokens to verify agent identities.\n* Implement mutual authentication in multi-agent or AI-human interaction scenarios.\n* Monitor for identity anomalies such as session hijacking, mismatched tokens, or unexpected behavioral patterns.\n* Log all identity transitions and access attempts to support traceability and forensic analysis.",
+				"sources": "[OWASP Agentic AI – Threats and Mitigations (v1.0.1)](https://owasp.org/www-project-agentic-ai/assets/publications/Agentic-AI-Threats-and-Mitigations_v1.0.1.pdf)",
+				"qr": "",
+				"categories": [
+					 "Cybersecurity"
+				],
+				"phases": [
+					 "Deploy", 
+					 "Monitor"
+				],
+				"cia": [
+					 "i", 
+					 "a"
 				]
 			},
 			{
@@ -2541,7 +2597,7 @@
 				]
 			},
 			{
-				"question": "Could the AI system generate toxic or harmful content that causes psychological or reputational harm?",
+				"question": "Could the AI system generate toxic or harmful content?",
 				"threatif": "Yes",
 				"label": "Model Toxicity",
 				"aitypes": [
