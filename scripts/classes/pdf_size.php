@@ -231,12 +231,12 @@ class PDF_Size_A6 extends PDF_Size
     $this->frontExplanationY = 35;
     $this->frontExplanationMargin = 14;
     $this->frontExplanationY2Init = 130;
-    $this->frontExplanationYWhileCheck = 125;
+    $this->frontExplanationYWhileCheck = 117;
     $this->fontExplanationSizeIncrease = 0.25;
     $this->frontCIATextY = 115;
     $this->frontCIALabelY = 119;
-    $this->frontRoleTextY = 118;
-    $this->frontRoleLabelY = 122;
+    $this->frontRoleTextY = 121.5;
+    $this->frontRoleLabelY = 125.5;
     $this->frontThreatIfY = 131;
     $this->frontTextPicSize = 7.5;
     $this->frontTextPicX = 5.5;
