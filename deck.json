@@ -3573,7 +3573,7 @@
 				],
 				"phases": [
 					"Design",
-					"Deployment",
+					"Deploy",
 					"Monitor"
 				]
 			},
