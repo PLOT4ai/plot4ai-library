@@ -25,6 +25,7 @@ class PDF_Size
 
   /* page 2*/
   public $phasePic;
+  public $logoPic;
   public $tableMaxCell1;
   public $tableMaxCellPadding;
   public $tablePhaseCell1;
@@ -82,6 +83,7 @@ class PDF_Size_A4 extends PDF_Size
     /* page 2*/
     $this->categoryPic = 50;
     $this->phasePic = 50;
+    $this->logoPic = 150;
     $this->tableMaxCell1 = 150;
     $this->tableMaxCellPadding = 8;
     $this->tablePhaseCell1 = 75;
@@ -194,6 +196,7 @@ class PDF_Size_A6 extends PDF_Size
     /* page 2*/
     $this->categoryPic = 25;
     $this->phasePic = 15;
+    $this->logoPic = 45;
     $this->tableMaxCell1 = 75;
     $this->tableMaxCellPadding = 4;
     $this->tablePhaseCell1 = 37.5;

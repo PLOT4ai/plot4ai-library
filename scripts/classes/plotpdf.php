@@ -316,7 +316,7 @@ class PlotPDF
             <tbody>
               <tr>
                 <td style="'.$firstCellStyle.'"><img src="data:image/png;base64,'.base64_encode(file_get_contents($catPath.'/data-data_governance.png')).'" width="'.$imgWidth.'px"><br>Data &amp; Data Governance</td>
-                <td style="'.$secondCellStyle.'">Our processes and/or technical actions can have an adverse impact on individuals or cause harm</td>
+                <td style="'.$secondCellStyle.'">Inadequate management and quality of the data used in your AI system, leading to inaccurate and harmful outputs.</td>
               </tr>
               <tr>
                 <td style="'.$firstCellStyle.'"><img src="data:image/png;base64,'.base64_encode(file_get_contents($catPath.'/transparency-accessibility.png')).'" width="'.$imgWidth.'px"><br>Transparency &amp; Accessibility</td>
@@ -332,7 +332,7 @@ class PlotPDF
               </tr>
               <tr>
                 <td style="'.$firstCellStyle.'"><img src="data:image/png;base64,'.base64_encode(file_get_contents($catPath.'/safety-environmental_impact.png')).'" width="'.$imgWidth.'px"><br>Safety &amp; Environmental Impact</td>
-                <td style="'.$secondCellStyle.'">Hazards that might cause harm to employees, users, infrastructure, or the environment.</td>
+                <td style="'.$secondCellStyle.'">Hazards and sources of risks that might cause harm to employees, users, infrastructure, or the environment.</td>
               </tr>
               <tr>
                 <td style="'.$firstCellStyle.'"><img src="data:image/png;base64,'.base64_encode(file_get_contents($catPath.'/bias-fairness-discrimination.png')).'" width="'.$imgWidth.'px"><br>Bias, Fairness &amp; Discrimination</td>
@@ -355,27 +355,34 @@ class PlotPDF
   }
   private function page2Back($width, $xPos, $yPos) {
     $lcPath = self::IMGS_PATH.'/icons/lifecycle';
+    $logoPath = self::IMGS_PATH.'/pdf';
     $this->pdf->AddPage();
     $this->pdf->SetFont('helvetica', '', $this->size->fontNormal);
     $firstCellStyle = "width: ".$this->size->tablePhaseCell1."; border-bottom: 1px solid black; border-right: 1px solid black; padding: 135px; text-align: center;";
     $secondCellStyle = "border-bottom: 1px solid black; padding: 5px; font-size: ".$this->size->fontH1."pt;";
     $cellStyle = "width: 16.67%; text-align: center;";
+    $logoCellStyle = "width: 50%; text-align: center;";
     $table = '<h1 style="font-size: '.$this->size->fontH1.'pt; text-align: center; color: #0f71d4;">AI Lifecycle</h1>'.
-      '<p>PLOT4AI contains a set of six lifecycle phases where threats can apply:</p>'.
+      '<p>PLOT4AI includes six lifecycle phases where threats may arise.<br>'.
+      'Each threat card is classified according to the phase(s) it applies to, helping you focus on the most relevant risks at each stage.</p>'.
       '<table><tr><td style="'.$cellStyle.'"><img src="data:image/png;base64,'.base64_encode(file_get_contents($lcPath.'/design.png')).'" width="'.$this->size->phasePic.'px"></td>'.
       '<td style="'.$cellStyle.'"><img src="data:image/png;base64,'.base64_encode(file_get_contents($lcPath.'/input.png')).'" width="'.$this->size->phasePic.'px"></td>'.
       '<td style="'.$cellStyle.'"><img src="data:image/png;base64,'.base64_encode(file_get_contents($lcPath.'/model.png')).'" width="'.$this->size->phasePic.'px"></td>'.
       '<td style="'.$cellStyle.'"><img src="data:image/png;base64,'.base64_encode(file_get_contents($lcPath.'/output.png')).'" width="'.$this->size->phasePic.'px"></td>'.
       '<td style="'.$cellStyle.'"><img src="data:image/png;base64,'.base64_encode(file_get_contents($lcPath.'/deploy.png')).'" width="'.$this->size->phasePic.'px"></td>'.
-      '<td style="'.$cellStyle.'"><img src="data:image/png;base64,'.base64_encode(file_get_contents($lcPath.'/monitor.png')).'" width="'.$this->size->phasePic.'px"></td></tr></table><br><br>'.
+      '<td style="'.$cellStyle.'"><img src="data:image/png;base64,'.base64_encode(file_get_contents($lcPath.'/monitor.png')).'" width="'.$this->size->phasePic.'px"></td></tr></table><br>'.
+      '<p>On the back of each card, you\'ll also find whether the threat is particularly relevant for AI providers, deployers, or both.</p>'.
+      '<p>Cards that apply only to Generative AI are marked with the PLOT4GenAI logo at the bottom on both the front and back. All other cards apply to both traditional AI and Generative AI systems.</p>'.
+      '<table><tr><td style="'.$logoCellStyle.'"><img src="data:image/png;base64,'.base64_encode(file_get_contents($logoPath.'/plot4ai_black.png')).'" width="'.$this->size->logoPic.'px"></td>'.
+      '<td style="'.$logoCellStyle.'"><img src="data:image/png;base64,'.base64_encode(file_get_contents($logoPath.'/plot4genai_black.png')).'" width="'.$this->size->logoPic.'px"></td></tr></table><br><br>'.
         '<h1 style="font-size: '.$this->size->fontH1.'pt; text-align: center; color: #0f71d4;">How can you apply PLOT4AI in practice?</h1>'.
         '<h2 style="font-size: '.$this->size->fontNormalPlus.'pt; color: #0f71d4;">Quick tips before starting:</h2><ul>'.
-          '<li style="text-align: justifyt;">Sessions should not be longer than 1.5, max. 2 hours to avoid tiredness and lack of focus. You can also do 30 min. timeboxed sessions focussing on just one or two specific categories.</li>'.
-          '<li style="text-align: justifyt;">It is important to identify all the relevant stakeholders that need to be present in the session. Especially during the design phase it is recommended that you involve all the people that have the knowledge and/or can take decisions. Remember that diversity is very important!</li>'.
-          '<li style="text-align: justifyt;">A facilitator is needed to guide the sessions. Decide who will be taking this role. It does not have to be an AI expert but having some knowledge can be helpful.</li>'.
-          '<li style="text-align: justifyt;">Preparing for the session by selecting the right questions is very important. For instance, after the design phase, once the requirements are (more) clear, try to avoid selecting cards related to threats that are already taken care of during your quality assurance and control process. Not doing this will otherwise feel like a duplication of work and create frustrations.</li>'.
-          '<li style="text-align: justifyt;">If prioritization of the threats is important, consider adding an extra column for Effort in the Threat Report Template (see step 8 below). The priority can then also take into account the effort that is required.</li>'.
-          '<li style="text-align: justifyt;">This is like a game. Establish clear rules for time boxing: how long can discussions last per threat and when an exception is allowed.</li>'.
+          '<li style="text-align: justifyt;"><b>Keep sessions short</b>: Limit sessions to 1.5 hours (2 hours max) to avoid tiredness and lack of focus. You can also run 30-minute timeboxed sessions focusing on one or two categories.</li>'.
+          '<li style="text-align: justifyt;"><b>Involve the right stakeholders</b>: Especially during the design phase, include people with the necessary knowledge and decision-making power. Diversity is key!</li>'.
+          '<li style="text-align: justifyt;"><b>Assign a facilitator</b>: Choose someone to guide the session. They don’t need to be an AI expert, but some familiarity helps.</li>'.
+          '<li style="text-align: justifyt;"><b>Prepare by selecting the right questions</b>: After the design phase, avoid cards covering threats already addressed in QA processes—this prevents duplication and frustration.</li>'.
+          '<li style="text-align: justifyt;"><b>Support prioritization</b>: If needed, add an "Effort" column to the Threat Report Template (see Step 8) so prioritization considers both impact and effort.</li>'.
+          '<li style="text-align: justifyt;"><b>Set clear rules</b>: Treat it like a game: define how long each threat can be discussed and when exceptions are allowed.</li>'.
           '</ul>';
     $this->pdf->SetLeftMargin($xPos);
     $this->pdf->SetRightMargin($xPos);
@@ -386,18 +393,19 @@ class PlotPDF
     $this->pdf->AddPage();
     $this->pdf->SetFont('helvetica', '', $this->size->fontNormal);
     $html =
-        '<h2 style="font-size: '.$this->size->fontNormalPlus.'pt; color: #0f71d4;">Steps:</h2><ol>'.
-          '<li style="text-align: justifyt;">Gather a group of stakeholders to create a Data Flow Diagram (DFD) of the system and interaction elements you want to analyse. A simple representation of the way the data might be flowing can be sufficient during the design phase. You could even jump into the threat modeling session without a DFD; depending on the use-case it is not always essential to have one.</li>'.
-          '<li style="text-align: justifyt;">Select cards for the session; you can randomly pick them or focus on a specific category. See also the Quick Tips.</li>'.
-          '<li style="text-align: justifyt;">With or without DFD, gather all the important stakeholders - now is when the actual threat modeling session will start.</li>'.
-          '<li style="text-align: justifyt;">For each selected card, read out loud the question and the extra info provided on the card.</li>'.
-          '<li style="text-align: justifyt;">Discuss the possible threat together. Time box how long you want to think about an answer: 2 minutes per answer can be sufficient but consider accepting exceptions if extra time is required because the group finds it difficult to reach consensus.<br>When threat modeling the category Ethics & Human Rights consider giving more time per question. This category usually asks for a higher level of reflection in the group.</li>'.
-          '<li style="text-align: justifyt;">The card will indicate if answering YES or NO to the main question means that you have found a threat.<br>If you are not sure, then it is always a possibility that you have found a threat.</li>'.
-          '<li style="text-align: justifyt;">When a threat has been identified, turn the card to read the recommendations. This is optional, you can also decide to do that after the session.</li>'.
-          '<li style="text-align: justifyt;">Document the threat. You can use the Threat Report Template that we provide for that.</li>'.
-          '<li style="text-align: justifyt;">Mark the question as a threat in the file and quickly discuss with the group if the threat should be classified as a Low, Medium or High risk. This is helpful to prioritize actions. You can also take the opportunity to write down some notes about possible actions and even indicate a (risk) owner.<br>'.
+        '<h2 style="font-size: '.$this->size->fontNormalPlus.'pt; color: #0f71d4;">Steps</h2><ol>'.
+          '<li style="text-align: justifyt;">Create a Data Flow Diagram (DFD) with key stakeholders to map how data flows in the system. A simple version is fine in the design phase.<br>In some cases, you can skip the DFD entirely and start directly with the threat modeling.</li>'.
+          '<li style="text-align: justifyt;">Select cards for the session, either randomly or by focusing on specific categories (see Quick Tips).</li>'.
+          '<li style="text-align: justifyt;">Start the session with all key stakeholders—whether or not you’ve prepared a DFD.</li>'.
+          '<li style="text-align: justifyt;">Read each selected card aloud, including the extra information provided.<br>For the Ethics &amp; Human Rights category, consider giving more time, as it often requires deeper reflection.</li>'.
+          '<li style="text-align: justifyt;">Discuss the potential threat: Timebox the discussion. 2 minutes per threat is usually enough, but allow exceptions if consensus is hard to reach.<br>For the Ethics &amp; Human Rights category, consider giving more time, as it often requires deeper reflection.</li>'.
+          '<li style="text-align: justifyt;">Determine whether it’s a threat. The card will say whether a YES or NO answer signals a threat.<br>If you’re unsure, treat it as a potential threat.</li>'.
+          '<li style="text-align: justifyt;">Check the recommendations on the back of the card if a threat is found. This can also be done after the session.</li>'.
+          '<li style="text-align: justifyt;">Document the threat using the provided Threat Report Template.</li>'.
+          '<li style="text-align: justifyt;">Classify the risk as Low, Medium, or High with the group. This helps prioritize follow-up actions. You can also note possible mitigations and assign a (risk) owner.</li>'.
+          '<li style="text-align: justifyt;">Finish when time runs out or all cards have been discussed.<br>'./*
           '<br><img src="data:image/png;base64,'.base64_encode(file_get_contents(self::IMGS_PATH.'/threat-report.png')).'"><br></li>'.
-          '<li style="text-align: justifyt;">You are finished when time is over or when all cards have been examined.</li>'.
+          '<li style="text-align: justifyt;">You are finished when time is over or when all cards have been examined.</li>'.*/
           '</ol>';
     $this->pdf->SetLeftMargin($xPos);
     $this->pdf->SetRightMargin($xPos);
@@ -408,20 +416,20 @@ class PlotPDF
     $this->pdf->AddPage();
     $this->pdf->SetFont('helvetica', '', $this->size->fontNormal);
     $html =
-        '<h2 style="font-size: '.$this->size->fontNormalPlus.'pt; color: #0f71d4;">Next Steps:</h2><ul>'.
-          '<li style="text-align: justifyt;"i>Threats can also be added to your project backlog (in Jira for instance).</li>'.
-          '<li style="text-align: justifyt;">You can decide to focus on easy/quick fixes first and later follow up on the rest.</li>'.
-          '<li style="text-align: justifyt;">You will find threats that can be considered like a warning, but that are not really risks yet that you can mitigate at that moment. It is also important to document these threats and review them regularly.</li>'.
-          '<li style="text-align: justifyt;">Continue with the assessment and evaluation of the threats following the risk management process of your organization.</li>'.
-          '<li style="text-align: justifyt;">You can train your team in knowledge areas such as privacy, data protection and ethics. This can also be beneficial to facilitate the threat modeling sessions.</li>'.
+        '<h2 style="font-size: '.$this->size->fontNormalPlus.'pt; color: #0f71d4;">Next Steps</h2><ul>'.
+          '<li style="text-align: justifyt;">Add threats to your project backlog (e.g. in Jira).</li>'.
+          '<li style="text-align: justifyt;">You can choose to tackle quick wins first and address more complex issues later.</li>'.
+          '<li style="text-align: justifyt;">Track early warnings. Some threats may not be immediate risks but should still be documented and reviewed regularly.</li>'.
+          '<li style="text-align: justifyt;">Follow up using your risk management process. Continue assessing and evaluating threats according to your organization’s procedures.</li>'.
+          '<li style="text-align: justifyt;">Invest in training. Building team knowledge in areas like privacy, data protection, and ethics can strengthen both your risk response and future threat modeling sessions.</li>'.
           '</ul>';
     $html .=
-        '<h2 style="font-size: '.$this->size->fontNormalPlus.'pt; color: #0f71d4;">Benefits:</h2><ul>'.
-          '<li style="text-align: justifyt;">Organisations can benefit from the fact that some of the threats play a more global role what will lead to a consequent improvement of processes. That is why it is important to register the threats and have an overview of what has been mitigated already. This can also be useful for KPI reporting.</li>'.
-          '<li style="text-align: justifyt;">Another clear benefit is the reduction of rework: simply because the purpose is more clear and expectations regarding issues like bias, discrimination or explainability can be better managed.</li>'.
-          '<li style="text-align: justifyt;">The threat modeling sessions also bring all stakeholders on the same page, reducing time spent in endless discussions.</li>'.
-          '<li style="text-align: justifyt;">The output of the sessions can be also used in your (Data) Privacy Impact Assessments, what also saves time.</li>'.
-          '<li style="text-align: justifyt;">It brings structure and focus to the teams, increases knowledge and collaboration.</li>'.
+        '<h2 style="font-size: '.$this->size->fontNormalPlus.'pt; color: #0f71d4;">Benefits</h2><ul>'.
+          '<li style="text-align: justifyt;">Improved processes. Some threats highlight broader, systemic issues, leading to better overall processes. Keeping track of mitigated threats also supports KPI reporting.</li>'.
+          '<li style="text-align: justifyt;">Less rework. With clearer goals and expectations around topics like bias, discrimination, and explainability, teams can reduce misunderstandings and avoid redundant work.</li>'.
+          '<li style="text-align: justifyt;">Aligned stakeholders. Threat modeling sessions help get everyone on the same page, reducing the need for prolonged discussions later.</li>'.
+          '<li style="text-align: justifyt;">Support for (Data) Privacy Impact Assessments. Session outputs can feed directly into DPIAs, saving time and effort.</li>'.
+          '<li style="text-align: justifyt;">Stronger teams. The process builds structure, focus, shared knowledge, and collaboration.</li>'.
           '</ul>';
     $html .=
       '<div style="height: 30px;"> </div><p><i style="font-size: '.$this->size->fontNormalPlus.'pt; color: #0f71d4;">'.
@@ -679,7 +687,7 @@ class PlotPDF
       $this->pdf->ImageSVG("@".$this->fixSvgContents($imgdata), $xPos, $yPos, '', $imgWidth, $link='', $align='', $palign='', $border=0, $fitonpage=true);
     }
     */
-    
+
     // if applicable, indicate roles
     if (isset($threat->roles) && is_array($threat->roles) && count($threat->roles) > 0) {
       $this->pdf->setY($this->size->frontRoleTextY);
