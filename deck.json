@@ -7,7 +7,7 @@
 			{
 				"question": "Is our data complete, up-to-date, and trustworthy?",
 				"threatif": "No",
-				"label": "Data Qualitys",
+				"label": "Data Quality",
 				"aitypes": [
 					"Traditional",
 					"Generative"
