@@ -58,7 +58,7 @@
 			{
 				"question": "Can we prevent concept and data drift?",
 				"threatif": "No",
-				"label": "Concept and Data Drift",
+				"label": "Drift",
 				"aitypes": [
 					"Traditional",
 					"Generative"
@@ -111,7 +111,7 @@
 			{
 				"question": "Can we process updated data from external sources without delay?",
 				"threatif": "No",
-				"label": "Data Updates Latency",
+				"label": "Update Latency",
 				"aitypes": [
 					"Traditional",
 					"Generative"
@@ -631,7 +631,7 @@
 					"Provider",
 					"Deployer"
 				],
-				"explanation": "* According to art. 9 GDPR you might not be allowed to process, under certain circumstances, personal data revealing racial or ethnic origin, political opinions, religious or philosophical beliefs, trade union membership, genetic data, biometric data, health data or data concerning a person’s sex life or sexual orientation.\n* You might be processing sensitive data if the model includes features that are correlated with these protected characteristics (these are called proxies).",
+				"explanation": "* According to art. 9 GDPR you might not be allowed to process, under certain circumstances, personal data revealing racial or ethnic origin, political opinions, religious or philosophical beliefs, trade union membership, genetic data, biometric data, health data or data concerning a person’s sex life or sexual orientation.\n* You might be processing sensitive data if the model includes features that are correlated with these protected characteristics (these are called proxies) but also if you are processing other type of data that, if disclosed, could cause harm (e.g., financial data)",
 				"recommendation": "* If you need to use special categories of data as defined in the GDPR art. 9, then you need to check if you have the right lawful basis to do this.\n* Applying techniques like anonymisation might still not justify the fact that you first need to process the original data. Check with your privacy/legal experts.\n* Prevent proxies that could infer sensitive data (especially from vulnerable populations).\n* Check whether historical data or practices may introduce bias.\n* Identify and remove features that are correlated to sensitive characteristics.\n* Use available methods to test for fairness with respect to different affected groups.",
 				"sources": "[AI Fairness 360](https://aif360.mybluemix.net)\n[What-if Tool: Playing with AI Fairness](https://pair-code.github.io/what-if-tool/ai-fairness.html)\n[Hunting for Discriminatory Proxies in Linear Regression Models](https://papers.nips.cc/paper/7708-hunting-for-discriminatory-proxies-in-linear-regression-models.pdf)\n[Differential Privacy Blog Series](https://www.nist.gov/itl/applied-cybersecurity/privacy-engineering/collaboration-space/focus-areas/de-id/dp-blog)",
 				"qr": "",
@@ -857,7 +857,7 @@
 			{
 				"question": "Are we providing sufficient transparency about how the AI model collects, processes, and uses personal data?",
 				"threatif": "No",
-				"label": "Transparency",
+				"label": "Transparent Information",
 				"aitypes": [
 					"Traditional",
 					"Generative"
@@ -912,7 +912,7 @@
 				]
 			},
 			{
-				"question": "Could the AI system generate inaccurate or sensitive responses that harm users or spread misinformation?",
+				"question": "Could the AI system generate inaccurate responses that harm users or spread misinformation?",
 				"threatif": "Yes",
 				"label": "Inaccuracy",
 				"aitypes": [
@@ -1062,7 +1062,7 @@
 				]
 			},
 			{
-				"question": "Is training data, model output, and other sensitive AI assets securely stored?",
+				"question": "Are training data, model output, and other sensitive AI assets securely stored?",
 				"threatif": "No",
 				"label": "Storage Protection",
 				"aitypes": [
@@ -1308,7 +1308,7 @@
 					"Provider",
 					"Deployer"
 				],
-				"explanation": "In a membership inference attack, the attacker can determine whether a given data record was part of the model’s training dataset or not. Example: researchers were able to predict a patient’s main procedure (e.g., surgery the patient went through) based on the attributes (e.g., age, gender, hospital).",
+				"explanation": "In a membership inference attack (MIA), the attacker can determine whether a given data record was part of the model’s training dataset or not. Example: researchers were able to predict a patient’s main procedure (e.g., surgery the patient went through) based on the attributes (e.g., age, gender, hospital).",
 				"recommendation": "* Differential Privacy has been shown to be an effective mitigation in some studies.\n* The usage of neuron dropout and model stacking can be effective mitigations to an extent. Using neuron dropout not only increases resilience of a neural net to this attack, but also increases model performance.",
 				"sources": "[Microsoft, Threat Modelling AI/ML Systems and Dependencies](https://docs.microsoft.com/en-us/security/engineering/threat-modeling-aiml)\n[Securing Machine Learning Algorithms, ENISA](https://www.enisa.europa.eu/publications/securing-machine-learning-algorithms)\n[STRIDE-AI: An Approach to Identifying Vulnerabilities of Machine Learning Assets](https://github.com/LaraMauri/STRIDE-AI)\n[Stride-ML Threat Model]( https://csf.tools/reference/stride-lm/)\n[MITRE ATLAS™ - Adversarial Threat Landscape for Artificial-Intelligence Systems](https://atlas.mitre.org/)",
 				"qr": "",
@@ -1408,8 +1408,8 @@
 			},
 			{
 				"question": "Could third-party AI/ML providers compromise our training data or insert backdoors?",
-				"threatif": "No",
-				"label": "AI Supply Chain Providers",
+				"threatif": "Yes",
+				"label": "AI Supply Chain Access",
 				"aitypes": [
 					"Traditional",
 					"Generative"
@@ -1563,7 +1563,7 @@
 			{
 				"question": "Could third-party tools, plugins, or dependencies introduce vulnerabilities in our AI system?",
 				"threatif": "Yes",
-				"label": "AI Supply Chain Risks",
+				"label": "AI Supply Chain Tools",
 				"aitypes": [
 					"Traditional",
 					"Generative"
@@ -1624,7 +1624,7 @@
 			{
 				"question": "Could the AI system generate or execute unsafe code based on user input?",
 				"threatif": "Yes",
-				"label": "Remote Code Execution",
+				"label": "Remote Code Execution (RCE)",
 				"aitypes": [
 					"Generative"
 				],
@@ -1712,7 +1712,7 @@
 			{
 				"question": "Could agents misuse tools or APIs they are authorized to access?",
 				"threatif": "Yes",
-				"label": "Agentic AI Tools Access",
+				"label": "Agentic AI Tools Misuse",
 				"aitypes": [
 					"Generative"
 				],
@@ -1856,42 +1856,42 @@
 			},
 			{
 				"question": "Could an attacker or user intentionally overload the AI system’s resources to degrade performance or cause failures?",
- 				"threatif": "Yes",
-  				"label": "Resource Overload",
-  				"aitypes": [
-				    "Traditional",
-				    "Generative"
+				"threatif": "Yes",
+				"label": "Resource Overload",
+				"aitypes": [
+					"Traditional",
+					"Generative"
 				],
 				"roles": [
-				    "Provider",
-				    "Deployer"
+					"Provider",
+					"Deployer"
 				],
 				"explanation": "* AI systems, especially large models, are resource-intensive and vulnerable to overload attacks targeting compute, memory, I/O, or API bandwidth.\n* Malicious actors may send high-frequency or computationally expensive queries to exhaust system capacity.\n* This can lead to degraded service, denial of service, or delayed model responses, impacting availability and user trust.\n* Multi-agent environments are particularly vulnerable when agents interact recursively or generate long-running tasks without resource limits.",
 				"recommendation": "* Implement rate limiting and quotas per user, agent, or session to restrict excessive usage.\n* Use priority-based scheduling, timeouts, and request throttling for costly model operations.\n* Monitor runtime metrics (CPU/GPU load, memory, inference time) and trigger alerts for anomalies.\n* Apply load balancing and autoscaling in production to absorb usage spikes.\n* Include safeguards in agent instructions to prevent recursive or resource-exhausting task loops.\n* Log resource-heavy requests and investigate patterns indicative of misuse or attack.",
 				"sources": "[OWASP Agentic AI Threats](https://owasp.org/www-project-agentic-ai/assets/publications/Agentic-AI-Threats-and-Mitigations_v1.0.1.pdf)",
 				"categories": [
-				    "Cybersecurity",
-				    "Safety & Environmental Impact"
+					"Cybersecurity",
+					"Safety & Environmental Impact"
 				],
 				"phases": [
-				    "Deploy",
-				    "Monitor"
+					"Deploy",
+					"Monitor"
 				],
 				"cia": [
-				    "a",
-				    "i"
+					"a",
+					"i"
 				]
 			},
 			{
- 			        "question": "Could an attacker or agent impersonate a user or AI identity to gain unauthorized influence?",
-			        "threatif": "Yes",
+				"question": "Could an attacker or agent impersonate a user or AI identity to gain unauthorized influence?",
+				"threatif": "Yes",
 				"label": "Identity Spoofing & Impersonation",
 				"aitypes": [
-					"Traditional", 
+					"Traditional",
 					"Generative"
 				],
 				"roles": [
-					"Provider", 
+					"Provider",
 					"Deployer"
 				],
 				"explanation": "* Attackers may spoof legitimate identities of users, agents, or services to bypass authentication and gain control or influence over AI behavior.\n* This can enable unauthorized data access, prompt injection, or manipulation of trust-based systems.",
@@ -1899,15 +1899,15 @@
 				"sources": "[OWASP Agentic AI – Threats and Mitigations (v1.0.1)](https://owasp.org/www-project-agentic-ai/assets/publications/Agentic-AI-Threats-and-Mitigations_v1.0.1.pdf)",
 				"qr": "",
 				"categories": [
-					 "Cybersecurity"
+					"Cybersecurity"
 				],
 				"phases": [
-					 "Deploy", 
-					 "Monitor"
+					"Deploy",
+					"Monitor"
 				],
 				"cia": [
-					 "i", 
-					 "a"
+					"i",
+					"a"
 				]
 			},
 			{
@@ -2623,7 +2623,7 @@
 				]
 			},
 			{
-				"question": "Could the AI system deliberately mislead users or conceal its capabilities during deployment or evaluation?",
+				"question": "Could the AI system deliberately mislead users or hide its capabilities during deployment or evaluation?",
 				"threatif": "Yes",
 				"label": "Model Deception",
 				"aitypes": [
@@ -2672,7 +2672,7 @@
 				]
 			},
 			{
-				"question": "Do we monitor how version updates to third-party GenAI models affect our system's behaviour?",
+				"question": "Do we monitor how version updates from third-party GenAI models can affect our system's behaviour?",
 				"threatif": "No",
 				"label": "GenAI Version Drift",
 				"aitypes": [
@@ -2838,7 +2838,7 @@
 				]
 			},
 			{
-				"question": "Does our AI system oversimplify real-world problems?",
+				"question": "Could our AI system oversimplify real-world problems?",
 				"threatif": "Yes",
 				"label": "Abstraction Traps",
 				"aitypes": [
@@ -2865,7 +2865,7 @@
 				]
 			},
 			{
-				"question": "Does our AI system accurately capture the factors it's designed to measure?",
+				"question": "Could our AI system accurately capture the factors it's designed to measure?",
 				"threatif": "No",
 				"label": "Construction Validity Bias",
 				"aitypes": [
@@ -2917,7 +2917,7 @@
 				]
 			},
 			{
-				"question": "Is data being labeled consistently?",
+				"question": "Can data be labeled consistently?",
 				"threatif": "No",
 				"label": "Labeling Bias",
 				"aitypes": [
@@ -2942,7 +2942,7 @@
 				]
 			},
 			{
-				"question": "Is the system using proxy variables that may reflect sensitive attributes?",
+				"question": "Could the system be using proxy variables that reflect sensitive attributes?",
 				"threatif": "Yes",
 				"label": "Proxy Variables",
 				"aitypes": [
@@ -2994,7 +2994,7 @@
 				]
 			},
 			{
-				"question": "Are we over-relying on early evaluation results or AI-generated outputs?  ",
+				"question": "Could we over-rely on early evaluation results or AI-generated outputs?  ",
 				"threatif": "Yes",
 				"label": "Over-reliance",
 				"aitypes": [
@@ -3077,7 +3077,7 @@
 			{
 				"question": "Could our AI system automatically label or categorize people?",
 				"threatif": "Yes",
-				"label": "Categorization",
+				"label": "People Categorization",
 				"aitypes": [
 					"Traditional",
 					"Generative"
@@ -3190,7 +3190,7 @@
 				]
 			},
 			{
-				"question": "Can users contest or challenge decisions made by the AI system?",
+				"question": "Could users contest or challenge the decisions made by the AI system?",
 				"threatif": "No",
 				"label": "Contestability",
 				"aitypes": [
@@ -3270,7 +3270,7 @@
 				]
 			},
 			{
-				"question": "Could our AI system affect access to healthcare, employment, housing, insurance, benefits or education?",
+				"question": "Could our AI system affect access to services such as healthcare, housing, insurance, benefits or education?",
 				"threatif": "Yes",
 				"label": "Access to Essential Services",
 				"aitypes": [
@@ -3553,26 +3553,27 @@
 				]
 			},
 			{
-				"question": "Do we have sufficient people, tools, and processes to monitor the AI system after deployment or integration?",
+				"question": "Are those responsible for overseeing the AI system adequately trained to understand its risks, limitations, and appropriate interventions?",
 				"threatif": "No",
-				"label": "System Monitoring",
+				"label": "Inadequate Staff Training",
 				"aitypes": [
 					"Traditional",
 					"Generative"
 				],
 				"roles": [
+					"Provider",
 					"Deployer"
 				],
-				"explanation": "Do you already have a process in place to monitor the quality of the output and system errors? Do you have resources to do this? Not having the right process and resources in place could have an impact on the project deadline, the organisation and the users.",
-				"recommendation": "* Put a well-defined process in place to monitor if the AI system is meeting the intended goals.\n* Define failsafe fallback plans to address AI system errors of whatever origin and put governance procedures in place to trigger them.\n* Put measures in places to continuously assess the quality of the output data: e.g. check that prediction scores are within expected ranges; anomaly detection in output and reassign input data leading to the detected anomaly.\n* Does the data measure what you need to measure? You could get measurement errors if data is not correctly labeled.",
-				"sources": "",
+				"explanation": "Employees involved in developing, deploying, operating, or using AI systems must understand how these systems work, what risks they pose, and what safeguards are in place. Without proper training, staff may overlook critical failures, be unable to detect misuse, or make poor decisions based on AI outputs. This lack of awareness undermines accountability, reduces the effectiveness of human oversight, and increases the risk of harm to users or the public.",
+				"recommendation": "* Provide role-specific training on AI capabilities, limitations, and risk mitigation strategies.\n* Ensure that teams understand their responsibilities for monitoring, escalation, and intervention.\n* Include training on fairness, data protection, explainability, and how to interpret AI outputs responsibly.\n* Update training regularly to reflect changes in AI systems or regulatory requirements.\n* Document participation in training programs as part of accountability measures.",
+				"sources": "Article 4 EU AI Act: I Literacy",
 				"qr": "",
 				"categories": [
 					"Accountability & Human Oversight"
 				],
 				"phases": [
 					"Design",
-					"Output",
+					"Deployment",
 					"Monitor"
 				]
 			},
@@ -3624,7 +3625,7 @@
 				]
 			},
 			{
-				"question": "Is there a well-defined process to escalate AI-related failures or unexpected outcomes to responsible individuals?",
+				"question": "Is there a well-defined process to escalate AI-related failures or unexpected outcomes?",
 				"threatif": "No",
 				"label": "Escalation Path",
 				"aitypes": [
@@ -3755,7 +3756,7 @@
 				]
 			},
 			{
-				"question": "Do we have adequate MLOps practices in place to manage, monitor, and maintain our AI system?",
+				"question": "Do we have adequate resources and MLOps practices in place to manage, monitor, and maintain our AI system?",
 				"threatif": "No",
 				"label": "Lack of MLOps",
 				"aitypes": [
@@ -3782,7 +3783,7 @@
 				]
 			},
 			{
-				"question": "If we plan to use a third-party AI tool, have we assessed our shared responsibility for its potential impact on users?",
+				"question": "If we plan to deploy a third-party AI tool, have we assessed our shared responsibility for its potential impact on users?",
 				"threatif": "No",
 				"label": "Shared Responsibility",
 				"aitypes": [
