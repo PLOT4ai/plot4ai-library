@@ -2239,6 +2239,31 @@
 				]
 			},
 			{
+				"question": "Could the AI system's performance on benchmarks be misleading or fail to reflect real-world risks?",
+				"threatif": "Yes",
+				"label": "Benchmark Misalignment",
+				"aitypes": [
+					"Traditional",
+					"Generative"
+				],
+				"roles": [
+					"Provider",
+					"Deployer"
+				],
+				"explanation": "AI models often report strong results on standard academic benchmarks, but these benchmarks may not reflect the diversity, complexity, or unpredictability of real-world use cases. Overfitting to test sets, narrow coverage, or outdated benchmarks can lead to misleading performance estimates. As a result, systems may behave unreliably or unfairly once deployed, especially in edge cases, non-English contexts, or under adversarial conditions. This can cause harm, erode trust, and create legal or reputational liabilities.",
+				"recommendation": "* Evaluate performance using diverse, real-world datasets that better represent deployment contexts and edge cases.\n* Use stress tests and adversarial examples to probe model robustness.\n* Complement quantitative metrics (e.g., accuracy, F1) with qualitative error analysis and stakeholder reviews.\n* Include fairness, reliability, and uncertainty metrics in your evaluation pipeline.\n* Regularly update benchmarks to reflect evolving societal contexts, data distributions, and risk environments.\n* Document evaluation limitations transparently, including what is not tested and where the model may underperform.",
+				"categories": [
+					"Safety & Environmental Impact",
+					"Accountability & Human Oversight"
+				],
+				"phases": [
+					"Model",
+					"Output",
+					"Deploy",
+					"Monitor"
+				]
+			},
+			{
 				"question": "Could the AI system become persuasive causing harm to users?",
 				"threatif": "Yes",
 				"label": "Persuasive AI",
