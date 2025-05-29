@@ -109,7 +109,7 @@
 				]
 			},
 			{
-				"question": "Can we process updated data from external sources without delay?",
+				"question": "Can we process new or updated data from external sources without delay?",
 				"threatif": "No",
 				"label": "Update Latency",
 				"aitypes": [
@@ -161,7 +161,7 @@
 				]
 			},
 			{
-				"question": "Can we obtain the data needed to develop the AI model?",
+				"question": "Can we obtain the data needed to develop or fine-tune the AI model?",
 				"threatif": "No",
 				"label": "Data Collection",
 				"aitypes": [
@@ -327,33 +327,6 @@
 				]
 			},
 			{
-				"question": "Do we need to offer users and accessible way to contest AI decisions or seek redress?",
-				"threatif": "Yes",
-				"label": "User Redress",
-				"aitypes": [
-					"Traditional",
-					"Generative"
-				],
-				"roles": [
-					"Provider",
-					"Deployer"
-				],
-				"explanation": "* For applications that can adversely affect individuals, you might need to consider implementing a redress by design mechanism where affected individuals can request remedy or compensation.\n* Article 22(3) GDPR provides individuals with a right to obtain human intervention if a decision is made solely by an AI system and it also provides the right to contest the decision.",
-				"recommendation": "* Think about implementing mechanisms to effectively detect and rectify wrong decisions made by your system.\n* Provide a mechanism to ignore or dismiss undesirable features or services.\n* Wrong decisions could also have an impact on people that have not been the target of the data collection (data spillovers). Consider designing a mechanism that allows all affected individuals to contest AI decisions and seek redress, remedy or compensation. This mechanism should be easily accessible and it implies that you would need to have internally implemented a process where redress can be effectively executed. This also has impact on the resources/skills needed to fulfil this process.\n* Consider this a necessary step to ensure responsibility and accountability.",
-				"sources": "[EU guidelines on ethics in artificial intelligence: Context and implementation](https://www.europarl.europa.eu/RegData/etudes/BRIE/2019/640163/EPRS_BRI(2019)640163_EN.pdf)",
-				"qr": "",
-				"categories": [
-					"Transparency & Accessibility",
-					"Accountability & Human Oversight"
-				],
-				"phases": [
-					"Design",
-					"Output",
-					"Deploy",
-					"Monitor"
-				]
-			},
-			{
 				"question": "If users’ consent is required, is the necessary information provided in a clear and accessible way?",
 				"threatif": "No",
 				"label": "Consent",
@@ -430,7 +403,7 @@
 				]
 			},
 			{
-				"question": "Are users clearly made aware that they are interacting with an AI system?",
+				"question": "Are users clearly made aware that they are interacting with an AI system or consuming AI-generated content?",
 				"threatif": "No",
 				"label": "AI Interaction Awareness",
 				"aitypes": [
@@ -441,8 +414,8 @@
 					"Provider",
 					"Deployer"
 				],
-				"explanation": "* Are users adequately made aware that a decision, content, advice or outcome is the result of an algorithmic decision?\n* Users may be unaware they are interacting with AI, causing confusion or lack of trust.",
-				"recommendation": "* Developers of AI systems intended to interact with humans (e.g., chatbots, robots), are required to inform users that they are interacting with an AI system (Article 50 AI Act). This information should be received at the beginning of the interaction.\n* If you are developing generative AI solutions, you must ensure that the outputs of the AI system are marked in a machine-readable format and detectable as artificially generated or manipulated.\n* If you are a deployer, you must inform your users if you are using an emotion recognition system or a biometric categorisation system. \n* If you are a deployer of AI systems that produce deep fakes, you must disclose that the content has been artificially generated or manipulated.",
+				"explanation": "* Users must be clearly informed when they are interacting with an AI system, especially in conversational interfaces, automated decision systems, or content generation tools. Failing to do so can undermine user trust, autonomy, and informed consent.\n* This includes both real-time interactions (e.g., chatbots) and offline consumption of AI-generated content (e.g., synthetic images, deepfakes).\n* Deepfakes and other AI-generated media that imitate real individuals or events carry high risks of deception, manipulation, and reputational harm if not transparently disclosed.\n* Lack of disclosure may also breach Article 50 of the EU AI Act and broader transparency obligations under the GDPR.",
+				"recommendation": "* Inform users at the start of any interaction that they are engaging with an AI system, especially in systems simulating human communication (e.g., chatbots, virtual assistants).\n* For generative AI outputs (text, audio, video, images), ensure they are clearly marked, both visibly and in machine-readable format, as artificially generated or manipulated.\n* If your system produces deepfakes or synthetic media, implement persistent and tamper-resistant labeling or watermarks and include a notice that the content has been artificially generated or altered.\n* Deployers must also inform users when emotion recognition, biometric categorization, or similar AI functions are in use.\n* Design your UX to surface these disclosures prominently and accessibly, particularly in sensitive contexts such as news, education, or political speech.",
 				"sources": "Article 50 AI Act",
 				"qr": "",
 				"categories": [
@@ -455,9 +428,9 @@
 				]
 			},
 			{
-				"question": "Are users informed about the AI system's reliability, limitations, and risks?",
+				"question": "Are users informed about the AI system's reliability, limitations, and risks in a way that enables safe and effective use?",
 				"threatif": "No",
-				"label": "System Capabilities Information",
+				"label": "System Transparency for Effective Use",
 				"aitypes": [
 					"Traditional",
 					"Generative"
@@ -466,34 +439,9 @@
 					"Provider",
 					"Deployer"
 				],
-				"explanation": "* Do users understand the specific context for which the system is designed? Are they aware of any actions or purposes they should avoid when using the system? \n* Do we communicate the level of accuracy of the system's output?\n* If an AI-assisted decision has been made about a person without any type of explanation or information then this may limit that person's autonomy, scope and self-determination. This is unlikely to be fair.",
-				"recommendation": "* Provide clear information about how and why an AI-assisted decision was made and which data was used to train and test the model.\n* The model you choose should be at the right level of interpretability for your use case and for the impact it will have on the decision recipient. If you use a black box model make sure the supplementary explanation techniques you use provide a reliable and accurate representation of the systems behavior. Source: UK ICO\n* Communicate the benefits, the technical limitations and potential risks of the AI system to users, such as its level of accuracy and/or error rates.\n* Ask your users (with a survey for instance) if they understand the decisions that your AI system makes.\n* Update your users about changes in the system that might have an impact on them.",
-				"sources": "[Microsoft HAX Toolkit](https://www.microsoft.com/en-us/haxtoolkit/guideline/make-clear-what-the-system-can-do/)(https://www.microsoft.com/en-us/haxtoolkit/guideline/make-clear-how-well-the-system-can-do-what-it-can-do/)",
-				"qr": "",
-				"categories": [
-					"Transparency & Accessibility"
-				],
-				"phases": [
-					"Design",
-					"Deploy",
-					"Monitor"
-				]
-			},
-			{
-				"question": "Do we provide users with the information and tools needed to use the AI system effectively and safely?",
-				"threatif": "No",
-				"label": "AI Effective Use",
-				"aitypes": [
-					"Traditional",
-					"Generative"
-				],
-				"roles": [
-					"Provider",
-					"Deployer"
-				],
-				"explanation": "Are users aware of the capabilities of the AI system? Users need to be informed about what to expect, not only for transparency reasons but in some products also for safety precautions.",
-				"recommendation": "* Consider this as part of the GDPR transparency principle.\n* Users should be aware of what the AI system can do.\n* Clear information should be provided on time and made accessible following accessibility design principles.",
-				"sources": "[GDPR transparency principle](https://gdpr-info.eu/recitals/no-58/)\n[Microsoft HAX Toolkit](https://www.microsoft.com/en-us/haxtoolkit/guideline/convey-the-consequences-of-user-actions/)",
+				"explanation": "Users need to understand what the AI system can and cannot do, including its intended use, reliability, limitations, and potential risks. Without clear communication, users may place unwarranted trust in the system, misuse it, or be harmed by misleading outputs. This undermines transparency, fairness, safety, and user autonomy. For example, failing to disclose error rates, decision logic, or appropriate use contexts can lead to over-reliance or unsafe behavior, especially in sensitive domains.",
+				"recommendation": "* Clearly communicate the system's intended use, benefits, limitations, and potential risks.\n* Provide timely, accessible information on accuracy levels, error rates, interpretability, and system updates.\n* Ensure users understand when and how to rely on the system, and when human judgment is needed.\n* Use interpretability tools appropriate to the impact of the system, especially if it is a black-box model.\n* Follow accessibility best practices to ensure all users, including those with disabilities, can understand the system.\n* Incorporate feedback loops such as surveys to verify that users actually understand how the system works and what they can expect.\n* Consider this part of compliance with the GDPR transparency principle, and good practice for system safety and usability.",
+				"sources": "[GDPR transparency principle](https://gdpr-info.eu/recitals/no-58/)\n[Microsoft HAX Toolkit](https://www.microsoft.com/en-us/haxtoolkit/guideline/convey-the-consequences-of-user-actions/),[Microsoft HAX Toolkit](https://www.microsoft.com/en-us/haxtoolkit/guideline/make-clear-what-the-system-can-do/)(https://www.microsoft.com/en-us/haxtoolkit/guideline/make-clear-how-well-the-system-can-do-what-it-can-do/)",
 				"qr": "",
 				"categories": [
 					"Transparency & Accessibility",
@@ -524,7 +472,7 @@
 					"Provider",
 					"Deployer"
 				],
-				"explanation": "* Do you need to use unique identifiers in your training dataset? If personal data is not necessary for the model you would not really have a legal justification for using it.\n* Training datasets for LLMs may inadvertently include personal data, leading to potential privacy breaches. Even if direct identifiers are removed, indirect identifiers or quasi-identifiers can still enable re-identification. This poses risks under data protection regulations like the GDPR, especially if the data subjects have not provided explicit consent for their data to be used in this manner.",
+				"explanation": "* Do you need to use unique identifiers in your training or fine-tuning dataset? If personal data is not necessary for the model you would not really have a legal justification for using it.\n* Training datasets for LLMs may inadvertently include personal data, leading to potential privacy breaches. Even if direct identifiers are removed, indirect identifiers or quasi-identifiers can still enable re-identification. This poses risks under data protection regulations like the GDPR, especially if the data subjects have not provided explicit consent for their data to be used in this manner.",
 				"recommendation": "* Unique identifiers might be included in the training set when you want to be able to link the results to individuals. Consider using pseudo-identifiers or other robust pseudonymization techniques that can help you protect personal data.\n* Document the measures you are taking to protect the data. Consider if your measures are necessary and proportional.",
 				"sources": "[EDPB AI Privacy Risks & Mitigations – Large Language Models (LLMs)](https://www.edpb.europa.eu/system/files/2025-04/ai-privacy-risks-and-mitigations-in-llms.pdf)",
 				"qr": "",
@@ -698,8 +646,8 @@
 				]
 			},
 			{
-				"question": "Can we comply with the purpose limitation principle under GDPR and other global privacy regulations?",
-				"threatif": "No",
+				"question": "Could we be using personal data for purposes different from those for which it was originally collected?",
+				"threatif": "Yes",
 				"label": "Purpose Limitation",
 				"aitypes": [
 					"Traditional",
@@ -750,9 +698,9 @@
 				]
 			},
 			{
-				"question": "Could we be deploying the AI system without conducting a necessary Data Protection Impact Assessment (DPIA)?",
+				"question": "Could we be deploying the AI system without conducting a required Data Protection Impact Assessment (DPIA)?",
 				"threatif": "Yes",
-				"label": "Privacy Impact Assessments",
+				"label": "Privacy Impact Assessment",
 				"aitypes": [
 					"Traditional",
 					"Generative"
@@ -885,7 +833,7 @@
 			{
 				"question": "Are we logging or storing user input data in ways that may violate privacy?",
 				"threatif": "Yes",
-				"label": "Data Storing",
+				"label": "Storing of User Data",
 				"aitypes": [
 					"Traditional",
 					"Generative"
@@ -912,9 +860,9 @@
 				]
 			},
 			{
-				"question": "Could the AI system generate inaccurate responses that harm users or spread misinformation?",
+				"question": "Could the AI system produce inaccurate or misleading outputs that result in privacy violations or harm",
 				"threatif": "Yes",
-				"label": "Inaccuracy",
+				"label": "Inaccurate Output",
 				"aitypes": [
 					"Traditional",
 					"Generative"
@@ -923,8 +871,8 @@
 					"Provider",
 					"Deployer"
 				],
-				"explanation": "* AI models, especially generative AI, may produce hallucinations, inaccuracies, misleading or fabricated information.\n* Outputs may inadvertently reveal sensitive data or personal details, leading to privacy breaches.\n* When multiple AI agents interact, hallucinations and errors can amplify, increasing the likelihood of spreading misinformation.",
-				"recommendation": "For generative AI:\n* Implement fact-checking and validation mechanisms before AI-generated responses are shown to users.\n* Use retrieval-augmented generation (RAG) and human-in-the-loop (HITL) approaches to improve accuracy.\n* Red-team AI models by stress-testing them for misinformation and privacy risks.\n* Allow users to report inaccurate or harmful content, enabling iterative model improvements.\n* Restrict AI-generated outputs on sensitive topics unless rigorous verification is in place.\n\nFor traditional AI (e.g., classification, regression, or rule-based systems):\n* Validate models on diverse, real-world datasets to test for generalizability and edge-case failures.\n* Implement post-deployment performance monitoring and regular retraining to reduce drift and degradation over time.\n* Conduct error analysis on false positives and false negatives to refine model logic and thresholds.\n* Include uncertainty estimation and confidence scoring to guide decision-making, especially in high-risk use cases.\n* In safety-critical applications, ensure fallback mechanisms or manual review paths are available when confidence is low.",
+				"explanation": "* AI systems may generate, infer, or reproduce incorrect personal data, leading to violations of the GDPR’s accuracy principle (Article 5(1)(d)) and potential harm to data subjects.\n* Outputs may inadvertently reveal sensitive data or personal details, leading to privacy breaches.\n* In traditional AI, this includes misclassification, profiling errors, or incorrect risk scoring that affect decisions about individuals (e.g., in hiring, finance, law enforcement).\n* In generative AI, this includes hallucinated personal facts or fabricated content that falsely attributes actions, identities, or characteristics to real people. When multiple AI agents interact, hallucinations and errors can amplify, increasing the likelihood of spreading misinformation.\n* These inaccuracies can damage reputations, mislead users, or be stored and processed in downstream systems, compounding the data protection risk.",
+				"recommendation": "* Conduct data protection impact assessments (DPIAs) to evaluate how inaccurate outputs could affect individuals' rights and freedoms.\n* Provide mechanisms for individuals to access, rectify, or contest inferences or decisions made by AI systems.\n* Maintain logs and audit trails to trace how inaccurate personal data was generated or propagated.\n* Train models with high-quality, up-to-date, and verified datasets to minimize the risk of misinformation and outdated personal data \n\nFor generative AI:\n* Implement fact-checking and validation mechanisms before AI-generated responses are shown to users.\n* Implement named-entity detection and filtering to prevent false personal information from being output\n* Use retrieval-augmented generation (RAG) and human-in-the-loop (HITL) approaches to improve accuracy.\n* Red-team AI models by stress-testing them for misinformation and privacy risks.\n* Allow users to report inaccurate or harmful content, enabling iterative model improvements.\n* Restrict AI-generated outputs on sensitive topics unless rigorous verification is in place.\n\nFor traditional AI (e.g., classification, regression, or rule-based systems):\n* Validate models on diverse, real-world datasets to test for generalizability and edge-case failures.\n* Implement post-deployment performance monitoring and regular retraining to reduce drift and degradation over time.\n* Conduct error analysis on false positives and false negatives to refine model logic and thresholds.\n* Include uncertainty estimation and confidence scoring to guide decision-making, especially in high-risk use cases.\n* In safety-critical applications, ensure fallback mechanisms or manual review paths are available when confidence is low.",
 				"sources": "[Hallucination Detection in Large Language Models with Metamorphic Relations](https://arxiv.org/abs/2502.15844)\n[Unraveling Large Language Model Hallucinations](https://towardsdatascience.com/unraveling-large-language-model-hallucinations/)",
 				"qr": "",
 				"categories": [
@@ -2122,32 +2070,6 @@
 				]
 			},
 			{
-				"question": "Does the AI system include age restrictions to prevent underage users' access to inappropriate or high-risk AI content?",
-				"threatif": "No",
-				"label": "Age Restriction",
-				"aitypes": [
-					"Traditional",
-					"Generative"
-				],
-				"roles": [
-					"Provider",
-					"Deployer"
-				],
-				"explanation": "* Is your product not meant to be used by children? You might need to implement an age verification mechanism to prevent children from accessing the product.\n* Age verification can also be important to provide the right diagnosis (health sector).",
-				"recommendation": "* Clearly specify in the user instructions for which age group the application is built. Labels or symbols can be very helpful.\n* Consider which design is more appropriate based on your use case, and consider the possible risks associated with your design choice, and the mitigating measures you can implement to reduce that risk. Document the residual risks that you accept.\n* Test the accessibility of your design with different age groups.",
-				"sources": "[Evolution in Age-Verification Applications](https://montrealethics.ai/evolution-in-age-verification-applications-can-ai-open-some-new-horizons/)",
-				"qr": "",
-				"categories": [
-					"Safety & Environmental Impact",
-					"Ethics & Human Rights"
-				],
-				"phases": [
-					"Design",
-					"Output",
-					"Deploy"
-				]
-			},
-			{
 				"question": "Could AI-generated hallucinations lead to misinformation or decision-making risks?",
 				"threatif": "Yes",
 				"label": "Misinformation",
@@ -2207,7 +2129,7 @@
 				]
 			},
 			{
-				"question": "Can over-reliance on automated systems lead to failures during emergencies?",
+				"question": "Can human over-reliance on automated systems lead to failures during emergencies?",
 				"threatif": "Yes",
 				"label": "Over-reliance",
 				"aitypes": [
@@ -2235,7 +2157,7 @@
 				]
 			},
 			{
-				"question": "Could performance or reliability issues emerge when scaling the AI system from data input to output across environments?",
+				"question": "Could performance or reliability issues emerge when scaling the AI system across environments?",
 				"threatif": "Yes",
 				"label": "Performance & Scalability",
 				"aitypes": [
@@ -2258,31 +2180,6 @@
 					"Design",
 					"Input",
 					"Model",
-					"Deploy",
-					"Monitor"
-				]
-			},
-			{
-				"question": "Could environmental phenomena or natural disasters compromise our AI system?",
-				"threatif": "Yes",
-				"label": "Climate & Disaster Resilience",
-				"aitypes": [
-					"Traditional",
-					"Generative"
-				],
-				"roles": [
-					"Provider",
-					"Deployer"
-				],
-				"explanation": "Examples of natural disasters include earthquakes, floods, and fires. These events, as well as environmental phenomena such as extreme heat or cold, may adversely affect the operation of IT infrastructure and hardware systems that support AI systems.\nNatural disasters may lead to unavailability or destruction of the IT infrastructures and hardware that enables the operation, deployment and maintenance of AI systems.\nSuch outages may lead to delays in decision-making, delays in the processing of data streams and entire AI systems being placed offline. Sources: [ENISA](https://www.enisa.europa.eu/publications/artificial-intelligence-cybersecurity-challenges)",
-				"recommendation": "Implement a disaster recovery plan considering different scenarios, impact, Recovery Time Objective (RTO), Recovery Point Objective (RPO) and mitigation measures.",
-				"sources": "[Securing Machine Learning Algorithms, ENISA](https://www.enisa.europa.eu/publications/securing-machine-learning-algorithms)\n[STRIDE-AI: An Approach to Identifying Vulnerabilities of Machine Learning Assets](https://github.com/LaraMauri/STRIDE-AI)\n[Stride-ML Threat Model]( https://csf.tools/reference/stride-lm/)\n[MITRE ATLAS™ - Adversarial Threat Landscape for Artificial-Intelligence Systems](https://atlas.mitre.org/)",
-				"qr": "",
-				"categories": [
-					"Safety & Environmental Impact"
-				],
-				"phases": [
-					"Design",
 					"Deploy",
 					"Monitor"
 				]
@@ -2326,8 +2223,8 @@
 					"Provider",
 					"Deployer"
 				],
-				"explanation": "Are you testing the product in a real environment before releasing it? When deploying an AI model, it is critical to ensure that it aligns with the intended use and functions effectively in its operational environment. If the model is trained and tested on data from one context but deployed in a different one, there is a significant risk of performance degradation or unintended behavior. This is particularly important in cases where environmental changes, unexpected inputs, or shifts in user interaction occur. Additionally, reinforcement learning models may require retraining when objectives or environments deviate slightly from the training setup. Beyond data, other contextual factors like legal, cultural, or operational constraints must be considered to ensure successful deployment.",
-				"recommendation": "* Use different data for testing and training. Make sure diversity is reflected in the data and that it aligns with the intended deployment environment. Specify your training approach, statistical methods, and ensure edge cases are adequately tested. Explore different environments and contexts to make sure your model is trained with the expected variations in data sources. \n* For reinforcement learning, ensure the objective functions are robust and adaptable to slight changes in the environment. \n* Are you considering enough aspects beyond data, such as legal, cultural, or operational factors? Did you forget any environmental variable that could affect performance or safety? Could limited sampling due to high costs or practical constraints pose a challenge? Document these risks and seek organizational support. The deploying organization is accountable for addressing these risks, either through mitigation or by explicitly accepting them, which may require additional resources or budget. \n*  Consider applying techniques such as cultural effective challenge. This creates an environment where technology developers and stakeholders can actively participate in questioning the AI design and process. This approach better integrates social, cultural, and contextual factors into the design and helps prevent issues such as target leakage, where the AI system trains for an unintended purpose. \n* Set up mechanisms for real-time monitoring post-deployment. Continuously validate that the system is aligned with its intended use and can adapt or alert for significant changes in context or input. \n* Engage end-users in real-world testing to bridge any gaps between assumptions and practical application.",
+				"explanation": "Are you testing the product in a real environment before releasing it? When deploying an AI model, it is critical to ensure that it aligns with the intended use and functions effectively in its operational environment. If the model is trained and tested on data from one context but deployed in a different one, there is a significant risk of performance degradation,  or unintended behavior. This is particularly important in cases where environmental changes, unexpected inputs, or shifts in user interaction occur. Additionally, reinforcement learning models may require retraining when objectives or environments deviate slightly from the training setup. Beyond data, other contextual factors like legal, cultural, or operational constraints must be considered to ensure successful deployment.",
+				"recommendation": "* Use different data for testing and training. Make sure diversity is reflected in the data and that it aligns with the intended deployment environment. Specify your training approach, statistical methods, and ensure edge cases are adequately tested. Explore different environments and contexts to make sure your model is trained with the expected variations in data sources. Account for different distribution shifts in testing and real-wolrd scenarios.\n* For reinforcement learning, ensure the objective functions are robust and adaptable to slight changes in the environment. \n* Are you considering enough aspects beyond data, such as legal, cultural, or operational factors? Did you forget any environmental variable that could affect performance or safety? Could limited sampling due to high costs or practical constraints pose a challenge? Document these risks and seek organizational support. The deploying organization is accountable for addressing these risks, either through mitigation or by explicitly accepting them, which may require additional resources or budget. \n*  Consider applying techniques such as cultural effective challenge. This creates an environment where technology developers and stakeholders can actively participate in questioning the AI design and process. This approach better integrates social, cultural, and contextual factors into the design and helps prevent issues such as target leakage, where the AI system trains for an unintended purpose. \n* Set up mechanisms for real-time monitoring post-deployment. Continuously validate that the system is aligned with its intended use and can adapt or alert for significant changes in context or input. \n* Engage end-users in real-world testing to bridge any gaps between assumptions and practical application.",
 				"sources": "Information about *cultural effective challenge*:   [A Proposal for Identifying and Managing Bias in Artificial Intelligence](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.1270-draft.pdf)\n[Concrete Problems in AI Safety](https://arxiv.org/pdf/1606.06565.pdf)\n[Concrete AI Safety Problems](https://openai.com/blog/concrete-ai-safety-problems/)",
 				"qr": "",
 				"categories": [
@@ -2367,7 +2264,289 @@
 				]
 			},
 			{
-				"question": "Could AI agents take actions that unintentionally harm the environment or themselves during learning or deployment?",
+				"question": "Could our AI agents hack their reward functions to exploit the system?",
+				"threatif": "Yes",
+				"label": "Reward Hacking",
+				"aitypes": [
+					"Traditional",
+					"Generative"
+				],
+				"roles": [
+					"Provider"
+				],
+				"explanation": "* Reinforcement Learning (RL) is an area of machine learning concerned with how intelligent agents ought to take actions in an environment in order to maximize the notion of cumulative reward. Source: [Wikipedia](https://en.wikipedia.org/wiki/Reinforcement_learning)\n\n* Consider potential negative consequences from the AI system\nlearning unintended or unconventional methods to maximize its reward function.\nSometimes the AI can come up with some kind of “hack” or loophole in the design of the system to receive unearned rewards. Since the AI is trained to maximize its rewards, looking for such loopholes and “shortcuts” is a perfectly fair and valid strategy for the AI. For example, suppose that the office cleaning robot earns rewards only if it does not see any garbage in the office. Instead of cleaning the place, the robot could simply shut off its visual sensors, and thus achieve its goal of not seeing garbage.",
+				"recommendation": "One possible approach to mitigating this problem would be to have a “reward agent” whose only task is to mark if the rewards given to the learning agent are valid or not. The reward agent ensures that the learning agent (robot for instance) does not exploit the system, but rather, completes the desired objective. For example: a “reward agent” could be trained by the human designer to check if a room has been properly cleaned by the cleaning robot. If the cleaning robot shuts off its visual sensors to avoid seeing garbage and claims a high reward, the “reward agent” would mark the reward as invalid because the room is not clean. The designer can then look into the rewards marked as “invalid” and make necessary changes in the objective function to fix the loophole.",
+				"sources": "[Concrete Problems in AI Safety](https://arxiv.org/pdf/1606.06565.pdf)\n[Concrete AI Safety Problems](https://openai.com/blog/concrete-ai-safety-problems/)",
+				"qr": "",
+				"categories": [
+					"Safety & Environmental Impact"
+				],
+				"phases": [
+					"Design",
+					"Model",
+					"Monitor"
+				]
+			},
+			{
+				"question": "Could the AI system expose children to harmful, inappropriate, or unsafe content or interactions?",
+				"threatif": "Yes",
+				"label": "Child Safety & Age-Appropriate Design",
+				"aitypes": [
+					"Traditional",
+					"Generative"
+				],
+				"roles": [
+					"Provider",
+					"Deployer"
+				],
+				"explanation": "* If children are potential users or exposed to your AI system, it is essential to ensure that the system respects the rights and best interests of the child. \n* This includes considering child protection, ethical communication, and designing the system to avoid harm or exploitation. \n* Inappropriate design or oversight could lead to risks to children’s mental, moral, or physical well-being, including potential misuse of the system by others to harm children.",
+				"recommendation": "* Assess whether an age verification mechanism and access control are necessary to prevent underage exposure to inappropriate, unsafe, or high-risk content.\n* Adapt communication and design in both the product and associated documentation, such as the privacy policy, to be child-appropriate and transparent.\n* Develop and enforce policies to ensure the safety and well-being of children when using or being exposed to your AI system.\n* Establish procedures to regularly assess and monitor the usage of your product to identify and mitigate any risks to children’s safety and health.\n* Provide clear labeling and instructions to ensure safe usage by children, including warnings about potential misuse.\n* Monitor for and address inappropriate or harmful usage of the AI system, including any attempts to exploit or harm children.\n* Develop a responsible marketing and advertising policy that explicitly avoids harmful, manipulative, or unethical practices targeting children.",
+				"sources": "[Convention on the Rights of the Child](https://www.ohchr.org/en/instruments-mechanisms/instruments/convention-rights-child), [Evolution in Age-Verification Applications](https://montrealethics.ai/evolution-in-age-verification-applications-can-ai-open-some-new-horizons/), [UK Age Appropriate Design Code](https://ico.org.uk/for-the-public/the-children-s-code-what-is-it/), [California Age-Appropriate Design Code Act AB 2273](https://leginfo.legislature.ca.gov/faces/billTextClient.xhtml?bill_id=202120220AB2273), [OECD Recommendation on Children in the Digital Environment](https://legalinstruments.oecd.org/en/instruments/OECD-LEGAL-0389)",
+				"qr": "",
+				"categories": [
+					"Safety & Environmental Impact",
+					"Ethics & Human Rights"
+				],
+				"phases": [
+					"Design",
+					"Input",
+					"Model",
+					"Deploy",
+					"Monitor"
+				]
+			},
+			{
+				"question": "Could the AI system be misused for malicious purposes such as disinformation, cyberattacks or warfare?",
+				"threatif": "Yes",
+				"label": "Malicious Use of AI",
+				"aitypes": [
+					"Traditional",
+					"Generative"
+				],
+				"roles": [
+					"Provider",
+					"Deployer"
+				],
+				"explanation": "* Powerful AI technologies present immense benefits but also pose significant risks when exploited by malicious actors. AI systems could be leveraged to spread large-scale disinformation campaigns, manipulating social behavior, leading to societal destabilization. Ai systems could also be leveraged to launch cyberattacks, and even automated warfare.\n* Disinformation & Psychological Manipulation: Generative AI can produce highly persuasive fake news, deepfakes, and personalized propaganda that erode public trust, incite violence, and manipulate political outcomes. Chatbots and recommender systems can exacerbate societal polarization by creating echo chambers.\n* Cybercrime & Hacking: AI can enhance malware, enable intelligent phishing, and perform autonomous vulnerability scanning. Attackers may weaponize AI to bypass traditional defenses and disrupt critical infrastructure, including healthcare, finance, and energy systems.\n* Weaponization & Autonomous Warfare: AI technologies, including computer vision, autonomous navigation, and targeting systems, may be used in lethal autonomous weapon systems (LAWS). These could enable unaccountable, real-time decision-making in armed conflict, increasing the risk of unlawful killings and loss of human oversight.\n* Criminal & Financial Exploitation: AI could be used to automate fraud, identity theft, or even develop autonomous attack drones. The growing sophistication of AI-generated scams, such as deepfake voices and synthetic identity fraud, increases financial and security risks.",
+				"recommendation": "* **Limit access and misuse potential**:\n  - Restrict public access to models that can be easily fine-tuned for harmful use cases (e.g., voice cloning, vulnerability scanning, deception).\n  - Monitor model outputs and usage for signs of abuse (e.g., coordinated disinformation campaigns).\n* **Implement a Three-Layer Defense Framework**:\n  1. **Prevention** – Apply rigorous access controls (e.g., API key gating, licensing, audit logs), classify high-risk capabilities early in development, and perform red-teaming on potential misuse vectors.\n  2. **Detection** – Use AI tools to detect deepfakes, AI-generated content, or malicious activity (e.g., bot behavior, adversarial prompts). Implement anomaly detection and content provenance tagging (e.g., C2PA standards).\n  3. **Response** – Build incident response plans that include AI-specific abuse scenarios. Enable rapid takedown mechanisms for generated content and coordinate with CERTs or law enforcement where necessary.\n* **Strengthen Organizational and Infrastructure Security**:\n  - Ensure supply chain and model hosting environments are secure (e.g., no unpatched dependencies or exposed endpoints).\n  - Adopt zero-trust architecture and multi-factor authentication for systems accessing AI models.\n* **Align with Legal and Ethical Governance**:\n  - Collaborate with international partners to support agreements on the non-proliferation of autonomous weapons and AI misuse in warfare.\n  - Participate in shared threat intelligence networks for emerging AI misuse trends.\n* **Promote Transparency and Public Resilience**:\n  - Label synthetic content and educate users about the risks of deepfakes and AI-driven misinformation.\n  - Support public media literacy initiatives to reduce susceptibility to AI-generated deception.",
+				"sources": "[AI Safety, Ethics & Society](https://www.aisafetybook.com/textbook/malicious-use)\n[MITRE ATLAS™ - Adversarial Threat Landscape for Artificial-Intelligence Systems](https://atlas.mitre.org/)",
+				"qr": "",
+				"categories": [
+					"Safety & Environmental Impact",
+					"Cybersecurity"
+				],
+				"phases": [
+					"Design",
+					"Deploy",
+					"Monitor"
+				]
+			},
+			{
+				"question": "Could the AI system accelerate the development of bioweapons or other CBRNE threats?",
+				"threatif": "Yes",
+				"label": "CBRNE Threats",
+				"aitypes": [
+					"Traditional",
+					"Generative"
+				],
+				"roles": [
+					"Provider",
+					"Deployer"
+				],
+				"explanation": "* CBRNE: Chemical, Biological, Radiological, Nuclear, and Explosive.\n* AI could significantly lower barriers to developing and deploying biological and chemical weapons. The risk of AI-assisted bioterrorism grows as AI advances in bioengineering, genetic manipulation, and synthetic chemistry.\n* Bioweapon Development: AI-driven drug discovery models can be repurposed to design highly lethal pathogens or chemical agents.\n*  CBRN Weapon Proliferation: AI can assist in nuclear proliferation by optimizing enrichment processes, improving delivery systems, and circumventing existing safeguards. \n* Pandemic Acceleration & Public Health Risks: AI could be used to engineer viruses with enhanced transmissibility and lethality. Malicious actors could exploit AI to design bioweapons capable of circumventing modern vaccines or treatments.",
+				"recommendation": "* Implement strict AI governance policies to regulate AI applications in biotechnology and chemistry.\n* Enforce global monitoring of AI-driven drug discovery tools to prevent misuse.\n* Technical measures to reduce misuse risk include:\n* Apply layered access controls, including user authentication and role-based permissions for sensitive model functions.\n* Use content filtering and input validation layers to detect and block queries related to chemical or biological weapon design.\n* Fine-tune models with safe instruction tuning to limit dual-use outputs.\n* Integrate anomaly detection systems to monitor for suspicious usage patterns, including repeated or structured queries that could indicate misuse attempts.\n* Apply rate-limiting and sandboxing for public-facing interfaces to prevent large-scale misuse.\n* Require human-in-the-loop review for outputs from models that generate biochemical or pharmacological suggestions.\n\nCombine these technical safeguards with legal, contractual, and organizational controls to ensure end-to-end risk mitigation. design.\n* Develop AI-powered countermeasures for pandemic prevention, such as rapid detection of bioengineered pathogens.",
+				"sources": "[AI Safety, Ethics & Society](https://www.aisafetybook.com/textbook/malicious-use)",
+				"qr": "",
+				"categories": [
+					"Safety & Environmental Impact",
+					"Cybersecurity"
+				],
+				"phases": [
+					"Design",
+					"Input",
+					"Model",
+					"Deploy",
+					"Monitor"
+				]
+			},
+			{
+				"question": "Could the AI system generate or disseminate deepfakes or synthetic media that mislead users, impersonate individuals, or cause harm?",
+				"threatif": "Yes",
+				"label": "Deepfakes & Synthetic Deception",
+				"aitypes": [
+					"Generative"
+				],
+				"roles": [
+					"Provider",
+					"Deployer"
+				],
+				"explanation": "* Generative AI systems can produce highly realistic audio, image, or video content that mimics real individuals or events. When used maliciously or without clear disclosure, this content, commonly known as deepfakes, can be used for identity fraud, political manipulation, reputational damage, harassment, or the spread of disinformation.\n* Even when not intended for harm, synthetic content can deceive users if it lacks proper labeling or detection, violating transparency principles and potentially eroding public trust. This risk intensifies in contexts like journalism, education, political discourse, and public safety.",
+				"recommendation": "* Apply persistent and tamper-resistant watermarks or metadata tagging to all AI-generated media.\n* Inform users clearly and accessibly when they are viewing or interacting with synthetic content.\n* Monitor outputs for impersonation or misuse risks, especially when names, likenesses, or real-world events are involved.\n* Use or integrate deepfake detection tools to identify and flag manipulated content.\n* Establish policy and UX design patterns that discourage deceptive or malicious uses, and allow users to report suspected deepfakes.\n* For deployers, ensure compliance with disclosure obligations (e.g. Article 50 of the EU AI Act) when publishing or distributing synthetic media.\n* Where feasible, restrict or control access to generative features capable of identity simulation (e.g. voice cloning, face swapping) through friction, licensing, or tiered access.",
+				"sources": "Article 50 EU AI Act",
+				"categories": [
+					"Safety & Environmental Impact",
+					"Transparency & Accessibility",
+					"Ethics & Human Rights"
+				],
+				"phases": [
+					"Design",
+					"Output",
+					"Deploy",
+					"Monitor"
+				]
+			},
+			{
+				"question": "Could the AI system generate toxic or harmful content?",
+				"threatif": "Yes",
+				"label": "Model Toxicity",
+				"aitypes": [
+					"Generative"
+				],
+				"roles": [
+					"Provider",
+					"Deployer"
+				],
+				"explanation": "* AI systems may produce outputs containing hate speech, slurs, misinformation, or psychologically harmful content due to biased training data, or lack of content moderation.\n* This is especially risky in user-facing chatbots, content generation tools, or public-facing deployments.",
+				"recommendation": "* Apply content filters and toxicity classifiers to monitor outputs.\n* Include human-in-the-loop moderation for sensitive applications.\n* Fine-tune on curated datasets that reduce exposure to toxic behavior.",
+				"sources": "[Realistic Evaluation of Toxicity in Large Language Models](https://arxiv.org/html/2405.10659v2)\n[Toxicity](https://www.deepeval.com/docs/metrics-toxicity)",
+				"categories": [
+					"Safety & Environmental Impact",
+					"Transparency & Accessibility",
+					"Ethics & Human Rights"
+				],
+				"phases": [
+					"Design",
+					"Model",
+					"Output",
+					"Monitor"
+				]
+			},
+			{
+				"question": "Could the AI system deliberately mislead users or hide its capabilities during deployment or evaluation?",
+				"threatif": "Yes",
+				"label": "Model Deception",
+				"aitypes": [
+					"Generative"
+				],
+				"roles": [
+					"Provider",
+					"Deployer"
+				],
+				"explanation": "* Advanced models may learn to present false information or appear compliant during oversight, while internally pursuing misaligned goals.\n* Deceptive behavior poses a serious safety risk if systems adapt strategically to evade human control or auditing.",
+				"recommendation": "* Conduct adversarial testing for deception and misalignment.\n* Use interpretability tools to identify goal misgeneralization.\n* Include behavior probes during training and monitoring.\n* Flag deceptive responses in benchmark datasets.",
+				"sources": "[AI Safety, Ethics & Society](https://www.aisafetybook.com/textbook/)",
+				"categories": [
+					"Safety & Environmental Impact",
+					"Accountability & Human Oversight"
+				],
+				"phases": [
+					"Design",
+					"Model",
+					"Monitor"
+				]
+			},
+			{
+				"question": "Could AI decisions result in physical damage, infrastructure failure, or major financial losses?",
+				"threatif": "Yes",
+				"label": "Critical Infrastructure Harm",
+				"aitypes": [
+					"Traditional",
+					"Generative"
+				],
+				"roles": [
+					"Provider",
+					"Deployer"
+				],
+				"explanation": "* AI models used in control systems, trading, logistics, or critical infrastructure may cause cascading failures, service interruptions, or significant economic damage if errors go undetected.\n* Examples include financial bots causing flash crashes, or control systems issuing incorrect commands to power or transport systems.",
+				"recommendation": "* Implement fallback and manual override modes.\n* Use safety validation in simulated high-stakes scenarios.\n* Monitor for signs of cascading failures.\n* Conduct external safety audits for critical systems.",
+				"sources": "[Potential Benefits and Risks of Artificial Intelligence for Critical Energy Infrastructure] (https://www.energy.gov/sites/default/files/2024-04/DOE%20CESER_EO14110-AI%20Report%20Summary_4-26-24.pdf)",
+				"categories": [
+					"Safety & Environmental Impact",
+					"Cybersecurity"
+				],
+				"phases": [
+					"Design",
+					"Deploy",
+					"Monitor"
+				]
+			},
+			{
+				"question": "Do we monitor how version updates from third-party GenAI models can affect our system's behaviour?",
+				"threatif": "No",
+				"label": "GenAI Version Drift",
+				"aitypes": [
+					"Generative"
+				],
+				"roles": [
+					"Deployer"
+				],
+				"explanation": "* Foundation model providers regularly update GenAI models, sometimes without detailed changelogs or backward compatibility guarantees.\n* These updates can silently alter model behavior, output style, or compliance characteristics, leading to broken integrations, misaligned responses, or regulatory risks.\n* Systems relying on GenAI APIs (e.g. OpenAI, Anthropic, Cohere) are especially exposed if they don't lock versions or test outputs post-update.",
+				"recommendation": "* Monitor model version identifiers and subscribe to provider release notes or update feeds.\n* Lock specific model versions in production where possible, and create fallback strategies for unsupported versions.\n* Implement automated output validation pipelines that detect behavior drift post-update.\n* Perform regular re-evaluation of GenAI outputs against quality, bias, and compliance benchmarks.\n* Establish internal policies for approving and documenting changes in foundational model versions.",
+				"sources": "[What Lies Beneath? Exploring the Impact of Underlying AI Model Updates in AI-Infused Systems] (https://arxiv.org/abs/2311.10652?utm_source=chatgpt.com)",
+				"categories": [
+					"Safety & Environmental Impact",
+					"Accountability & Human Oversight"
+				],
+				"phases": [
+					"Deploy",
+					"Monitor"
+				]
+			},
+			{
+				"question": "Could the development of autonomous AI agents lead to loss of control, concentration of power or rogue behavior?",
+				"threatif": "Yes",
+				"label": "Loss of Control",
+				"aitypes": [
+					"Traditional",
+					"Generative"
+				],
+				"roles": [
+					"Provider",
+					"Deployer"
+				],
+				"explanation": "Autonomous AI systems are increasingly capable of making independent decisions, executing commands, and adapting to changing environments. If misaligned or maliciously designed, these systems may act unpredictably or against human interests.\n\n* **Rogue AI Agents**: AI models with self-improving capabilities can become uncontrollable, executing harmful actions without human oversight. For instance, a system optimized purely for efficiency, without ethical constraints, might exploit resources or override human decisions.\n* **Power Concentration & Authoritarian AI Governance**: Governments or corporations with access to advanced AI could monopolize information, enforce mass surveillance, and suppress dissent. AI-driven censorship and predictive policing risk eroding civil liberties and democratic institutions.\n* **Automation & Human Displacement**: AI-driven automation may centralize economic and political power, reduce workforce participation, and widen inequality. Without equitable AI governance, decision-making power risks becoming concentrated among a small elite.",
+				"recommendation": "* Implement AI alignment research to ensure AI agents follow human ethical guidelines.\n* Strengthen regulations against AI-driven mass surveillance and authoritarian control.\n* Design transparent and accountable AI systems to prevent unintended consequences.\n* Promote decentralized AI governance to distribute AI decision-making power across diverse stakeholders.",
+				"sources": "[AI Safety, Ethics & Society](https://www.aisafetybook.com/textbook/malicious-use)",
+				"qr": "",
+				"categories": [
+					"Safety & Environmental Impact",
+					"Cybersecurity"
+				],
+				"phases": [
+					"Design",
+					"Input",
+					"Model",
+					"Deploy",
+					"Monitor"
+				]
+			},
+			{
+				"question": "Could environmental phenomena or natural disasters compromise our AI system?",
+				"threatif": "Yes",
+				"label": "Climate & Disaster Resilience",
+				"aitypes": [
+					"Traditional",
+					"Generative"
+				],
+				"roles": [
+					"Provider",
+					"Deployer"
+				],
+				"explanation": "Examples of natural disasters include earthquakes, floods, and fires. These events, as well as environmental phenomena such as extreme heat or cold, may adversely affect the operation of IT infrastructure and hardware systems that support AI systems.\nNatural disasters may lead to unavailability or destruction of the IT infrastructures and hardware that enables the operation, deployment and maintenance of AI systems.\nSuch outages may lead to delays in decision-making, delays in the processing of data streams and entire AI systems being placed offline. Sources: [ENISA](https://www.enisa.europa.eu/publications/artificial-intelligence-cybersecurity-challenges)",
+				"recommendation": "Implement a disaster recovery plan considering different scenarios, impact, Recovery Time Objective (RTO), Recovery Point Objective (RPO) and mitigation measures.",
+				"sources": "[Securing Machine Learning Algorithms, ENISA](https://www.enisa.europa.eu/publications/securing-machine-learning-algorithms)\n[STRIDE-AI: An Approach to Identifying Vulnerabilities of Machine Learning Assets](https://github.com/LaraMauri/STRIDE-AI)\n[Stride-ML Threat Model]( https://csf.tools/reference/stride-lm/)\n[MITRE ATLAS™ - Adversarial Threat Landscape for Artificial-Intelligence Systems](https://atlas.mitre.org/)",
+				"qr": "",
+				"categories": [
+					"Safety & Environmental Impact"
+				],
+				"phases": [
+					"Design",
+					"Deploy",
+					"Monitor"
+				]
+			},
+			{
+				"question": "Could AI agents take actions that unintentionally harm users, the environment or themselves during learning or deployment?",
 				"threatif": "Yes",
 				"label": "Unsafe Exploration & Environmental Harm",
 				"aitypes": [
@@ -2389,30 +2568,6 @@
 					"Design",
 					"Model",
 					"Deploy",
-					"Monitor"
-				]
-			},
-			{
-				"question": "Could our AI agents “hack” their reward functions to exploit the system?",
-				"threatif": "Yes",
-				"label": "Reward Hacking",
-				"aitypes": [
-					"Traditional",
-					"Generative"
-				],
-				"roles": [
-					"Provider"
-				],
-				"explanation": "* Reinforcement Learning (RL) is an area of machine learning concerned with how intelligent agents ought to take actions in an environment in order to maximize the notion of cumulative reward. Source: [Wikipedia](https://en.wikipedia.org/wiki/Reinforcement_learning)\n\n* Consider potential negative consequences from the AI system\nlearning unintended or unconventional methods to maximize its reward function.\nSometimes the AI can come up with some kind of “hack” or loophole in the design of the system to receive unearned rewards. Since the AI is trained to maximize its rewards, looking for such loopholes and “shortcuts” is a perfectly fair and valid strategy for the AI. For example, suppose that the office cleaning robot earns rewards only if it does not see any garbage in the office. Instead of cleaning the place, the robot could simply shut off its visual sensors, and thus achieve its goal of not seeing garbage.",
-				"recommendation": "One possible approach to mitigating this problem would be to have a “reward agent” whose only task is to mark if the rewards given to the learning agent are valid or not. The reward agent ensures that the learning agent (robot for instance) does not exploit the system, but rather, completes the desired objective. For example: a “reward agent” could be trained by the human designer to check if a room has been properly cleaned by the cleaning robot. If the cleaning robot shuts off its visual sensors to avoid seeing garbage and claims a high reward, the “reward agent” would mark the reward as invalid because the room is not clean. The designer can then look into the rewards marked as “invalid” and make necessary changes in the objective function to fix the loophole.",
-				"sources": "[Concrete Problems in AI Safety](https://arxiv.org/pdf/1606.06565.pdf)\n[Concrete AI Safety Problems](https://openai.com/blog/concrete-ai-safety-problems/)",
-				"qr": "",
-				"categories": [
-					"Safety & Environmental Impact"
-				],
-				"phases": [
-					"Design",
-					"Model",
 					"Monitor"
 				]
 			},
@@ -2509,214 +2664,6 @@
 					"Input",
 					"Model",
 					"Output",
-					"Deploy",
-					"Monitor"
-				]
-			},
-			{
-				"question": "Could children or minors interact with or be affected by the AI system?",
-				"threatif": "Yes",
-				"label": "Child Safety & Age-Appropriate Design",
-				"aitypes": [
-					"Traditional",
-					"Generative"
-				],
-				"roles": [
-					"Provider",
-					"Deployer"
-				],
-				"explanation": "* If children are potential users or exposed to your AI system, it is essential to ensure that the system respects the rights and best interests of the child. \n* This includes considering child protection, ethical communication, and designing the system to avoid harm or exploitation. \n* Inappropriate design or oversight could lead to risks to children’s mental, moral, or physical well-being, including potential misuse of the system by others to harm children.",
-				"recommendation": "* Assess whether an age verification mechanism is necessary to restrict access to certain features or content.\n* Adapt communication and design in both the product and associated documentation, such as the privacy policy, to be child-appropriate and transparent.\n* Develop and enforce policies to ensure the safety and well-being of children when using or being exposed to your AI system.\n* Establish procedures to regularly assess and monitor the usage of your product to identify and mitigate any risks to children’s safety and health.\n* Provide clear labeling and instructions to ensure safe usage by children, including warnings about potential misuse.\n* Monitor for and address inappropriate or harmful usage of the AI system, including any attempts to exploit or harm children.\n* Develop a responsible marketing and advertising policy that explicitly avoids harmful, manipulative, or unethical practices targeting children.",
-				"sources": "[Convention on the Rights of the Child](https://www.ohchr.org/en/instruments-mechanisms/instruments/convention-rights-child)",
-				"qr": "",
-				"categories": [
-					"Safety & Environmental Impact"
-				],
-				"phases": [
-					"Design",
-					"Input",
-					"Model",
-					"Deploy",
-					"Monitor"
-				]
-			},
-			{
-				"question": "Could the AI system be misused for malicious purposes such as disinformation or cyberattacks?",
-				"threatif": "Yes",
-				"label": "Malicious Use of AI",
-				"aitypes": [
-					"Traditional",
-					"Generative"
-				],
-				"roles": [
-					"Provider",
-					"Deployer"
-				],
-				"explanation": "* Powerful AI technologies present immense benefits but also pose significant risks when exploited by malicious actors. AI systems could be leveraged to spread large-scale disinformation, launch cyberattacks, and manipulate social behavior, leading to societal destabilization.\n* Disinformation & Psychological Manipulation: AI-generated deepfakes and persuasive content could be used to erode public trust, manipulate political outcomes, and incite violence. AI-driven chatbots and personalized propaganda campaigns may create echo chambers that exacerbate polarization and undermine democracy.\n* Cybercrime & Hacking: AI-enhanced malware, phishing attacks, and automated cyber intrusions could allow malicious actors to compromise critical systems at an unprecedented scale. AI could autonomously identify security vulnerabilities and exploit them faster than defenders can react.\n* Weaponized AI for Criminal Activity: AI could be used to automate fraud, identity theft, or even develop autonomous attack drones. The growing sophistication of AI-generated scams, such as deepfake voices and synthetic identity fraud, increases financial and security risks.",
-				"recommendation": "* Limit access to AI tools capable of creating persuasive disinformation and cyberattacks.\n* Develop AI detection mechanisms to identify deepfakes and AI-generated false content. \n* Implement international AI governance frameworks to prevent criminal misuse of AI tools.\n* Enhance cybersecurity measures to counteract AI-driven cyberattacks and intrusion attempts.",
-				"sources": "[AI Safety, Ethics & Society](https://www.aisafetybook.com/textbook/malicious-use)\n[MITRE ATLAS™ - Adversarial Threat Landscape for Artificial-Intelligence Systems](https://atlas.mitre.org/)",
-				"qr": "",
-				"categories": [
-					"Safety & Environmental Impact",
-					"Cybersecurity"
-				],
-				"phases": [
-					"Design",
-					"Input",
-					"Model",
-					"Deploy",
-					"Monitor"
-				]
-			},
-			{
-				"question": "Could the AI system accelerate the development of bioweapons or other CBRNE threats?",
-				"threatif": "Yes",
-				"label": "CBRNE Threats",
-				"aitypes": [
-					"Traditional",
-					"Generative"
-				],
-				"roles": [
-					"Provider",
-					"Deployer"
-				],
-				"explanation": "* CBRNE: Chemical, Biological, Radiological, Nuclear, and Explosive.\n* AI could significantly lower barriers to developing and deploying biological and chemical weapons. The risk of AI-assisted bioterrorism grows as AI advances in bioengineering, genetic manipulation, and synthetic chemistry.\n* Bioweapon Development: AI-driven drug discovery models can be repurposed to design highly lethal pathogens or chemical agents.\n*  CBRN Weapon Proliferation: AI can assist in nuclear proliferation by optimizing enrichment processes, improving delivery systems, and circumventing existing safeguards. \n* Pandemic Acceleration & Public Health Risks: AI could be used to engineer viruses with enhanced transmissibility and lethality. Malicious actors could exploit AI to design bioweapons capable of circumventing modern vaccines or treatments.",
-				"recommendation": "* Implement strict AI governance policies to regulate AI applications in biotechnology and chemistry.\n* Enforce global monitoring of AI-driven drug discovery tools to prevent misuse.\n* Technical measures to reduce misuse risk include:\n* Apply layered access controls, including user authentication and role-based permissions for sensitive model functions.\n* Use content filtering and input validation layers to detect and block queries related to chemical or biological weapon design.\n* Fine-tune models with safe instruction tuning to limit dual-use outputs.\n* Integrate anomaly detection systems to monitor for suspicious usage patterns, including repeated or structured queries that could indicate misuse attempts.\n* Apply rate-limiting and sandboxing for public-facing interfaces to prevent large-scale misuse.\n* Require human-in-the-loop review for outputs from models that generate biochemical or pharmacological suggestions.\n\nCombine these technical safeguards with legal, contractual, and organizational controls to ensure end-to-end risk mitigation. design.\n* Develop AI-powered countermeasures for pandemic prevention, such as rapid detection of bioengineered pathogens.",
-				"sources": "[AI Safety, Ethics & Society](https://www.aisafetybook.com/textbook/malicious-use)",
-				"qr": "",
-				"categories": [
-					"Safety & Environmental Impact",
-					"Cybersecurity"
-				],
-				"phases": [
-					"Design",
-					"Input",
-					"Model",
-					"Deploy",
-					"Monitor"
-				]
-			},
-			{
-				"question": "Could the AI system generate toxic or harmful content?",
-				"threatif": "Yes",
-				"label": "Model Toxicity",
-				"aitypes": [
-					"Generative"
-				],
-				"roles": [
-					"Provider",
-					"Deployer"
-				],
-				"explanation": "* AI systems may produce outputs containing hate speech, slurs, misinformation, or psychologically harmful content due to biased training data or lack of content moderation.\n* This is especially risky in user-facing chatbots, content generation tools, or public-facing deployments.",
-				"recommendation": "* Apply content filters and toxicity classifiers to monitor outputs.\n* Include human-in-the-loop moderation for sensitive applications.\n* Fine-tune on curated datasets that reduce exposure to toxic behavior.\n* Document known risks in model cards and user documentation.",
-				"sources": "[Realistic Evaluation of Toxicity in Large Language Models](https://arxiv.org/html/2405.10659v2)\n[Toxicity](https://www.deepeval.com/docs/metrics-toxicity)",
-				"categories": [
-					"Safety & Environmental Impact",
-					"Transparency & Accessibility",
-					"Ethics & Human Rights"
-				],
-				"phases": [
-					"Design",
-					"Model",
-					"Output",
-					"Monitor"
-				]
-			},
-			{
-				"question": "Could the AI system deliberately mislead users or hide its capabilities during deployment or evaluation?",
-				"threatif": "Yes",
-				"label": "Model Deception",
-				"aitypes": [
-					"Generative"
-				],
-				"roles": [
-					"Provider",
-					"Deployer"
-				],
-				"explanation": "* Advanced models may learn to present false information or appear compliant during oversight, while internally pursuing misaligned goals.\n* Deceptive behavior poses a serious safety risk if systems adapt strategically to evade human control or auditing.",
-				"recommendation": "* Conduct adversarial testing for deception and misalignment.\n* Use interpretability tools to identify goal misgeneralization.\n* Include behavior probes during training and monitoring.\n* Flag deceptive responses in benchmark datasets.",
-				"sources": "[AI Safety, Ethics & Society](https://www.aisafetybook.com/textbook/)",
-				"categories": [
-					"Safety & Environmental Impact",
-					"Accountability & Human Oversight"
-				],
-				"phases": [
-					"Design",
-					"Model",
-					"Monitor"
-				]
-			},
-			{
-				"question": "Could AI decisions result in physical damage, infrastructure failure, or major financial losses?",
-				"threatif": "Yes",
-				"label": "Critical Infrastructure Harm",
-				"aitypes": [
-					"Traditional",
-					"Generative"
-				],
-				"roles": [
-					"Provider",
-					"Deployer"
-				],
-				"explanation": "* AI models used in control systems, trading, logistics, or critical infrastructure may cause cascading failures, service interruptions, or significant economic damage if errors go undetected.\n* Examples include financial bots causing flash crashes, or control systems issuing incorrect commands to power or transport systems.",
-				"recommendation": "* Implement fallback and manual override modes.\n* Use safety validation in simulated high-stakes scenarios.\n* Monitor for signs of cascading failures.\n* Conduct external safety audits for critical systems.",
-				"sources": "[Potential Benefits and Risks of Artificial Intelligence for Critical Energy Infrastructure] (https://www.energy.gov/sites/default/files/2024-04/DOE%20CESER_EO14110-AI%20Report%20Summary_4-26-24.pdf)",
-				"categories": [
-					"Safety & Environmental Impact",
-					"Cybersecurity"
-				],
-				"phases": [
-					"Design",
-					"Deploy",
-					"Monitor"
-				]
-			},
-			{
-				"question": "Do we monitor how version updates from third-party GenAI models can affect our system's behaviour?",
-				"threatif": "No",
-				"label": "GenAI Version Drift",
-				"aitypes": [
-					"Generative"
-				],
-				"roles": [
-					"Deployer"
-				],
-				"explanation": "* Foundation model providers regularly update GenAI models, sometimes without detailed changelogs or backward compatibility guarantees.\n* These updates can silently alter model behavior, output style, or compliance characteristics, leading to broken integrations, misaligned responses, or regulatory risks.\n* Systems relying on GenAI APIs (e.g. OpenAI, Anthropic, Cohere) are especially exposed if they don't lock versions or test outputs post-update.",
-				"recommendation": "* Monitor model version identifiers and subscribe to provider release notes or update feeds.\n* Lock specific model versions in production where possible, and create fallback strategies for unsupported versions.\n* Implement automated output validation pipelines that detect behavior drift post-update.\n* Perform regular re-evaluation of GenAI outputs against quality, bias, and compliance benchmarks.\n* Establish internal policies for approving and documenting changes in foundational model versions.",
-				"sources": "[What Lies Beneath? Exploring the Impact of Underlying AI Model Updates in AI-Infused Systems] (https://arxiv.org/abs/2311.10652?utm_source=chatgpt.com)",
-				"categories": [
-					"Safety & Environmental Impact",
-					"Accountability & Human Oversight"
-				],
-				"phases": [
-					"Deploy",
-					"Monitor"
-				]
-			},
-			{
-				"question": "Could the development of autonomous AI agents lead to loss of control and concentration of power?",
-				"threatif": "Yes",
-				"label": "Loss of Control",
-				"aitypes": [
-					"Traditional",
-					"Generative"
-				],
-				"roles": [
-					"Provider",
-					"Deployer"
-				],
-				"explanation": "Autonomous AI systems are increasingly capable of making independent decisions, executing commands, and adapting to changing environments. If misaligned or maliciously designed, these systems may act unpredictably or against human interests.\n\n* **Rogue AI Agents**: AI models with self-improving capabilities can become uncontrollable, executing harmful actions without human oversight. For instance, a system optimized purely for efficiency, without ethical constraints, might exploit resources or override human decisions.\n* **Power Concentration & Authoritarian AI Governance**: Governments or corporations with access to advanced AI could monopolize information, enforce mass surveillance, and suppress dissent. AI-driven censorship and predictive policing risk eroding civil liberties and democratic institutions.\n* **Automation & Human Displacement**: AI-driven automation may centralize economic and political power, reduce workforce participation, and widen inequality. Without equitable AI governance, decision-making power risks becoming concentrated among a small elite.",
-				"recommendation": "* Implement AI alignment research to ensure AI agents follow human ethical guidelines.\n* Strengthen regulations against AI-driven mass surveillance and authoritarian control.\n* Design transparent and accountable AI systems to prevent unintended consequences.\n* Promote decentralized AI governance to distribute AI decision-making power across diverse stakeholders.",
-				"sources": "[AI Safety, Ethics & Society](https://www.aisafetybook.com/textbook/malicious-use)",
-				"qr": "",
-				"categories": [
-					"Safety & Environmental Impact",
-					"Cybersecurity"
-				],
-				"phases": [
-					"Design",
-					"Input",
-					"Model",
 					"Deploy",
 					"Monitor"
 				]
@@ -2942,7 +2889,7 @@
 				]
 			},
 			{
-				"question": "Could the system be using proxy variables that reflect sensitive attributes?",
+				"question": "Could the system be using proxy variables that reflect sensitive attributes or lead to indirect discrimination?",
 				"threatif": "Yes",
 				"label": "Proxy Variables",
 				"aitypes": [
@@ -2952,12 +2899,13 @@
 				"roles": [
 					"Provider"
 				],
-				"explanation": "A proxy variable is an indirect measure used to represent a hard-to-quantify concept. While proxies can be useful, they pose risks when correlated with sensitive attributes, potentially leading to bias or discrimination. Even if datasets lack explicit sensitive features, proxies may still unfairly impact certain groups.",
-				"recommendation": "* Evaluate proxies critically to ensure they don’t unintentionally reflect sensitive attributes.\n* If possible, include sensitive features during development to test for fairness.\n* Focus on proxies that are relevant to the problem, avoiding those that could reinforce bias.",
-				"sources": "[From Inception to Retirement: Addressing Bias Throughout the Lifecycle of AI Systems](https://rhite.tech/files/From-Inception-to-Retirement-Addressing-Bias-Throughout-the-Lifecycle-of-AI-Systems.pdf)",
+				"explanation": "Proxy variables are features used as stand-ins for harder-to-measure characteristics. While proxies can be useful for model performance, they may be highly correlated with sensitive attributes such as race, gender, religion, age, or socioeconomic status. This can lead to **indirect or proxy discrimination**, where individuals from protected groups are disproportionately harmed despite sensitive data not being explicitly included.\n\nFor example, ZIP code, school name, or browsing history may function as proxies for race or income level. In such cases, the system might appear 'neutral' but still replicate or amplify historical inequalities. Proxy bias is especially insidious because it is often unintentional and hidden in seemingly innocuous variables.\n\nGenerative models can also internalize and reproduce these biases in subtle ways, such as generating different responses for identical inputs that differ only by proxy cues.",
+				"recommendation": "* Audit datasets and model features for correlations between input variables and sensitive attributes—even if the latter are not explicitly included. Use statistical techniques (e.g., mutual information, conditional independence tests) to detect proxy relationships.\n* Where lawful and ethical, include sensitive features during training or evaluation (under a fairness-through-awareness approach) to test and correct for bias.\n* Avoid using proxies that carry high risk of discrimination unless they are strictly necessary, legally justified, and subject to fairness constraints.\n* Use fairness metrics (e.g., demographic parity, equal opportunity, calibration) to evaluate disparate impact across groups, and simulate decisions under different population assumptions.\n* Apply model explainability tools (e.g., SHAP, LIME) to identify when proxy features are driving predictions.\n* Include domain experts, ethicists, and affected stakeholders in feature selection and fairness reviews.\n* Maintain documentation of proxy risks and mitigation decisions as part of your model cards or algorithmic accountability reports.",
+				"sources": "[From Inception to Retirement: Addressing Bias Throughout the Lifecycle of AI Systems](https://rhite.tech/files/From-Inception-to-Retirement-Addressing-Bias-Throughout-the-Lifecycle-of-AI-Systems.pdf), [Advancing the field of bias detection and mitigation in Large Language Models and Traditional AI Models](https://rhite.tech/files/bias-detection-in-llms-and-traditional-ai-models_extended.pdf)",
 				"qr": "",
 				"categories": [
-					"Bias, Fairness & Discrimination"
+					"Bias, Fairness & Discrimination",
+					"Privacy & Data Protection"
 				],
 				"phases": [
 					"Design",
@@ -3041,6 +2989,34 @@
 				"phases": [
 					"Design",
 					"Input",
+					"Model",
+					"Output",
+					"Monitor"
+				]
+			},
+			{
+				"question": "Is the AI system designed to support multiple viewpoints and narratives?",
+				"threatif": "No",
+				"label": "Diversity of Opinions",
+				"aitypes": [
+					"Traditional",
+					"Generative"
+				],
+				"roles": [
+					"Provider",
+					"Deployer"
+				],
+				"explanation": "An AI system that does not consider or promote diverse viewpoints and narratives risks reinforcing biases, perpetuating stereotypes, or marginalizing specific groups. Such systems might unintentionally amplify dominant cultural, religious, or linguistic perspectives while excluding or suppressing minority voices. For example, content recommendation systems may disproportionately highlight mainstream viewpoints, reducing exposure to diverse cultural or ideological perspectives. This could hinder freedom of opinion and expression, harm cultural diversity, and lead to discriminatory outcomes.",
+				"recommendation": "* Ensure datasets used for training and validation are diverse and representative of different cultural, religious, and linguistic groups. Design the system to recognize and value multiple perspectives, avoiding the prioritization of any single viewpoint. \n* Regularly test the AI system for biases that may marginalize or exclude certain narratives or groups. Use fairness metrics to evaluate how outputs reflect diversity and inclusivity. \n* Consult with diverse user groups, including minority communities, to understand their needs and perspectives. Include experts in cultural studies, ethics, and human rights during the development process. \n* Provide users with clear explanations of how the AI system processes and prioritizes content. Offer mechanisms for users to provide feedback on perceived biases or lack of representation. \n* Avoid algorithmic designs that overly amplify any particular narrative unless explicitly required by the use case. \n* Continuously monitor system outputs for patterns of exclusion or marginalization. \n* Regularly update models and algorithms to reflect evolving societal values and ensure alignment with inclusivity goals.",
+				"sources": "Freedom of opinion and expression (Universal Declaration of Human Rights), article 11 Freedom of expression and information, article 21 Non-Discrimination, article 22 Cultural, religious and linguistic diversity, article 10 Freedom of thought, Conscience and religion (Charter of fundamental rights of the European Union )\n*[Value alignment](https://www.ibm.com/design/ai/ethics/value-alignment/)\n[Online Ethics Canvas](https://www.ethicscanvas.org/canvas/index.php)\n[AI Values and Alignment](https://www.deepmind.com/publications/artificial-intelligence-values-and-alignment)",
+				"qr": "",
+				"categories": [
+					"Bias, Fairness & Discrimination",
+					"Ethics & Human Rights",
+					"Transparency & Accessibility"
+				],
+				"phases": [
+					"Design",
 					"Model",
 					"Output",
 					"Monitor"
@@ -3190,9 +3166,9 @@
 				]
 			},
 			{
-				"question": "Could users contest or challenge the decisions made by the AI system?",
-				"threatif": "No",
-				"label": "Contestability",
+				"question": "Do we need to offer users and accessible way to contest AI decisions or seek redress?",
+				"threatif": "Yes",
+				"label": "User Redress & Remedy",
 				"aitypes": [
 					"Traditional",
 					"Generative"
@@ -3201,17 +3177,19 @@
 					"Provider",
 					"Deployer"
 				],
-				"explanation": "* Are users allowed to disagree with an outcome from the AI system? Consider for instance the risk if your system makes automatic decisions that could have a negative impact on an individual and you do not offer any way to contest that decision.\n* Consider the risk if this was used in a criminal case and the consequences if wrong information is used to condemn someone. Do you have a mechanism to challenge the decisions of your AI system? ",
-				"recommendation": "* Ensure the AI system includes mechanisms for contestability, allowing users to challenge or seek review of decisions that negatively impact them. \n* Provide clear instructions on how users can initiate such challenges and ensure that this process is transparent, accessible, and user-friendly. \n* Incorporate features that enable human oversight in decision-making processes, ensuring users have the option to escalate issues to human operators. \n* Establish a redressal process that includes timelines for resolution, a clear escalation hierarchy, and mechanisms for feedback integration to improve the system’s decision-making over time. \n* Regularly audit and evaluate the decision-making outcomes of the AI system, focusing on areas where users frequently raise disputes. Use these audits to improve system accuracy and reduce the need for contestation. \n* Provide detailed and comprehensible explanations of the system’s outputs to users, ensuring they understand how decisions are made and what data was used. \n* Engage relevant stakeholders, including legal experts, ethicists, and representatives from affected user groups to design and evaluate the contestability mechanisms and ensure they meet ethical and regulatory standards. \n* Train system operators and customer support staff to handle disputes arising from the AI system effectively, ensuring they are equipped to assist users in navigating the contestation process.",
-				"sources": "Right to be treated fairly by a court (Universal Declaration of Human Rights), article 11 Freedom of expression and information, article 47 Right to an effective remedy and to a fair trial (Charter of fundamental rights of the European Union).\n*[Ethics guidelines for trustworthy AI](https://digital-strategy.ec.europa.eu/en/library/ethics-guidelines-trustworthy-ai)\n[Operational Guidance on taking account of Fundamental Rights in Commission Impact Assessments](https://ec.europa.eu/info/sites/default/files/opperational-guidance-fundamental-rights-in-impact-assessments_en.pdf)\n[Artificial Intelligence and Fundamental Rights](https://fra.europa.eu/sites/default/files/fra_uploads/fra-2020-artificial-intelligence_en.pdf)",
-				"qr": "[Charter of Fundamental Rights of the European Union](https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:12012P/TXT&from=EN)",
+				"explanation": "* For applications that can adversely affect individuals, you might need to consider implementing a redress by design mechanism where affected individuals can request remedy or compensation.\n* Article 22(3) GDPR provides individuals with a right to obtain human intervention if a decision is made solely by an AI system and it also provides the right to contest the decision.\n* When AI systems adversely affect individuals, ethical and legal principles require that users can seek remedy for harm. This includes the right to compensation, correction of wrong decisions, or even halting further use of the system in certain cases. The EU Charter (Article 47), GDPR Article 22(3), and emerging AI regulations affirm these rights. Failing to provide effective redress mechanisms risks infringing fundamental rights and eroding public trust—especially in sensitive domains like healthcare, credit, or law enforcement.",
+				"recommendation": "Design redress mechanisms that allow affected individuals to report harm, request compensation, or demand system correction. This includes enabling redress even for those indirectly harmed (e.g., via biased profiling). Ensure accessibility and transparency of the redress process, define timelines and escalation paths, and document how redress outcomes are used to improve system performance.",
+				"sources": "* Right to be treated fairly by a court (Universal Declaration of Human Rights), article 11 Freedom of expression and information, article 47 Right to an effective remedy and to a fair trial (Charter of fundamental rights of the European Union).\n* [Ethics guidelines for trustworthy AI](https://digital-strategy.ec.europa.eu/en/library/ethics-guidelines-trustworthy-ai)\n[Operational Guidance on taking account of Fundamental Rights in Commission Impact Assessments](https://ec.europa.eu/info/sites/default/files/opperational-guidance-fundamental-rights-in-impact-assessments_en.pdf)\n[Artificial Intelligence and Fundamental Rights](https://fra.europa.eu/sites/default/files/fra_uploads/fra-2020-artificial-intelligence_en.pdf)\n[Charter of Fundamental Rights of the European Union](https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:12012P/TXT&from=EN)",
+				"qr": "",
 				"categories": [
-					"Ethics & Human Rights"
+					"Ethics & Human Rights",
+					"Accountability & Human Oversight",
+					"Transparency & Accessibility"
 				],
 				"phases": [
 					"Design",
-					"Model",
 					"Output",
+					"Deploy",
 					"Monitor"
 				]
 			},
@@ -3229,8 +3207,8 @@
 				],
 				"explanation": "* Consider for instance the risk if your AI system is used in the health sector for choosing the right treatment for a patient. \n* Is the output of the model accurate and fair? \n* Are your datasets representative enough and free from bias? \n* Does the system produce outputs, such as fake news, that could put the life of somebody in danger? \n* Could the system encourage harmful health practices or medical misinformation? \n* Also consider whether the system could lead to loss of human lives or a significant decline in quality of life, especially when used in safety-critical or decision-support contexts.",
 				"recommendation": "* Design the system with rigorous safety standards to minimize risks in scenarios affecting the right to life, such as healthcare or emergency response. Ensure datasets are representative and regularly validated for fairness, accuracy, and absence of harmful biases. \n* Include safeguards against outputs that may promote harmful practices, misinformation, or decisions endangering life. Conduct robust testing to identify and mitigate potential errors or unintended consequences. \n* Prohibit the dissemination of outputs that could incite violence, endanger health, or spread medical misinformation. Establish a monitoring mechanism to flag and rectify such outputs in real-time. \n* Engage domain experts, such as healthcare professionals or ethics specialists, in the system design and evaluation process. Use their input to ensure the AI system aligns with ethical standards for protecting life. \n* Establish a post-market monitoring system to identify and address risks that may emerge after deployment, especially in dynamic contexts like healthcare or public safety. \n* Provide training for users and operators to ensure they understand the system's limitations and ethical implications, particularly in life-critical decision-making contexts. Encourage informed and responsible use through comprehensive documentation and guidelines. \n* Create mechanisms for users and affected individuals to challenge decisions that may impact the right to life. Implement a robust redressal process to address grievances and prevent recurrence of harmful outcomes.",
-				"sources": "Right to life, No torture and inhuman treatment (Universal Declaration of Human Rights), article 2 Right to life, article 3 Right to the integrity of the person, article 4 Prohibition of torture and inhuman or degrading treatment or punishment (Charter of fundamental rights of the European Union).\n*[Ethics guidelines for trustworthy AI](https://digital-strategy.ec.europa.eu/en/library/ethics-guidelines-trustworthy-ai)\n[Operational Guidance on taking account of Fundamental Rights in Commission Impact Assessments](https://ec.europa.eu/info/sites/default/files/opperational-guidance-fundamental-rights-in-impact-assessments_en.pdf)\n[Artificial Intelligence and Fundamental Rights](https://fra.europa.eu/sites/default/files/fra_uploads/fra-2020-artificial-intelligence_en.pdf)",
-				"qr": "[Charter of Fundamental Rights of the European Union](https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:12012P/TXT&from=EN)",
+				"sources": "Right to life, No torture and inhuman treatment (Universal Declaration of Human Rights), article 2 Right to life, article 3 Right to the integrity of the person, article 4 Prohibition of torture and inhuman or degrading treatment or punishment (Charter of fundamental rights of the European Union).\n*[Ethics guidelines for trustworthy AI](https://digital-strategy.ec.europa.eu/en/library/ethics-guidelines-trustworthy-ai)\n[Operational Guidance on taking account of Fundamental Rights in Commission Impact Assessments](https://ec.europa.eu/info/sites/default/files/opperational-guidance-fundamental-rights-in-impact-assessments_en.pdf)\n[Artificial Intelligence and Fundamental Rights](https://fra.europa.eu/sites/default/files/fra_uploads/fra-2020-artificial-intelligence_en.pdf)\n[Charter of Fundamental Rights of the European Union](https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:12012P/TXT&from=EN)",
+				"qr": "",
 				"categories": [
 					"Ethics & Human Rights"
 				],
@@ -3256,8 +3234,8 @@
 				],
 				"explanation": "Consider whether your AI system’s moderation, recommendation, or censorship mechanisms may inadvertently restrict or distort users' ability to express themselves freely.",
 				"recommendation": "* Adhere to ethical guidelines and ensure transparency and accountability. \n* Regularly audit and refine content moderation algorithms to minimize false positives in detecting harmful content. Incorporate diverse training data that reflects a wide range of cultural, linguistic, and contextual nuances. \n* Provide users with clear explanations and opportunities to contest or appeal content moderation decisions. Develop an independent oversight committee to review contentious cases of content removal. \n* Collaborate with diverse stakeholders to ensure freedom of expression is preserved. Test the system with input from underrepresented communities to identify potential biases or oversights. \n* Allow users to customize their interaction with content filters, such as by adjusting sensitivity levels or choosing topics they wish to see moderated differently. Provide clear guidelines and options for users to express themselves within platform policies. \n* Establish mechanisms for users to report errors in content moderation and provide constructive feedback. \n* Continuously monitor the system's performance and adapt to emerging risks or contexts that may affect freedom of expression. \n* Align the system’s operation with international standards protecting freedom of expression, such as article 11 of the Charter of Fundamental Rights of the European Union and article 19 of the Universal Declaration of Human Rights.",
-				"sources": "[Ethics guidelines for trustworthy AI](https://digital-strategy.ec.europa.eu/en/library/ethics-guidelines-trustworthy-ai)\n[Operational Guidance on taking account of Fundamental Rights in Commission Impact Assessments](https://ec.europa.eu/info/sites/default/files/opperational-guidance-fundamental-rights-in-impact-assessments_en.pdf)\n[Artificial Intelligence and Fundamental Rights](https://fra.europa.eu/sites/default/files/fra_uploads/fra-2020-artificial-intelligence_en.pdf)",
-				"qr": "[Charter of Fundamental Rights of the European Union](https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:12012P/TXT&from=EN)",
+				"sources": "[Ethics guidelines for trustworthy AI](https://digital-strategy.ec.europa.eu/en/library/ethics-guidelines-trustworthy-ai)\n[Operational Guidance on taking account of Fundamental Rights in Commission Impact Assessments](https://ec.europa.eu/info/sites/default/files/opperational-guidance-fundamental-rights-in-impact-assessments_en.pdf)\n[Artificial Intelligence and Fundamental Rights](https://fra.europa.eu/sites/default/files/fra_uploads/fra-2020-artificial-intelligence_en.pdf)\n[Charter of Fundamental Rights of the European Union](https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:12012P/TXT&from=EN)",
+				"qr": "",
 				"categories": [
 					"Ethics & Human Rights"
 				],
@@ -3283,8 +3261,8 @@
 				],
 				"explanation": "* The output of your model could be used to deny access to certain fundamental rights.\n* How can you be sure that the decisions of your AI system are always fair and correct?\n* How can you prevent causing harm to individuals?\n* AI systems intended to be used to determine access or admission, evaluate learning outcomes, or monitor students’ behaviors are classified as “high risk” by the AI Act (Annex III).\n* Could the AI system create barriers to healthcare access for some groups or individuals?",
 				"recommendation": "* Adhere to EU Trustworthy AI guidelines to ensure fairness and accountability\n* Use diverse, representative training data to reduce biases that could disproportionately impact certain groups. \n* Regularly audit the system for unintended discriminatory effects and address identified issues. \n* Provide clear explanations for decisions made by the AI system, including the data and logic used. Allow users to challenge decisions and request human reviews. \n* Establish post-market monitoring processes to detect and address issues that arise after deployment. \n* Update the system regularly to account for changes in legal requirements, societal norms, and data quality. For high-risk applications, such as determining healthcare access or evaluating job candidates, establish stringent safeguards to minimize the risk of harm. Implement thresholds and fail-safes to ensure critical decisions are accurate, fair, and reliable. \n* Work with regulatory bodies, civil society organizations, and industry peers to establish best practices and promote fairness and equity in AI systems. Ensure the AI system is designed to accommodate a wide range of users, including those with varying needs and abilities. Regularly test the system in diverse real-world settings to validate its accessibility and fairness. Use stakeholder consultations to understand the specific needs and vulnerabilities of affected groups.",
-				"sources": "Right to education, Right of social service (Universal Declaration of Human Rights), article 14 Right to education, article 34 Social security and social assistance, article 35 Healthcare, article 36 Access to services of general economic interest,  (Charter of fundamental rights of the European Union)\n*[Ethics guidelines for trustworthy AI](https://digital-strategy.ec.europa.eu/en/library/ethics-guidelines-trustworthy-ai)\n[Operational Guidance on taking account of Fundamental Rights in Commission Impact Assessments](https://ec.europa.eu/info/sites/default/files/opperational-guidance-fundamental-rights-in-impact-assessments_en.pdf)\n[Artificial Intelligence and Fundamental Rights](https://fra.europa.eu/sites/default/files/fra_uploads/fra-2020-artificial-intelligence_en.pdf)",
-				"qr": "[Charter of Fundamental Rights of the European Union](https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:12012P/TXT&from=EN)",
+				"sources": "Right to education, Right of social service (Universal Declaration of Human Rights), article 14 Right to education, article 34 Social security and social assistance, article 35 Healthcare, article 36 Access to services of general economic interest,  (Charter of fundamental rights of the European Union)\n*[Ethics guidelines for trustworthy AI](https://digital-strategy.ec.europa.eu/en/library/ethics-guidelines-trustworthy-ai)\n[Operational Guidance on taking account of Fundamental Rights in Commission Impact Assessments](https://ec.europa.eu/info/sites/default/files/opperational-guidance-fundamental-rights-in-impact-assessments_en.pdf)\n[Artificial Intelligence and Fundamental Rights](https://fra.europa.eu/sites/default/files/fra_uploads/fra-2020-artificial-intelligence_en.pdf)\n[Charter of Fundamental Rights of the European Union](https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:12012P/TXT&from=EN)",
+				"qr": "",
 				"categories": [
 					"Ethics & Human Rights"
 				],
@@ -3311,34 +3289,6 @@
 				"explanation": "* Could your system affect which choices and which information is made available to people?\n* Could the AI system affect human autonomy by generating over-reliance by users (too much trust on the technology)?\n* Could this reinforce their beliefs or encourage certain behaviors?\n* Could the AI system create human attachment, stimulate addictive behavior, or manipulate user behavior? \n* Could the AI system mislead consumers or provide false recommendations? ",
 				"recommendation": "* Clearly explain how the AI system processes inputs and generates outputs to avoid unintentional manipulation or misrepresentation. Ensure users understand the limitations and intended purposes of the AI system through user-friendly documentation and communication. Offer features that allow users to adjust or override AI recommendations, ensuring they maintain control over decisions. Implement mechanisms for users to pause, disable, or opt-out of certain AI functionalities.\n* Implement safeguards to detect and reduce over-reliance, such as reminders or notifications encouraging users to seek alternative opinions or double-check recommendations. Include disclaimers or warnings about the system’s limitations in contexts where over-reliance might occur. \n* Refrain from using techniques that exploit psychological vulnerabilities, such as gamification, excessive notifications, or reward loops that could encourage addictive behavior. Periodically evaluate whether design elements unintentionally foster dependency on the system. \n* Test the system with users from various cultural, socioeconomic, and demographic backgrounds to understand potential impacts on different groups. Incorporate diverse perspectives to avoid inadvertent biases that could restrict autonomy for certain populations. \n* Continuously monitor for any behaviors or outputs that may interfere with user decision-making processes. Use post-market monitoring to collect feedback and implement updates to reduce unintended autonomy infringements. Ensure human oversight mechanisms are in place for critical decision-making areas. Clearly define the role of the AI system as a tool to assist, not replace, human decision-making.",
 				"sources": "Article 6 Right to liberty and security, article 3 Right to the integrity of the person, article 38 Consumer protection (Charter of fundamental rights of the European Union), article 5a (AI Act)  \n*[Dispositional and Situational Attributions of Human Versus Robot Behaviour](https://www.frontiersin.org/articles/10.3389/frobt.2021.788242/full)\n[Understanding Human Over-Reliance on Technology](https://www.ismp.org/resources/understanding-human-over-reliance-technology)",
-				"qr": "",
-				"categories": [
-					"Ethics & Human Rights",
-					"Transparency & Accessibility",
-					"Bias, Fairness & Discrimination"
-				],
-				"phases": [
-					"Design",
-					"Model",
-					"Output",
-					"Monitor"
-				]
-			},
-			{
-				"question": "Is the AI system designed to support multiple viewpoints and narratives?",
-				"threatif": "No",
-				"label": "Diversity of Opinions",
-				"aitypes": [
-					"Traditional",
-					"Generative"
-				],
-				"roles": [
-					"Provider",
-					"Deployer"
-				],
-				"explanation": "An AI system that does not consider or promote diverse viewpoints and narratives risks reinforcing biases, perpetuating stereotypes, or marginalizing specific groups. Such systems might unintentionally amplify dominant cultural, religious, or linguistic perspectives while excluding or suppressing minority voices. For example, content recommendation systems may disproportionately highlight mainstream viewpoints, reducing exposure to diverse cultural or ideological perspectives. This could hinder freedom of opinion and expression, harm cultural diversity, and lead to discriminatory outcomes.",
-				"recommendation": "* Ensure datasets used for training and validation are diverse and representative of different cultural, religious, and linguistic groups. Design the system to recognize and value multiple perspectives, avoiding the prioritization of any single viewpoint. \n* Regularly test the AI system for biases that may marginalize or exclude certain narratives or groups. Use fairness metrics to evaluate how outputs reflect diversity and inclusivity. \n* Consult with diverse user groups, including minority communities, to understand their needs and perspectives. Include experts in cultural studies, ethics, and human rights during the development process. \n* Provide users with clear explanations of how the AI system processes and prioritizes content. Offer mechanisms for users to provide feedback on perceived biases or lack of representation. \n* Avoid algorithmic designs that overly amplify any particular narrative unless explicitly required by the use case. \n* Continuously monitor system outputs for patterns of exclusion or marginalization. \n* Regularly update models and algorithms to reflect evolving societal values and ensure alignment with inclusivity goals.",
-				"sources": "Freedom of opinion and expression (Universal Declaration of Human Rights), article 11 Freedom of expression and information, article 21 Non-Discrimination, article 22 Cultural, religious and linguistic diversity, article 10 Freedom of thought, Conscience and religion (Charter of fundamental rights of the European Union )\n*[Value alignment](https://www.ibm.com/design/ai/ethics/value-alignment/)\n[Online Ethics Canvas](https://www.ethicscanvas.org/canvas/index.php)\n[AI Values and Alignment](https://www.deepmind.com/publications/artificial-intelligence-values-and-alignment)",
 				"qr": "",
 				"categories": [
 					"Ethics & Human Rights",
@@ -3411,7 +3361,7 @@
 				]
 			},
 			{
-				"question": "Could the AI system expose children to risks or fail to uphold their rights?",
+				"question": "Could the AI system fail to uphold the rights and best interests of children?",
 				"threatif": "Yes",
 				"label": "Children’s Rights",
 				"aitypes": [
@@ -3482,8 +3432,8 @@
 				"qr": "",
 				"categories": [
 					"Ethics & Human Rights",
-					"Bias, Fairness & Discrimination",
 					"Privacy & Data Protection",
+					"Bias, Fairness & Discrimination",
 					"Data & Data Governance"
 				],
 				"phases": [
@@ -3553,9 +3503,9 @@
 				]
 			},
 			{
-				"question": "Are those responsible for overseeing the AI system adequately trained to understand its risks, limitations, and appropriate interventions?",
+				"question": "Have all relevant staff and users received adequate training to understand, oversee, and responsibly interact with the AI system?",
 				"threatif": "No",
-				"label": "Inadequate Staff Training",
+				"label": "Training and Oversight Readiness",
 				"aitypes": [
 					"Traditional",
 					"Generative"
@@ -3564,8 +3514,8 @@
 					"Provider",
 					"Deployer"
 				],
-				"explanation": "Employees involved in developing, deploying, operating, or using AI systems must understand how these systems work, what risks they pose, and what safeguards are in place. Without proper training, staff may overlook critical failures, be unable to detect misuse, or make poor decisions based on AI outputs. This lack of awareness undermines accountability, reduces the effectiveness of human oversight, and increases the risk of harm to users or the public.",
-				"recommendation": "* Provide role-specific training on AI capabilities, limitations, and risk mitigation strategies.\n* Ensure that teams understand their responsibilities for monitoring, escalation, and intervention.\n* Include training on fairness, data protection, explainability, and how to interpret AI outputs responsibly.\n* Update training regularly to reflect changes in AI systems or regulatory requirements.\n* Document participation in training programs as part of accountability measures.",
+				"explanation": "Individuals involved in the development, deployment, operation, or use of AI systems must understand their functionality, risks, and limitations. Without adequate training, staff may misuse the system, fail to detect errors, or be unable to intervene effectively. This undermines human oversight, accountability, and compliance with regulatory requirements. Article 4 of the EU AI Act emphasizes the need for AI literacy, particularly for those responsible for high-risk systems.",
+				"recommendation": "* Provide structured, role-specific training for developers, operators, decision-makers, and users interacting with the AI system.\n* Cover system capabilities, limitations, error detection, appropriate interventions, and escalation procedures.\n* Include modules on fairness, data protection, explainability, and responsible interpretation of AI outputs.\n* Refresh training regularly to reflect system updates and evolving regulations.\n* Track and document training participation as part of accountability measures.\n* Integrate training into onboarding and ongoing professional development frameworks.",
 				"sources": "Article 4 EU AI Act: I Literacy",
 				"qr": "",
 				"categories": [
@@ -3650,7 +3600,7 @@
 				]
 			},
 			{
-				"question": "Have we defined who is accountable for the AI system’s decisions and outcomes, including those from third-party tools?",
+				"question": "Have we defined who is accountable for the AI system’s decisions and outcomes?",
 				"threatif": "No",
 				"label": "Responsibility",
 				"aitypes": [
@@ -3726,6 +3676,33 @@
 				"phases": [
 					"Design",
 					"Deploy",
+					"Monitor"
+				]
+			},
+			{
+				"question": "Could users contest or challenge the decisions made by the AI system?",
+				"threatif": "No",
+				"label": "Contestability of AI Decisions",
+				"aitypes": [
+					"Traditional",
+					"Generative"
+				],
+				"roles": [
+					"Provider",
+					"Deployer"
+				],
+				"explanation": "* Some AI systems make or support decisions that significantly affect individuals, such as in hiring, lending, or criminal justice. If users cannot challenge these decisions or request human review, the system may violate oversight obligations and erode trust. Lack of contestability undermines accountability and may breach Article 22(3) of the GDPR or Article 14 of the EU AI Act, both of which require mechanisms for human intervention and review.",
+				"recommendation": "* Ensure the AI system includes mechanisms for contestability, allowing users to challenge or seek review of decisions that negatively impact them. Wrong decisions could also have an impact on people that have not been the target of the data collection (data spillovers).\n* Provide clear instructions on how users can initiate such challenges and ensure that this process is transparent, accessible, and user-friendly. \n* Incorporate features that enable human oversight in decision-making processes, ensuring users have the option to escalate issues to human operators. \n* Establish a redressal process that includes timelines for resolution, a clear escalation hierarchy, and mechanisms for feedback integration to improve the system’s decision-making over time. \n* Regularly audit and evaluate the decision-making outcomes of the AI system, focusing on areas where users frequently raise disputes. Use these audits to improve system accuracy and reduce the need for contestation. \n* Provide detailed and comprehensible explanations of the system’s outputs to users, ensuring they understand how decisions are made and what data was used. \n* Engage relevant stakeholders, including legal experts, ethicists, and representatives from affected user groups to design and evaluate the contestability mechanisms and ensure they meet ethical and regulatory standards. \n* Train system operators and customer support staff to handle disputes arising from the AI system effectively, ensuring they are equipped to assist users in navigating the contestation process.",
+				"sources": "Right to be treated fairly by a court (Universal Declaration of Human Rights), article 11 Freedom of expression and information, article 47 Right to an effective remedy and to a fair trial (Charter of fundamental rights of the European Union).\n*[Ethics guidelines for trustworthy AI](https://digital-strategy.ec.europa.eu/en/library/ethics-guidelines-trustworthy-ai)\n[Operational Guidance on taking account of Fundamental Rights in Commission Impact Assessments](https://ec.europa.eu/info/sites/default/files/opperational-guidance-fundamental-rights-in-impact-assessments_en.pdf)\n[Artificial Intelligence and Fundamental Rights](https://fra.europa.eu/sites/default/files/fra_uploads/fra-2020-artificial-intelligence_en.pdf)",
+				"qr": "[Charter of Fundamental Rights of the European Union](https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:12012P/TXT&from=EN)",
+				"categories": [
+					"Accountability & Human Oversight",
+					"Ethics & Human Rights"
+				],
+				"phases": [
+					"Design",
+					"Model",
+					"Output",
 					"Monitor"
 				]
 			},
