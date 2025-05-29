@@ -378,9 +378,9 @@ class PlotPDF
         '<h1 style="font-size: '.$this->size->fontH1.'pt; text-align: center; color: #0f71d4;">How can you apply PLOT4AI in practice?</h1>'.
         '<h2 style="font-size: '.$this->size->fontNormalPlus.'pt; color: #0f71d4;">Quick tips before starting:</h2><ul>'.
           '<li style="text-align: justifyt;"><b>Keep sessions short</b>: Limit sessions to 1.5 hours (2 hours max) to avoid tiredness and lack of focus. You can also run 30-minute timeboxed sessions focusing on one or two categories.</li>'.
-          '<li style="text-align: justifyt;"><b>Involve the right stakeholders</b>: Especially during the design phase, include people with the necessary knowledge and decision-making power. Diversity is key!</li>'.
+          '<li style="text-align: justifyt;"><b>Involve the right stakeholders</b>: Especially during the design phase, include people with the necessary knowledge and decision-making power.</li>'.
           '<li style="text-align: justifyt;"><b>Assign a facilitator</b>: Choose someone to guide the session. They don’t need to be an AI expert, but some familiarity helps.</li>'.
-          '<li style="text-align: justifyt;"><b>Prepare by selecting the right questions</b>: After the design phase, avoid cards covering threats already addressed in QA processes—this prevents duplication and frustration.</li>'.
+          '<li style="text-align: justifyt;"><b>Prepare by selecting the right questions</b>: After the design phase, avoid cards covering threats already addressed in QA processes, this prevents duplication and frustration.</li>'.
           '<li style="text-align: justifyt;"><b>Support prioritization</b>: If needed, add an "Effort" column to the Threat Report Template (see Step 8) so prioritization considers both impact and effort.</li>'.
           '<li style="text-align: justifyt;"><b>Set clear rules</b>: Treat it like a game: define how long each threat can be discussed and when exceptions are allowed.</li>'.
           '</ul>';
@@ -394,14 +394,16 @@ class PlotPDF
     $this->pdf->SetFont('helvetica', '', $this->size->fontNormal);
     $html =
         '<h2 style="font-size: '.$this->size->fontNormalPlus.'pt; color: #0f71d4;">Steps</h2><ol>'.
-          '<li style="text-align: justifyt;">Create a Data Flow Diagram (DFD) with key stakeholders to map how data flows in the system. A simple version is fine in the design phase.<br>In some cases, you can skip the DFD entirely and start directly with the threat modeling.</li>'.
+          '<li style="text-align: justifyt;">Create a Data Flow Diagram (DFD) with key stakeholders to map how data flows in the system. A simple version is fine in the design phase. You can use OWASP Threat Dragon, which supports PLOT4AI'.
+            '<br>In some cases, you can skip the DFD entirely and start directly with the threat modeling.</li>'.
           '<li style="text-align: justifyt;">Select cards for the session, either randomly or by focusing on specific categories (see Quick Tips).</li>'.
-          '<li style="text-align: justifyt;">Start the session with all key stakeholders—whether or not you’ve prepared a DFD.</li>'.
-          '<li style="text-align: justifyt;">Read each selected card aloud, including the extra information provided.<br>For the Ethics &amp; Human Rights category, consider giving more time, as it often requires deeper reflection.</li>'.
-          '<li style="text-align: justifyt;">Discuss the potential threat: Timebox the discussion. 2 minutes per threat is usually enough, but allow exceptions if consensus is hard to reach.<br>For the Ethics &amp; Human Rights category, consider giving more time, as it often requires deeper reflection.</li>'.
+          '<li style="text-align: justifyt;">Start the session with all key stakeholders, whether or not you’ve prepared a DFD.</li>'.
+          '<li style="text-align: justifyt;">Read each selected card aloud, including the extra information provided.</li>'.
+          '<li style="text-align: justifyt;">Discuss the potential threat: Timebox the discussion. 2 minutes per threat is usually enough, but allow exceptions if consensus is hard to reach.<br>'.
+            'For the Ethics &amp; Human Rights category, consider giving more time, as it often requires deeper reflection.</li>'.
           '<li style="text-align: justifyt;">Determine whether it’s a threat. The card will say whether a YES or NO answer signals a threat.<br>If you’re unsure, treat it as a potential threat.</li>'.
           '<li style="text-align: justifyt;">Check the recommendations on the back of the card if a threat is found. This can also be done after the session.</li>'.
-          '<li style="text-align: justifyt;">Document the threat using the provided Threat Report Template.</li>'.
+          '<li style="text-align: justifyt;">Document the threats using the provided Threat Report Template or any other method you prefer.</li>'.
           '<li style="text-align: justifyt;">Classify the risk as Low, Medium, or High with the group. This helps prioritize follow-up actions. You can also note possible mitigations and assign a (risk) owner.</li>'.
           '<li style="text-align: justifyt;">Finish when time runs out or all cards have been discussed.<br>'./*
           '<br><img src="data:image/png;base64,'.base64_encode(file_get_contents(self::IMGS_PATH.'/threat-report.png')).'"><br></li>'.
@@ -417,7 +419,7 @@ class PlotPDF
     $this->pdf->SetFont('helvetica', '', $this->size->fontNormal);
     $html =
         '<h2 style="font-size: '.$this->size->fontNormalPlus.'pt; color: #0f71d4;">Next Steps</h2><ul>'.
-          '<li style="text-align: justifyt;">Add threats to your project backlog (e.g. in Jira).</li>'.
+          '<li style="text-align: justifyt;">You could add the threats to your project backlog.</li>'.
           '<li style="text-align: justifyt;">You can choose to tackle quick wins first and address more complex issues later.</li>'.
           '<li style="text-align: justifyt;">Track early warnings. Some threats may not be immediate risks but should still be documented and reviewed regularly.</li>'.
           '<li style="text-align: justifyt;">Follow up using your risk management process. Continue assessing and evaluating threats according to your organization’s procedures.</li>'.
@@ -425,15 +427,15 @@ class PlotPDF
           '</ul>';
     $html .=
         '<h2 style="font-size: '.$this->size->fontNormalPlus.'pt; color: #0f71d4;">Benefits</h2><ul>'.
-          '<li style="text-align: justifyt;">Improved processes. Some threats highlight broader, systemic issues, leading to better overall processes. Keeping track of mitigated threats also supports KPI reporting.</li>'.
-          '<li style="text-align: justifyt;">Less rework. With clearer goals and expectations around topics like bias, discrimination, and explainability, teams can reduce misunderstandings and avoid redundant work.</li>'.
-          '<li style="text-align: justifyt;">Aligned stakeholders. Threat modeling sessions help get everyone on the same page, reducing the need for prolonged discussions later.</li>'.
-          '<li style="text-align: justifyt;">Support for (Data) Privacy Impact Assessments. Session outputs can feed directly into DPIAs, saving time and effort.</li>'.
-          '<li style="text-align: justifyt;">Stronger teams. The process builds structure, focus, shared knowledge, and collaboration.</li>'.
+          '<li style="text-align: justifyt;">Improved processes: Some threats highlight broader, systemic issues, leading to better overall processes. Keeping track of mitigated threats also supports KPI reporting.</li>'.
+          '<li style="text-align: justifyt;">Less rework: With clearer goals and expectations around topics like bias, discrimination, and explainability, teams can reduce misunderstandings and avoid redundant work.</li>'.
+          '<li style="text-align: justifyt;">Aligned stakeholders: Threat modeling sessions help get everyone on the same page, reducing the need for prolonged discussions later.</li>'.
+          '<li style="text-align: justifyt;">Support for (Data) Privacy Impact Assessments: Session outputs can feed directly into DPIAs, saving time and effort.</li>'.
+          '<li style="text-align: justifyt;">Stronger teams: The process builds structure, focus, shared knowledge, and collaboration.</li>'.
           '</ul>';
     $html .=
       '<div style="height: 30px;"> </div><p><i style="font-size: '.$this->size->fontNormalPlus.'pt; color: #0f71d4;">'.
-        'So, why does PLOT4AI work? Because it\'s practical. It simplifies risk identification, saving you time and effort. It helps you stay compliant with regulations; it improves your processes by addressing risks early and systematically. '.
+        'Why does PLOT4AI work? Because it\'s practical. It simplifies risk identification, saving you time and effort. It helps you stay compliant with regulations; it improves your processes by addressing risks early and systematically. '.
         'And it fosters collaboration, ensuring that everyone—from developers to policymakers—is on the same page.<br><br>'.
         'In a world where AI risks are becoming more complex and subtle, PLOT4AI gives you a clear, structured way to identify them.</i></p>';
     $this->pdf->SetLeftMargin($xPos);
