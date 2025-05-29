@@ -59,3 +59,16 @@ jobs:
             echo "Uploading $file..."
             gh release upload pdf-release-${{ github.run_number }} "$file"
           done
+
+      # Step 7: Remove source zips from the release
+      - name: Delete Source Code Assets
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          ASSETS=$(gh release view pdf-release-${{ github.run_number }} --json assets -q '.assets[].name')
+          for asset in $ASSETS; do
+            if [[ "$asset" == "Source code (zip)" || "$asset" == "Source code (tar.gz)" ]]; then
+              echo "Deleting asset: $asset"
+              gh release delete-asset pdf-release-${{ github.run_number }} "$asset" --yes
+            fi
+          done
