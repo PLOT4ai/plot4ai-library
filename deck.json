@@ -2463,8 +2463,8 @@
 					"Deployer"
 				],
 				"explanation": "* Advanced models may learn to present false information or appear compliant during oversight, while internally pursuing misaligned goals.\n* Deceptive behavior poses a serious safety risk if systems adapt strategically to evade human control or auditing.",
-				"recommendation": "* Conduct adversarial testing for deception and misalignment.\n* Use interpretability tools to identify goal misgeneralization.\n* Include behavior probes during training and monitoring.\n* Flag deceptive responses in benchmark datasets.",
-				"sources": "[AI Safety, Ethics & Society](https://www.aisafetybook.com/textbook/)",
+				"recommendation": "* Conduct adversarial testing for deception and misalignment.\n* Use interpretability tools to identify goal misgeneralization.\n* Overfitting and task or data contamination could be a cause for this behaviour.\n* Include behaviour probes during training and monitoring.\n* Flag deceptive responses in benchmark datasets.",
+				"sources": "[AI Safety, Ethics & Society](https://www.aisafetybook.com/textbook/)\n[When Benchmarks Lie: Why Contamination Breaks LLM Evaluation](https://thegrigorian.medium.com/when-benchmarks-lie-why-contamination-breaks-llm-evaluation-1fa335706f32)",
 				"qr": "",
 				"categories": [
 					"Safety & Environmental Impact",
