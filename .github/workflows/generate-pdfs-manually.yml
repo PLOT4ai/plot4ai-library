@@ -3,6 +3,9 @@ name: Generate PLOT4ai PDFs manually
 on:
   workflow_dispatch:  # Allows manual triggering of the workflow
 
+permissions:
+  contents: write  # <-- Required for create-release to work
+
 jobs:
   generate-pdfs:
     runs-on: ubuntu-latest
