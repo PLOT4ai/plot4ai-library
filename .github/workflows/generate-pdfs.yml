@@ -1,0 +1,74 @@
+name: Generate PDFs on deck.json change
+
+on:
+  push:
+    paths:
+      - deck.json  # Trigger workflow only when deck.json changes
+
+permissions:
+  contents: write  # Grant write permissions for creating releases
+  
+jobs:
+  generate-pdfs:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Check out the repository
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      # Step 2: Build the Docker image
+      - name: Build Docker Image
+        run: docker build -t json-to-pdf .
+
+      # Step 3: Run Docker container to generate PDFs
+      - name: Run Docker Container
+        run: |
+          mkdir -p output
+          docker run --rm \
+            -v ${{ github.workspace }}/deck.json:/app/deck.json \
+            -v ${{ github.workspace }}/output:/app/output \
+            json-to-pdf
+
+      # Step 4: Upload PDFs as artifacts
+      - name: Upload PDFs as artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: generated-pdfs
+          path: output/*.pdf
+
+      # Step 5: Create GitHub Release
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: pdf-release-${{ github.run_number }}
+          release_name: "Generated PDFs Release ${{ github.run_number }}"
+          body: "Automatically generated PDFs from deck.json changes."
+          draft: false
+          prerelease: false
+
+      # Step 6: Upload each PDF file to the Release
+      - name: Upload PDFs to Release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          for file in output/*.pdf; do
+            echo "Uploading $file..."
+            gh release upload pdf-release-${{ github.run_number }} "$file"
+          done
+
+      # Step 7: Remove source zips from the release
+      - name: Delete Source Code Assets
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          ASSETS=$(gh release view pdf-release-${{ github.run_number }} --json assets -q '.assets[].name')
+          for asset in $ASSETS; do
+            if [[ "$asset" == "Source code (zip)" || "$asset" == "Source code (tar.gz)" ]]; then
+              echo "Deleting asset: $asset"
+              gh release delete-asset pdf-release-${{ github.run_number }} "$asset" --yes
+            fi
+          done

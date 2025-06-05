@@ -1,0 +1,7 @@
+{
+    "require": {
+        "tecnickcom/tcpdf": "^6.6",
+        "erusev/parsedown": "^1.7",
+        "chillerlan/php-qrcode": "^5.0"
+    }
+}
