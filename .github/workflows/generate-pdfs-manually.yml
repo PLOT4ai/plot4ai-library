@@ -27,19 +27,46 @@ jobs:
 
       # Step 4: Upload PDFs as artifacts
       - name: Upload PDFs as artifacts
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: generated-pdfs
           path: output/*.pdf
 
       # Step 5: Create GitHub Release
       - name: Create Release
+        id: create_release
         uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           tag_name: pdf-release-${{ github.run_number }}
-          release_name: "Generated PDFs"
+          release_name: "Generated PDFs Release ${{ github.run_number }}"
+          body: "Automatically generated PDFs from deck.json changes."
           draft: false
           prerelease: false
-          body: |
-            Automatically generated PDFs from deck.json changes.
-          files: output/*.pdf
+
+      # Step 6: Upload each PDF file to the Release
+      - name: Upload PDFs to Release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          for file in output/*.pdf; do
+            echo "Uploading $file..."
+            gh release upload pdf-release-${{ github.run_number }} "$file"
+          done
+
+      # Step 7: Remove source zips from the release
+      - name: Delete Source Code Assets
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          asset_ids=$(gh release view pdf-release-${{ github.run_number }} --json assets -q '.assets[] | select(.name == "Source code (zip)" or .name == "Source code (tar.gz)") | .id')
+          if [ -z "$asset_ids" ]; then
+            echo "No source code assets found to delete."
+            exit 0
+          fi
+
+          echo "$asset_ids" | while read -r asset_id; do
+            echo "Deleting asset ID: $asset_id"
+            gh release delete-asset pdf-release-${{ github.run_number }} "$asset_id" --yes
+          done
