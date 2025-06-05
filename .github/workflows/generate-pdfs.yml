@@ -65,10 +65,13 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          ASSETS=$(gh release view pdf-release-${{ github.run_number }} --json assets -q '.assets[].name')
-          for asset in $ASSETS; do
-            if [[ "$asset" == "Source code (zip)" || "$asset" == "Source code (tar.gz)" ]]; then
-              echo "Deleting asset: $asset"
-              gh release delete-asset pdf-release-${{ github.run_number }} "$asset" --yes
-            fi
+          asset_ids=$(gh release view pdf-release-${{ github.run_number }} --json assets -q '.assets[] | select(.name == "Source code (zip)" or .name == "Source code (tar.gz)") | .id')
+          if [ -z "$asset_ids" ]; then
+            echo "No source code assets found to delete."
+            exit 0
+          fi
+        
+          echo "$asset_ids" | while read -r asset_id; do
+            echo "Deleting asset ID: $asset_id"
+            gh release delete-asset pdf-release-${{ github.run_number }} "$asset_id" --yes
           done
