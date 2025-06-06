@@ -63,13 +63,32 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          asset_ids=$(gh release view pdf-release-${{ github.run_number }} --json assets -q '.assets[] | select(.name == "Source code (zip)" or .name == "Source code (tar.gz)") | .id')
+          set -e
+
+          # Get dynamic values from GitHub Actions runtime
+          release_tag="pdf-release-${GITHUB_RUN_NUMBER}"
+          repo_name="${GITHUB_REPOSITORY##*/}"  # extract 'plot4ai-library' from 'PLOT4ai/plot4ai-library'
+
+          echo "Release tag: $release_tag"
+          echo "Repository name: $repo_name"
+
+          echo "Fetching assets for release..."
+          gh release view "$release_tag" --json assets > assets.json
+
+          echo "Assets returned:"
+          jq '.assets[] | {name, id}' assets.json
+
+          # Find IDs of auto-generated source archives
+          asset_ids=$(jq -r --arg prefix "${repo_name}-${release_tag}" '
+            .assets[] | select(.name == ($prefix + ".zip") or .name == ($prefix + ".tar.gz")) | .id
+          ' assets.json)
+
           if [ -z "$asset_ids" ]; then
-            echo "No source code assets found to delete."
+            echo "No auto-generated source code archives found to delete."
             exit 0
           fi
 
           echo "$asset_ids" | while read -r asset_id; do
             echo "Deleting asset ID: $asset_id"
-            gh release delete-asset pdf-release-${{ github.run_number }} "$asset_id" --yes
+            gh release delete-asset "$release_tag" "$asset_id" --yes
           done
