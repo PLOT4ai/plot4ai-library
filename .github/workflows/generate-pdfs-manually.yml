@@ -28,8 +28,16 @@ jobs:
       # Optional: verify PDFs exist before continuing
       - name: Check for generated PDFs
         run: |
-          ls -lh output/
-          test -f output/*.pdf
+          shopt -s nullglob
+          pdfs=(output/*.pdf)
+      
+          if [ ${#pdfs[@]} -eq 0 ]; then
+            echo "❌ No PDFs were generated. Failing the build."
+            exit 1
+          fi
+      
+          echo "✅ Found ${#pdfs[@]} PDF(s):"
+          printf ' - %s\n' "${pdfs[@]}"
 
       - name: Fail if tag already exists (prevent source archives)
         run: |
