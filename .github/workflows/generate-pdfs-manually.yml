@@ -11,15 +11,12 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # Step 1: Check out the repository
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      # Step 2: Build the Docker image
       - name: Build Docker Image
         run: docker build -t json-to-pdf .
 
-      # Step 3: Run Docker container to generate PDFs
       - name: Run Docker Container
         run: |
           mkdir -p output
@@ -28,67 +25,36 @@ jobs:
             -v ${{ github.workspace }}/output:/app/output \
             json-to-pdf
 
-      # Step 4: Upload PDFs as artifacts
-      - name: Upload PDFs as artifacts
-        uses: actions/upload-artifact@v4
-        with:
-          name: generated-pdfs
-          path: output/*.pdf
+      # Optional: verify PDFs exist before continuing
+      - name: Check for generated PDFs
+        run: |
+          ls -lh output/
+          test -f output/*.pdf
 
-      # Step 5: Create GitHub Release
-      - name: Create Release
+      - name: Fail if tag already exists (prevent source archives)
+        run: |
+          TAG_NAME="pdf-release-${GITHUB_RUN_ID}"
+          if git ls-remote --exit-code --tags origin "$TAG_NAME"; then
+            echo "Tag $TAG_NAME already exists! Failing to prevent GitHub from attaching source archives."
+            exit 1
+          fi
+
+      - name: Create GitHub Release WITHOUT source archives
         id: create_release
         uses: actions/create-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: pdf-release-${{ github.run_number }}
-          release_name: "Generated PDFs Release ${{ github.run_number }}"
-          body: "Automatically generated PDFs from deck.json changes."
+          tag_name: pdf-release-${{ github.run_id }}
+          release_name: "Generated PDFs Release ${{ github.run_id }}"
+          body: "This release contains generated PDFs only."
           draft: false
           prerelease: false
+          commitish: ${{ github.sha }}
 
-      # Step 6: Upload each PDF file to the Release
-      - name: Upload PDFs to Release
+      - name: Upload PDFs to GitHub Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: output/*.pdf
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          for file in output/*.pdf; do
-            echo "Uploading $file..."
-            gh release upload pdf-release-${{ github.run_number }} "$file"
-          done
-
-      # Step 7: Remove source zips from the release
-      - name: Delete Source Code Assets
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          set -e
-
-          # Get dynamic values from GitHub Actions runtime
-          release_tag="pdf-release-${GITHUB_RUN_NUMBER}"
-          repo_name="${GITHUB_REPOSITORY##*/}"  # extract 'plot4ai-library' from 'PLOT4ai/plot4ai-library'
-
-          echo "Release tag: $release_tag"
-          echo "Repository name: $repo_name"
-
-          echo "Fetching assets for release..."
-          gh release view "$release_tag" --json assets > assets.json
-
-          echo "Assets returned:"
-          jq '.assets[] | {name, id}' assets.json
-
-          # Find IDs of auto-generated source archives
-          asset_ids=$(jq -r --arg prefix "${repo_name}-${release_tag}" '
-            .assets[] | select(.name == ($prefix + ".zip") or .name == ($prefix + ".tar.gz")) | .id
-          ' assets.json)
-
-          if [ -z "$asset_ids" ]; then
-            echo "No auto-generated source code archives found to delete."
-            exit 0
-          fi
-
-          echo "$asset_ids" | while read -r asset_id; do
-            echo "Deleting asset ID: $asset_id"
-            gh release delete-asset "$release_tag" "$asset_id" --yes
-          done
