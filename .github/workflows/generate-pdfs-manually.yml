@@ -25,44 +25,27 @@ jobs:
             -v ${{ github.workspace }}/output:/app/output \
             json-to-pdf
 
-      # Optional: verify PDFs exist before continuing
       - name: Check for generated PDFs
         run: |
           shopt -s nullglob
           pdfs=(output/*.pdf)
-      
+
           if [ ${#pdfs[@]} -eq 0 ]; then
             echo "❌ No PDFs were generated. Failing the build."
             exit 1
           fi
-      
+
           echo "✅ Found ${#pdfs[@]} PDF(s):"
           printf ' - %s\n' "${pdfs[@]}"
 
-      - name: Fail if tag already exists (prevent source archives)
-        run: |
-          TAG_NAME="pdf-release-${GITHUB_RUN_ID}"
-          if git ls-remote --exit-code --tags origin "$TAG_NAME"; then
-            echo "Tag $TAG_NAME already exists! Failing to prevent GitHub from attaching source archives."
-            exit 1
-          fi
-
-      - name: Create GitHub Release WITHOUT source archives
-        id: create_release
-        uses: actions/create-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Create GitHub Release and Upload PDFs
+        uses: ncipollo/release-action@v1
         with:
-          tag_name: pdf-release-${{ github.run_id }}
-          release_name: "Generated PDFs Release ${{ github.run_id }}"
-          body: "This release contains generated PDFs only."
+          tag: pdf-release-${{ github.run_id }}
+          name: Generated PDFs Release ${{ github.run_id }}
+          body: "This release contains only generated PDFs."
+          artifacts: output/*.pdf
+          commit: ${{ github.sha }}
+          token: ${{ secrets.GITHUB_TOKEN }}
           draft: false
           prerelease: false
-          commitish: ${{ github.sha }}
-
-      - name: Upload PDFs to GitHub Release
-        uses: softprops/action-gh-release@v1
-        with:
-          files: output/*.pdf
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
