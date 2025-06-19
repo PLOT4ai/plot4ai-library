@@ -1355,7 +1355,7 @@
 				]
 			},
 			{
-				"question": "Could third-party AI/ML providers compromise our training data or insert backdoors?",
+				"question": "Could third-party AI/ML providers compromise our training data or insert backdoors or malicious code?",
 				"threatif": "Yes",
 				"label": "AI Supply Chain Access",
 				"aitypes": [
@@ -1366,9 +1366,9 @@
 					"Provider",
 					"Deployer"
 				],
-				"explanation": "Malicious ML providers could query the model used by a customer and recover the customer’s training data. The training process is either fully or partially outsourced to a malicious third party who wants to provide the user with a trained model that contains a backdoor. Example: researchers showed how a malicious provider presented a backdoored algorithm, wherein the private training data was recovered. They were able to reconstruct faces and texts, given the model alone.",
+				"explanation": "* Malicious ML providers could query the model used by a customer and recover the customer’s training data. If the training process is either fully or partially outsourced to a malicious third party, this one could provide the user with a trained model that contains a backdoor.",
 				"recommendation": "* Research papers demonstrating the viability of this attack indicate Homomorphic Encryption could be an effective mitigation.\n* Train all sensitive models in-house.\n* Catalog training data or ensure it comes from a trusted third party with strong security practices.\n* Threat model the interaction between the MLaaS provider and your own systems.",
-				"sources": "[Microsoft, Threat Modelling AI/ML Systems and Dependencies](https://docs.microsoft.com/en-us/security/engineering/threat-modeling-aiml)\n[Securing Machine Learning Algorithms, ENISA](https://www.enisa.europa.eu/publications/securing-machine-learning-algorithms)\n[STRIDE-AI: An Approach to Identifying Vulnerabilities of Machine Learning Assets](https://github.com/LaraMauri/STRIDE-AI)\n[Stride-ML Threat Model]( https://csf.tools/reference/stride-lm/)\n[MITRE ATLAS™ - Adversarial Threat Landscape for Artificial-Intelligence Systems](https://atlas.mitre.org/)",
+				"sources": "[Microsoft, Threat Modelling AI/ML Systems and Dependencies](https://docs.microsoft.com/en-us/security/engineering/threat-modeling-aiml)\n[Securing Machine Learning Algorithms, ENISA](https://www.enisa.europa.eu/publications/securing-machine-learning-algorithms)\n[STRIDE-AI: An Approach to Identifying Vulnerabilities of Machine Learning Assets](https://github.com/LaraMauri/STRIDE-AI)\n[Stride-ML Threat Model]( https://csf.tools/reference/stride-lm/)\n[MITRE ATLAS™ - Adversarial Threat Landscape for Artificial-Intelligence Systems](https://atlas.mitre.org/)\n[MAESTRO: Agentic AI Threat Modeling Framework](https://cloudsecurityalliance.org/blog/2025/02/06/agentic-ai-threat-modeling-framework-maestro)",
 				"qr": "",
 				"categories": [
 					"Cybersecurity"
@@ -1520,9 +1520,9 @@
 					"Provider",
 					"Deployer"
 				],
-				"explanation": "Modern AI systems increasingly rely on external tools and plugin interfaces (e.g., Model Context Protocol, LangChain, OpenAI plugins) to expand their capabilities. These interfaces pose unique security risks if not tightly controlled.\n\n **Runtime Abuse:** If tool or plugin inputs are not strictly validated, LLMs may:\n* Trigger unauthorized tool executions.\n* Bypass guardrails using structured payloads embedded in plugin responses.\n* Chain outputs across tools in unsafe ways (e.g., generating code that another tool executes).\n\n**Supply Chain Risks:** Third-party plugins and dependencies may contain vulnerabilities or backdoors. Attackers can:\n* Compromise plugin registries or repositories.\n* Hijack dependencies to inject malicious code.\n* Tamper with pre-trained models or updates during distribution.\n\nThese risks are magnified in open ecosystems where tools are crowd-sourced or rapidly integrated without full vetting.",
+				"explanation": "Modern AI systems increasingly rely on external tools and plugin interfaces (e.g., Model Context Protocol, LangChain, OpenAI plugins) to expand their capabilities. These interfaces pose unique security risks if not tightly controlled.\n\n **Runtime Abuse:** If tool or plugin inputs are not strictly validated, LLMs may:\n* Trigger unauthorized tool executions.\n* Bypass guardrails using structured payloads embedded in plugin responses.\n* Chain outputs across tools in unsafe ways (e.g., generating code that another tool executes).\n\n**Supply Chain Risks:** Third-party plugins and dependencies may contain vulnerabilities or backdoors. Attackers can:\n* Compromise plugin registries or repositories.\n* Compromise dependencies such as AI agent containers or monitoring components to inject malicious code, potentially infecting production systems, disrupting the AI deployment environment, and undermining the integrity of system monitoring.\n* Tamper with pre-trained models or updates during distribution.\n\nThese risks are magnified in open ecosystems where tools are crowd-sourced or rapidly integrated without full vetting.",
 				"recommendation": "* Use strict schemas (e.g., OpenAPI, JSON Schema) and validate all tool/plugin inputs and outputs.\n* Treat plugin invocations as untrusted: isolate execution, rate-limit usage, and monitor behavior.\n* Maintain allowlists of vetted plugins and restrict file access, external requests, or execution rights.\n* Verify third-party components using cryptographic checksums and signatures.\n* Conduct regular security audits of plugins, model dependencies, and tool chains.\n* Adopt a zero-trust security model around plugin and tool execution to reduce blast radius of compromise.",
-				"sources": "[Microsoft, Threat Modelling AI/ML Systems and Dependencies](https://docs.microsoft.com/en-us/security/engineering/threat-modeling-aiml)\n[Securing Machine Learning Algorithms, ENISA](https://www.enisa.europa.eu/publications/securing-machine-learning-algorithms)\n[STRIDE-AI: An Approach to Identifying Vulnerabilities of Machine Learning Assets](https://github.com/LaraMauri/STRIDE-AI)\n[Stride-ML Threat Model]( https://csf.tools/reference/stride-lm/)\n[MITRE ATLAS™ - Adversarial Threat Landscape for Artificial-Intelligence Systems](https://atlas.mitre.org/)",
+				"sources": "[Microsoft, Threat Modelling AI/ML Systems and Dependencies](https://docs.microsoft.com/en-us/security/engineering/threat-modeling-aiml)\n[Securing Machine Learning Algorithms, ENISA](https://www.enisa.europa.eu/publications/securing-machine-learning-algorithms)\n[STRIDE-AI: An Approach to Identifying Vulnerabilities of Machine Learning Assets](https://github.com/LaraMauri/STRIDE-AI)\n[Stride-ML Threat Model]( https://csf.tools/reference/stride-lm/)\n[MITRE ATLAS™ - Adversarial Threat Landscape for Artificial-Intelligence Systems](https://atlas.mitre.org/)\n[MAESTRO: Agentic AI Threat Modeling Framework](https://cloudsecurityalliance.org/blog/2025/02/06/agentic-ai-threat-modeling-framework-maestro)",
 				"qr": "",
 				"categories": [
 					"Cybersecurity"
@@ -1814,7 +1814,7 @@
 					"Provider",
 					"Deployer"
 				],
-				"explanation": "* AI systems, especially large models, are resource-intensive and vulnerable to overload attacks targeting compute, memory, I/O, or API bandwidth.\n* Malicious actors may send high-frequency or computationally expensive queries to exhaust system capacity.\n* This can lead to degraded service, denial of service, or delayed model responses, impacting availability and user trust.\n* Multi-agent environments are particularly vulnerable when agents interact recursively or generate long-running tasks without resource limits.",
+				"explanation": "* AI systems, especially large models, are resource-intensive and vulnerable to overload attacks targeting compute, memory, data infrastructures, I/O, or API bandwidth.\n* Malicious actors may send high-frequency or computationally expensive queries to exhaust system capacity.\n* This can lead to degraded service, denial of service, or delayed model responses, impacting availability and user trust.\n* Multi-agent environments are particularly vulnerable when agents interact recursively or generate long-running tasks without resource limits.",
 				"recommendation": "* Implement rate limiting and quotas per user, agent, or session to restrict excessive usage.\n* Use priority-based scheduling, timeouts, and request throttling for costly model operations.\n* Monitor runtime metrics (CPU/GPU load, memory, inference time) and trigger alerts for anomalies.\n* Apply load balancing and autoscaling in production to absorb usage spikes.\n* Include safeguards in agent instructions to prevent recursive or resource-exhausting task loops.\n* Log resource-heavy requests and investigate patterns indicative of misuse or attack.",
 				"sources": "[OWASP Agentic AI Threats](https://owasp.org/www-project-agentic-ai/assets/publications/Agentic-AI-Threats-and-Mitigations_v1.0.1.pdf)",
 				"qr": "",
@@ -2213,9 +2213,9 @@
 				]
 			},
 			{
-				"question": "Is our AI model robust and suitable for its intended use across different deployment contexts?",
+				"question": "Is our AI model robust and suitable for its intended purpose across different deployment contexts?",
 				"threatif": "No",
-				"label": "Contextual Robustness",
+				"label": "Contextual Robustness & Goal Alignment",
 				"aitypes": [
 					"Traditional",
 					"Generative"
@@ -2224,7 +2224,7 @@
 					"Provider",
 					"Deployer"
 				],
-				"explanation": "Are you testing the product in a real environment before releasing it? When deploying an AI model, it is critical to ensure that it aligns with the intended use and functions effectively in its operational environment. If the model is trained and tested on data from one context but deployed in a different one, there is a significant risk of performance degradation,  or unintended behavior. This is particularly important in cases where environmental changes, unexpected inputs, or shifts in user interaction occur. Additionally, reinforcement learning models may require retraining when objectives or environments deviate slightly from the training setup. Beyond data, other contextual factors like legal, cultural, or operational constraints must be considered to ensure successful deployment.",
+				"explanation": "Are you testing the product in a real environment before releasing it? When deploying an AI model, it is critical to ensure that it aligns with the intended purpose, use and functions effectively in its operational environment. If the model is trained and tested on data from one context but deployed in a different one, there is a significant risk of performance degradation,  or unintended behavior. This is particularly important in cases where environmental changes, unexpected inputs, or shifts in user interaction occur. Additionally, reinforcement learning models may require retraining when objectives or environments deviate slightly from the training setup. Beyond data, other contextual factors like legal, cultural, or operational constraints must be considered to ensure successful deployment.",
 				"recommendation": "* Use different data for testing and training. Make sure diversity is reflected in the data and that it aligns with the intended deployment environment. Specify your training approach, statistical methods, and ensure edge cases are adequately tested. Explore different environments and contexts to make sure your model is trained with the expected variations in data sources. Account for different distribution shifts in testing and real-wolrd scenarios.\n* For reinforcement learning, ensure the objective functions are robust and adaptable to slight changes in the environment. \n* Are you considering enough aspects beyond data, such as legal, cultural, or operational factors? Did you forget any environmental variable that could affect performance or safety? Could limited sampling due to high costs or practical constraints pose a challenge? Document these risks and seek organizational support. The deploying organization is accountable for addressing these risks, either through mitigation or by explicitly accepting them, which may require additional resources or budget. \n*  Consider applying techniques such as cultural effective challenge. This creates an environment where technology developers and stakeholders can actively participate in questioning the AI design and process. This approach better integrates social, cultural, and contextual factors into the design and helps prevent issues such as target leakage, where the AI system trains for an unintended purpose. \n* Set up mechanisms for real-time monitoring post-deployment. Continuously validate that the system is aligned with its intended use and can adapt or alert for significant changes in context or input. \n* Engage end-users in real-world testing to bridge any gaps between assumptions and practical application.",
 				"sources": "Information about cultural effective challenge: [A Proposal for Identifying and Managing Bias in Artificial Intelligence](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.1270-draft.pdf)\n[Concrete Problems in AI Safety](https://arxiv.org/pdf/1606.06565.pdf)\n[Concrete AI Safety Problems](https://openai.com/blog/concrete-ai-safety-problems/)",
 				"qr": "",
@@ -3770,7 +3770,7 @@
 			{
 				"question": "Do we have adequate resources and MLOps practices in place to manage, monitor, and maintain our AI system?",
 				"threatif": "No",
-				"label": "Lack of MLOps",
+				"label": "Lack of Governance Practices",
 				"aitypes": [
 					"Traditional",
 					"Generative"
