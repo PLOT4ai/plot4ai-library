@@ -1355,7 +1355,7 @@
 				]
 			},
 			{
-				"question": "Could third-party AI/ML providers compromise our training data or insert backdoors or malicious code?",
+				"question": "Could third-party AI/ML providers compromise our training data or insert backdoors?",
 				"threatif": "Yes",
 				"label": "AI Supply Chain Access",
 				"aitypes": [
@@ -1660,7 +1660,7 @@
 			{
 				"question": "Could agents misuse tools or APIs they are authorized to access?",
 				"threatif": "Yes",
-				"label": "Agentic AI Tools Misuse",
+				"label": "Agentic AI Misuse of Tools",
 				"aitypes": [
 					"Generative"
 				],
@@ -1862,7 +1862,7 @@
 			{
 				"question": "Could an agent be misused to manipulate or deceive users?",
 				"threatif": "Yes",
-				"label": "Agentic AI Deceiving Users",
+				"label": "Misuse of AI Agents to Deceive Users",
 				"aitypes": [
 					"Traditional",
 					"Generative"
@@ -2427,7 +2427,7 @@
 			{
 				"question": "Could the AI system generate toxic or harmful content?",
 				"threatif": "Yes",
-				"label": "Model Toxicity",
+				"label": "Toxicity",
 				"aitypes": [
 					"Generative"
 				],
@@ -2454,7 +2454,7 @@
 			{
 				"question": "Could the AI system deliberately mislead users or hide its capabilities during deployment or evaluation?",
 				"threatif": "Yes",
-				"label": "Model Deception",
+				"label": "Deceptive Behaviour",
 				"aitypes": [
 					"Generative"
 				],
@@ -2479,7 +2479,7 @@
 			{
 				"question": "Could AI decisions result in physical damage, infrastructure failure, or major financial losses?",
 				"threatif": "Yes",
-				"label": "Critical Infrastructure Harm",
+				"label": "Infrastructure Disruption",
 				"aitypes": [
 					"Traditional",
 					"Generative"
@@ -3513,7 +3513,7 @@
 			{
 				"question": "Have we identified and involved all key stakeholders relevant to this phase of the AI lifecycle?",
 				"threatif": "No",
-				"label": "Stakeholder Involvement",
+				"label": "Stakeholders' Involvement",
 				"aitypes": [
 					"Traditional",
 					"Generative"
@@ -3564,7 +3564,7 @@
 			{
 				"question": "Do we have qualified people available to supervise the behavior of AI agents and provide feedback during learning?",
 				"threatif": "No",
-				"label": "AI Agents’ Feedback",
+				"label": "AI Agents’ Feedback Supervision",
 				"aitypes": [
 					"Generative"
 				],
@@ -3636,7 +3636,7 @@
 			{
 				"question": "Have we defined who is accountable for the AI system’s decisions and outcomes?",
 				"threatif": "No",
-				"label": "Responsibility",
+				"label": "Defined Responsibilities",
 				"aitypes": [
 					"Traditional",
 					"Generative"
